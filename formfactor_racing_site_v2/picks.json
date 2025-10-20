@@ -1,0 +1,37 @@
+{
+  "date": "2025-10-21",
+  "headline": "Everest / Caulfield Card \u2014 Data-first Selections",
+  "meetings": [
+    {
+      "track": "Randwick",
+      "state": "NSW",
+      "races": [
+        {
+          "number": 1,
+          "top_pick": "Runner A",
+          "confidence": 3,
+          "reason": "Maps forward, positive draw."
+        },
+        {
+          "number": 2,
+          "top_pick": "Runner B",
+          "confidence": 4,
+          "reason": "Peak last start, weight drop."
+        }
+      ]
+    },
+    {
+      "track": "Caulfield",
+      "state": "VIC",
+      "races": [
+        {
+          "number": 1,
+          "top_pick": "Runner C",
+          "confidence": 4,
+          "reason": "Strong late splits, suited to distance."
+        }
+      ]
+    }
+  ],
+  "notes": "Watch lanes 3\u20136 late. Adjust staking if track downgrades."
+}

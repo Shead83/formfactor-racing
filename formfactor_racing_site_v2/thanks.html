@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Thanks — FormFactor Racing</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="header">
+  <div class="container nav">
+    <div class="brand">
+      <img src="formfactor_logo_under512kb.jpg" alt="FormFactor Racing logo" width="36" height="36" style="border-radius:8px;object-fit:cover">
+      <span>FormFactor Racing</span>
+    </div>
+  </div>
+</header>
+
+<section class="container" style="padding:48px 0 24px">
+  <h1>Thanks for your purchase!</h1>
+  <p>Your payment was successful. We’ve sent a receipt to your email. You now have access to the latest tips.</p>
+  <div style="margin-top:16px">
+    <a class="btn primary" href="/members.html">Go to Members</a>
+    <a class="btn ghost" href="/">Return Home</a>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>© 2025 FormFactor Racing | ABN 37 375 806 506 | Secure payments processed by <a href="https://stripe.com" target="_blank">Stripe</a></p>
+    <p class="tiny">Gamble responsibly — 1800 858 858 • <a href="https://www.gamblinghelponline.org.au" target="_blank">gamblinghelponline.org.au</a></p>
+  </div>
+</footer>
+
+<!-- Store entitlement from redirect params -->
+<script>
+(function () {
+  const params = new URLSearchParams(location.search);
+  const plan = params.get('plan');   // day | weekend | monthly
+  const code = params.get('code');   // FFR-DAY / FFR-WKD / FFR-MONTH
+  const EXPIRY_HRS = { day: 24, weekend: 72, monthly: 31 * 24 };
+  if (plan && code) {
+    const until = Date.now() + (EXPIRY_HRS[plan] || 24) * 3600 * 1000;
+    localStorage.setItem('ffr_entitlement', JSON.stringify({ plan, code, until }));
+  }
+})();
+</script>
+</body>
+</html>
