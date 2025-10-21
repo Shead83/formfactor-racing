@@ -1,1 +1,166 @@
-<!doctype html><html lang='en'><head><meta charset='utf-8'/><meta name='viewport' content='width=device-width,initial-scale=1'/><title>Members — FormFactor Racing</title><link rel='stylesheet' href='/styles.css?v=1'></head><body><header class='site-header'><div class='container row'><a class='brand' href='/'><img src='/formfactor_logo_under512kb.jpg' alt='FormFactor Racing' width='32' height='32'/><span>FormFactor Racing</span></a><nav class='nav'><a href='/'>Home</a><a href='/terms.html'>Terms</a></nav></div></header><main class='container' style='padding:32px 0'><h1>Today’s Tips</h1><div id='content' class='muted'>Loading…</div></main><footer class='site-footer'><div class='container'><p>© <span id='y'></span> FormFactor Racing | ABN 37 375 806 506</p><p class='tiny'>Gamble responsibly — 1800 858 858 — gamblinghelponline.org.au</p></div></footer><script>fetch('/picks.json',{cache:'no-store'}).then(r=>r.json()).then(data=>{const el=document.getElementById('content');const parts=[];if(data.headline)parts.push(`<h2>${data.headline}</h2>`);if(data.notes)parts.push(`<p class='muted'>${data.notes}</p>`);(data.meetings||[]).forEach(m=>{parts.push(`<h3>${m.track} (${m.state})</h3>`);parts.push('<ul>');(m.races||[]).forEach(r=>{parts.push(`<li><strong>R${r.number}</strong>: ${r.top_pick} <span class='muted'>(${r.confidence||3}/5)</span><br><span class='muted'>${r.reason||''}</span></li>`);});parts.push('</ul>');});el.innerHTML=parts.join('')||'<p>No tips published yet.</p>';}).catch(()=>{document.getElementById('content').textContent='Tips not published yet.';});</script><script src='/app.js?v=1'></script></body></html>
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Members — FormFactor Racing</title>
+  <link rel="stylesheet" href="/styles.css?v=2">
+  <style>
+    .center { text-align:center }
+    .pad { padding:24px }
+    .stack { display:flex; flex-direction:column; gap:10px }
+    .input { padding:12px 14px; border-radius:10px; border:1px solid var(--border); background:#0f1625; color:#e6edf3 }
+    .note { font-size:13px; color: var(--muted) }
+    .error { color:#fecaca; background:#7f1d1d33; border:1px solid #7f1d1d; padding:10px 12px; border-radius:10px; display:none }
+    .success { color:#bbf7d0; background:#14532d33; border:1px solid #14532d; padding:10px 12px; border-radius:10px; display:none }
+    .hidden { display:none }
+    .card.max { max-width:780px; margin: 0 auto; }
+    .list { padding-left:18px }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container row">
+      <a class="brand" href="/"><img src="/formfactor_logo_under512kb.jpg" alt="FormFactor Racing" width="32" height="32"/><span>FormFactor Racing</span></a>
+      <nav class="nav"><a href="/">Home</a><a href="/terms.html">Terms</a></nav>
+    </div>
+  </header>
+
+  <main class="container" style="padding:28px 0 40px">
+    <h1>Members</h1>
+    <p class="muted">Enter your access code to view today’s board. Day codes are valid until midnight (AET). Weekend and Monthly codes unlock the current period.</p>
+
+    <!-- Access card -->
+    <section class="card max pad" id="gate">
+      <h2 class="center">Enter your access code</h2>
+      <div class="stack">
+        <input id="code" class="input" placeholder="e.g. FFR-DAY" autocomplete="one-time-code" />
+        <div class="row" style="gap:10px; justify-content:flex-start">
+          <button id="unlock" class="btn primary">Unlock</button>
+          <button id="clear" class="btn">Clear</button>
+        </div>
+        <div id="msgErr" class="error">That code didn’t work. Check your purchase email/receipt and try again.</div>
+        <div id="msgOk" class="success">Access granted. Loading today’s tips…</div>
+        <p class="note">Didn’t receive a code? Check your Stripe receipt email or contact <a href="mailto:doug.shea1983@gmail.com">support</a>.</p>
+        <p class="note">Examples: <code>FFR-DAY</code>, <code>FFR-WEEKEND</code>, <code>FFR-MONTHLY</code></p>
+      </div>
+    </section>
+
+    <!-- Content card -->
+    <section class="card max pad hidden" id="board">
+      <div id="content">
+        <p class="muted">Loading…</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>© <span id="y"></span> FormFactor Racing</p>
+      <p class="tiny">Gamble responsibly — 1800 858 858 — gamblinghelponline.org.au</p>
+    </div>
+  </footer>
+
+  <script>
+    // Footer year
+    (function(){ var y=document.getElementById('y'); if(y) y.textContent=new Date().getFullYear(); })();
+
+    // ---- Simple code gate ----
+    const VALID_CODES = ['FFR-DAY','FFR-WEEKEND','FFR-MONTHLY']; // edit if needed
+    const STORAGE_KEY = 'ffr_access_code';
+
+    const elGate   = document.getElementById('gate');
+    const elBoard  = document.getElementById('board');
+    const elCode   = document.getElementById('code');
+    const elUnlock = document.getElementById('unlock');
+    const elClear  = document.getElementById('clear');
+    const elErr    = document.getElementById('msgErr');
+    const elOk     = document.getElementById('msgOk');
+    const elContent= document.getElementById('content');
+
+    function show(el){ el.classList.remove('hidden'); }
+    function hide(el){ el.classList.add('hidden'); }
+
+    function setMsg(err, ok){
+      elErr.style.display = err ? 'block' : 'none';
+      elOk.style.display  = ok  ? 'block' : 'none';
+    }
+
+    function hasValidCode(code){
+      if(!code) return false;
+      code = code.trim().toUpperCase();
+      return VALID_CODES.includes(code);
+    }
+
+    function tryAuto(){
+      const saved = sessionStorage.getItem(STORAGE_KEY) || localStorage.getItem(STORAGE_KEY);
+      if (hasValidCode(saved)) {
+        unlock(saved, {silent:true});
+      }
+    }
+
+    function unlock(code, opts){
+      const c = (code || elCode.value || '').trim().toUpperCase();
+      if(!hasValidCode(c)){
+        setMsg(true,false);
+        return;
+      }
+      // save for the session
+      sessionStorage.setItem(STORAGE_KEY, c);
+      setMsg(false,true);
+      // load content
+      loadBoard();
+    }
+
+    function clearCode(){
+      sessionStorage.removeItem(STORAGE_KEY);
+      localStorage.removeItem(STORAGE_KEY);
+      setMsg(false,false);
+      show(elGate);
+      hide(elBoard);
+      elCode.value='';
+      elCode.focus();
+    }
+
+    async function loadBoard(){
+      // show content container
+      hide(elGate);
+      show(elBoard);
+      elContent.innerHTML = '<p class="muted">Loading today’s tips…</p>';
+      try{
+        const res = await fetch('/picks.json', {cache:'no-store'});
+        if(!res.ok) throw new Error('No picks file');
+        const data = await res.json();
+        renderBoard(data);
+      }catch(e){
+        elContent.innerHTML = '<p class="muted">Tips not published yet. Please check back soon.</p>';
+      }
+    }
+
+    function renderBoard(data){
+      const parts = [];
+      if (data.headline) parts.push(`<h2>${data.headline}</h2>`);
+      if (data.notes) parts.push(`<p class="muted">${data.notes}</p>`);
+      (data.meetings||[]).forEach(m=>{
+        parts.push(`<h3 style="margin-top:18px">${m.track} (${m.state})</h3>`);
+        parts.push('<ul class="list">');
+        (m.races||[]).forEach(r=>{
+          parts.push(`<li><strong>R${r.number}</strong>: ${r.top_pick} <span class="muted">(${r.confidence||3}/5)</span><br><span class="muted">${r.reason||''}</span></li>`);
+        });
+        parts.push('</ul>');
+      });
+      elContent.innerHTML = parts.join('') || '<p>No selections posted yet.</p>';
+      window.scrollTo({top:0, behavior:'smooth'});
+    }
+
+    // Wire events
+    elUnlock.addEventListener('click', () => unlock());
+    elClear.addEventListener('click', clearCode);
+    elCode.addEventListener('keydown', (e)=>{ if(e.key==='Enter') unlock(); });
+
+    // Try auto-unlock if already have a valid code in storage
+    tryAuto();
+  </script>
+</body>
+</html>
