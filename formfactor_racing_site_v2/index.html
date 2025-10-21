@@ -3,12 +3,23 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>FormFactor Racing</title>
-  <meta name="description" content="Data-first racing tips with simple pricing." />
+  <title>FormFactor Racing — Data-Driven Thoroughbred Tips</title>
+  <meta name="description" content="Professional, data-first horse racing tips. FormFactor Racing blends speed maps, sectionals, bias tracking and price modelling to deliver clear, disciplined selections." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/styles.css?v=1">
+  <style>
+    .grid-3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+    .card.soft{background:rgba(255,255,255,0.02)}
+    .kpi{display:flex;gap:10px;align-items:flex-start}
+    .kpi .dot{width:10px;height:10px;border-radius:50%;background:var(--brand);margin-top:7px}
+    .faq details{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:14px}
+    .faq summary{cursor:pointer;font-weight:600;list-style:none}
+    .faq summary::-webkit-details-marker{display:none}
+    .eyebrow{color:var(--muted);text-transform:uppercase;font-size:12px;letter-spacing:.08em}
+    @media (max-width: 900px){.grid-3{grid-template-columns:1fr}}
+  </style>
 </head>
 <body>
   <header class="site-header">
@@ -18,71 +29,84 @@
         <span>FormFactor Racing</span>
       </a>
       <nav class="nav">
+        <a href="#how">How it works</a>
+        <a href="#why">Why us</a>
         <a href="#pricing">Pricing</a>
         <a href="/members.html">Members</a>
-        <a href="/terms.html">Terms</a>
       </nav>
     </div>
   </header>
-
   <main>
     <section class="hero">
       <div class="container">
-        <h1>Data-first racing tips, clear stakes, no fluff.</h1>
-        <p class="lead">Form analysis + measurable edges. Buy access and get today’s selections in minutes.</p>
-        <a class="btn primary" href="#pricing">See pricing</a>
+        <p class="eyebrow">Professional, data-first selections</p>
+        <h1>Clear, disciplined horse-racing tips grounded in real form data.</h1>
+        <p class="lead">We combine speed maps, sectionals, track bias and price modelling to publish confident, responsible plays — not hunches. Get today’s card in minutes.</p>
+        <div class="row" style="gap:12px;margin-top:10px">
+          <a class="btn primary" href="#pricing">View pricing</a>
+          <a class="btn" href="/members.html">See today’s board</a>
+        </div>
       </div>
     </section>
-
+    <section id="how" class="pricing" style="padding-top:36px">
+      <div class="container">
+        <h2>How it works</h2>
+        <div class="grid-3">
+          <article class="card soft"><h3>1) Choose access</h3><p>Select a Day Pass, Weekend Pro, or Monthly. Pay securely via Stripe (Card/Apple&nbsp;Pay).</p></article>
+          <article class="card soft"><h3>2) Instant access</h3><p>We publish a concise board: top pick per race, confidence (1–5), and a one-line rationale.</p></article>
+          <article class="card soft"><h3>3) Built-in discipline</h3><p>Each pick includes suggested staking (units) so you can keep a steady bankroll approach.</p></article>
+        </div>
+      </div>
+    </section>
+    <section id="why" class="pricing" style="padding-top:0">
+      <div class="container">
+        <h2>Why FormFactor Racing</h2>
+        <div class="grid-3">
+          <article class="card soft kpi"><span class="dot"></span><div><h3>Data over noise</h3><p class="muted">Selections are driven by measurable edges: recent sectionals, map advantages, bias and class/weight context.</p></div></article>
+          <article class="card soft kpi"><span class="dot" style="background:var(--accent)"></span><div><h3>Risk-managed staking</h3><p class="muted">Unit-based staking and confidence tiers help reduce variance and emotional betting.</p></div></article>
+          <article class="card soft kpi"><span class="dot" style="background:#f59e0b"></span><div><h3>Transparent & timely</h3><p class="muted">Short, plain English notes. Updates for scratchings and track changes when relevant.</p></div></article>
+        </div>
+      </div>
+    </section>
+    <section class="pricing" style="padding-top:0">
+      <div class="container">
+        <h2>Our methodology</h2>
+        <div class="grid-3">
+          <div class="card soft"><h3>Form & sectionals</h3><p class="muted">Recent runs, last-600/last-200 splits, sustained speed vs. bursts, and pattern repeatability.</p></div>
+          <div class="card soft"><h3>Maps & bias</h3><p class="muted">Expected position in run, lane advantages, rail placement and meeting-specific tempo profiles.</p></div>
+          <div class="card soft"><h3>Price discipline</h3><p class="muted">Market vs. model tolerance, avoiding overbet favourites, and respecting variance.</p></div>
+        </div>
+      </div>
+    </section>
     <section id="pricing" class="pricing">
       <div class="container">
         <h2>Pricing</h2>
         <div class="cards">
-          <article class="card">
-            <h3>Day Pass</h3>
-            <p class="price">$19.90</p>
-            <ul class="bullets">
-              <li>Today’s tips</li>
-              <li>Track notes</li>
-              <li>Bankroll guidance</li>
-            </ul>
-            <a class="btn buy" href="https://buy.stripe.com/3cI3cuagi9oW2Xp79jafS00" data-checkout="day">Buy Day Pass</a>
-          </article>
-
-          <article class="card">
-            <h3>Weekend Pro</h3>
-            <p class="price">$39</p>
-            <ul class="bullets">
-              <li>Sat + Sun tips</li>
-              <li>Scratchings updates</li>
-              <li>Track bias watch</li>
-            </ul>
-            <a class="btn buy" href="https://buy.stripe.com/8x2aEWbkm0Sq69BbpzafS01" data-checkout="weekend">Buy Weekend</a>
-          </article>
-
-          <article class="card">
-            <h3>Monthly Access</h3>
-            <p class="price">$99<span class="muted"> / month</span></p>
-            <ul class="bullets">
-              <li>All meetings covered</li>
-              <li>Daily updates</li>
-              <li>Priority support</li>
-            </ul>
-            <a class="btn buy" href="https://buy.stripe.com/cNi5kCfAC58G2Xp8dnafS02" data-checkout="monthly">Subscribe</a>
-          </article>
+          <article class="card"><h3>Day Pass</h3><p class="price">$19.90</p><ul class="bullets"><li>Today’s tips</li><li>Confidence & unit staking</li><li>Track notes</li></ul><a class="btn buy" href="https://buy.stripe.com/3cI3cuagi9oW2Xp79jafS00" data-checkout="day">Buy Day Pass</a></article>
+          <article class="card"><h3>Weekend Pro</h3><p class="price">$39</p><ul class="bullets"><li>Saturday + Sunday</li><li>Scratchings & updates</li><li>Bankroll guidance</li></ul><a class="btn buy" href="https://buy.stripe.com/8x2aEWbkm0Sq69BbpzafS01" data-checkout="weekend">Buy Weekend</a></article>
+          <article class="card"><h3>Monthly Access</h3><p class="price">$99 <span class="muted">/ month</span></p><ul class="bullets"><li>All meetings</li><li>Daily updates</li><li>Priority support</li></ul><a class="btn buy" href="https://buy.stripe.com/cNi5kCfAC58G2Xp8dnafS02" data-checkout="monthly">Subscribe</a></article>
         </div>
-        <p class="tiny center muted">Payments handled securely by Stripe. Cancel anytime.</p>
+        <p class="tiny center muted">Payments handled securely by Stripe. Apple&nbsp;Pay available. Cancel anytime.</p>
+      </div>
+    </section>
+    <section class="pricing" style="padding-top:0">
+      <div class="container faq">
+        <h2>FAQ</h2>
+        <div class="grid-3">
+          <details open><summary>What do I get after purchase?</summary><p class="muted">Immediate access to today’s member page with top pick per race, confidence rating, and rationale. Weekend/Monthly include updates for scratchings.</p></details>
+          <details><summary>How do you handle staking?</summary><p class="muted">We use unit staking tied to confidence. This keeps bet size consistent relative to bankroll and reduces tilt.</p></details>
+          <details><summary>Can I cancel anytime?</summary><p class="muted">Yes. Day/Weekend are one‑off. Monthly can be cancelled via your Stripe receipt.</p></details>
+        </div>
       </div>
     </section>
   </main>
-
   <footer class="site-footer">
     <div class="container">
       <p>© <span id="y"></span> FormFactor Racing | ABN 37 375 806 506 | Secure payments processed by Stripe</p>
-      <p class="tiny">All information, tips, and betting advice are for entertainment purposes only. Gamble responsibly — call Gambling Help on 1800 858 858 or visit gamblinghelponline.org.au.</p>
+      <p class="tiny">All information and betting advice are for entertainment purposes only. Gamble responsibly — call Gambling Help on 1800 858 858 or visit gamblinghelponline.org.au.</p>
       <p class="tiny"><a href="/privacy.html">Privacy</a> · <a href="/refund.html">Refunds</a> · <a href="/terms.html">Terms</a></p>
     </div>
   </footer>
-  <script src="/app.js?v=1"></script>
+  <script src="/app.js?v=2"></script>
 </body>
 </html>
