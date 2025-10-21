@@ -4,18 +4,110 @@
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width,initial-scale=1"/>
   <title>FormFactor Racing Admin</title>
-  <script src="https://unpkg.com/netlify-identity-widget@1.9.2/build/netlify-identity-widget.min.js"></script>
-  <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
-  <style>body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial}</style>
-</head>
-<body>
+  <style>
+    html,body{height:100%;margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial}
+    .boot{display:flex;align-items:center;justify-content:center;height:100%;color:#334155}
+    .boot .card{border:1px solid #e2e8f0;border-radius:12px;padding:16px;max-width:560px}
+    .muted{font-size:12px;color:#64748b}
+    .err{color:#b91c1c}
+  </style>
+
+  <!-- Identity widget (for login) -->
+  <script src="https://unpkg.com/netlify-identity-widget@1.9.2/build/netlify-identity-widget.min.js" defer></script>
+
   <script>
-    if (window.netlifyIdentity) {
-      window.netlifyIdentity.on('init', user => {
-        if (!user) window.netlifyIdentity.on('login', () => document.location.reload());
-      });
-      window.netlifyIdentity.on('logout', () => document.location.href = '/');
+    document.addEventListener('DOMContentLoaded', () => {
+      const root = document.getElementById('boot');
+      root.innerHTML = `
+        <div class="card">
+          <h3>Loading Admin…</h3>
+          <p class="muted">If this takes more than a few seconds, hard-refresh (Cmd/Ctrl+Shift+R).</p>
+          <p class="muted">Ensure Identity is enabled and Git Gateway is ON in Netlify.</p>
+        </div>`;
+    });
+
+    window.CMS_MANUAL_INIT = true;
+
+    const CMS_CONFIG = {
+      backend: { name: "git-gateway", branch: "main" },
+      media_folder: "static/uploads",
+      public_folder: "/static/uploads",
+      publish_mode: "editorial_workflow",
+      collections: [
+        {
+          label: "Tips",
+          name: "tips",
+          files: [
+            {
+              label: "Race Day Tips",
+              name: "picks",
+              file: "picks.json",
+              format: "json",
+              fields: [
+                { label: "Meeting Date (AET)", name: "date", widget: "datetime", format: "YYYY-MM-DD", time_format: false },
+                { label: "Headline", name: "headline", widget: "string", hint: "Shown at top of members page" },
+                {
+                  label: "Meetings",
+                  name: "meetings",
+                  widget: "list",
+                  summary: "{{fields.track}} ({{fields.state}})",
+                  fields: [
+                    { label: "Track", name: "track", widget: "string" },
+                    { label: "State", name: "state", widget: "string" },
+                    {
+                      label: "Races",
+                      name: "races",
+                      widget: "list",
+                      summary: "R{{fields.number}}: {{fields.top_pick}}",
+                      fields: [
+                        { label: "Race #", name: "number", widget: "number", value_type: "int", min: 1 },
+                        { label: "Top Pick", name: "top_pick", widget: "string" },
+                        { label: "Confidence (1–5)", name: "confidence", widget: "number", value_type: "int", min: 1, max: 5 },
+                        { label: "Reason (short)", name: "reason", widget: "text" }
+                      ]
+                    }
+                  ]
+                },
+                { label: "Notes", name: "notes", widget: "text", hint: "Scratchings, track downgrades, staking notes" }
+              ]
+            }
+          ]
+        }
+      ]
+    };
+
+    function startCMS() {
+      try {
+        if (window.netlifyIdentity) {
+          netlifyIdentity.on('init', user => {
+            if (!user) netlifyIdentity.on('login', () => location.reload());
+          });
+          netlifyIdentity.on('logout', () => location.href = '/');
+        }
+        CMS.init({ config: CMS_CONFIG });
+        const boot = document.getElementById('boot'); if (boot) boot.remove();
+      } catch (e) {
+        const boot = document.getElementById('boot');
+        if (boot) boot.innerHTML = `<div class="card"><h3 class="err">CMS failed to load</h3><pre class="muted">${String(e)}</pre></div>`;
+        console.error(e);
+      }
     }
   </script>
+
+  <!-- Decap CMS (primary) -->
+  <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js" onload="startCMS()" defer></script>
+  <!-- Fallback CDN if unpkg is blocked -->
+  <script>
+    window.addEventListener('error', function(ev){
+      if ((ev.filename || '').includes('decap-cms') && !window.CMS) {
+        var s=document.createElement('script');
+        s.src='https://cdn.jsdelivr.net/npm/decap-cms@3/dist/decap-cms.js';
+        s.defer=true; s.onload=startCMS; document.head.appendChild(s);
+      }
+    }, true);
+  </script>
+</head>
+<body>
+  <div id="boot" class="boot"></div>
 </body>
 </html>
