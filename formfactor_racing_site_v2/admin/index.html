@@ -109,5 +109,25 @@
 </head>
 <body>
   <div id="boot" class="boot"></div>
+<!-- Helper controls so you can open the Identity dialogs manually -->
+<div style="position:fixed;bottom:16px;right:16px;display:flex;gap:8px;z-index:9999">
+  <button onclick="window.netlifyIdentity && netlifyIdentity.open('signup')"
+          style="padding:10px 12px;border:1px solid #e2e8f0;border-radius:10px;background:#fff;cursor:pointer">
+    Sign up
+  </button>
+  <button onclick="window.netlifyIdentity && netlifyIdentity.open('login')"
+          style="padding:10px 12px;border:1px solid #e2e8f0;border-radius:10px;background:#fff;cursor:pointer">
+    Login
+  </button>
+</div>
+
+<script>
+  // Ensure the widget is initialised
+  document.addEventListener('DOMContentLoaded', function () {
+    if (window.netlifyIdentity) {
+      netlifyIdentity.init();
+    }
+  });
+</script>
 </body>
 </html>
