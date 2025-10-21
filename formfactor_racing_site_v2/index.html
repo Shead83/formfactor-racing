@@ -2,105 +2,87 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>FormFactor Racing</title>
-  <meta name="description" content="FormFactor Racing — limited drops, track-bred gear, fast Stripe checkout." />
-  <link rel="preconnect" href="https://buy.stripe.com" />
-  <link rel="stylesheet" href="./styles.css" />
+  <meta name="description" content="Data-first racing tips with simple pricing." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css?v=1">
 </head>
 <body>
-  <header class="header">
-    <div class="container nav">
-      <a class="brand" href="/" aria-label="FormFactor Racing">
-        <img src="./assets/logo.jpg" alt="FormFactor Racing logo" width="44" height="44" style="border-radius:8px;object-fit:cover" />
+  <header class="site-header">
+    <div class="container row">
+      <a class="brand" href="/">
+        <img src="/formfactor_logo_under512kb.jpg" alt="FormFactor Racing" width="36" height="36" />
         <span>FormFactor Racing</span>
       </a>
-      <nav class="menu">
-        <a href="#shop">Shop</a>
-        <a href="#faq">FAQ</a>
+      <nav class="nav">
+        <a href="#pricing">Pricing</a>
+        <a href="/members.html">Members</a>
+        <a href="/terms.html">Terms</a>
       </nav>
     </div>
   </header>
 
   <main>
-    <section class="container hero" id="shop">
-      <div class="hero-copy">
-        <h1>Track‑bred gear. No fluff. Just go.</h1>
-        <p>Simple static storefront with Stripe hosted checkout. Three options — tap and you're done.</p>
-        <div class="cta">
-          <a class="btn primary" data-checkout="day" href="https://buy.stripe.com/3cI3cuagi9oW2Xp79jafS00">Buy Day Pass</a>
-          <a class="btn ghost" href="#pricing">See Plans</a>
-        </div>
-        <div class="badges">
-          <span>Secure Stripe Checkout</span>
-          <span>Fast static hosting</span>
-          <span>No accounts or cart</span>
-        </div>
-      </div>
-      <div class="hero-card">
-        <h3>What you get</h3>
-        <ul class="picks">
-          <li>Hosted Stripe checkout links</li>
-          <li>ABN‑ready footer</li>
-          <li>One‑file deploy (Netlify/Cloudflare/Vercel)</li>
-        </ul>
-        <p class="note">Change pricing, copy, or links by editing <code>index.html</code> or <code>app.js</code>.</p>
+    <section class="hero">
+      <div class="container">
+        <h1>Data-first racing tips, clear stakes, no fluff.</h1>
+        <p class="lead">Form analysis + measurable edges. Buy access and get today’s selections in minutes.</p>
+        <a class="btn primary" href="#pricing">See pricing</a>
       </div>
     </section>
 
-    <section class="container pricing" id="pricing">
-      <h2>Plans</h2>
-      <div class="plans">
-        <div class="plan">
-          <h3>Day Pass</h3>
-          <p class="tiny">Perfect for quick access.</p>
-          <ul>
-            <li>Instant hosted checkout</li>
-            <li>Email receipt by Stripe</li>
-          </ul>
-          <a class="btn primary" data-checkout="day" href="https://buy.stripe.com/3cI3cuagi9oW2Xp79jafS00">Buy Day Pass</a>
-        </div>
-        <div class="plan featured">
-          <h3>Weekend Pro</h3>
-          <p class="tiny">Most popular.</p>
-          <ul>
-            <li>Hosted Stripe checkout</li>
-            <li>No login or cart</li>
-          </ul>
-          <a class="btn primary" data-checkout="weekend" href="https://buy.stripe.com/8x2aEWbkm0Sq69BbpzafS01">Buy Weekend Pro</a>
-        </div>
-        <div class="plan">
-          <h3>Monthly Access</h3>
-          <p class="tiny">Set and forget.</p>
-          <ul>
-            <li>Hosted Stripe checkout</li>
-            <li>Cancel any time via Stripe</li>
-          </ul>
-          <a class="btn primary" data-checkout="monthly" href="https://buy.stripe.com/cNi5kCfAC58G2Xp8dnafS02">Buy Monthly Access</a>
-        </div>
-      </div>
-    </section>
+    <section id="pricing" class="pricing">
+      <div class="container">
+        <h2>Pricing</h2>
+        <div class="cards">
+          <article class="card">
+            <h3>Day Pass</h3>
+            <p class="price">$19.90</p>
+            <ul class="bullets">
+              <li>Today’s tips</li>
+              <li>Track notes</li>
+              <li>Bankroll guidance</li>
+            </ul>
+            <a class="btn buy" href="https://buy.stripe.com/3cI3cuagi9oW2Xp79jafS00" data-checkout="day">Buy Day Pass</a>
+          </article>
 
-    <section class="container faq" id="faq">
-      <h2>FAQ</h2>
-      <details>
-        <summary>How do I deploy this?</summary>
-        <p>On Netlify, choose <em>Deploy → Upload folder</em> and select this bundle. That’s it.</p>
-      </details>
-      <details>
-        <summary>Can I change the logo or ABN?</summary>
-        <p>Replace <code>assets/logo.jpg</code> with your image and edit the ABN text in the footer.</p>
-      </details>
+          <article class="card">
+            <h3>Weekend Pro</h3>
+            <p class="price">$39</p>
+            <ul class="bullets">
+              <li>Sat + Sun tips</li>
+              <li>Scratchings updates</li>
+              <li>Track bias watch</li>
+            </ul>
+            <a class="btn buy" href="https://buy.stripe.com/8x2aEWbkm0Sq69BbpzafS01" data-checkout="weekend">Buy Weekend</a>
+          </article>
+
+          <article class="card">
+            <h3>Monthly Access</h3>
+            <p class="price">$99<span class="muted"> / month</span></p>
+            <ul class="bullets">
+              <li>All meetings covered</li>
+              <li>Daily updates</li>
+              <li>Priority support</li>
+            </ul>
+            <a class="btn buy" href="https://buy.stripe.com/cNi5kCfAC58G2Xp8dnafS02" data-checkout="monthly">Subscribe</a>
+          </article>
+        </div>
+        <p class="tiny center muted">Payments handled securely by Stripe. Cancel anytime.</p>
+      </div>
     </section>
   </main>
 
   <footer class="site-footer">
     <div class="container">
-      <div>© <span id="y"></span> FormFactor Racing • ABN: <strong>37 375 806 506</strong></div>
-      <div class="tiny">All sales processed by Stripe’s secure hosted checkout.</div>
+      <p>© <span id="y"></span> FormFactor Racing | ABN 37 375 806 506 | Secure payments processed by Stripe</p>
+      <p class="tiny">All information, tips, and betting advice are for entertainment purposes only. Gamble responsibly — call Gambling Help on 1800 858 858 or visit gamblinghelponline.org.au.</p>
+      <p class="tiny"><a href="/privacy.html">Privacy</a> · <a href="/refund.html">Refunds</a> · <a href="/terms.html">Terms</a></p>
     </div>
   </footer>
-
-  <script src="./app.js"></script>
+  <script src="/app.js?v=1"></script>
 </body>
 </html>
