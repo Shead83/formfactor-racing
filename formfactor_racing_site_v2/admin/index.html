@@ -6,28 +6,20 @@
   <title>FormFactor Racing Admin</title>
   <style>
     html,body{height:100%;margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial}
-    .boot{display:flex;align-items:center;justify-content:center;height:100%;color:#334155}
-    .boot .card{border:1px solid #e2e8f0;border-radius:12px;padding:16px;max-width:560px}
-    .muted{font-size:12px;color:#64748b}
-    .err{color:#b91c1c}
+    .wrap{min-height:100%;display:flex;align-items:center;justify-content:center;padding:24px}
+    .card{border:1px solid #e2e8f0;border-radius:12px;padding:20px;max-width:640px;width:100%;box-shadow:0 6px 18px rgba(2,8,23,.06)}
+    .muted{font-size:12px;color:#64748b;margin-top:8px}
+    .row{display:flex;gap:10px;margin-top:12px;flex-wrap:wrap}
+    button{padding:10px 12px;border:1px solid #e2e8f0;border-radius:10px;background:#fff;cursor:pointer}
+    .err{color:#b91c1c;margin-top:8px;white-space:pre-wrap}
   </style>
 
-  <!-- Identity widget (for login) -->
-  <script src="https://unpkg.com/netlify-identity-widget@1.9.2/build/netlify-identity-widget.min.js" defer></script>
+  <!-- Load Identity FIRST (no defer) to avoid race conditions -->
+  <script src="https://unpkg.com/netlify-identity-widget@1.9.2/build/netlify-identity-widget.min.js"></script>
 
   <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const root = document.getElementById('boot');
-      root.innerHTML = `
-        <div class="card">
-          <h3>Loading Admin…</h3>
-          <p class="muted">If this takes more than a few seconds, hard-refresh (Cmd/Ctrl+Shift+R).</p>
-          <p class="muted">Ensure Identity is enabled and Git Gateway is ON in Netlify.</p>
-        </div>`;
-    });
-
+    // Inline CMS config so we don't fetch config.yml
     window.CMS_MANUAL_INIT = true;
-
     const CMS_CONFIG = {
       backend: { name: "git-gateway", branch: "main" },
       media_folder: "static/uploads",
@@ -45,7 +37,7 @@
               format: "json",
               fields: [
                 { label: "Meeting Date (AET)", name: "date", widget: "datetime", format: "YYYY-MM-DD", time_format: false },
-                { label: "Headline", name: "headline", widget: "string", hint: "Shown at top of members page" },
+                { label: "Headline", name: "headline", widget: "string" },
                 {
                   label: "Meetings",
                   name: "meetings",
@@ -68,7 +60,7 @@
                     }
                   ]
                 },
-                { label: "Notes", name: "notes", widget: "text", hint: "Scratchings, track downgrades, staking notes" }
+                { label: "Notes", name: "notes", widget: "text" }
               ]
             }
           ]
@@ -76,58 +68,95 @@
       ]
     };
 
-    function startCMS() {
+    function showError(msg) {
+      const el = document.getElementById('err');
+      if (el) el.textContent = msg;
+      console.error(msg);
+    }
+
+    function initIdentityControls() {
+      if (!window.netlifyIdentity) {
+        showError('Identity widget failed to load. Disable ad/script blockers and refresh.');
+        return;
+      }
+      // Ensure widget is initialized
+      netlifyIdentity.init();
+
+      // Wire buttons
+      const btnSignup = document.getElementById('btnSignup');
+      const btnLogin  = document.getElementById('btnLogin');
+      if (btnSignup) btnSignup.onclick = () => netlifyIdentity.open('signup');
+      if (btnLogin)  btnLogin.onclick  = () => netlifyIdentity.open('login');
+
+      // Auto-open login if user not present (keeps it simple)
+      netlifyIdentity.on('init', (user) => {
+        if (!user) {
+          // don't auto-open signup; user can choose
+        }
+      });
+
+      // When user logs in, boot CMS
+      netlifyIdentity.on('login', () => {
+        bootCMS();
+      });
+      netlifyIdentity.on('logout', () => location.reload());
+    }
+
+    function bootCMS() {
       try {
-        if (window.netlifyIdentity) {
-          netlifyIdentity.on('init', user => {
-            if (!user) netlifyIdentity.on('login', () => location.reload());
-          });
-          netlifyIdentity.on('logout', () => location.href = '/');
+        if (!window.CMS) {
+          showError('CMS script not loaded yet. Wait a second and click "Start CMS" again.');
+          return;
         }
         CMS.init({ config: CMS_CONFIG });
-        const boot = document.getElementById('boot'); if (boot) boot.remove();
+        document.getElementById('shell').style.display = 'none'; // hide launcher UI
       } catch (e) {
-        const boot = document.getElementById('boot');
-        if (boot) boot.innerHTML = `<div class="card"><h3 class="err">CMS failed to load</h3><pre class="muted">${String(e)}</pre></div>`;
-        console.error(e);
+        showError('CMS failed to init: ' + String(e));
       }
     }
-  </script>
 
-  <!-- Decap CMS (primary) -->
-  <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js" onload="startCMS()" defer></script>
+    // Expose a manual start in case login already happened
+    function startIfLoggedIn() {
+      if (window.netlifyIdentity && netlifyIdentity.currentUser()) {
+        bootCMS();
+      }
+    }
+
+    window.addEventListener('load', () => {
+      initIdentityControls();
+      // Give the CMS script time to load; check after a moment
+      setTimeout(startIfLoggedIn, 600);
+    });
+  </script>
+</head>
+<body>
+  <!-- Simple launcher UI -->
+  <div id="shell" class="wrap">
+    <div class="card">
+      <h2>FormFactor Racing — Admin</h2>
+      <p>Use the buttons below to log in or sign up. After login, click <em>Start CMS</em> if it doesn’t launch automatically.</p>
+      <div class="row">
+        <button id="btnSignup">Sign up</button>
+        <button id="btnLogin">Login</button>
+        <button id="btnStart" onclick="bootCMS()">Start CMS</button>
+      </div>
+      <p class="muted">Identity must be enabled (Registration: Open) and Git Gateway enabled in Netlify.</p>
+      <pre id="err" class="err"></pre>
+    </div>
+  </div>
+
+  <!-- Decap CMS (admin app) -->
+  <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
   <!-- Fallback CDN if unpkg is blocked -->
   <script>
     window.addEventListener('error', function(ev){
       if ((ev.filename || '').includes('decap-cms') && !window.CMS) {
         var s=document.createElement('script');
         s.src='https://cdn.jsdelivr.net/npm/decap-cms@3/dist/decap-cms.js';
-        s.defer=true; s.onload=startCMS; document.head.appendChild(s);
+        document.head.appendChild(s);
       }
     }, true);
   </script>
-</head>
-<body>
-  <div id="boot" class="boot"></div>
-<!-- Helper controls so you can open the Identity dialogs manually -->
-<div style="position:fixed;bottom:16px;right:16px;display:flex;gap:8px;z-index:9999">
-  <button onclick="window.netlifyIdentity && netlifyIdentity.open('signup')"
-          style="padding:10px 12px;border:1px solid #e2e8f0;border-radius:10px;background:#fff;cursor:pointer">
-    Sign up
-  </button>
-  <button onclick="window.netlifyIdentity && netlifyIdentity.open('login')"
-          style="padding:10px 12px;border:1px solid #e2e8f0;border-radius:10px;background:#fff;cursor:pointer">
-    Login
-  </button>
-</div>
-
-<script>
-  // Ensure the widget is initialised
-  document.addEventListener('DOMContentLoaded', function () {
-    if (window.netlifyIdentity) {
-      netlifyIdentity.init();
-    }
-  });
-</script>
 </body>
 </html>
+
