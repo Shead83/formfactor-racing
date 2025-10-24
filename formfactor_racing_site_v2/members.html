@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Members — FormFactor Tips</title>
+  <link rel="stylesheet" href="/styles.css?v=3">
+  <style>
+    .center { text-align:center }
+    .pad { padding:24px }
+    .stack { display:flex; flex-direction:column; gap:10px }
+    .input { padding:12px 14px; border-radius:10px; border:1px solid var(--border); background:#0f1625; color:#e6edf3 }
+    .note { font-size:13px; color: var(--muted) }
+    .error { color:#fecaca; background:#7f1d1d33; border:1px solid #7f1d1d; padding:10px 12px; border-radius:10px; display:none }
+    .success { color:#bbf7d0; background:#14532d33; border:1px solid #14532d; padding:10px 12px; border-radius:10px; display:none }
+    .hidden { display:none }
+    .card.max { max-width:780px; margin: 0 auto; }
+    .list { padding-left:18px }
+    .pill{display:inline-block;padding:2px 8px;border-radius:999px;background:#0ea5e9;color:#fff;font-size:12px}
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container row">
+      <a class="brand" href="/"><img src="/formfactor_logo_under512kb.jpg" alt="FormFactor Tips" width="32" height="32"/><span>FormFactor Tips</span></a>
+      <nav class="nav"><a href="/">Home</a><a href="/terms.html">Terms</a></nav>
+    </div>
+  </header>
+
+  <main class="container" style="padding:28px 0 40px">
+    <h1>Members</h1>
+    <p class="muted">Weekend‑only model. Enter your access code to unlock the board. Day = Saturday only. Weekend = Sat+Sun (from Friday 10:00).</p>
+
+    <section class="card max pad" id="gate">
+      <h2 class="center">Enter your access code</h2>
+      <div class="stack">
+        <input id="code" class="input" placeholder="e.g. FFR-DAY or FFR-WEEKEND" autocomplete="one-time-code" />
+        <div class="row" style="gap:10px; justify-content:flex-start">
+          <button id="unlock" class="btn primary">Unlock</button>
+          <button id="clear" class="btn">Clear</button>
+        </div>
+        <div id="msgErr" class="error">That code didn’t work. Check your purchase email/receipt and try again.</div>
+        <div id="msgOk" class="success">Access granted. Loading tips…</div>
+        <p class="note">Didn’t receive a code? Check your Stripe receipt email or contact <a href="mailto:support@formfactortips.com">support</a>.</p>
+      </div>
+    </section>
+
+    <section class="card max pad hidden" id="board">
+      <div class="row" style="justify-content:space-between;align-items:center;margin-bottom:10px">
+        <div id="activeBadge" class="pill">Active</div>
+        <div class="muted" id="windowNote"></div>
+      </div>
+      <div id="content">
+        <p class="muted">Loading…</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>© <span id="y"></span> FormFactor Tips</p>
+      <p class="tiny">Gamble responsibly — 1800 858 858 — gamblinghelponline.org.au</p>
+    </div>
+  </footer>
+
+  <script>
+    (function(){ var y=document.getElementById('y'); if(y) y.textContent=new Date().getFullYear(); })();
+
+    const VALID_CODES = ['FFR-DAY','FFR-WEEKEND','FFR-MONTHLY'];
+    const STORAGE_KEY = 'ffr_access_code';
+
+    const elGate   = document.getElementById('gate');
+    const elBoard  = document.getElementById('board');
+    const elCode   = document.getElementById('code');
+    const elUnlock = document.getElementById('unlock');
+    const elClear  = document.getElementById('clear');
+    const elErr    = document.getElementById('msgErr');
+    const elOk     = document.getElementById('msgOk');
+    const elContent= document.getElementById('content');
+    const elBadge  = document.getElementById('activeBadge');
+    const elWindow = document.getElementById('windowNote');
+
+    function show(el){ el.classList.remove('hidden'); }
+    function hide(el){ el.classList.add('hidden'); }
+    function setMsg(err, ok){ elErr.style.display = err ? 'block' : 'none'; elOk.style.display = ok ? 'block' : 'none'; }
+    function hasValidCode(code){ return !!code && VALID_CODES.includes(code.trim().toUpperCase()); }
+
+    function now(){ return new Date(); }
+    function isFriToSun(d){ const day=d.getDay(); return (day===5||day===6||day===0); }
+    function isFridayAfter10(d){ return d.getDay()===5 && d.getHours()>=10; }
+    function windowText(d){
+      const day=d.getDay();
+      if(day===6) return "Saturday board active";
+      if(day===0) return "Sunday board active";
+      if(day===5) return (isFridayAfter10(d) ? "Weekend board pre‑release (from 10:00)" : "Weekend board locks until Friday 10:00");
+      return "Weekend tips return Friday 10:00 (AET)";
+    }
+
+    function tryAuto(){
+      const saved = sessionStorage.getItem(STORAGE_KEY) || localStorage.getItem(STORAGE_KEY);
+      if (hasValidCode(saved)) { unlock(saved, {silent:true}); }
+    }
+
+    function unlock(code, opts){
+      const c = (code || elCode.value || '').trim().toUpperCase();
+      if(!hasValidCode(c)){ setMsg(true,false); return; }
+      sessionStorage.setItem(STORAGE_KEY, c);
+      setMsg(false,true);
+      loadBoard(c);
+    }
+
+    function clearCode(){
+      sessionStorage.removeItem(STORAGE_KEY); localStorage.removeItem(STORAGE_KEY);
+      setMsg(false,false); show(elGate); hide(elBoard); elCode.value=''; elCode.focus();
+    }
+
+    async function loadBoard(code){
+      const d = now();
+      const day = d.getDay();
+
+      elBadge.textContent = code;
+      elWindow.textContent = windowText(d);
+
+      const isWeekendWindow = isFriToSun(d) && (day!==5 || isFridayAfter10(d));
+      const isSaturday = (day===6);
+
+      if(code==='FFR-DAY' && !isSaturday){
+        hide(elGate); show(elBoard);
+        elContent.innerHTML = '<p class="muted">Day Pass unlocks on Saturday only. Weekend tips return Friday 10:00.</p>';
+        return;
+      }
+      if((code==='FFR-WEEKEND' || code==='FFR-MONTHLY') && !isWeekendWindow){
+        hide(elGate); show(elBoard);
+        elContent.innerHTML = '<p class="muted">Weekend access opens Friday 10:00 (AET). Please check back then.</p>';
+        return;
+      }
+
+      hide(elGate); show(elBoard);
+      elContent.innerHTML = '<p class="muted">Loading tips…</p>';
+
+      try{
+        const res = await fetch('/picks.json', {cache:'no-store'});
+        if(!res.ok) throw new Error('No picks file');
+        const data = await res.json();
+        renderBoard(data, code);
+      }catch(e){
+        elContent.innerHTML = '<p class="muted">Tips not published yet. Please check back soon.</p>';
+      }
+    }
+
+    function renderBoard(data, code){
+      const parts = [];
+      if (data.headline) parts.push(`<h2>${data.headline}</h2>`);
+      if (data.notes) parts.push(`<p class="muted">${data.notes}</p>`);
+
+      const meetings = (data.meetings||[]).filter(m=>{
+        if(code==='FFR-DAY'){ return (m.day||'SAT')==='SAT'; }
+        return (m.day==='SAT' || m.day==='SUN');
+      });
+
+      if(meetings.length===0){
+        elContent.innerHTML = '<p class="muted">No selections available for this access window.</p>';
+        return;
+      }
+
+      meetings.forEach(m=>{
+        parts.push(`<h3 style="margin-top:18px">${m.track} (${m.state}) — <span class="pill">${m.day||'SAT'}</span></h3>`);
+        parts.push('<ul class="list">');
+        (m.races||[]).forEach(r=>{
+          parts.push(`<li><strong>R${r.number}</strong>: ${r.top_pick} <span class="muted">(${r.confidence||3}/5)</span><br><span class="muted">${r.reason||''}</span></li>`);
+        });
+        parts.push('</ul>');
+      });
+      elContent.innerHTML = parts.join('');
+      window.scrollTo({top:0, behavior:'smooth'});
+    }
+
+    document.getElementById('unlock').addEventListener('click', () => unlock());
+    document.getElementById('clear').addEventListener('click', clearCode);
+    document.getElementById('code').addEventListener('keydown', (e)=>{ if(e.key==='Enter') unlock(); });
+
+    tryAuto();
+  </script>
+</body>
+</html>
