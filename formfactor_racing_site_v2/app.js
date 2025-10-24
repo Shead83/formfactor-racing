@@ -1,3 +1,0 @@
-const y=document.getElementById('y');if(y)y.textContent=new Date().getFullYear();
-const checkoutLinks={day:'https://buy.stripe.com/3cI3cuagi9oW2Xp79jafS00',weekend:'https://buy.stripe.com/8x2aEWbkm0Sq69BbpzafS01',monthly:'https://buy.stripe.com/cNi5kCfAC58G2Xp8dnafS02'};
-document.addEventListener('DOMContentLoaded',()=>{document.querySelectorAll('a[data-checkout]').forEach(a=>{const key=a.getAttribute('data-checkout');const url=checkoutLinks[key];if(url)a.setAttribute('href',url);a.addEventListener('click',e=>{if(!url){e.preventDefault();alert('Payment link not set yet. Please try again shortly.');}});});});
