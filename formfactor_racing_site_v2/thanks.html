@@ -1,29 +1,39 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8"/>
-  <meta name="viewport" content="width=device-width,initial-scale=1"/>
-  <title>Thanks — FormFactor Racing</title>
-  <link rel="stylesheet" href="/styles.css?v=1"/>
+  <meta charset="UTF-8">
+  <title>Thanks for Your Purchase | FormFactor Racing</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    body { text-align: center; background: #0a0a0a; color: #fff; font-family: Arial, sans-serif; padding-top: 80px; }
+    .container { max-width: 500px; margin: auto; background: #1b1b1b; padding: 30px; border-radius: 10px; }
+    .code-box { background: #222; color: #00b4ff; padding: 10px 20px; border-radius: 6px; font-weight: bold; display: inline-block; }
+    a.btn { display: inline-block; background: #00b4ff; color: #fff; padding: 10px 20px; border-radius: 5px; margin-top: 20px; text-decoration: none; }
+  </style>
 </head>
 <body>
-  <header class="site-header">
-    <div class="container row">
-      <a class="brand" href="/"><span>FormFactor Racing</span></a>
-      <nav class="nav"><a href="/">Home</a><a href="/members.html">Members</a></nav>
-    </div>
-  </header>
-  <main class="container" style="padding:32px 0">
+  <div class="container">
     <h1>Thanks for your purchase!</h1>
     <p>Your payment was successful and access has been granted.</p>
-    <p><a class="btn primary" href="/members.html">Go to Members page</a></p>
-    <p class="muted">If you don’t see today’s tips yet, refresh the page or check back shortly.</p>
-  </main>
-  <footer class="site-footer">
-    <div class="container">
-      <p>© <span id="y"></span> FormFactor Racing</p>
-    </div>
-  </footer>
-  <script src="/app.js?v=1"></script>
+
+    <p id="codeSection" style="display:none;">
+      Your access code:<br>
+      <span class="code-box" id="accessCode"></span>
+    </p>
+
+    <a href="members.html" class="btn">Go to Members page</a>
+    <p class="tiny">If you don’t see today’s tips yet, refresh the page or check back shortly.</p>
+  </div>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const code = params.get('code');
+    if (code) {
+      document.getElementById('codeSection').style.display = 'block';
+      document.getElementById('accessCode').textContent = code;
+      localStorage.setItem('FFR_ACCESS', code);
+    }
+  </script>
 </body>
 </html>
