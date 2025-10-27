@@ -1,131 +1,66 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>FormFactor Tips — Premium Weekend Racing Selections</title>
-  <meta name="description" content="Premium, data-driven Australian horse racing tips. Focused on Sydney, Melbourne and Brisbane metropolitan meetings — Saturday & Sunday only." />
-  <link rel="stylesheet" href="/styles.css?v=4">
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>FormFactor Racing — Data-first tips</title>
   <style>
-    .grid-3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
-    .card.soft{background:rgba(255,255,255,0.03)}
-    .eyebrow{color:var(--muted);text-transform:uppercase;font-size:12px;letter-spacing:.08em}
-    .compare{border:1px solid var(--border);border-radius:14px;overflow:hidden}
-    .compare table{width:100%;border-collapse:collapse}
-    .compare th,.compare td{padding:12px 10px;border-bottom:1px solid var(--border);text-align:left}
-    .compare tr:last-child td{border-bottom:0}
-    .badge{display:inline-block;padding:2px 8px;border-radius:999px;background:#0ea5e9;color:#fff;font-size:12px}
-    @media (max-width: 900px){.grid-3{grid-template-columns:1fr}}
+    :root { --bg:#0b0f1a; --card:#12182a; --txt:#e8eef5; --muted:#9cb3c9; --brand:#00b4ff; --border:#243044; }
+    body { margin:0; background:var(--bg); color:var(--txt); font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif; }
+    .container { max-width: 980px; margin: 0 auto; padding: 22px; }
+    header { display:flex; align-items:center; justify-content:space-between; padding:8px 0 12px; border-bottom:1px solid var(--border); position:sticky; top:0; background:#0b0f1acc; backdrop-filter: blur(6px); }
+    .brand { font-weight:800; text-decoration:none; color:var(--txt); }
+    .hero { display:grid; gap:14px; padding:22px 0 10px; }
+    .cards { display:grid; grid-template-columns: repeat(auto-fit,minmax(260px,1fr)); gap:14px; }
+    .card { background:var(--card); border:1px solid var(--border); border-radius:14px; padding:16px; }
+    .price { font-size:32px; font-weight:800; margin:6px 0 10px; }
+    .btn { display:inline-block; padding:10px 14px; border-radius:10px; background:var(--brand); color:#02121f; font-weight:800; text-decoration:none; }
+    .muted { color:var(--muted); }
+    footer { text-align:center; padding:24px 0; border-top:1px solid var(--border); margin-top:24px; }
   </style>
 </head>
 <body>
-  <header class="site-header">
-    <div class="container row">
-      <a class="brand" href="/">
-        <img src="/formfactor_logo_under512kb.jpg" alt="FormFactor Tips" width="36" height="36" />
-        <span>FormFactor Tips</span>
-      </a>
-      <nav class="nav">
-        <a href="#how">How it works</a>
-        <a href="#pricing">Pricing</a>
-        <a href="/members.html">Members</a>
-      </nav>
-    </div>
-  </header>
+  <div class="container">
+    <header>
+      <a class="brand" href="/">FormFactor Racing</a>
+      <nav><a class="muted" href="/members.html">Members</a> &nbsp; <a class="muted" href="/terms.html">Terms</a></nav>
+    </header>
 
-  <main>
     <section class="hero">
-      <div class="container">
-        <p class="eyebrow">Weekend Only • Metro Majors • Data First</p>
-        <h1>Your Weekend Racing Edge.</h1>
-        <p class="lead">We focus exclusively on <strong>Sydney, Melbourne and Brisbane metropolitan meetings</strong>. Saturday & Sunday selections built from speed maps, sectionals, track bias and disciplined price modelling.</p>
-        <div class="row" style="gap:12px;margin-top:10px">
-          <a class="btn primary" href="#pricing">View pricing</a>
-          <a class="btn" href="/members.html">Members</a>
+      <h1 style="margin:6px 0 0">Stat-driven tips. No hype.</h1>
+      <p class="muted" style="margin:0">Sectionals, speed ratings & true weights — turned into clean picks you can read in seconds.</p>
+
+      <div class="cards">
+        <div class="card">
+          <h3 style="margin:0 0 4px">Day Pass</h3>
+          <p class="muted" style="margin:0 0 8px">Full access for today’s meetings.</p>
+          <div class="price">$39</div>
+          <a class="btn" href="https://buy.stripe.com/3cI3cuagi9oW2Xp79jafS00">Buy Day Pass</a>
         </div>
+        <div class="card">
+          <h3 style="margin:0 0 4px">Monthly Access</h3>
+          <p class="muted" style="margin:0 0 8px">All meetings for 30 days.</p>
+          <div class="price">$99</div>
+          <a class="btn" href="https://buy.stripe.com/cNi5kCfAC58G2Xp8dnafS02">Subscribe Monthly</a>
+          <p class="muted" style="margin-top:8px">Best value — under $25/week</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3 style="margin:0 0 6px">What you get</h3>
+        <ul style="margin:8px 0 0 18px">
+          <li>Top pick for every race across major Saturday meetings</li>
+          <li><strong>Best / Value / Roughie</strong> per track with staking units (0.25 / 0.5 / 1.0)</li>
+          <li>Clean mobile layout with race #, horse # & one-line reason</li>
+        </ul>
       </div>
     </section>
 
-    <section id="how" class="pricing" style="padding-top:36px">
-      <div class="container">
-        <h2>How it works</h2>
-        <div class="grid-3">
-          <article class="card soft"><h3>1) Choose access</h3><p>Day (Saturday only) or Weekend Pro (Sat+Sun). Monthly subscribers get every weekend.</p></article>
-          <article class="card soft"><h3>2) Friday 10AM drop</h3><p>Weekend board goes live Friday 10:00 (AET). Updates for scratchings & track changes.</p></article>
-          <article class="card soft"><h3>3) Staking discipline</h3><p>Confidence (1–5) and unit staking guidance for a consistent, risk‑managed approach.</p></article>
-        </div>
-        <p class="muted" style="margin-top:10px">Scope: Sydney, Melbourne & Brisbane <strong>metropolitan</strong> meetings only.</p>
-      </div>
-    </section>
-
-    <section id="pricing" class="pricing">
-      <div class="container">
-        <h2>Pricing</h2>
-
-        <div class="cards">
-          <article class="card">
-            <h3>Day Pass <span class="badge">Saturday only</span></h3>
-            <p class="price">$19.90</p>
-            <ul class="bullets">
-              <li>Saturday selections (Syd/Melb/Bne metro)</li>
-              <li>Confidence & unit staking</li>
-              <li>Track notes (bias, rail, tempo)</li>
-            </ul>
-            <a class="btn buy" href="https://buy.stripe.com/3cI3cuagi9oW2Xp79jafS00">Buy Day Pass</a>
-          </article>
-
-          <article class="card">
-            <h3>Weekend Pro <span class="badge">Sat + Sun</span></h3>
-            <p class="price">$39</p>
-            <ul class="bullets">
-              <li>Saturday & Sunday (Syd/Melb/Bne metro)</li>
-              <li>Friday 10AM early access</li>
-              <li>Scratchings & track updates</li>
-            </ul>
-            <a class="btn buy" href="https://buy.stripe.com/8x2aEWbkm0Sq69BbpzafS01">Buy Weekend</a>
-          </article>
-
-          <article class="card">
-            <h3>Monthly Access</h3>
-            <p class="price">$99 <span class="muted">/ month</span></p>
-            <ul class="bullets">
-              <li>Every weekend (Syd/Melb/Bne metro)</li>
-              <li>Priority email support</li>
-              <li>Bankroll guidance</li>
-            </ul>
-            <a class="btn buy" href="https://buy.stripe.com/cNi5kCfAC58G2Xp8dnafS02">Subscribe</a>
-          </article>
-        </div>
-
-        <div class="compare" style="margin-top:18px">
-          <table>
-            <thead>
-              <tr><th>Feature</th><th>Day Pass</th><th>Weekend Pro</th><th>Monthly</th></tr>
-            </thead>
-            <tbody>
-              <tr><td>Access window</td><td>Saturday only</td><td>Fri 10AM → Sun</td><td>Every Fri–Sun</td></tr>
-              <tr><td>Tracks covered</td><td>Sydney/Melbourne/Brisbane metro (Sat)</td><td>Sydney/Melbourne/Brisbane metro (Sat+Sun)</td><td>Sydney/Melbourne/Brisbane metro (Sat+Sun)</td></tr>
-              <tr><td>Updates</td><td>Saturday scratchings</td><td>Sat + Sun scratchings</td><td>Sat + Sun scratchings</td></tr>
-              <tr><td>Staking guidance</td><td>Yes</td><td>Yes</td><td>Yes</td></tr>
-            </tbody>
-          </table>
-        </div>
-
-        <p class="tiny center muted" style="margin-top:12px">
-          Payments handled securely by Stripe. Apple&nbsp;Pay available on supported devices. Cancel anytime.
-        </p>
-      </div>
-    </section>
-  </main>
-
-  <footer class="site-footer">
-    <div class="container">
-      <p>© <span id="y"></span> FormFactor Tips | ABN 37 375 806 506 | Secure payments processed by Stripe</p>
-      <p class="tiny">All information is general in nature and provided for entertainment purposes. Gamble responsibly — 1800&nbsp;858&nbsp;858 — gamblinghelponline.org.au</p>
-      <p class="tiny"><a href="/privacy.html">Privacy</a> · <a href="/refund.html">Refunds</a> · <a href="/terms.html">Terms</a></p>
-    </div>
-  </footer>
-
+    <footer>
+      <p>© <span id="y"></span> FormFactor Racing | ABN 37 375 806 506</p>
+      <p class="muted">All information is general advice only. Gamble responsibly — 1800 858 858 — gamblinghelponline.org.au</p>
+    </footer>
+  </div>
   <script>document.getElementById('y').textContent=new Date().getFullYear();</script>
 </body>
 </html>
