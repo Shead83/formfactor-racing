@@ -6,17 +6,19 @@
   <title>FormFactor Racing — Data-first tips</title>
   <style>
     :root { --bg:#0b0f1a; --card:#12182a; --txt:#e8eef5; --muted:#9cb3c9; --brand:#00b4ff; --border:#243044; }
-    body { margin:0; background:var(--bg); color:var(--txt); font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif; }
+    body { margin:0; background:var(--bg); color:var(--txt); font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif; }
     .container { max-width: 980px; margin: 0 auto; padding: 22px; }
     header { display:flex; align-items:center; justify-content:space-between; padding:8px 0 12px; border-bottom:1px solid var(--border); position:sticky; top:0; background:#0b0f1acc; backdrop-filter: blur(6px); }
     .brand { font-weight:800; text-decoration:none; color:var(--txt); }
-    .hero { display:grid; gap:14px; padding:22px 0 10px; }
+    h1,h2,h3 { margin:0; }
+    .hero { display:grid; gap:14px; padding:24px 0 10px; }
     .cards { display:grid; grid-template-columns: repeat(auto-fit,minmax(260px,1fr)); gap:14px; }
     .card { background:var(--card); border:1px solid var(--border); border-radius:14px; padding:16px; }
     .price { font-size:32px; font-weight:800; margin:6px 0 10px; }
     .btn { display:inline-block; padding:10px 14px; border-radius:10px; background:var(--brand); color:#02121f; font-weight:800; text-decoration:none; }
     .muted { color:var(--muted); }
     footer { text-align:center; padding:24px 0; border-top:1px solid var(--border); margin-top:24px; }
+    ul,ol { padding-left:20px; margin:6px 0; }
   </style>
 </head>
 <body>
@@ -26,41 +28,78 @@
       <nav><a class="muted" href="/members.html">Members</a> &nbsp; <a class="muted" href="/terms.html">Terms</a></nav>
     </header>
 
+    <!-- HERO -->
     <section class="hero">
-      <h1 style="margin:6px 0 0">Stat-driven tips. No hype.</h1>
-      <p class="muted" style="margin:0">Sectionals, speed ratings & true weights — turned into clean picks you can read in seconds.</p>
+      <h1>Data-driven racing tips — without the hype</h1>
+      <p class="muted">Speed ratings, true weights & raw sectionals — turned into clear, confident picks every Saturday.</p>
 
+      <!-- PRICING -->
       <div class="cards">
         <div class="card">
-          <h3 style="margin:0 0 4px">Day Pass</h3>
-          <p class="muted" style="margin:0 0 8px">Full access for today’s meetings.</p>
+          <h3>Day Pass</h3>
+          <p class="muted">Full access for all Saturday meetings.</p>
           <div class="price">$39</div>
           <a class="btn" href="https://buy.stripe.com/3cI3cuagi9oW2Xp79jafS00">Buy Day Pass</a>
         </div>
         <div class="card">
-          <h3 style="margin:0 0 4px">Monthly Access</h3>
-          <p class="muted" style="margin:0 0 8px">All meetings for 30 days.</p>
+          <h3>Monthly Access</h3>
+          <p class="muted">Every Saturday for 30 days.</p>
           <div class="price">$99</div>
           <a class="btn" href="https://buy.stripe.com/cNi5kCfAC58G2Xp8dnafS02">Subscribe Monthly</a>
-          <p class="muted" style="margin-top:8px">Best value — under $25/week</p>
+          <p class="muted" style="margin-top:8px;font-size:12px">Best value — under $25/week</p>
         </div>
       </div>
 
+      <!-- WHAT YOU GET -->
       <div class="card">
-        <h3 style="margin:0 0 6px">What you get</h3>
-        <ul style="margin:8px 0 0 18px">
-          <li>Top pick for every race across major Saturday meetings</li>
-          <li><strong>Best / Value / Roughie</strong> per track with staking units (0.25 / 0.5 / 1.0)</li>
-          <li>Clean mobile layout with race #, horse # & one-line reason</li>
+        <h3>What you get</h3>
+        <ul class="muted">
+          <li>Top pick for every race across major metro meetings</li>
+          <li><strong>Best / Value / Roughie</strong> per track with staking units</li>
+          <li>0.25u · 0.5u · 1.0u — risk managed, pro approach</li>
+          <li>Mobile-first layout — race #, horse # & one-line reason</li>
         </ul>
       </div>
+
+      <!-- RESULTS SNAPSHOT -->
+      <div class="card">
+        <h3>Last Saturday — Snapshot</h3>
+        <div class="muted" style="margin:4px 0 10px">
+          ✅ Best Bets: <strong>3 / 3</strong> &nbsp;·&nbsp; 🏆 Winners: <strong>8</strong> &nbsp;·&nbsp; 🎯 Top 3: <strong>17</strong>
+        </div>
+        <p class="muted" style="margin:0 0 4px"><strong>Best Bets:</strong> Lindermann, Observer, Imposant — all won.</p>
+        <p class="muted" style="font-size:12px;margin:6px 0 0">Units for responsible staking. Past performance isn’t a guarantee of future results. Gamble responsibly — 1800 858 858.</p>
+      </div>
+
+      <!-- HOW IT WORKS -->
+      <div class="card">
+        <h3>How it works</h3>
+        <ol class="muted">
+          <li>Buy a Day Pass or Monthly subscription</li>
+          <li>Your access code is saved automatically</li>
+          <li>Tips go LIVE every Saturday at <strong>8:00am AEST</strong></li>
+          <li>Log in to Members and get the full card</li>
+        </ol>
+      </div>
+
+      <!-- CTA -->
+      <div class="card" style="text-align:center">
+        <h3>Ready for this Saturday?</h3>
+        <p class="muted">Join before 8:00am AEST to unlock Best / Value / Roughie per track.</p>
+        <a class="btn" href="https://buy.stripe.com/3cI3cuagi9oW2Xp79jafS00">Buy Day Pass</a>
+        &nbsp;&nbsp;
+        <a class="btn" href="https://buy.stripe.com/cNi5kCfAC58G2Xp8dnafS02">Subscribe Monthly</a>
+      </div>
+
     </section>
 
+    <!-- FOOTER -->
     <footer>
       <p>© <span id="y"></span> FormFactor Racing | ABN 37 375 806 506</p>
-      <p class="muted">All information is general advice only. Gamble responsibly — 1800 858 858 — gamblinghelponline.org.au</p>
+      <p class="muted">General advice only. Gamble responsibly — 1800 858 858.</p>
     </footer>
   </div>
+
   <script>document.getElementById('y').textContent=new Date().getFullYear();</script>
 </body>
 </html>
