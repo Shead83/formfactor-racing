@@ -158,14 +158,14 @@
         "track": "Flemington",
         "races": [
           {
+            "horse": "Panova",
+            "recent_speed_rating": 71,
+            "sectional_last600": 35.2,
+            "barrier": 7,
+            "weight": 56.0,
+            "confidence": 7.5,
+            "reason": "Panova replaces Vinrock after his scratching. She is coming off a Group 3 win (Reginald Allen Stakes, 1400m) with a powerful finish, running about 35.2s for the final 600m. From barrier 7 with 56kg under set weights + penalties, she receives a weight advantage against several key rivals. Expected genuine tempo should suit her run‑on style, and her recent performance rating (~71) stacks up well for the step to 1600m.",
             "number": 1,
-            "horse": "Vinrock",
-            "recent_speed_rating": 102,
-            "sectional_last600": 34.08,
-            "barrier": 2,
-            "weight": 59.5,
-            "confidence": 4,
-            "reason": "Won the Stutt Stakes with a final 600m of 34.08s. Top weight at 59.5kg but brings a high rating of 102 into this 1600m Carbine Club, and from barrier 2 should get an ideal run.",
             "horse_number": 1
           },
           {
