@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Thanks — Your Access Code</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script>
+    async function init(){
+      const params = new URLSearchParams(location.search);
+      const sid = params.get('session_id');
+      const el = document.getElementById('out');
+      if(!sid){ el.textContent='Missing session id.'; return; }
+      el.textContent='Generating your code…';
+      try{
+        const resp = await fetch('/.netlify/functions/get-code?session_id=' + encodeURIComponent(sid));
+        const data = await resp.json();
+        if(!resp.ok){ el.textContent = data.message || 'Could not fetch code yet.'; return; }
+        el.innerHTML = '<strong>Your code:</strong> <code>' + data.code + '</code><br><br><a class="btn primary" href="/members.html">Go to Members Page</a>';
+      }catch(e){
+        el.textContent='Error fetching your code.';
+      }
+    }
+    document.addEventListener('DOMContentLoaded', init);
+  </script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="/" class="logo-link"><img src="assets/logo_placeholder.svg" class="logo" alt="FormFactor Racing"></a>
+      <nav class="nav">
+        <a href="/">Home</a>
+        <a href="/members.html">Members</a>
+      </nav>
+    </div>
+  </header>
+  <section class="hero">
+    <div class="container hero-inner">
+      <h1>Thank you!</h1>
+      <p class="sub">Your purchase was successful. Your unique access code is below.</p>
+      <div id="out" class="status">Generating your code…</div>
+    </div>
+  </section>
+</body>
+</html>
