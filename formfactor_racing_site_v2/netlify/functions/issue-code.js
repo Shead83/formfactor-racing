@@ -17,7 +17,6 @@ function deriveAccess(lineItems){
   // Customize these product IDs to your live Stripe Product IDs
   const map = {
     'Day Pass': { access: 'day', days: 1 },
-    'Weekend Pro': { access: 'weekend', days: 2 },
     'Monthly Access': { access: 'monthly', days: 31 }
   };
   for (const it of lineItems) {

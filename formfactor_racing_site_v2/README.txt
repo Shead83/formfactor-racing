@@ -18,7 +18,6 @@ Branding & compliance:
 
 Stripe links (already wired):
 - Day Pass
-- Weekend Pro
 - Monthly Access
 
 Need help? Upload your real `picks.json` here in chat and I’ll rebuild the ZIP with it embedded.
