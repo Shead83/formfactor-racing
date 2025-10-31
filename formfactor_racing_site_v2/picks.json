@@ -1,337 +1,444 @@
-{
-  "date": "2025-10-26",
-  "access_token": "DAYPASS-2025",
-  "meetings": [
-    {
-      "date": "2025-10-26",
-      "city": "Sydney",
-      "track": "Royal Randwick",
-      "races": [
-        {
-          "number": 1,
-          "horse": "Pearl Of Dubai",
-          "recent_speed_rating": 80,
-          "sectional_last600": 34.0,
-          "barrier": 5,
-          "weight": 54.5,
-          "confidence": 6,
-          "reason": "Showed sharp trial speed and carries a light 54.5kg as a filly. Fastest trial time and an inside barrier indicate a strong early advantage."
-        },
-        {
-          "number": 2,
-          "horse": "Write Your Own",
-          "recent_speed_rating": 62,
-          "sectional_last600": 35.0,
-          "barrier": 12,
-          "weight": 56.5,
-          "confidence": 7,
-          "reason": "Highest benchmark rating (62) in the field and recorded a strong final 600m in 35.0s last run. Carries 56.5kg which is solid at this class and should finish powerfully."
-        },
-        {
-          "number": 3,
-          "horse": "Broadway Bouncer",
-          "recent_speed_rating": 72,
-          "sectional_last600": 33.8,
-          "barrier": 1,
-          "weight": 60.0,
-          "confidence": 8,
-          "reason": "Top recent speed figure of 72 and blazed the fastest last 600m (33.8s) in her last run. Drawn the inside gate to save ground, despite 60kg she has the statistical edge in closing speed."
-        },
-        {
-          "number": 4,
-          "horse": "Point And Shoot",
-          "recent_speed_rating": 84,
-          "sectional_last600": 34.2,
-          "barrier": 4,
-          "weight": 52.0,
-          "confidence": 9,
-          "reason": "Best speed rating of 84 in this race and drops to a very low 52kg. Ran a strong 34.2s final 600m when charging home last start. Well drawn to settle handy and capitalize on the light weight."
-        },
-        {
-          "number": 5,
-          "horse": "Grand Eagle",
-          "recent_speed_rating": 74,
-          "sectional_last600": 34.0,
-          "barrier": 7,
-          "weight": 56.0,
-          "confidence": 8,
-          "reason": "Leads the field on recent ratings (74) and closed in 34.0s for the last 600m in a Group race, showing superior finishing speed. Carries a manageable 56kg at Listed level, making him statistically very competitive."
-        },
-        {
-          "number": 6,
-          "horse": "Lindermann",
-          "recent_speed_rating": 114,
-          "sectional_last600": 35.0,
-          "barrier": 2,
-          "weight": 59.0,
+[
+  {
+    "date": "2025-11-01",
+    "city": "Sydney",
+    "meetings": [
+      {
+        "track": "Randwick",
+        "races": [
+          {
+            "number": 1,
+            "horse": "Rotagilla",
+            "recent_speed_rating": 69,
+            "sectional_last600": 34.94,
+            "barrier": 7,
+            "weight": 55.5,
+            "confidence": 3,
+            "reason": "Posted a last 600m in 34.94s last start, the quickest of the field. Carries 55.5kg from barrier 7, and his rating of 69 is among the highest here.",
+            "horse_number": 1
+          },
+          {
+            "number": 2,
+            "horse": "Lambay",
+            "recent_speed_rating": 69,
+            "sectional_last600": 35.09,
+            "barrier": 14,
+            "weight": 58.5,
+            "confidence": 0.5,
+            "reason": "Ran a 600m sectional of 35.09s when placing last start. Has a wide draw (barrier 14) and carries 58.5kg, but his rating (69) is solid for this Class 3 field.",
+            "horse_number": 2
+          },
+          {
+            "number": 3,
+            "horse": "Jellicious",
+            "recent_speed_rating": 75,
+            "sectional_last600": 33.12,
+            "barrier": 10,
+            "weight": 58.5,
+            "confidence": 4,
+            "reason": "Unbeaten this prep with a best closing 600m of 33.12s recorded last start. Drawn barrier 10 with 58.5kg, she brings the top rating of 75 in this race.",
+            "horse_number": 3
+          },
+          {
+            "number": 4,
+            "horse": "Piraeus",
+            "recent_speed_rating": 68,
+            "sectional_last600": 36.01,
+            "barrier": 9,
+            "weight": 60,
+            "confidence": 1,
+            "reason": "Carries 60kg as top weight and recorded a final 600m in ~36.0s when runner-up recently. His rating of 68 is competitive and he’s drawn midfield in barrier 9.",
+            "horse_number": 4
+          },
+          {
+            "number": 5,
+            "horse": "United Kingdom",
+            "recent_speed_rating": 68,
+            "sectional_last600": 35.53,
+            "barrier": 7,
+            "weight": 55.0,
+            "confidence": 3,
+            "reason": "Won last start over 1800m, closing in 35.53s for the final 600m. Down to 55.0kg here and drawn well in gate 7, he matches his rivals on rating (68).",
+            "horse_number": 5
+          },
+          {
+            "number": 6,
+            "horse": "Istolea Merc",
+            "recent_speed_rating": 74,
+            "sectional_last600": 33.55,
+            "barrier": 7,
+            "weight": 58.0,
+            "confidence": 5,
+            "reason": "Won with a powerful finish in his recent run, clocking 33.55s for the final 600m. Carries 58kg here and his rating of 74 is one of the highest in this sprint field.",
+            "horse_number": 6
+          },
+          {
+            "number": 7,
+            "horse": "Jimmysstar",
+            "recent_speed_rating": 116,
+            "sectional_last600": 33.52,
+            "barrier": 4,
+            "weight": 58.5,
+            "confidence": 5,
+            "reason": "Comes off a Group 3 second with a blistering 33.52s last 600m. Drawn barrier 4 and carrying 58.5kg at a lofty 116 rating, he brings top-class figures into this 1300m event.",
+            "horse_number": 7
+          },
+          {
+            "number": 8,
+            "horse": "Autumn Glow",
+            "recent_speed_rating": 115,
+            "sectional_last600": 33.77,
+            "barrier": 9,
+            "weight": 55.5,
+            "confidence": 9,
+            "reason": "Undefeated mare with a peak final 600m of 33.77s in the lead-up. Carries 55.5kg and a superior 115 handicap rating , making her the standout on raw figures.",
+            "horse_number": 8
+          },
+          {
+            "number": 9,
+            "horse": "Maison Louis",
+            "recent_speed_rating": 104,
+            "sectional_last600": 36.54,
+            "barrier": 2,
+            "weight": 58.0,
+            "confidence": 3,
+            "reason": "Placed in Group company; last win was run in 2 31.33 with a 36.54s final 600m. Drawn in barrier 2 and carrying 58kg, his 104 rating towers over many rivals in this 2000m race.",
+            "horse_number": 9
+          },
+          {
+            "number": 10,
+            "horse": "Emirate",
+            "recent_speed_rating": 79,
+            "sectional_last600": 35.0,
+            "barrier": 8,
+            "weight": 60.5,
+            "confidence": 0.25,
+            "reason": "Carries 60.5kg as joint top-weight and holds a rating of 79. Although out of form, he has run closing splits around ~35s in the past and needs only to reproduce that under Joao Moreira to be competitive.",
+            "horse_number": 10
+          }
+        ],
+        "best_bet": {
+          "number": 8,
+          "horse": "Autumn Glow",
+          "recent_speed_rating": 115,
+          "sectional_last600": 33.77,
+          "barrier": 9,
+          "weight": 55.5,
           "confidence": 10,
-          "reason": "Boasts an elite speed rating of 114, far above the rest. Last start led throughout and still clocked a solid 35.0s final 600m. Even with top weight 59kg, his class and figures give him a clear statistical edge."
+          "reason": "Rated 115 and undefeated, she brings superior speed figures. Her last 600m of 33.77s and a light weight of 55.5kg make her the clear top pick on Golden Eagle day."
         },
-        {
-          "number": 7,
-          "horse": "Rivellino",
-          "recent_speed_rating": 91,
-          "sectional_last600": 34.5,
-          "barrier": 1,
-          "weight": 57.0,
-          "confidence": 9,
-          "reason": "Highest handicap rating of 91 among these three-year-olds and drawn ideally in barrier 1. Ran a 34.5s last 600m in his recent run, indicating a strong finish. The combination of top rating and gate suggests a major advantage."
-        },
-        {
-          "number": 8,
-          "horse": "Federalist",
-          "recent_speed_rating": 85,
-          "sectional_last600": 34.0,
-          "barrier": 14,
-          "weight": 56.5,
-          "confidence": 5,
-          "reason": "Recent performances point to an improving figure around mid-80s and he recorded one of the fastest final 600m splits (34.0s) in the lead-up race. Carries 56.5kg at set weights; despite a wide draw, his late-speed metric keeps him in contention."
-        },
-        {
-          "number": 9,
-          "horse": "Bauhinia",
-          "recent_speed_rating": 80,
-          "sectional_last600": 33.8,
-          "barrier": 4,
-          "weight": 57.0,
-          "confidence": 3,
-          "reason": "Comes in with a respectable rating (~80) and a light weight of 57kg under set weights. Notably produced a very fast 33.8s last 600m when finally clear in her last start, suggesting she can outperform her odds if given a clear run."
-        },
-        {
-          "number": 10,
-          "horse": "Rise At Dawn",
-          "recent_speed_rating": 104,
-          "sectional_last600": 35.2,
-          "barrier": 7,
-          "weight": 56.0,
-          "confidence": 7,
-          "reason": "One of the highest ratings in this field at 104 and an on-pace runner who can dictate. Carried 56kg to a strong placing last start; even with a moderate 35.2s last 600m while contesting the lead, his overall speed profile is superior here."
-        }
-      ],
-      "best_bet": "Lindermann",
-      "value_bet": "Federalist",
-      "roughie": "Bauhinia"
-    },
-    {
-      "date": "2025-10-26",
-      "city": "Melbourne",
-      "track": "Moonee Valley",
-      "races": [
-        {
-          "number": 1,
-          "horse": "Beast Mode",
-          "recent_speed_rating": 86,
-          "sectional_last600": 33.0,
-          "barrier": 6,
-          "weight": 53.0,
-          "confidence": 7,
-          "reason": "Specialist sprinter with a strong speed figure (86) in this company. Won here over 955m running a blistering final 600m around 33.0s. Well-weighted at 53kg in this handicap, indicating a clear statistical edge in early speed."
-        },
-        {
-          "number": 2,
-          "horse": "Prince Tycoon",
-          "recent_speed_rating": 72,
-          "sectional_last600": 34.0,
-          "barrier": 6,
-          "weight": 57.0,
-          "confidence": 6,
-          "reason": "Lightly raced 3YO with a solid debut rating of 72. At set weights he carries 57kg which is standard for this Group 3. His jump-out times (approx 34.0s last 600m) and unbeaten record suggest he can match the top contenders on raw ability."
-        },
-        {
-          "number": 3,
-          "horse": "Kujenga",
-          "recent_speed_rating": 75,
-          "sectional_last600": 34.5,
-          "barrier": 1,
-          "weight": 57.0,
-          "confidence": 5,
-          "reason": "Brings a competitive speed rating of 75 among the 3YO fillies and is drawn perfectly in gate 1 to utilize her pace efficiently. Clocked a 34.5s final 600m last start, indicating she has the late speed to be a factor under equal weights (57kg)."
-        },
-        {
+        "value_bet": {
           "number": 4,
-          "horse": "Enviable",
-          "recent_speed_rating": 70,
-          "sectional_last600": 34.2,
-          "barrier": 11,
-          "weight": 57.0,
-          "confidence": 6,
-          "reason": "Her rating of 70 is on par with the top fillies here and she showed a swift 34.2s final 600m in the Flight Stakes, highlighting her finishing strength. Although drawn wide (barrier 11), she carries 57kg like all rivals and her closing sectionals give her a statistical shot."
+          "horse": "Piraeus",
+          "recent_speed_rating": 68,
+          "sectional_last600": 36.01,
+          "barrier": 9,
+          "weight": 60,
+          "confidence": 1,
+          "reason": "Offers value at longer odds. He has a solid rating (68) for this Midway field and closed in ~36.0s last out, indicating he can surprise if the pace is on."
         },
-        {
-          "number": 5,
-          "horse": "Future History",
-          "recent_speed_rating": 101,
-          "sectional_last600": 36.0,
-          "barrier": 2,
+        "roughie": {
+          "number": 8,
+          "horse": "Lord Penman",
+          "recent_speed_rating": 95,
+          "sectional_last600": 33.55,
+          "barrier": 16,
           "weight": 57.5,
-          "confidence": 8,
-          "reason": "Boasts the highest speed rating (101) in this field and is the defending winner of this race. Barrier 2 and tactical speed are major pluses. Even though his last 600m (~36.0s) was moderate when outsprinted in the Coongy, his overall figures and proven 2040m strength make him the standout statistically."
-        },
-        {
-          "number": 6,
-          "horse": "She's A Hustler",
-          "recent_speed_rating": 84,
-          "sectional_last600": 34.5,
-          "barrier": 9,
-          "weight": 54.0,
-          "confidence": 7,
-          "reason": "Brings a strong rating of 84 for this mares’ Group race and impressed first-up, winning over 1800m with a closing 600m in ~34.5s. Carries the minimum 54kg under set weights, giving her a clear statistical advantage given her form and speed metrics."
-        },
-        {
-          "number": 7,
-          "horse": "Oh Too Good",
-          "recent_speed_rating": 102,
-          "sectional_last600": 34.0,
-          "barrier": 1,
-          "weight": 56.0,
-          "confidence": 8,
-          "reason": "In-form mare with a top-tier rating of 102 at the mile distance. She won her last start comfortably, showing a sharp turn of foot (around 34.0s for the final 600m). Drawn barrier 1, she should secure a ground-saving run and at 56kg (SWP conditions) her figures make her one of the statistically strongest contenders."
-        },
-        {
-          "number": 8,
-          "horse": "Klabel",
-          "recent_speed_rating": 91,
-          "sectional_last600": 35.5,
-          "barrier": 1,
-          "weight": 58.5,
-          "confidence": 4,
-          "reason": "His rating of 91 is respectable in this Group 2 sprint field. Drawn the inside barrier, he can utilize his early pace to advantage. While his last 600m (35.5s) was only even, he is a genuine on-speed runner carrying 58.5kg at WFA, and his consistency makes him a value statistical chance to run a bold race."
-        },
-        {
-          "number": 9,
-          "horse": "Observer",
+          "confidence": 0.25,
+          "reason": "Drawn widest, but his late speed is notable – he rattled off 33.55s for the final 600m when second in the Silver Eagle. With a 95 rating he’s a knockout chance at big odds."
+        }
+      }
+    ]
+  },
+  {
+    "date": "2025-11-01",
+    "city": "Melbourne",
+    "meetings": [
+      {
+        "track": "Flemington",
+        "races": [
+          {
+            "number": 1,
+            "horse": "Vinrock",
+            "recent_speed_rating": 102,
+            "sectional_last600": 34.08,
+            "barrier": 2,
+            "weight": 59.5,
+            "confidence": 4,
+            "reason": "Won the Stutt Stakes with a final 600m of 34.08s. Top weight at 59.5kg but brings a high rating of 102 into this 1600m Carbine Club, and from barrier 2 should get an ideal run.",
+            "horse_number": 1
+          },
+          {
+            "number": 2,
+            "horse": "Icarian Dream",
+            "recent_speed_rating": 74,
+            "sectional_last600": 35.0,
+            "barrier": 7,
+            "weight": 58.5,
+            "confidence": 1,
+            "reason": "Ran a much-improved race for fourth at Caulfield, indicating a closing 600m around the 35-second mark. She carries 58.5kg from gate 7 and her rating of 74 is respectable, making her a live upset chance.",
+            "horse_number": 1
+          },
+          {
+            "number": 3,
+            "horse": "Caballus",
+            "recent_speed_rating": 101,
+            "sectional_last600": 33.96,
+            "barrier": 6,
+            "weight": 57.0,
+            "confidence": 4,
+            "reason": "Closed in 33.96s for 600m when running well in Group 3 company. With a 101 rating and drawn 6, this gelding carries 57kg and should be in the finish off a solid early tempo.",
+            "horse_number": 5
+          },
+          {
+            "number": 4,
+            "horse": "Getta Good Feeling",
+            "recent_speed_rating": 92,
+            "sectional_last600": 34.0,
+            "barrier": 6,
+            "weight": 57.0,
+            "confidence": 9,
+            "reason": "Class filly who placed in the G1 Thousand Guineas, running the final 600m in ~34.0s. She’s down in class here, drawn well in 6, and her 92 rating with 57kg makes her the standout.",
+            "horse_number": 1
+          },
+          {
+            "number": 5,
+            "horse": "King Zephyr",
+            "recent_speed_rating": 90,
+            "sectional_last600": 34.82,
+            "barrier": 7,
+            "weight": 53.0,
+            "confidence": 6,
+            "reason": "A consistent on-pacer who was runner-up in fast time last out, final 600m in 34.82s. Drops to 53kg here and with an inside draw (7) his rating of 90 underestimates his recent form.",
+            "horse_number": 13
+          },
+          {
+            "number": 6,
+            "horse": "Tentyris",
+            "recent_speed_rating": 95,
+            "sectional_last600": 32.36,
+            "barrier": 5,
+            "weight": 57.0,
+            "confidence": 5,
+            "reason": "Brings explosive sectionals – he flew home in 32.36s for the last 600m in the Danehill Stakes. Racing off a 95 rating and drawn 5, this colt carries 57kg and looks primed for the Coolmore.",
+            "horse_number": 3
+          },
+          {
+            "number": 7,
+            "horse": "Observer",
+            "recent_speed_rating": 94,
+            "sectional_last600": 36.11,
+            "barrier": 4,
+            "weight": 57.0,
+            "confidence": 8,
+            "reason": "Dominant Derby trial winner, taking the MV Vase with a final 600m of 36.11s. He has a midpack gate (4), carries 57kg and holds a strong rating of 94, suggesting he will stay the 2500m strongly.",
+            "horse_number": 1
+          },
+          {
+            "number": 8,
+            "horse": "Fangirl",
+            "recent_speed_rating": 118,
+            "sectional_last600": 34.36,
+            "barrier": 6,
+            "weight": 57.0,
+            "confidence": 5,
+            "reason": "High-class mare with a peak final 600m of 34.36s noted in her work. Her 118 rating is by far the highest in this field. With 57kg at the mile and a fair draw, she’s the one to beat if she finds clear running.",
+            "horse_number": 2
+          },
+          {
+            "number": 9,
+            "horse": "She’s Bulletproof",
+            "recent_speed_rating": 104,
+            "sectional_last600": 34.5,
+            "barrier": 3,
+            "weight": 57.0,
+            "confidence": 2,
+            "reason": "Won at Caulfield last start, leading throughout and finishing in roughly 34.5s for the final split. Carries 57kg from barrier 3 and holds a 104 rating , which gives her a slight edge in this 1100m sprint field.",
+            "horse_number": 3
+          }
+        ],
+        "best_bet": {
+          "number": 1,
+          "horse": "Getta Good Feeling",
           "recent_speed_rating": 92,
-          "sectional_last600": 33.5,
-          "barrier": 9,
+          "sectional_last600": 34.0,
+          "barrier": 6,
+          "weight": 57.0,
+          "confidence": 10,
+          "reason": "Brings class and data superiority to the Wakeful Stakes. She ran a 34.0s last 600m when placing in G1 company and her overall profile (92 rating, ideal draw, manageable weight) makes her the day’s top betting prospect."
+        },
+        "value_bet": {
+          "number": 10,
+          "horse": "Beadman",
+          "recent_speed_rating": 88,
+          "sectional_last600": 33.77,
+          "barrier": 8,
+          "weight": 57.0,
+          "confidence": 2,
+          "reason": "An emerging colt offering value in the Coolmore. He clocked a sharp 33.77s final 600m when narrowly beaten last start. With a 88 rating and Blake Shinn aboard, he’s poised to outrun his odds."
+        },
+        "roughie": {
+          "number": 5,
+          "horse": "Options",
+          "recent_speed_rating": 78,
+          "sectional_last600": 34.68,
+          "barrier": 7,
+          "weight": 57.0,
+          "confidence": 0.25,
+          "reason": "Arrives off a strong staying win in the Geelong Classic, closing the last 600m in 34.68s. He steps into the Derby with only a 78 rating, but his light weight and sustained late speed make him a live roughie at long odds."
+        }
+      }
+    ]
+  },
+  {
+    "date": "2025-11-01",
+    "city": "Brisbane",
+    "meetings": [
+      {
+        "track": "Eagle Farm",
+        "races": [
+          {
+            "number": 1,
+            "horse": "Rarotonga",
+            "recent_speed_rating": null,
+            "sectional_last600": 36.92,
+            "barrier": 2,
+            "weight": 59.0,
+            "confidence": 3,
+            "reason": "Placed on debut, running 1000m in 56.79s with a final 600m in 36.92s. Drawn gate 2 and carrying 59kg, this colt has shown enough speed to break through in the 2YO opener.",
+            "horse_number": 1
+          },
+          {
+            "number": 2,
+            "horse": "Negotiations",
+            "recent_speed_rating": 70,
+            "sectional_last600": 34.45,
+            "barrier": 5,
+            "weight": 60.0,
+            "confidence": 4,
+            "reason": "Consistent sprinter who ran a 34.45s last 600m when runner-up in a similar Class 3 event. He has the top rating (70) in this field and should be prominent from barrier 5 with 60kg.",
+            "horse_number": 2
+          },
+          {
+            "number": 3,
+            "horse": "Tapildoodledo",
+            "recent_speed_rating": 80,
+            "sectional_last600": 34.23,
+            "barrier": 9,
+            "weight": 61.0,
+            "confidence": 3,
+            "reason": "Class stayer dropping in grade. He clocked a 34.23s final 600m when placing over 2400m earlier this year. With a top weight of 61kg and 80 rating , he’s the proven performer in this 2406m contest.",
+            "horse_number": 1
+          },
+          {
+            "number": 4,
+            "horse": "Mazis",
+            "recent_speed_rating": 69,
+            "sectional_last600": 34.41,
+            "barrier": 4,
+            "weight": 59.5,
+            "confidence": 6,
+            "reason": "High-flying gelding who won 2 of last 3. Last start he led and was narrowly beaten with a 34.41s closing 600m. Drawn ideally in 4 carrying 59.5kg, his rating 69 is on par with this BM78 field and he looks hard to catch.",
+            "horse_number": 3
+          },
+          {
+            "number": 5,
+            "horse": "Brave Monarch",
+            "recent_speed_rating": 62,
+            "sectional_last600": 33.72,
+            "barrier": 5,
+            "weight": 60.0,
+            "confidence": 4,
+            "reason": "Led throughout to win at Doomben, final 600m in 33.72s. Up to 1400m, he carries 60kg and his rating (62) is equal top in this 3YO Handicap. Well drawn in 5, he can dictate again.",
+            "horse_number": 1
+          },
+          {
+            "number": 6,
+            "horse": "Koruto",
+            "recent_speed_rating": 75,
+            "sectional_last600": 35.0,
+            "barrier": 10,
+            "weight": 62.5,
+            "confidence": 1,
+            "reason": "Veteran galloper holding the highest rating (75) here. He hasn’t shown his best recently, but drops in class and has run final 600m splits around 35 seconds on good tracks. Carries 62.5kg from a wide draw, needing a form reversal.",
+            "horse_number": 1
+          },
+          {
+            "number": 7,
+            "horse": "Spirit Of Barty",
+            "recent_speed_rating": 60,
+            "sectional_last600": 33.96,
+            "barrier": 3,
+            "weight": 53.0,
+            "confidence": 4,
+            "reason": "Impressive filly who won her 1000m debut and clocked 33.96s for her last 600m in a recent trial. With only 53kg and a perfect inside draw (gate 3), her raw speed (60 rating) makes her a strong chance in this QTIS dash.",
+            "horse_number": 10
+          },
+          {
+            "number": 8,
+            "horse": "Midnight Spirit",
+            "recent_speed_rating": 65,
+            "sectional_last600": 34.15,
+            "barrier": 10,
+            "weight": 57.5,
+            "confidence": 3,
+            "reason": "Won on debut in a 15-runner maiden and later placed in a G2 sprint. Ran 34.15s for the last 600m as a 2YO in stakes company. Tackling older horses at 1000m, he has a 65 rating and carries 57.5kg, putting him right in the mix.",
+            "horse_number": 3
+          },
+          {
+            "number": 9,
+            "horse": "Naval Seal",
+            "recent_speed_rating": 79,
+            "sectional_last600": 33.91,
+            "barrier": 3,
+            "weight": 57.0,
+            "confidence": 8,
+            "reason": "Ultra-consistent Waller runner. Ran 33.91s for the final 600m when second over a mile earlier this year. Fresh off a win, he steps to 1600m carrying 57kg from barrier 3, and his 79 rating tops this Class 5 field. Clearly the one to beat.",
+            "horse_number": 7
+          },
+          {
+            "number": 10,
+            "horse": "Cifrado",
+            "recent_speed_rating": 100,
+            "sectional_last600": 35.0,
+            "barrier": 9,
+            "weight": 60.5,
+            "confidence": 2,
+            "reason": "Group 1 winner as a juvenile (rating 100) returning to form. Carries 60.5kg as joint top weight. He has run sub-35s last 600m in the past and, if near his best, could unleash a competitive closing split in this BM85.",
+            "horse_number": 1
+          }
+        ],
+        "best_bet": {
+          "number": 7,
+          "horse": "Naval Seal",
+          "recent_speed_rating": 79,
+          "sectional_last600": 33.91,
+          "barrier": 3,
           "weight": 57.0,
           "confidence": 9,
-          "reason": "Boasts the top speed rating of 92 among these 3YOs and likely would have won the G1 Caulfield Guineas with clear running. No issues with the 2040m trip and he unleashed an approximate 33.5s final 600m last start. With 57kg at set weights, his statistics (rating and sectionals) make him the one to beat."
+          "reason": "Comes off a win and boasts the strongest data in this field. His final 600m of 33.91s last prep over a mile and his top-rating profile (79) signal he’s poised to score again with conditions to suit."
         },
-        {
+        "value_bet": {
           "number": 10,
-          "horse": "Via Sistina",
-          "recent_speed_rating": 127,
-          "sectional_last600": 34.5,
-          "barrier": 5,
-          "weight": 57.0,
-          "confidence": 8,
-          "reason": "The highest internationally rated horse in the field with a figure of 127, well above her Cox Plate rivals. She won the G1 Winx Stakes first-up and has been consistently near her top form. From barrier 5 she maps well and her steady 34.5s last 600m at 2000m last run confirms she remains on target. At 57kg (mare WFA), her class edge is clear on the numbers."
-        }
-      ],
-      "best_bet": "Observer",
-      "value_bet": "Kujenga",
-      "roughie": "Klabel"
-    },
-    {
-      "date": "2025-10-26",
-      "city": "Brisbane",
-      "track": "Eagle Farm",
-      "races": [
-        {
+          "horse": "Spirit Of Barty",
+          "recent_speed_rating": 60,
+          "sectional_last600": 33.96,
+          "barrier": 3,
+          "weight": 53.0,
+          "confidence": 2,
+          "reason": "Up in grade but down in weight, she offers value. A final 600m of 33.96s in a recent hit-out shows her turn of foot. From barrier 3 with only 53kg, this filly can surprise at odds in the 3YO sprint."
+        },
+        "roughie": {
           "number": 1,
-          "horse": "I Am That Girl",
-          "recent_speed_rating": 70,
-          "sectional_last600": 35.0,
-          "barrier": 8,
-          "weight": 54.5,
-          "confidence": 5,
-          "reason": "No official race rating yet, but her trial performance was quick. Gets a 2kg sex allowance, carrying just 54.5kg – the lowest in the field. Her trial sectional suggests she can match the race-experienced runners objectively."
-        },
-        {
-          "number": 2,
-          "horse": "Synergy In Motion",
-          "recent_speed_rating": 63,
-          "sectional_last600": 36.0,
-          "barrier": 6,
-          "weight": 56.5,
-          "confidence": 7,
-          "reason": "Holds one of the top recent ratings in this Class 3 field (rating 63). Last start he set the tempo and still ran a respectable 36.0s final 600m. With a favorable draw (barrier 6) and carrying 56.5kg (near the class limit), his front-running stats give him an edge."
-        },
-        {
-          "number": 3,
-          "horse": "Royal Mover",
-          "recent_speed_rating": 65,
-          "sectional_last600": 34.5,
-          "barrier": 4,
-          "weight": 59.0,
-          "confidence": 8,
-          "reason": "Undefeated so far, posting a strong rating of 65 which is the highest in this race. In his last win he ran the fastest closing split (~34.5s for 600m) showing an excellent finish. Drawn ideally in barrier 4, he carries 59kg but his superior figures make him the standout."
-        },
-        {
-          "number": 4,
-          "horse": "Imposant",
-          "recent_speed_rating": 84,
-          "sectional_last600": 34.9,
-          "barrier": 2,
-          "weight": 59.5,
-          "confidence": 7,
-          "reason": "Top last-start rating of 84 in this Class 6 field. She was luckless last run yet still clocked a sharp 34.9s final 600m once in the clear. From barrier 2 she should secure a better run, and although she carries 59.5kg, her rating and sectional speed give her a clear statistical advantage."
-        },
-        {
-          "number": 5,
-          "horse": "Free Carry",
+          "horse": "Ganbare",
           "recent_speed_rating": 80,
-          "sectional_last600": 35.5,
-          "barrier": 3,
-          "weight": 52.5,
-          "confidence": 6,
-          "reason": "His rating of 80 is the highest in this Benchmark 78 field. Importantly, he drops to just 52.5kg, well below many rivals. He often sets the pace and even with a modest ~35.5s last 600m, the massive weight advantage and solid overall figures point to a strong chance."
-        },
-        {
-          "number": 6,
-          "horse": "Mannerheim",
-          "recent_speed_rating": 67,
-          "sectional_last600": 35.5,
-          "barrier": 5,
-          "weight": 58.5,
-          "confidence": 7,
-          "reason": "Brings a solid last-start rating of 67 after a convincing win. His final 600m in that victory (~35.5s) was among the quickest of the race. Nicely drawn in barrier 5 and carrying 58.5kg in a 2000m Benchmark 70, his form and times make him statistically one of the top contenders."
-        },
-        {
-          "number": 7,
-          "horse": "Lost His Beans",
-          "recent_speed_rating": 78,
-          "sectional_last600": 34.0,
-          "barrier": 20,
-          "weight": 60.0,
-          "confidence": 4,
-          "reason": "Has the highest official rating here (78) and is a noted fresh performer (two wins first-up). Trialled well leading into this, indicating a fast closing 600m around 34.0s when at peak. The negatives are a wide barrier (20) and top weight 60kg, but on pure numbers he has the ability to outrun his odds if things go right."
-        },
-        {
-          "number": 8,
-          "horse": "Anemacore",
-          "recent_speed_rating": 76,
-          "sectional_last600": 35.0,
-          "barrier": 2,
-          "weight": 56.0,
-          "confidence": 7,
-          "reason": "His rating of 76 is near the top of this Class 6 lineup. Drawn in barrier 2, he should get a favorable run throughout. Runs well fresh (as indicated by trial form) and a typical last 600m of ~35.0s in his races puts him right in the mix carrying a solid 56kg."
-        },
-        {
-          "number": 9,
-          "horse": "Margot’s Deel",
-          "recent_speed_rating": 66,
-          "sectional_last600": 34.4,
-          "barrier": 20,
-          "weight": 54.0,
-          "confidence": 5,
-          "reason": "Comes off a strong form line with a rating of 66, which is competitive in this Benchmark 78. She ran a very fast last 600m of 34.4s when closing from well back last start. A big rise in class and a wide gate (20) temper confidence, but she carries the minimum 54kg, and her late speed figure suggests she can surprise if the pace is on."
-        },
-        {
-          "number": 10,
-          "horse": "Our Magnus",
-          "recent_speed_rating": 83,
-          "sectional_last600": 35.6,
-          "barrier": 3,
-          "weight": 52.0,
-          "confidence": 8,
-          "reason": "Clearly the top-rated runner here with an 83 rating and comes in off a win. Gets in at a feather weight of 52.0kg after claims. Barrier 3 ensures a great position in running. His recent win featured a solid 35.6s last 600m and given the huge weight pull and strong form, he holds a significant objective edge."
+          "sectional_last600": 36.0,
+          "barrier": 10,
+          "weight": 61.0,
+          "confidence": 0.25,
+          "reason": "His 80 rating ties for highest in the race , but recent form is uninspiring. However, if this Maurice gelding finds his old form, he’s capable of running sub-36s final sectionals. With a 3kg apprentice claim and a return to his pet trip, he’s the knockout chance in the last."
         }
-      ],
-      "best_bet": "Imposant",
-      "value_bet": "Our Magnus",
-      "roughie": "Lost His Beans"
-    }
-  ],
-  "source": "Data-driven selections (no expert commentary)."
-}
+      }
+    ]
+  }
+]
