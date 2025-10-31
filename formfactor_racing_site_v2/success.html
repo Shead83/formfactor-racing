@@ -40,6 +40,55 @@
       <p class="sub">Your purchase was successful. Your unique access code is below.</p>
       <div id="out" class="status">Generating your code…</div>
     </div>
+  
+  <section class="picks">
+    <div class="container">
+      <div class="meeting-card">
+        <h3>Access Codes</h3>
+        <p><strong>Your unique code:</strong> <code id="uniqueCode">Fetching…</code> <button id="copyUnique" class="btn">Copy</button></p>
+        <p><strong>Backup code (works now):</strong> <code id="backupCode">FFR-DAY</code> <button id="copyBackup" class="btn">Copy</button></p>
+        <div style="margin-top:10px;">
+          <a id="goMembers" class="btn primary" href="/members.html">Go to Members</a>
+        </div>
+        <p class="sub">Tip: If the unique code isn’t ready yet, use the backup <code>FFR-DAY</code> immediately.</p>
+      </div>
+    </div>
   </section>
+  <script>
+    (function(){
+      const params = new URLSearchParams(location.search);
+      const sid = params.get('session_id');
+      const uniqueEl = document.getElementById('uniqueCode');
+      const copyUnique = document.getElementById('copyUnique');
+      const copyBackup = document.getElementById('copyBackup');
+      const goMembers = document.getElementById('goMembers');
+
+      function setMembersLink(code){
+        const url = new URL('/members.html', location.origin);
+        url.searchParams.set('code', code);
+        goMembers.href = url.toString();
+      }
+
+      async function fetchCode(){
+        if(!sid){ uniqueEl.textContent = 'No session id'; setMembersLink('FFR-DAY'); return; }
+        try{
+          const resp = await fetch('/.netlify/functions/get-code?session_id=' + encodeURIComponent(sid));
+          const data = await resp.json();
+          if(!resp.ok){ uniqueEl.textContent = 'Not ready — use backup below'; setMembersLink('FFR-DAY'); return; }
+          uniqueEl.textContent = data.code;
+          setMembersLink(data.code);
+        }catch(e){
+          uniqueEl.textContent = 'Not ready — use backup below';
+          setMembersLink('FFR-DAY');
+        }
+      }
+      fetchCode();
+
+      copyUnique.onclick = () => { const t = uniqueEl.textContent.trim(); if(t){ navigator.clipboard.writeText(t); copyUnique.textContent='Copied'; setTimeout(()=>copyUnique.textContent='Copy',1200);} };
+      copyBackup.onclick = () => { navigator.clipboard.writeText('FFR-DAY'); copyBackup.textContent='Copied'; setTimeout(()=>copyBackup.textContent='Copy',1200); };
+    })();
+  </script>
+
+</section>
 </body>
 </html>

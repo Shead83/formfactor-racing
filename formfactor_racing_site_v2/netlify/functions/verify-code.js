@@ -8,7 +8,8 @@ export default async (req, context) => {
 
   // --- Shared fallback codes (quick access) ---
   const ADMIN_CODE = process.env.ADMIN_CODE || 'FF-ADMIN-ACCESS';              // unlimited, admin access
-  const WEEKLY_CODE = process.env.WEEKLY_CODE || 'FF-01NOV-AEDT';              // this week's shared code
+  const WEEKLY_CODE = process.env.WEEKLY_CODE || 'FF-01NOV-AEDT';
+  const FFR_DAY = process.env.FFR_DAY || 'FFR-DAY';              // this week's shared code
   const MONTHLY_SHARED = process.env.MONTHLY_SHARED || 'FF-MONTHLY-ACCESS';    // optional shared monthly
 
   const nowAet = new Date(); // server time; Netlify uses UTC but we just compare ISO here
@@ -27,6 +28,10 @@ export default async (req, context) => {
   if (code === MONTHLY_SHARED) {
     const monthLater = new Date(nowAet.getTime() + 31*24*60*60*1000);
     return new Response(JSON.stringify({ valid:true, access:'monthly', expires: monthLater.toISOString(), message:'Monthly shared code' }), { status: 200 });
+  }
+  if (code === FFR_DAY) {
+    const dayLater = new Date(Date.now() + 24*60*60*1000);
+    return new Response(JSON.stringify({ valid:true, access:'day', expires: dayLater.toISOString(), message:'Day Pass code' }), { status: 200 });
   }
   // --- End shared fallback codes ---
 

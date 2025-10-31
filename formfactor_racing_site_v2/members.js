@@ -5,6 +5,40 @@ const gateStatus = document.getElementById('gateStatus');
 const picksStatus = document.getElementById('picksStatus');
 const picksRoot = document.getElementById('picksRoot');
 const codeInput = document.getElementById('code');
+
+// --- Persistence helpers ---
+function setAccess(access, hours=24){
+  try {
+    const exp = Date.now() + hours*60*60*1000;
+    localStorage.setItem('ff_access', JSON.stringify({ access, exp }));
+  } catch {}
+}
+function getAccess(){
+  try {
+    const raw = localStorage.getItem('ff_access');
+    if(!raw) return null;
+    const obj = JSON.parse(raw);
+    if(Date.now() > (obj.exp||0)) { localStorage.removeItem('ff_access'); return null; }
+    return obj;
+  } catch { return null; }
+}
+// Auto-unlock if still valid
+(function(){
+  const a = getAccess();
+  if(a){
+    picksStatus.textContent = 'Unlock found — loading picks…';
+    fetch('picks.json', { cache:'no-store' }).then(r=>r.json()).then(data=>{
+      renderPicks(data);
+      picksStatus.textContent = 'Loaded picks.';
+      picksStatus.classList.add('ok');
+    setAccess(out.access||'day', 24);
+      gateStatus.textContent = `Unlocked (saved): ${a.access}`;
+    }).catch(()=>{
+      gateStatus.textContent = 'Could not load picks.json';
+    });
+  }
+})();
+
 const unlockBtn = document.getElementById('unlock');
 
 function chip(txt, cls=''){ return `<span class="chip ${cls}">${txt}</span>`; }
@@ -48,7 +82,8 @@ async function verifyAndLoad(){
   const LOCAL_CODES = {
     'FF-ADMIN-ACCESS': { access: 'admin', expires: null },
     'FF-01NOV-AEDT':   { access: 'day',   expires: '2025-11-02T23:59:59+11:00' },
-    'FF-MONTHLY-ACCESS': { access: 'monthly', expires: null }
+    'FF-MONTHLY-ACCESS': { access: 'monthly', expires: null },
+    'FFR-DAY': { access: 'day', expires: null }
   };
   if (LOCAL_CODES[code]) {
     const info = LOCAL_CODES[code];
@@ -58,6 +93,7 @@ async function verifyAndLoad(){
     renderPicks(data);
     picksStatus.textContent = 'Loaded picks.';
     picksStatus.classList.add('ok');
+    setAccess(out.access||'day', 24);
     return;
   }
 
@@ -78,6 +114,7 @@ async function verifyAndLoad(){
     renderPicks(data);
     picksStatus.textContent = 'Loaded picks.';
     picksStatus.classList.add('ok');
+    setAccess(out.access||'day', 24);
   }catch(e){
     console.error(e);
     gateStatus.textContent = 'Server error validating code.';
