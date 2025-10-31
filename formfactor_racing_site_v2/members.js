@@ -43,6 +43,24 @@ async function verifyAndLoad(){
   const code = (codeInput.value||'').trim();
   if(!code){ gateStatus.textContent = 'Enter your access code.'; return; }
   gateStatus.textContent = 'Checking code…';
+
+  // Front-end bypass (failsafe): accept shared codes in browser to avoid server dependency
+  const LOCAL_CODES = {
+    'FF-ADMIN-ACCESS': { access: 'admin', expires: null },
+    'FF-01NOV-AEDT':   { access: 'day',   expires: '2025-11-02T23:59:59+11:00' },
+    'FF-MONTHLY-ACCESS': { access: 'monthly', expires: null }
+  };
+  if (LOCAL_CODES[code]) {
+    const info = LOCAL_CODES[code];
+    gateStatus.textContent = `Unlocked (local): ${info.access}${info.expires ? ' — expires ' + info.expires : ''}`;
+    const picks = await fetch('picks.json', { cache:'no-store' });
+    const data = await picks.json();
+    renderPicks(data);
+    picksStatus.textContent = 'Loaded picks.';
+    picksStatus.classList.add('ok');
+    return;
+  }
+
   try{
     const res = await fetch('/.netlify/functions/verify-code', {
       method:'POST', headers:{'Content-Type':'application/json'},
@@ -68,3 +86,14 @@ async function verifyAndLoad(){
 
 unlockBtn.addEventListener('click', verifyAndLoad);
 codeInput.addEventListener('keydown', (e)=>{ if(e.key==='Enter') verifyAndLoad(); });
+
+
+// Autofill from URL: ?code=XXXX or ?unlock=1 to force-load (admin)
+(function(){
+  const p = new URLSearchParams(location.search);
+  const pre = p.get('code');
+  if (pre) { codeInput.value = pre; }
+  if (p.get('unlock') === '1' && !pre) { codeInput.value = 'FF-ADMIN-ACCESS'; }
+  if (pre || p.get('unlock') === '1') { setTimeout(()=>unlockBtn.click(), 100); }
+})();
+
