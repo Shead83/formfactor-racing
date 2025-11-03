@@ -3,83 +3,70 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>FormFactor Racing — Derby Day</title>
-  <meta name="description" content="Purely data-driven horse racing selections. Derby Day & Golden Eagle picks." />
-  <link rel="stylesheet" href="styles.css" />
-  <script defer src="app.js"></script>
+  <title>FormFactor Racing — Melbourne Cup Special</title>
+  <meta name="description" content="Melbourne Cup Day — Full FormFactor Racing data selections. $10 access. Offer ends Tuesday 12 PM AEDT." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg:#0b0f1a;
+      --card:#101628;
+      --ink:#e7ecff;
+      --muted:#a6b0cf;
+      --brand:#4ea8ff;
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:Inter,system-ui,Segoe UI,Roboto,Helvetica,Arial,sans-serif;background:var(--bg);color:var(--ink);line-height:1.5}
+    header{padding:20px 16px;text-align:center;border-bottom:1px solid #1c2440;background:rgba(11,15,26,.8);backdrop-filter:blur(8px)}
+    header h1{font-size:28px;color:var(--brand);letter-spacing:1px}
+    .hero{padding:60px 20px;text-align:center;background:radial-gradient(800px 400px at 50% -10%,rgba(78,168,255,.15),transparent)}
+    .hero h2{font-size:36px;margin-bottom:10px}
+    .hero p{color:var(--muted);font-size:18px;margin-bottom:24px}
+    .cta a{display:inline-block;background:linear-gradient(180deg,#2f79ff,#2957ff);color:#fff;
+      font-weight:700;padding:14px 28px;border-radius:14px;text-decoration:none;font-size:18px}
+    .cta a:hover{opacity:.9}
+    .section{max-width:720px;margin:40px auto;padding:0 20px}
+    h3{color:var(--brand);margin-bottom:8px}
+    ul{list-style:none;padding-left:0;margin-bottom:24px}
+    li{margin-bottom:6px}
+    footer{margin-top:60px;padding:20px 16px;border-top:1px solid #1c2440;text-align:center;color:var(--muted);font-size:14px}
+  </style>
 </head>
 <body>
-  <header class="site-header">
-    <div class="container header-inner">
-      <img src="assets/logo_placeholder.svg" alt="FormFactor Racing" class="logo">
-      <nav class="nav">
-        <a href="index.html#plans">Plans</a>
-        <a href="index.html#picks">Derby Day Picks</a>
-        <a href="index.html#faq">FAQ</a>
-      </nav>
-    </div>
+  <header>
+    <h1>FormFactor Racing</h1>
   </header>
 
   <section class="hero">
-    <div class="container hero-inner">
-      <h1>Derby Day</h1>
-      <p class="sub">
-        Final selections drop <strong>Saturday 8:30am AEDT</strong> — purely data-driven. No hype. Just numbers.
-      </p>
-      <div class="cta-row"><div class="cta-row"><a class="btn primary" href="https://buy.stripe.com/4gMeVc602at09lN8dnafS03">Day Pass</a><a class="btn" href="https://buy.stripe.com/4gMeVc602at09lN8dnafS03">Monthly Access</a><a class="btn" href="members.html">Members</a></div></div>
-      <p class="hero-note">Selections render automatically from <code>picks.json</code> when uploaded.</p>
+    <h2>Melbourne Cup Special 🏆</h2>
+    <p>Data wins races. Unlock every Cup Day tip — full stats, ratings, and sectionals.<br>
+    <strong>Tuesday 4 November 2025 • Offer ends 12 PM AEDT</strong></p>
+    <div class="cta">
+      <a href="https://buy.stripe.com/28EcN4agi8kSbtVgJTafS04">Get Cup Day Access – $10</a>
     </div>
   </section>
 
-  <section id="picks" class="picks">
-    <div class="container">
-      <h2>Today’s Data Picks</h2>
-      <div id="picksStatus" class="status">Loading picks.json…</div>
-      <div id="picksRoot" class="grid"></div>
-    </div>
+  <section class="section">
+    <h3>What You Get 🎯</h3>
+    <ul>
+      <li>✅ Full Melbourne Cup field data analysis</li>
+      <li>✅ Top 3 data-driven picks with speed figures & sectionals</li>
+      <li>✅ Access to Randwick & Eagle Farm selections</li>
+      <li>✅ Cup Day updates straight to Members area</li>
+    </ul>
+
+    <h3>Last Week’s Results 🔥</h3>
+    <ul>
+      <li>🏇 +152% ROI in Melbourne (6 winners from 9 races)</li>
+      <li>🏇 +52% overall ROI across 3 cities</li>
+      <li>💰 $720 profit from $1,175 outlay</li>
+    </ul>
   </section>
 
-  <section id="plans" class="plans">
-    <div class="container">
-      <h2>Memberships</h2>
-      <div class="plan-grid"><div class="plan-grid">
-  <article class="plan-card">
-    <h3>Day Pass</h3>
-    <p>Access to today’s full selections.</p>
-    <a class="btn block" href="https://buy.stripe.com/4gMeVc602at09lN8dnafS03">Get Day Pass</a>
-  </article>
-  <article class="plan-card">
-    <h3>Monthly</h3>
-    <p>All metro meetings, priority drops.</p>
-    <a class="btn block" href="https://buy.stripe.com/4gMeVc602at09lN8dnafS03">Get Monthly</a>
-  </article>
-</div></div>
-    </div>
-  </section>
-
-  <section id="faq" class="faq">
-    <div class="container">
-      <h2>FAQ</h2>
-      <details>
-        <summary>When are selections posted?</summary>
-        <p>Derby Day drop is scheduled for 8:30am AEDT on Saturday. Upload <code>picks.json</code> to update instantly.</p>
-      </details>
-      <details>
-        <summary>What data do you use?</summary>
-        <p>Recent speed ratings, sectional times, barrier, weight, and other objective stats — no subjective commentary.</p>
-      </details>
-    </div>
-  </section>
-
-  <footer class="site-footer">
-    <div class="container footer-inner">
-      <div>© <span id="yr"></span> FormFactor Racing — ABN 37 375 806 506</div>
-      <div class="gr">Gamble Responsibly</div>
-      <div><a href="https://www.formfactortips.com" rel="noopener">formfactortips.com</a></div>
-    </div>
+  <footer>
+    <p>© 2025 FormFactor Racing — ABN 37 375 806 506 • Gamble Responsibly</p>
+    <p><a href="members.html" style="color:#4ea8ff;text-decoration:none">Members Area →</a></p>
   </footer>
 </body>
 </html>
