@@ -224,19 +224,19 @@
           },
           {
             "number": 10,
-            "horse": "Sabaj",
-            "recent_speed_rating": 83,
+            "horse": "Sunshineinmypocket",
+            "recent_speed_rating": 84,
             "sectional_last600": null,
-            "barrier": 13,
-            "weight": 56.5,
-            "confidence": 9.0,
-            "reason": "Unlucky in Silver Eagle. Big class drop and primed to win."
+            "barrier": 9,
+            "weight": 57.0,
+            "confidence": 8.0,
+            "reason": "Closed strongly for second behind Ndola last start, clocking the fastest final 200m. Carries 57kg from a midfield draw, well placed to finish powerfully again."
           }
         ],
         "best_bet": {
-          "number": 10,
-          "horse": "Sabaj",
-          "confidence": 9.0
+          "number": 2,
+          "horse": "Makdane",
+          "confidence": 8.5
         },
         "value_bet": {
           "number": 5,
