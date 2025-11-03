@@ -1,0 +1,390 @@
+[
+  {
+    "date": "2025-11-04",
+    "city": "Sydney",
+    "meetings": [
+      {
+        "track": "Royal Randwick",
+        "races": [
+          {
+            "number": 1,
+            "horse": "Natoya",
+            "recent_speed_rating": 71,
+            "sectional_last600": 35.19,
+            "barrier": 7,
+            "weight": 58.5,
+            "confidence": 8.5,
+            "reason": "Stormed home to win last start on soft ground. Proven at this level."
+          },
+          {
+            "number": 2,
+            "horse": "Impendor",
+            "recent_speed_rating": 71,
+            "sectional_last600": null,
+            "barrier": 2,
+            "weight": 59.5,
+            "confidence": 8.0,
+            "reason": "Unbeaten filly with sharp sectionals and strong debut figures."
+          },
+          {
+            "number": 3,
+            "horse": "Midnight Opal",
+            "recent_speed_rating": 82,
+            "sectional_last600": null,
+            "barrier": 5,
+            "weight": 60.0,
+            "confidence": 7.5,
+            "reason": "High rating and strong closing performance last start."
+          },
+          {
+            "number": 4,
+            "horse": "Lightning Glory",
+            "recent_speed_rating": 61,
+            "sectional_last600": 33.9,
+            "barrier": 4,
+            "weight": 59.5,
+            "confidence": 8.0,
+            "reason": "Broke 34s for final 600m recently, well placed in grade."
+          },
+          {
+            "number": 5,
+            "horse": "Time Quest",
+            "recent_speed_rating": 87,
+            "sectional_last600": null,
+            "barrier": 7,
+            "weight": 54.0,
+            "confidence": 6.0,
+            "reason": "Soft track form + strong Murwillumbah Cup win at trip."
+          },
+          {
+            "number": 6,
+            "horse": "Gallant Star",
+            "recent_speed_rating": 90,
+            "sectional_last600": null,
+            "barrier": 4,
+            "weight": 61.0,
+            "confidence": 7.0,
+            "reason": "Consistent sprinter with wet form and strong record."
+          },
+          {
+            "number": 7,
+            "horse": "Strait Acer",
+            "recent_speed_rating": 84,
+            "sectional_last600": null,
+            "barrier": null,
+            "weight": 54.0,
+            "confidence": 4.0,
+            "reason": "Handles soft; drops to minimum weight and finds right race shape."
+          },
+          {
+            "number": 8,
+            "horse": "Accredited",
+            "recent_speed_rating": null,
+            "sectional_last600": null,
+            "barrier": null,
+            "weight": 56.0,
+            "confidence": 7.0,
+            "reason": "Group-placed, resumes off good trial and handles fresh conditions."
+          },
+          {
+            "number": 9,
+            "horse": "Well Timed",
+            "recent_speed_rating": null,
+            "sectional_last600": null,
+            "barrier": null,
+            "weight": 56.0,
+            "confidence": 6.5,
+            "reason": "Strong late splits last start; two soft-track wins help."
+          },
+          {
+            "number": 10,
+            "horse": "Mailata",
+            "recent_speed_rating": 68,
+            "sectional_last600": null,
+            "barrier": 15,
+            "weight": 54.0,
+            "confidence": 6.0,
+            "reason": "Blinkers on, drops in weight; soft track form solid."
+          }
+        ],
+        "best_bet": {
+          "number": 1,
+          "horse": "Natoya",
+          "confidence": 8.5
+        },
+        "value_bet": {
+          "number": 2,
+          "horse": "Impendor",
+          "confidence": 8.0
+        },
+        "roughie": {
+          "number": 5,
+          "horse": "Time Quest",
+          "confidence": 6.0
+        }
+      }
+    ]
+  },
+  {
+    "date": "2025-11-04",
+    "city": "Melbourne",
+    "meetings": [
+      {
+        "track": "Flemington",
+        "races": [
+          {
+            "number": 1,
+            "horse": "Brazen Dechambeau",
+            "recent_speed_rating": null,
+            "sectional_last600": null,
+            "barrier": 12,
+            "weight": 58.0,
+            "confidence": 8.0,
+            "reason": "Strong jump-out win. Well-bred 2yo debuting with speed and form."
+          },
+          {
+            "number": 2,
+            "horse": "Makdane",
+            "recent_speed_rating": 77,
+            "sectional_last600": null,
+            "barrier": 1,
+            "weight": 60.5,
+            "confidence": 8.5,
+            "reason": "In-form stayer dropping in grade. Drawn to lead and rated highly."
+          },
+          {
+            "number": 3,
+            "horse": "Champagne Hero",
+            "recent_speed_rating": 66,
+            "sectional_last600": null,
+            "barrier": 14,
+            "weight": 57.0,
+            "confidence": 7.5,
+            "reason": "Class 3yo dropping from G1. Multiple wins on good ground."
+          },
+          {
+            "number": 4,
+            "horse": "Street Artist",
+            "recent_speed_rating": 82,
+            "sectional_last600": null,
+            "barrier": 8,
+            "weight": 57.0,
+            "confidence": 7.5,
+            "reason": "Two recent wins, fast late sectionals. Lightly weighted and suited here."
+          },
+          {
+            "number": 5,
+            "horse": "Golden Century",
+            "recent_speed_rating": 80,
+            "sectional_last600": null,
+            "barrier": 10,
+            "weight": 53.0,
+            "confidence": 8.0,
+            "reason": "Strong closer at Bendigo. Suited rising to 2800m. Top staying profile."
+          },
+          {
+            "number": 6,
+            "horse": "Real Class",
+            "recent_speed_rating": null,
+            "sectional_last600": null,
+            "barrier": null,
+            "weight": 54.0,
+            "confidence": 7.0,
+            "reason": "Consistent mare, fast last 600m at Ballarat. Good soft track record."
+          },
+          {
+            "number": 7,
+            "horse": "Presage Nocturne",
+            "recent_speed_rating": null,
+            "sectional_last600": null,
+            "barrier": 9,
+            "weight": 55.5,
+            "confidence": 7.0,
+            "reason": "Fast late in Caulfield Cup. Stays well and handles give."
+          },
+          {
+            "number": 8,
+            "horse": "Burma Star",
+            "recent_speed_rating": 81,
+            "sectional_last600": null,
+            "barrier": 7,
+            "weight": 54.0,
+            "confidence": 6.5,
+            "reason": "Progressive 3yo. Strong Sydney form and likes soft going."
+          },
+          {
+            "number": 9,
+            "horse": "Eternal Flame",
+            "recent_speed_rating": null,
+            "sectional_last600": null,
+            "barrier": 12,
+            "weight": 55.0,
+            "confidence": 5.0,
+            "reason": "Blinkers off. Capable mare on her day. Big odds chance."
+          },
+          {
+            "number": 10,
+            "horse": "Sabaj",
+            "recent_speed_rating": 83,
+            "sectional_last600": null,
+            "barrier": 13,
+            "weight": 56.5,
+            "confidence": 9.0,
+            "reason": "Unlucky in Silver Eagle. Big class drop and primed to win."
+          }
+        ],
+        "best_bet": {
+          "number": 10,
+          "horse": "Sabaj",
+          "confidence": 9.0
+        },
+        "value_bet": {
+          "number": 5,
+          "horse": "Golden Century",
+          "confidence": 8.0
+        },
+        "roughie": {
+          "number": 9,
+          "horse": "Eternal Flame",
+          "confidence": 5.0
+        }
+      }
+    ]
+  },
+  {
+    "date": "2025-11-04",
+    "city": "Brisbane",
+    "meetings": [
+      {
+        "track": "Eagle Farm",
+        "races": [
+          {
+            "number": 1,
+            "horse": "Extreme Taste",
+            "recent_speed_rating": null,
+            "sectional_last600": 34.86,
+            "barrier": 3,
+            "weight": 56.5,
+            "confidence": 7.0,
+            "reason": "Strong 4th on debut, ran 34.86s final 600m. Suited up to 1200m."
+          },
+          {
+            "number": 2,
+            "horse": "Balance The Books",
+            "recent_speed_rating": null,
+            "sectional_last600": null,
+            "barrier": 5,
+            "weight": 55.0,
+            "confidence": 9.0,
+            "reason": "Explosive debut winner, top sectional, resumes off sharp trials."
+          },
+          {
+            "number": 3,
+            "horse": "Hurricane Lu",
+            "recent_speed_rating": null,
+            "sectional_last600": null,
+            "barrier": 7,
+            "weight": 56.0,
+            "confidence": 8.0,
+            "reason": "Unbeaten mare, strong front-runner, relishes soft going."
+          },
+          {
+            "number": 4,
+            "horse": "Thankyou Henry",
+            "recent_speed_rating": null,
+            "sectional_last600": null,
+            "barrier": 1,
+            "weight": 59.5,
+            "confidence": 7.5,
+            "reason": "Beaten only 1L first-up, fitter now, saves ground from inside draw."
+          },
+          {
+            "number": 5,
+            "horse": "Mean Approach",
+            "recent_speed_rating": null,
+            "sectional_last600": null,
+            "barrier": 6,
+            "weight": 58.5,
+            "confidence": 7.0,
+            "reason": "Strong Class 6 win last prep, resumes with good trial form."
+          },
+          {
+            "number": 6,
+            "horse": "Sir Lamorak",
+            "recent_speed_rating": null,
+            "sectional_last600": null,
+            "barrier": 6,
+            "weight": 60.0,
+            "confidence": 7.5,
+            "reason": "Strong front-runner, nearly stole it over 2200m last run. Relishes soft."
+          },
+          {
+            "number": 7,
+            "horse": "Wonderland Star",
+            "recent_speed_rating": null,
+            "sectional_last600": null,
+            "barrier": 8,
+            "weight": 57.5,
+            "confidence": 5.0,
+            "reason": "Ran on well last start, steps to preferred distance, soft suits."
+          },
+          {
+            "number": 8,
+            "horse": "Irama",
+            "recent_speed_rating": null,
+            "sectional_last600": null,
+            "barrier": 3,
+            "weight": 61.0,
+            "confidence": 7.0,
+            "reason": "5 placings at trip, soft track proven, maps well to stalk speed."
+          },
+          {
+            "number": 9,
+            "horse": "Brave Monarch",
+            "recent_speed_rating": null,
+            "sectional_last600": null,
+            "barrier": 5,
+            "weight": 60.0,
+            "confidence": 8.0,
+            "reason": "Won well last start, strong final 600m. Suited up to 1400m."
+          },
+          {
+            "number": 10,
+            "horse": "Forgotten Spirit",
+            "recent_speed_rating": null,
+            "sectional_last600": null,
+            "barrier": 7,
+            "weight": 55.0,
+            "confidence": 6.5,
+            "reason": "Good third first-up, drawn well, natural improver with pace to chase."
+          },
+          {
+            "number": 11,
+            "horse": "Hurts So Good",
+            "recent_speed_rating": null,
+            "sectional_last600": null,
+            "barrier": 7,
+            "weight": 53.0,
+            "confidence": 7.5,
+            "reason": "Tough run last start in stakes grade, drops weight, good soft record."
+          }
+        ],
+        "best_bet": {
+          "number": 2,
+          "horse": "Balance The Books",
+          "confidence": 9.0
+        },
+        "value_bet": {
+          "number": 9,
+          "horse": "Brave Monarch",
+          "confidence": 8.0
+        },
+        "roughie": {
+          "number": 7,
+          "horse": "Wonderland Star",
+          "confidence": 5.0
+        }
+      }
+    ]
+  }
+]
