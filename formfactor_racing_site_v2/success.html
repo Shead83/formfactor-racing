@@ -1,94 +1,89 @@
 <!doctype html>
 <html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Thanks — Your Access Code</title>
-  <link rel="stylesheet" href="styles.css" />
-  <script>
-    async function init(){
-      const params = new URLSearchParams(location.search);
-      const sid = params.get('session_id');
-      const el = document.getElementById('out');
-      if(!sid){ el.textContent='Missing session id.'; return; }
-      el.textContent='Generating your code…';
-      try{
-        const resp = await fetch('/.netlify/functions/get-code?session_id=' + encodeURIComponent(sid));
-        const data = await resp.json();
-        if(!resp.ok){ el.textContent = data.message || 'Could not fetch code yet.'; return; }
-        el.innerHTML = '<strong>Your code:</strong> <code>' + data.code + '</code><br><br><a class="btn primary" href="members.html">Go to Members Page</a>';
-      }catch(e){
-        el.textContent='Error fetching your code.';
+  <head>
+    <meta charset="utf-8" />
+    <title>Thanks – FormFactor Racing</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <style>
+      body {
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        max-width: 600px;
+        margin: 40px auto;
+        padding: 0 16px;
+        text-align: center;
       }
-    }
-    document.addEventListener('DOMContentLoaded', init);
-  </script>
-</head>
-<body>
-  <header class="site-header">
-    <div class="container header-inner">
-      <a href="index.html" class="logo-link"><img src="assets/logo_placeholder.svg" class="logo" alt="FormFactor Racing"></a>
-      <nav class="nav">
-        <a href="index.html">Home</a>
-        <a href="members.html">Members</a>
-      </nav>
-    </div>
-  </header>
-  <section class="hero">
-    <div class="container hero-inner">
-      <h1>Thank you!</h1>
-      <p class="sub">Your purchase was successful. Your unique access code is below.</p>
-      <div id="out" class="status">Generating your code…</div>
-    </div>
-  
-  <section class="picks">
-    <div class="container">
-      <div class="meeting-card">
-        <h3>Access Codes</h3>
-        <p><strong>Your unique code:</strong> <code id="uniqueCode">Fetching…</code> <button id="copyUnique" class="btn">Copy</button></p>
-        <p><strong>Backup code (works now):</strong> <code id="backupCode">FFR-DAY</code> <button id="copyBackup" class="btn">Copy</button></p>
-        <div style="margin-top:10px;">
-          <a id="goMembers" class="btn primary" href="/members.html">Go to Members</a>
-        </div>
-        <p class="sub">Tip: If the unique code isn’t ready yet, use the backup <code>FFR-DAY</code> immediately.</p>
-      </div>
-    </div>
-  </section>
-  <script>
-    (function(){
-      const params = new URLSearchParams(location.search);
-      const sid = params.get('session_id');
-      const uniqueEl = document.getElementById('uniqueCode');
-      const copyUnique = document.getElementById('copyUnique');
-      const copyBackup = document.getElementById('copyBackup');
-      const goMembers = document.getElementById('goMembers');
-
-      function setMembersLink(code){
-        const url = new URL('/members.html', location.origin);
-        url.searchParams.set('code', code);
-        goMembers.href = url.toString();
+      #code-box {
+        margin-top: 24px;
       }
+      input {
+        width: 100%;
+        padding: 8px;
+      }
+      button {
+        margin-top: 12px;
+        padding: 8px 16px;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Thanks for your purchase 🎉</h1>
+    <p id="status">Generating your access link…</p>
 
-      async function fetchCode(){
-        if(!sid){ uniqueEl.textContent = 'No session id'; setMembersLink('FFR-DAY'); return; }
-        try{
-          const resp = await fetch('/.netlify/functions/get-code?session_id=' + encodeURIComponent(sid));
-          const data = await resp.json();
-          if(!resp.ok){ uniqueEl.textContent = 'Not ready — use backup below'; setMembersLink('FFR-DAY'); return; }
-          uniqueEl.textContent = data.code;
-          setMembersLink(data.code);
-        }catch(e){
-          uniqueEl.textContent = 'Not ready — use backup below';
-          setMembersLink('FFR-DAY');
+    <div id="code-box" style="display: none;">
+      <p>Save this link – it’s your access to this week’s metro tips:</p>
+      <input id="access-link" readonly />
+      <button type="button" onclick="copyLink()">Copy link</button>
+    </div>
+
+    <script>
+      async function main() {
+        const params = new URLSearchParams(window.location.search);
+        const sessionId = params.get("session_id");
+        const statusEl = document.getElementById("status");
+
+        if (!sessionId) {
+          statusEl.textContent = "Missing Stripe session ID.";
+          return;
+        }
+
+        try {
+          const res = await fetch(
+            "/.netlify/functions/create-token?session_id=" +
+              encodeURIComponent(sessionId)
+          );
+
+          if (!res.ok) {
+            statusEl.textContent =
+              "Could not generate your access link. Please contact support.";
+            return;
+          }
+
+          const data = await res.json();
+          const token = data.token;
+          const accessUrl =
+            window.location.origin +
+            "/tips.html?access=" +
+            encodeURIComponent(token);
+
+          document.getElementById("access-link").value = accessUrl;
+          statusEl.textContent = "Your access link is ready. Save it now.";
+          document.getElementById("code-box").style.display = "block";
+        } catch (e) {
+          console.error(e);
+          statusEl.textContent =
+            "Something went wrong making your access link.";
         }
       }
-      fetchCode();
 
-      copyUnique.onclick = () => { const t = uniqueEl.textContent.trim(); if(t){ navigator.clipboard.writeText(t); copyUnique.textContent='Copied'; setTimeout(()=>copyUnique.textContent='Copy',1200);} };
-      copyBackup.onclick = () => { navigator.clipboard.writeText('FFR-DAY'); copyBackup.textContent='Copied'; setTimeout(()=>copyBackup.textContent='Copy',1200); };
-    })();
-  </script>
+      function copyLink() {
+        const input = document.getElementById("access-link");
+        input.select();
+        document.execCommand("copy");
+        alert("Link copied to clipboard");
+      }
 
-</section>
-</body>
+      main();
+    </script>
+  </body>
 </html>
