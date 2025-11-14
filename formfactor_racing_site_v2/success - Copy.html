@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Thanks – FormFactor Racing</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <style>
+      body {
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        max-width: 600px;
+        margin: 40px auto;
+        padding: 0 16px;
+        text-align: center;
+      }
+      #code-box {
+        margin-top: 24px;
+      }
+      input {
+        width: 100%;
+        padding: 8px;
+      }
+      button {
+        margin-top: 12px;
+        padding: 8px 16px;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Thanks for your purchase 🎉</h1>
+    <p id="status">Generating your access link…</p>
+
+    <div id="code-box" style="display: none;">
+      <p>Save this link – it’s your access to this week’s metro tips:</p>
+      <input id="access-link" readonly />
+      <button type="button" onclick="copyLink()">Copy link</button>
+    </div>
+
+    <script>
+      async function main() {
+        const params = new URLSearchParams(window.location.search);
+        const sessionId = params.get("session_id");
+        const statusEl = document.getElementById("status");
+
+        if (!sessionId) {
+          statusEl.textContent = "Missing Stripe session ID.";
+          return;
+        }
+
+        try {
+          const res = await fetch(
+            "/.netlify/functions/create-token?session_id=" +
+              encodeURIComponent(sessionId)
+          );
+
+          if (!res.ok) {
+            statusEl.textContent =
+              "Could not generate your access link. Please contact support.";
+            return;
+          }
+
+          const data = await res.json();
+          const token = data.token;
+          const accessUrl =
+            window.location.origin +
+            "/tips.html?access=" +
+            encodeURIComponent(token);
+
+          document.getElementById("access-link").value = accessUrl;
+          statusEl.textContent = "Your access link is ready. Save it now.";
+          document.getElementById("code-box").style.display = "block";
+        } catch (e) {
+          console.error(e);
+          statusEl.textContent =
+            "Something went wrong making your access link.";
+        }
+      }
+
+      function copyLink() {
+        const input = document.getElementById("access-link");
+        input.select();
+        document.execCommand("copy");
+        alert("Link copied to clipboard");
+      }
+
+      main();
+    </script>
+  </body>
+</html>
