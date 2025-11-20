@@ -2,25 +2,25 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>FormFactor Racing | Weekend Metro Raw Data Packs</title>
+  <title>FormFactor Racing | Saturday Metro Selections</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta
     name="description"
-    content="FormFactor Racing – data-driven horse racing selections for Saturday metro meetings in Sydney, Melbourne & Brisbane. Speed ratings, sectionals, maps & more."
+    content="FormFactor Racing – data-backed Saturday metro selections for Sydney, Melbourne & Brisbane. One clear pick per race, confidence rating and a short explanation."
   />
 
   <style>
     :root {
       --ffr-bg: #050816;
-      --ffr-bg-alt: #0b1120;
-      --ffr-card: #111827;
-      --ffr-border: #1f2933;
+      --ffr-bg-alt: #070b16;
+      --ffr-card: #0b1220;
+      --ffr-border: #1f2937;
       --ffr-text: #f9fafb;
       --ffr-muted: #9ca3af;
-      --ffr-primary: #2563eb;
+      --ffr-primary: #2563eb;   /* electric blue */
       --ffr-primary-soft: rgba(37, 99, 235, 0.15);
-      --ffr-accent: #f97316;
-      --ffr-success: #10b981;
+      --ffr-accent: #f97316;    /* orange */
+      --ffr-success: #22c55e;   /* green */
     }
 
     * {
@@ -32,7 +32,7 @@
     body {
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
         sans-serif;
-      background: radial-gradient(circle at top, #111827 0, #020617 55%);
+      background: radial-gradient(circle at top, #0b1120 0, #020617 55%);
       color: var(--ffr-text);
       min-height: 100vh;
       line-height: 1.5;
@@ -45,7 +45,33 @@
     .ffr-container {
       max-width: 1100px;
       margin: 0 auto;
-      padding: 16px 16px 40px;
+      padding: 0 16px 40px;
+    }
+
+    /* BRAND STRIP */
+
+    .ffr-brand-strip {
+      width: 100%;
+      background: linear-gradient(90deg, #020617, #0b1120);
+      border-bottom: 1px solid rgba(148, 163, 184, 0.18);
+    }
+
+    .ffr-brand-strip-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 6px 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: #9ca3af;
+    }
+
+    .ffr-brand-strip-inner span strong {
+      color: #e5e7eb;
     }
 
     /* HEADER */
@@ -54,45 +80,56 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 12px 0 20px;
+      padding: 14px 0 18px;
       gap: 12px;
     }
 
     .ffr-logo {
       display: flex;
       align-items: center;
-      gap: 8px;
+      gap: 10px;
     }
 
     .ffr-logo-mark {
-      width: 32px;
-      height: 32px;
-      border-radius: 999px;
-      background: radial-gradient(circle at 30% 30%, #60a5fa, #1d4ed8);
+      width: 38px;
+      height: 38px;
+      border-radius: 12px;
+      background: radial-gradient(circle at 30% 20%, #60a5fa, #1d4ed8);
       display: flex;
       align-items: center;
       justify-content: center;
       font-weight: 900;
       font-size: 18px;
-      box-shadow: 0 0 20px rgba(37, 99, 235, 0.8);
+      box-shadow: 0 0 22px rgba(37, 99, 235, 0.9);
+      border: 1px solid rgba(191, 219, 254, 0.7);
     }
 
-    .ffr-logo-text-primary {
-      font-weight: 800;
-      letter-spacing: 0.06em;
-      font-size: 0.95rem;
+    .ffr-logo-word {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.1;
+    }
+
+    .ffr-logo-main {
+      font-weight: 900;
+      font-size: 1.1rem;
+      letter-spacing: 0.16em;
       text-transform: uppercase;
     }
 
-    .ffr-logo-text-sub {
-      font-size: 0.75rem;
+    .ffr-logo-main span {
+      color: #60a5fa;
+    }
+
+    .ffr-logo-tag {
+      font-size: 0.78rem;
       color: var(--ffr-muted);
     }
 
     .ffr-nav {
       display: flex;
       gap: 16px;
-      font-size: 0.9rem;
+      font-size: 0.88rem;
     }
 
     .ffr-nav a {
@@ -146,6 +183,17 @@
       transform: translateY(-1px);
     }
 
+    .ffr-btn-sub {
+      background: linear-gradient(135deg, #f97316, #f59e0b);
+      color: #0b1120;
+      box-shadow: 0 8px 24px rgba(249, 115, 22, 0.5);
+    }
+
+    .ffr-btn-sub:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 10px 30px rgba(249, 115, 22, 0.7);
+    }
+
     /* HERO */
 
     .ffr-hero {
@@ -165,10 +213,10 @@
     }
 
     .ffr-hero-title {
-      font-size: 2.4rem;
+      font-size: 2.5rem;
       line-height: 1.1;
-      margin-bottom: 12px;
-      font-weight: 800;
+      margin-bottom: 10px;
+      font-weight: 900;
     }
 
     .ffr-hero-title span {
@@ -185,7 +233,7 @@
       display: flex;
       flex-wrap: wrap;
       gap: 10px;
-      margin-bottom: 14px;
+      margin-bottom: 10px;
     }
 
     .ffr-hero-note {
@@ -196,7 +244,7 @@
     .ffr-hero-right {
       border-radius: 22px;
       padding: 18px 18px 16px;
-      background: radial-gradient(circle at top left, #1f2937 0, #020617 70%);
+      background: radial-gradient(circle at top left, #111827 0, #020617 70%);
       border: 1px solid rgba(148, 163, 184, 0.35);
       box-shadow: 0 16px 40px rgba(15, 23, 42, 0.9);
     }
@@ -243,7 +291,7 @@
 
     .ffr-hero-highlight {
       font-size: 0.8rem;
-      color: #a7f3d0;
+      color: #bbf7d0;
     }
 
     /* SECTIONS */
@@ -287,7 +335,7 @@
 
     .ffr-split {
       display: grid;
-      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+      grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
       gap: 28px;
       align-items: start;
     }
@@ -309,6 +357,43 @@
       padding: 16px 18px;
       border: 1px solid var(--ffr-border);
       font-size: 0.9rem;
+      color: var(--ffr-muted);
+    }
+
+    /* SAMPLE RACE */
+
+    .ffr-sample {
+      border-radius: 16px;
+      background: #020617;
+      border: 1px dashed rgba(148, 163, 184, 0.5);
+      padding: 14px 16px;
+      font-size: 0.86rem;
+      color: var(--ffr-muted);
+      margin-top: 14px;
+    }
+
+    .ffr-sample-header {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 6px;
+      font-size: 0.8rem;
+    }
+
+    .ffr-sample-title {
+      font-weight: 600;
+      color: var(--ffr-text);
+    }
+
+    .ffr-sample-pick {
+      font-size: 0.9rem;
+      margin-bottom: 4px;
+      color: var(--ffr-text);
+    }
+
+    .ffr-sample-meta {
+      font-size: 0.8rem;
       color: var(--ffr-muted);
     }
 
@@ -355,7 +440,7 @@
       font-size: 0.9rem;
       color: var(--ffr-muted);
       margin-bottom: 16px;
-      min-height: 60px;
+      min-height: 70px;
     }
 
     .ffr-badge-pill {
@@ -445,17 +530,30 @@
   </style>
 </head>
 <body>
+  <!-- BRAND STRIP -->
+  <div class="ffr-brand-strip">
+    <div class="ffr-brand-strip-inner">
+      <span><strong>FORMFACTOR RACING</strong> · SATURDAY METRO SPECIALIST</span>
+      <span>Pure data. No bullshit.</span>
+    </div>
+  </div>
+
   <div class="ffr-container">
     <!-- HEADER -->
     <header class="ffr-header">
       <div class="ffr-logo">
-        <div class="ffr-logo-mark">F</div>
-        <div>
-          <div class="ffr-logo-text-primary">FormFactor Racing</div>
-          <div class="ffr-logo-text-sub">Weekend Metro Raw Data Packs</div>
+        <div class="ffr-logo-mark">FF</div>
+        <div class="ffr-logo-word">
+          <div class="ffr-logo-main">
+            FORM<span>FACTOR</span> RACING
+          </div>
+          <div class="ffr-logo-tag">
+            Sydney · Melbourne · Brisbane · Saturdays
+          </div>
         </div>
       </div>
       <nav class="ffr-nav">
+        <a href="#what-is-formfactor">What is FormFactor?</a>
         <a href="#how-it-works">How it works</a>
         <a href="#pricing">Pricing</a>
         <a href="#faq">FAQ</a>
@@ -466,64 +564,90 @@
     <main>
       <section class="ffr-hero">
         <div>
-          <div class="ffr-hero-kicker">Saturday Metro | Sydney · Melbourne · Brisbane</div>
+          <div class="ffr-hero-kicker">Saturday Metro · Sydney · Melbourne · Brisbane</div>
           <h1 class="ffr-hero-title">
-            Data-driven racing intel<br />
-            for <span>every Saturday</span>.
+            Weekend metro picks<br />
+            with a real <span>data edge</span>.
           </h1>
           <p class="ffr-hero-subtitle">
-            Objective raw data packs for the main metro meetings. No hype, no tipsheets –
-            just the numbers that matter: speed ratings, sectionals, maps and track profiles.
+            FormFactor Racing gives you one clear pick per race, a confidence rating
+            and a short explanation – plus a separate Best Bets pack for the strongest
+            and best value plays of the day.
           </p>
 
           <div class="ffr-hero-cta">
             <a class="ffr-btn ffr-btn-primary" href="https://buy.stripe.com/3cI4gy9cedFcbtV51bafS06">
-              Get this weekend's full card – $10
+              Get this Saturday's full card – $10
+            </a>
+            <a class="ffr-btn ffr-btn-sub" href="https://buy.stripe.com/5kQcN4gEGeJgcxZ2T3afS07">
+              Go monthly – $29.99
             </a>
             <a class="ffr-btn ffr-btn-outline" href="#pricing">
-              View all pricing
+              View all options
             </a>
           </div>
           <div class="ffr-hero-note">
-            Built for punters who want a clean edge, not someone else’s opinion.
+            Built for punters who want a clean, confident view of the form – not another loud tipster.
           </div>
         </div>
 
         <aside class="ffr-hero-right">
-          <div class="ffr-tagline">Raw Data Snapshot</div>
-          <div class="ffr-hero-card-title">Each race includes:</div>
-          <div class="ffr-badge-row">
-            <span class="ffr-badge">Recent speed rating</span>
-            <span class="ffr-badge">Last 600m sectionals</span>
-            <span class="ffr-badge">Barrier & map</span>
-            <span class="ffr-badge">Weight & distance</span>
-            <span class="ffr-badge">Track condition profile</span>
+          <div class="ffr-tagline">FormFactor Sample · Preview Only</div>
+          <div class="ffr-hero-card-title">What a race looks like in the pack:</div>
+
+          <div class="ffr-sample">
+            <div class="ffr-sample-header">
+              <div class="ffr-sample-title">RACE 4 · RANDWICK · 1400m</div>
+              <div>FormFactor pick · Confidence: ★★★★☆</div>
+            </div>
+            <div class="ffr-sample-pick">
+              #7 – [Redacted Runner Name]
+            </div>
+            <div class="ffr-sample-meta">
+              Short explanation example:<br />
+              Maps to get the right run on-speed, holding consistent figures this prep and proven in similar conditions.
+            </div>
           </div>
+
           <ul class="ffr-hero-card-list">
-            <li>Full-card coverage for Saturday metro in Sydney, Melbourne & Brisbane.</li>
-            <li>Mobile-friendly layout so you can use it on track or on the couch.</li>
-            <li>No odds or narrative – designed to plug into your own betting strategy.</li>
+            <li>One clear selection per race – no endless shortlists.</li>
+            <li>Confidence rating for every pick so you can structure your staking.</li>
+            <li>Short explanation only – the engine stays under the bonnet.</li>
           </ul>
           <div class="ffr-hero-highlight">
-            Use it to find value, confirm your own thoughts, or quickly spot false favourites.
+            FormFactor packs are built off the same underlying data every week – you just see the final picks.
           </div>
         </aside>
       </section>
 
-      <!-- WHAT YOU GET -->
-      <section class="ffr-section" id="what-you-get">
-        <h2>What you get in each weekend pack</h2>
+      <!-- WHAT IS FORMFACTOR -->
+      <section class="ffr-section" id="what-is-formfactor">
+        <h2>What is FormFactor Racing?</h2>
         <p>
-          Every Saturday metro pack is built from the same framework so you know exactly
-          what you’re getting each week.
+          FormFactor Racing is a Saturday metro selection service focused on clarity and confidence.
+          No hype, no glossy tipsheets – just one pick per race, a confidence rating, and a short,
+          straight explanation of why that horse is on top.
         </p>
         <ul class="ffr-list">
-          <li>Full-card raw data selections for every race in Sydney, Melbourne & Brisbane.</li>
-          <li>Recent <strong>speed ratings</strong> and <strong>last 600m sectionals</strong> for each key runner.</li>
-          <li>Barrier, weight and distance suitability baked into the rankings.</li>
-          <li>Track condition tagging (Good / Soft / Heavy) based on each horse’s history.</li>
-          <li>Simple notes on expected tempo and race shape (leaders vs backmarkers).</li>
-          <li>Clean, mobile-first format – no PDFs to pinch and zoom.</li>
+          <li>Brand built around data, not personality.</li>
+          <li>Same framework every week so you know what you’re getting.</li>
+          <li>Designed for punters who want help making decisions, not someone to blame.</li>
+        </ul>
+      </section>
+
+      <!-- WHAT YOU GET -->
+      <section class="ffr-section" id="what-you-get">
+        <h2>What you get in each Saturday pack</h2>
+        <p>
+          Every FormFactor Saturday metro pack follows the same simple structure. No clutter, no
+          secrets dumped on the page – just the parts you actually use when you’re having a bet.
+        </p>
+        <ul class="ffr-list">
+          <li><strong>One selection per metro race</strong> across Sydney, Melbourne &amp; Brisbane (Full Raw Data Pack &amp; Monthly only).</li>
+          <li><strong>Confidence rating</strong> for every pick so you can rank your bets.</li>
+          <li><strong>Short explanation</strong> – 1–2 lines on why that horse is the FormFactor pick.</li>
+          <li><strong>Best Bets pack</strong> with the 3 best bets and 3 best value bets of the day.</li>
+          <li>Clean, mobile-friendly format that’s easy to use on track or on the couch.</li>
         </ul>
       </section>
 
@@ -531,28 +655,27 @@
       <section class="ffr-section" id="how-it-works">
         <div class="ffr-split">
           <div>
-            <h2>How it works</h2>
+            <h2>How FormFactor works</h2>
             <p>
-              No subscriptions required to start. Grab a one-off pack, or lock in a monthly
-              membership so you never miss a Saturday.
+              Not a tipping circus. Not a Discord group. FormFactor is a simple weekly pack built
+              off a consistent underlying process – you just see the sharpened end product.
             </p>
             <ol class="ffr-step-list">
-              <li><strong>Choose your option</strong> – Best Bets, Full Card, or Monthly Membership.</li>
+              <li><strong>Choose your option</strong> – Best Bets, Full Raw Data Pack, or Monthly Membership.</li>
               <li><strong>Pay securely</strong> via Stripe (card, Apple Pay, etc.).</li>
-              <li><strong>Get access</strong> to this weekend’s data pack via link after purchase.</li>
-              <li><strong>Open on your phone</strong> and work through the races with the data in front of you.</li>
+              <li><strong>Get the link</strong> to this Saturday’s FormFactor pack once payment is confirmed.</li>
+              <li><strong>Open on your phone</strong>, scroll race by race, and use the picks alongside your own judgement.</li>
             </ol>
           </div>
           <div>
             <div class="ffr-card">
-              <strong>Why “raw data” instead of tipping?</strong><br /><br />
-              Most services sell you an opinion. FormFactor Racing sells you the inputs –
-              the numbers that shape an edge. You stay in control of staking, bank, and
-              risk, while the pack does the heavy lifting on:
+              <strong>Why “FormFactor” and not just another tipster?</strong><br /><br />
+              Most services sell noise. FormFactor sells structure:
               <br /><br />
-              • Who’s running the fastest closing splits<br />
-              • Who maps well from the barrier and tempo<br />
-              • Who actually handles the likely track conditions
+              • One selection per race – no confused shortlists.<br />
+              • A confidence rating so you can instantly see which races you want to play harder or softer.<br />
+              • A short explanation, in plain language, so you understand the pick without needing a novel.<br /><br />
+              The engine under the hood is data-driven – but you only see what you actually need to place a bet.
             </div>
           </div>
         </div>
@@ -562,19 +685,19 @@
       <section class="ffr-section" id="pricing">
         <h2>Pricing</h2>
         <p>
-          Start small with Best Bets, grab the full metro card, or go all-in with a monthly
-          membership and have every Saturday sorted.
+          Start with the Best Bets, grab the full card, or lock it in with a monthly membership
+          so your Saturdays are handled automatically.
         </p>
 
         <div class="ffr-pricing-grid">
           <!-- Best Bets Only -->
           <div class="ffr-pricing-card">
-            <h3>Best Bets Only</h3>
+            <h3>Best Bets Pack</h3>
             <div class="ffr-price">$5</div>
-            <div class="ffr-price-note">Per Saturday</div>
+            <div class="ffr-price-note">Per Saturday · 6 key plays</div>
             <div class="ffr-pricing-desc">
-              Top 2–3 highest-rated selections of the entire Saturday metro program,
-              built from speed ratings, sectionals, maps and track condition profiles.
+              3 Best Bets of the day + 3 Best Value Bets.<br />
+              Each pick comes with a confidence rating and a short explanation.
             </div>
             <a class="ffr-btn ffr-btn-primary" href="https://buy.stripe.com/bJe00ibkmeJg7dF0KVafS05">
               Buy Best Bets – $5
@@ -587,9 +710,8 @@
             <div class="ffr-price">$10</div>
             <div class="ffr-price-note">Per Saturday · All metro races</div>
             <div class="ffr-pricing-desc">
-              Full-card raw data selections for every race in Sydney, Melbourne & Brisbane.
-              Includes speed ratings, last 600m sectionals, maps, distance suitability and
-              track-condition profiling.
+              Everything in the Best Bets Pack <strong>plus</strong> one selection in every metro race
+              across Sydney, Melbourne &amp; Brisbane – each with a confidence rating and short explanation.
             </div>
             <a class="ffr-btn ffr-btn-primary" href="https://buy.stripe.com/3cI4gy9cedFcbtV51bafS06">
               Buy Full Card – $10
@@ -603,11 +725,11 @@
             <div class="ffr-price">$29.99</div>
             <div class="ffr-price-note">Per month · Recurring</div>
             <div class="ffr-pricing-desc">
-              Every Saturday metro pack automatically included. Best Bets + full-card
-              data, priority access and future member-only extras – saving over 50% if
-              you’re playing most weeks.
+              Every Saturday you get the Best Bets Pack <strong>and</strong> the full metro card,
+              with confidence ratings and explanations for every pick. Set-and-forget access
+              at a serious discount if you’re playing most weeks.
             </div>
-            <a class="ffr-btn ffr-btn-primary" href="https://buy.stripe.com/5kQcN4gEGeJgcxZ2T3afS07">
+            <a class="ffr-btn ffr-btn-sub" href="https://buy.stripe.com/5kQcN4gEGeJgcxZ2T3afS07">
               Subscribe Monthly – $29.99
             </a>
           </div>
@@ -620,33 +742,33 @@
         <div class="ffr-faq-grid">
           <div>
             <div class="ffr-faq-item">
-              <h3>When is each pack updated?</h3>
+              <h3>When are the packs updated?</h3>
               <p>
-                Packs are prepared for the main Saturday metro meetings. If a meeting shifts
-                or is abandoned, the affected track will be noted in the pack.
+                Packs are built for the main Saturday metro meetings. If a meeting shifts or is abandoned,
+                that’ll be reflected in the pack for that week.
               </p>
             </div>
             <div class="ffr-faq-item">
-              <h3>Do you include betting odds or staking plans?</h3>
+              <h3>What exactly do I see for each race?</h3>
               <p>
-                No. The focus is purely on raw data – ratings, sectionals, maps and
-                profiles. You plug it into your own staking, risk and bank management.
+                One FormFactor selection, a confidence rating, and a short explanation. That’s it.
+                No giant spreadsheets, no walls of text – just the parts you’ll actually use.
               </p>
             </div>
           </div>
           <div>
             <div class="ffr-faq-item">
-              <h3>What does the monthly membership include?</h3>
+              <h3>Do you share staking plans or tell me how much to bet?</h3>
               <p>
-                Every Saturday metro raw data pack for the month, plus priority access
-                when new formats, bonus races or mid-week trials are added.
+                No. FormFactor is a selection and structure service. You stay in control of staking,
+                risk, and bank management. The packs help you decide what to back – not how to manage your money.
               </p>
             </div>
             <div class="ffr-faq-item">
-              <h3>Can I try it once before subscribing?</h3>
+              <h3>Can I try it before going monthly?</h3>
               <p>
-                Yes. Grab either the Best Bets ($5) or Full Card ($10). If you like the
-                structure, you can switch to the monthly membership later.
+                Yes – you can start with the Best Bets Pack for $5 or the Full Raw Data Pack for $10.
+                If you like how it fits into your routine, you can swap to the monthly membership later.
               </p>
             </div>
           </div>
@@ -658,8 +780,7 @@
     <footer class="ffr-footer">
       <div>© <span id="ffr-year"></span> FormFactor Racing. All rights reserved.</div>
       <div>
-        This service provides data only and does not guarantee results. Gamble
-        responsibly.
+        This service provides selections only and does not guarantee results. Gamble responsibly.
       </div>
     </footer>
   </div>
