@@ -2,71 +2,673 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
+  <title>FormFactor Racing | Weekend Metro Raw Data Packs</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>FormFactor Racing — Melbourne Cup Special</title>
-  <meta name="description" content="Melbourne Cup Day — Full FormFactor Racing data selections. $10 access. Offer ends Tuesday 12 PM AEDT." />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <meta
+    name="description"
+    content="FormFactor Racing – data-driven horse racing selections for Saturday metro meetings in Sydney, Melbourne & Brisbane. Speed ratings, sectionals, maps & more."
+  />
+
   <style>
     :root {
-      --bg:#0b0f1a;
-      --card:#101628;
-      --ink:#e7ecff;
-      --muted:#a6b0cf;
-      --brand:#4ea8ff;
+      --ffr-bg: #050816;
+      --ffr-bg-alt: #0b1120;
+      --ffr-card: #111827;
+      --ffr-border: #1f2933;
+      --ffr-text: #f9fafb;
+      --ffr-muted: #9ca3af;
+      --ffr-primary: #2563eb;  /* electric-ish blue */
+      --ffr-primary-soft: rgba(37, 99, 235, 0.15);
+      --ffr-accent: #f97316;   /* orange */
+      --ffr-success: #10b981;  /* green */
     }
-    *{box-sizing:border-box;margin:0;padding:0}
-    body{font-family:Inter,system-ui,Segoe UI,Roboto,Helvetica,Arial,sans-serif;background:var(--bg);color:var(--ink);line-height:1.5}
-    header{padding:20px 16px;text-align:center;border-bottom:1px solid #1c2440;background:rgba(11,15,26,.8);backdrop-filter:blur(8px)}
-    header h1{font-size:28px;color:var(--brand);letter-spacing:1px}
-    .hero{padding:60px 20px;text-align:center;background:radial-gradient(800px 400px at 50% -10%,rgba(78,168,255,.15),transparent)}
-    .hero h2{font-size:36px;margin-bottom:10px}
-    .hero p{color:var(--muted);font-size:18px;margin-bottom:24px}
-    .cta a{display:inline-block;background:linear-gradient(180deg,#2f79ff,#2957ff);color:#fff;
-      font-weight:700;padding:14px 28px;border-radius:14px;text-decoration:none;font-size:18px}
-    .cta a:hover{opacity:.9}
-    .section{max-width:720px;margin:40px auto;padding:0 20px}
-    h3{color:var(--brand);margin-bottom:8px}
-    ul{list-style:none;padding-left:0;margin-bottom:24px}
-    li{margin-bottom:6px}
-    footer{margin-top:60px;padding:20px 16px;border-top:1px solid #1c2440;text-align:center;color:var(--muted);font-size:14px}
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+        sans-serif;
+      background: radial-gradient(circle at top, #111827 0, #020617 55%);
+      color: var(--ffr-text);
+      min-height: 100vh;
+      line-height: 1.5;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    .ffr-container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 16px 16px 40px;
+    }
+
+    /* HEADER */
+
+    .ffr-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 0 20px;
+      gap: 12px;
+    }
+
+    .ffr-logo {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .ffr-logo-mark {
+      width: 32px;
+      height: 32px;
+      border-radius: 999px;
+      background: radial-gradient(circle at 30% 30%, #60a5fa, #1d4ed8);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 900;
+      font-size: 18px;
+      box-shadow: 0 0 20px rgba(37, 99, 235, 0.8);
+    }
+
+    .ffr-logo-text-primary {
+      font-weight: 800;
+      letter-spacing: 0.06em;
+      font-size: 0.95rem;
+      text-transform: uppercase;
+    }
+
+    .ffr-logo-text-sub {
+      font-size: 0.75rem;
+      color: var(--ffr-muted);
+    }
+
+    .ffr-nav {
+      display: flex;
+      gap: 16px;
+      font-size: 0.9rem;
+    }
+
+    .ffr-nav a {
+      text-decoration: none;
+      color: var(--ffr-muted);
+      padding: 4px 0;
+    }
+
+    .ffr-nav a:hover {
+      color: var(--ffr-text);
+    }
+
+    /* BUTTONS */
+
+    .ffr-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 10px 22px;
+      border-radius: 999px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+      transition: transform 0.08s ease, box-shadow 0.08s ease, background 0.08s ease;
+      white-space: nowrap;
+      gap: 6px;
+    }
+
+    .ffr-btn-primary {
+      background: linear-gradient(135deg, #2563eb, #3b82f6);
+      color: white;
+      box-shadow: 0 8px 24px rgba(37, 99, 235, 0.55);
+    }
+
+    .ffr-btn-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 10px 30px rgba(37, 99, 235, 0.7);
+    }
+
+    .ffr-btn-outline {
+      background: transparent;
+      color: var(--ffr-muted);
+      border: 1px solid var(--ffr-border);
+    }
+
+    .ffr-btn-outline:hover {
+      color: var(--ffr-text);
+      border-color: #4b5563;
+      transform: translateY(-1px);
+    }
+
+    /* HERO */
+
+    .ffr-hero {
+      display: grid;
+      grid-template-columns: minmax(0, 3fr) minmax(0, 2.2fr);
+      gap: 32px;
+      padding: 24px 0 40px;
+      align-items: center;
+    }
+
+    .ffr-hero-kicker {
+      font-size: 0.85rem;
+      color: var(--ffr-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      margin-bottom: 8px;
+    }
+
+    .ffr-hero-title {
+      font-size: 2.4rem;
+      line-height: 1.1;
+      margin-bottom: 12px;
+      font-weight: 800;
+    }
+
+    .ffr-hero-title span {
+      color: #60a5fa;
+    }
+
+    .ffr-hero-subtitle {
+      font-size: 1rem;
+      color: var(--ffr-muted);
+      margin-bottom: 18px;
+    }
+
+    .ffr-hero-cta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 14px;
+    }
+
+    .ffr-hero-note {
+      font-size: 0.8rem;
+      color: var(--ffr-muted);
+    }
+
+    .ffr-hero-right {
+      border-radius: 22px;
+      padding: 18px 18px 16px;
+      background: radial-gradient(circle at top left, #1f2937 0, #020617 70%);
+      border: 1px solid rgba(148, 163, 184, 0.35);
+      box-shadow: 0 16px 40px rgba(15, 23, 42, 0.9);
+    }
+
+    .ffr-tagline {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--ffr-muted);
+      margin-bottom: 6px;
+    }
+
+    .ffr-hero-card-title {
+      font-size: 1.05rem;
+      margin-bottom: 10px;
+      font-weight: 600;
+    }
+
+    .ffr-badge-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 10px;
+    }
+
+    .ffr-badge {
+      font-size: 0.72rem;
+      padding: 3px 8px;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      color: #e5e7eb;
+    }
+
+    .ffr-hero-card-list {
+      list-style: none;
+      font-size: 0.8rem;
+      color: var(--ffr-muted);
+      margin-bottom: 10px;
+    }
+
+    .ffr-hero-card-list li {
+      margin-bottom: 4px;
+    }
+
+    .ffr-hero-highlight {
+      font-size: 0.8rem;
+      color: #a7f3d0;
+    }
+
+    /* SECTIONS */
+
+    .ffr-section {
+      padding: 24px 0;
+    }
+
+    .ffr-section h2 {
+      font-size: 1.6rem;
+      margin-bottom: 10px;
+      font-weight: 700;
+    }
+
+    .ffr-section p {
+      font-size: 0.95rem;
+      color: var(--ffr-muted);
+      max-width: 720px;
+    }
+
+    .ffr-list {
+      margin-top: 12px;
+      list-style: none;
+      padding-left: 0;
+      font-size: 0.92rem;
+      color: var(--ffr-text);
+    }
+
+    .ffr-list li {
+      margin-bottom: 6px;
+      position: relative;
+      padding-left: 20px;
+    }
+
+    .ffr-list li::before {
+      content: "•";
+      position: absolute;
+      left: 6px;
+      color: #60a5fa;
+    }
+
+    .ffr-split {
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+      gap: 28px;
+      align-items: start;
+    }
+
+    .ffr-step-list {
+      margin-top: 12px;
+      padding-left: 20px;
+      font-size: 0.92rem;
+      color: var(--ffr-text);
+    }
+
+    .ffr-step-list li {
+      margin-bottom: 6px;
+    }
+
+    .ffr-card {
+      border-radius: 16px;
+      background: var(--ffr-card);
+      padding: 16px 18px;
+      border: 1px solid var(--ffr-border);
+      font-size: 0.9rem;
+      color: var(--ffr-muted);
+    }
+
+    /* PRICING */
+
+    #pricing {
+      padding: 32px 0 28px;
+    }
+
+    .ffr-pricing-grid {
+      display: grid;
+      gap: 20px;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      margin-top: 18px;
+    }
+
+    .ffr-pricing-card {
+      border-radius: 16px;
+      background: var(--ffr-card);
+      border: 1px solid var(--ffr-border);
+      padding: 20px 18px 18px;
+      text-align: center;
+    }
+
+    .ffr-pricing-card h3 {
+      font-size: 1.2rem;
+      margin-bottom: 6px;
+      font-weight: 600;
+    }
+
+    .ffr-price {
+      font-size: 2rem;
+      font-weight: 800;
+      margin-bottom: 4px;
+    }
+
+    .ffr-price-note {
+      font-size: 0.8rem;
+      color: var(--ffr-muted);
+      margin-bottom: 12px;
+    }
+
+    .ffr-pricing-desc {
+      font-size: 0.9rem;
+      color: var(--ffr-muted);
+      margin-bottom: 16px;
+      min-height: 60px;
+    }
+
+    .ffr-badge-pill {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.78rem;
+      padding: 3px 10px;
+      border-radius: 999px;
+      background: rgba(16, 185, 129, 0.12);
+      color: #6ee7b7;
+      margin-bottom: 8px;
+    }
+
+    .ffr-pricing-card--featured {
+      border-color: var(--ffr-accent);
+      box-shadow: 0 0 26px rgba(249, 115, 22, 0.3);
+      background: radial-gradient(circle at top, #111827 0, #020617 70%);
+    }
+
+    /* FAQ */
+
+    .ffr-faq-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+      gap: 24px;
+      font-size: 0.9rem;
+      color: var(--ffr-muted);
+    }
+
+    .ffr-faq-item {
+      margin-bottom: 10px;
+    }
+
+    .ffr-faq-item h3 {
+      font-size: 0.95rem;
+      margin-bottom: 4px;
+      color: var(--ffr-text);
+    }
+
+    /* FOOTER */
+
+    .ffr-footer {
+      border-top: 1px solid rgba(55, 65, 81, 0.8);
+      margin-top: 24px;
+      padding-top: 14px;
+      font-size: 0.8rem;
+      color: var(--ffr-muted);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .ffr-footer a {
+      color: #93c5fd;
+      text-decoration: none;
+    }
+
+    .ffr-footer a:hover {
+      text-decoration: underline;
+    }
+
+    /* RESPONSIVE */
+
+    @media (max-width: 800px) {
+      .ffr-hero {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .ffr-header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .ffr-nav {
+        width: 100%;
+        justify-content: flex-start;
+        overflow-x: auto;
+      }
+
+      .ffr-split {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
   </style>
 </head>
 <body>
-  <header>
-    <h1>FormFactor Racing</h1>
-  </header>
+  <div class="ffr-container">
+    <!-- HEADER -->
+    <header class="ffr-header">
+      <div class="ffr-logo">
+        <div class="ffr-logo-mark">F</div>
+        <div>
+          <div class="ffr-logo-text-primary">FormFactor Racing</div>
+          <div class="ffr-logo-text-sub">Weekend Metro Raw Data Packs</div>
+        </div>
+      </div>
+      <nav class="ffr-nav">
+        <a href="#how-it-works">How it works</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#faq">FAQ</a>
+      </nav>
+    </header>
 
-  <section class="hero">
-    <h2>Melbourne Cup Special 🏆</h2>
-    <p>Data wins races. Unlock every Cup Day tip — full stats, ratings, and sectionals.<br>
-    <strong>Tuesday 4 November 2025 • Offer ends 12 PM AEDT</strong></p>
-    <div class="cta">
-      <a href="https://buy.stripe.com/28EcN4agi8kSbtVgJTafS04">Get Cup Day Access – $10</a>
-    </div>
-  </section>
+    <!-- HERO -->
+    <main>
+      <section class="ffr-hero">
+        <div>
+          <div class="ffr-hero-kicker">Saturday Metro | Sydney · Melbourne · Brisbane</div>
+          <h1 class="ffr-hero-title">
+            Data-driven racing intel<br />
+            for <span>every Saturday</span>.
+          </h1>
+          <p class="ffr-hero-subtitle">
+            Objective raw data packs for the main metro meetings. No hype, no tipsheets –
+            just the numbers that matter: speed ratings, sectionals, maps and track profiles.
+          </p>
 
-  <section class="section">
-    <h3>What You Get 🎯</h3>
-    <ul>
-      <li>✅ Full Melbourne Cup field data analysis</li>
-      <li>✅ Top 3 data-driven picks with speed figures & sectionals</li>
-      <li>✅ Access to Randwick & Eagle Farm selections</li>
-      <li>✅ Cup Day updates straight to Members area</li>
-    </ul>
+          <div class="ffr-hero-cta">
+            <!-- TODO: Replace href with your $10 full-card Stripe payment / checkout link -->
+            <a class="ffr-btn ffr-btn-primary" href="YOUR_CHECKOUT_LINK_10_DOLLARS_HERE">
+              Get this weekend's full card – $10
+            </a>
+            <a class="ffr-btn ffr-btn-outline" href="#pricing">
+              View all pricing
+            </a>
+          </div>
+          <div class="ffr-hero-note">
+            Built for punters who want a clean edge, not someone else’s opinion.
+          </div>
+        </div>
 
-    <h3>Last Week’s Results 🔥</h3>
-    <ul>
-      <li>🏇 +152% ROI in Melbourne (6 winners from 9 races)</li>
-      <li>🏇 +52% overall ROI across 3 cities</li>
-      <li>💰 $720 profit from $1,175 outlay</li>
-    </ul>
-  </section>
+        <aside class="ffr-hero-right">
+          <div class="ffr-tagline">Raw Data Snapshot</div>
+          <div class="ffr-hero-card-title">Each race includes:</div>
+          <div class="ffr-badge-row">
+            <span class="ffr-badge">Recent speed rating</span>
+            <span class="ffr-badge">Last 600m sectionals</span>
+            <span class="ffr-badge">Barrier & map</span>
+            <span class="ffr-badge">Weight & distance</span>
+            <span class="ffr-badge">Track condition profile</span>
+          </div>
+          <ul class="ffr-hero-card-list">
+            <li>Full-card coverage for Saturday metro in Sydney, Melbourne & Brisbane.</li>
+            <li>Mobile-friendly layout so you can use it on track or on the couch.</li>
+            <li>No odds or narrative – designed to plug into your own betting strategy.</li>
+          </ul>
+          <div class="ffr-hero-highlight">
+            Use it to find value, confirm your own thoughts, or quickly spot false favourites.
+          </div>
+        </aside>
+      </section>
 
-  <footer>
-    <p>© 2025 FormFactor Racing — ABN 37 375 806 506 • Gamble Responsibly</p>
-    <p><a href="members.html" style="color:#4ea8ff;text-decoration:none">Members Area →</a></p>
-  </footer>
+      <!-- WHAT YOU GET -->
+      <section class="ffr-section" id="what-you-get">
+        <h2>What you get in each weekend pack</h2>
+        <p>
+          Every Saturday metro pack is built from the same framework so you know exactly
+          what you’re getting each week.
+        </p>
+        <ul class="ffr-list">
+          <li>Full-card raw data selections for every race in Sydney, Melbourne & Brisbane.</li>
+          <li>Recent <strong>speed ratings</strong> and <strong>last 600m sectionals</strong> for each key runner.</li>
+          <li>Barrier, weight and distance suitability baked into the rankings.</li>
+          <li>Track condition tagging (Good / Soft / Heavy) based on each horse’s history.</li>
+          <li>Simple notes on expected tempo and race shape (leaders vs backmarkers).</li>
+          <li>Clean, mobile-first format – no PDFs to pinch and zoom.</li>
+        </ul>
+      </section>
+
+      <!-- HOW IT WORKS -->
+      <section class="ffr-section" id="how-it-works">
+        <div class="ffr-split">
+          <div>
+            <h2>How it works</h2>
+            <p>
+              No subscriptions required to start. Grab a one-off pack, or lock in a monthly
+              membership so you never miss a Saturday.
+            </p>
+            <ol class="ffr-step-list">
+              <li><strong>Choose your option</strong> – Best Bets, Full Card, or Monthly Membership.</li>
+              <li><strong>Pay securely</strong> via Stripe (card, Apple Pay, etc.).</li>
+              <li><strong>Get access</strong> to this weekend’s data pack via link after purchase.</li>
+              <li><strong>Open on your phone</strong> and work through the races with the data in front of you.</li>
+            </ol>
+          </div>
+          <div>
+            <div class="ffr-card">
+              <strong>Why “raw data” instead of tipping?</strong><br /><br />
+              Most services sell you an opinion. FormFactor Racing sells you the inputs –
+              the numbers that shape an edge. You stay in control of staking, bank, and
+              risk, while the pack does the heavy lifting on:
+              <br /><br />
+              • Who’s running the fastest closing splits<br />
+              • Who maps well from the barrier and tempo<br />
+              • Who actually handles the likely track conditions
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- PRICING -->
+      <section class="ffr-section" id="pricing">
+        <h2>Pricing</h2>
+        <p>
+          Start small with Best Bets, grab the full metro card, or go all-in with a monthly
+          membership and have every Saturday sorted.
+        </p>
+
+        <div class="ffr-pricing-grid">
+          <!-- Best Bets Only -->
+          <div class="ffr-pricing-card">
+            <h3>Best Bets Only</h3>
+            <div class="ffr-price">$5</div>
+            <div class="ffr-price-note">Per Saturday</div>
+            <div class="ffr-pricing-desc">
+              Top 2–3 highest rated selections of the day across Sydney, Melbourne
+              & Brisbane. Perfect quick-start option.
+            </div>
+            <!-- TODO: Replace href with your $5 Best Bets Stripe checkout/payment link -->
+            <a class="ffr-btn ffr-btn-primary" href="YOUR_CHECKOUT_LINK_5_DOLLARS_HERE">
+              Buy Best Bets – $5
+            </a>
+          </div>
+
+          <!-- All Race Selections -->
+          <div class="ffr-pricing-card">
+            <h3>Full Raw Data Pack</h3>
+            <div class="ffr-price">$10</div>
+            <div class="ffr-price-note">Per Saturday · All metro races</div>
+            <div class="ffr-pricing-desc">
+              Full-card raw data selections for every race in all 3 metro meetings.
+              Speed ratings, sectionals, maps, conditions & more.
+            </div>
+            <!-- TODO: Replace href with your $10 Full Card Stripe checkout/payment link -->
+            <a class="ffr-btn ffr-btn-primary" href="YOUR_CHECKOUT_LINK_10_DOLLARS_HERE">
+              Buy Full Card – $10
+            </a>
+          </div>
+
+          <!-- Monthly Subscription -->
+          <div class="ffr-pricing-card ffr-pricing-card--featured">
+            <div class="ffr-badge-pill">Best value – for regulars</div>
+            <h3>Monthly Membership</h3>
+            <div class="ffr-price">$29.99</div>
+            <div class="ffr-price-note">Per month · Recurring</div>
+            <div class="ffr-pricing-desc">
+              Every Saturday metro pack automatically included. Priority access +
+              members-only bonuses as they’re released. Save over 50% if you play most weeks.
+            </div>
+            <!-- TODO: Replace href with your $29.99 subscription Stripe checkout link -->
+            <a class="ffr-btn ffr-btn-primary" href="YOUR_CHECKOUT_LINK_SUBSCRIPTION_HERE">
+              Subscribe Monthly – $29.99
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- FAQ -->
+      <section class="ffr-section" id="faq">
+        <h2>FAQ</h2>
+        <div class="ffr-faq-grid">
+          <div>
+            <div class="ffr-faq-item">
+              <h3>When is each pack updated?</h3>
+              <p>
+                Packs are prepared for the main Saturday metro meetings. If a meeting shifts
+                or is abandoned, the affected track will be noted in the pack.
+              </p>
+            </div>
+            <div class="ffr-faq-item">
+              <h3>Do you include betting odds or staking plans?</h3>
+              <p>
+                No. The focus is purely on raw data – ratings, sectionals, maps and
+                profiles. You plug it into your own staking, risk and bank management.
+              </p>
+            </div>
+          </div>
+          <div>
+            <div class="ffr-faq-item">
+              <h3>What does the monthly membership include?</h3>
+              <p>
+                Every Saturday metro raw data pack for the month, plus priority access
+                when new formats, bonus races or mid-week trials are added.
+              </p>
+            </div>
+            <div class="ffr-faq-item">
+              <h3>Can I try it once before subscribing?</h3>
+              <p>
+                Yes. Grab either the Best Bets ($5) or Full Card ($10). If you like the
+                structure, you can switch to the monthly membership later.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="ffr-footer">
+      <div>© <span id="ffr-year"></span> FormFactor Racing. All rights reserved.</div>
+      <div>
+        This service provides data only and does not guarantee results. Gamble
+        responsibly.
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    // Set current year in footer
+    document.getElementById("ffr-year").textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
