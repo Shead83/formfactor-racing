@@ -1,0 +1,34 @@
+{
+  "date": "",
+  "tracks": {
+    "sydney": "",
+    "melbourne": "",
+    "brisbane": ""
+  },
+  "races": {
+    "sydney": [
+      {
+        "race": 0,
+        "horse": "",
+        "confidence": 0,
+        "explanation": ""
+      }
+    ],
+    "melbourne": [
+      {
+        "race": 0,
+        "horse": "",
+        "confidence": 0,
+        "explanation": ""
+      }
+    ],
+    "brisbane": [
+      {
+        "race": 0,
+        "horse": "",
+        "confidence": 0,
+        "explanation": ""
+      }
+    ]
+  }
+}

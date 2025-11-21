@@ -1,0 +1,22 @@
+{
+  "packs": {
+    "best_bets": {
+      "name": "Best Bets Pack",
+      "description": "3 Best Bets + 3 Value Bets",
+      "file": "/data/picks/best_bets.json",
+      "price": 5
+    },
+    "full_raw_data": {
+      "name": "Full Raw Data Pack",
+      "description": "One pick per metro race + Best Bets included",
+      "file": "/data/picks/full_raw_data.json",
+      "price": 10
+    },
+    "monthly_membership": {
+      "name": "Monthly Membership",
+      "description": "Every Saturday: Full Raw Data Pack + Best Bets",
+      "file": "/data/picks/full_raw_data.json",
+      "price": 29.99
+    }
+  }
+}

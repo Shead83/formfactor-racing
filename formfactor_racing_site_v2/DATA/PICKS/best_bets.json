@@ -1,0 +1,54 @@
+{
+  "date": "",
+  "tracks": {
+    "sydney": "",
+    "melbourne": "",
+    "brisbane": ""
+  },
+  "best_bets": [
+    {
+      "track": "",
+      "race": 0,
+      "horse": "",
+      "confidence": 0,
+      "explanation": ""
+    },
+    {
+      "track": "",
+      "race": 0,
+      "horse": "",
+      "confidence": 0,
+      "explanation": ""
+    },
+    {
+      "track": "",
+      "race": 0,
+      "horse": "",
+      "confidence": 0,
+      "explanation": ""
+    }
+  ],
+  "value_bets": [
+    {
+      "track": "",
+      "race": 0,
+      "horse": "",
+      "confidence": 0,
+      "explanation": ""
+    },
+    {
+      "track": "",
+      "race": 0,
+      "horse": "",
+      "confidence": 0,
+      "explanation": ""
+    },
+    {
+      "track": "",
+      "race": 0,
+      "horse": "",
+      "confidence": 0,
+      "explanation": ""
+    }
+  ]
+}
