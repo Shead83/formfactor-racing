@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>FormFactorTips – Picks Viewer</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+body { font-family: Arial, sans-serif; background: #0A1E46; color: white; margin: 0; padding: 20px; }
+.logo { text-align: center; margin-bottom: 20px; font-size: 26px; font-weight: bold; letter-spacing: 2px; color: #4CC2FF; }
+.section { background: rgba(255,255,255,0.08); padding: 16px; margin-bottom: 16px; border-radius: 10px; }
+.section h2 { margin: 0 0 10px; color: #4CC2FF; }
+.item { margin-bottom: 10px; padding-bottom: 10px; border-bottom: 1px solid rgba(255,255,255,0.1); }
+.item:last-child { border-bottom: none; }
+.track-title { color: #4CC2FF; font-size: 20px; margin-top: 10px; margin-bottom: 5px; }
+</style>
+</head>
+<body>
+<div class="logo">FORMFACTORTIPS</div>
+<div id="loading">Loading your picks…</div>
+<div id="content" style="display:none;"></div>
+<script>
+const params = new URLSearchParams(window.location.search);
+const pack = params.get("pack");
+let jsonFile = "";
+if (pack === "best_bets") jsonFile = "/data/picks/best_bets.json";
+if (pack === "full") jsonFile = "/data/picks/full_raw_data.json";
+if (pack === "monthly") jsonFile = "/data/picks/full_raw_data.json";
+if (!jsonFile) { document.getElementById('loading').innerText = "Invalid access link."; throw new Error("Invalid pack parameter"); }
+fetch(jsonFile)
+.then(res => res.json())
+.then(data => {
+    document.getElementById('loading').style.display = "none";
+    const wrapper = document.getElementById('content');
+    wrapper.style.display = "block";
+    wrapper.innerHTML += `
+        <div class="section">
+            <h2>Meeting Details</h2>
+            <div><strong>Date:</strong> ${data.date || "Not provided"}</div>
+            <div><strong>Sydney:</strong> ${data.tracks.sydney}</div>
+            <div><strong>Melbourne:</strong> ${data.tracks.melbourne}</div>
+            <div><strong>Brisbane:</strong> ${data.tracks.brisbane}</div>
+        </div>`;
+    if (data.best_bets) {
+        wrapper.innerHTML += `<div class="section"><h2>Best Bets</h2></div>`;
+        const sec = wrapper.lastElementChild;
+        data.best_bets.forEach(bet => {
+            sec.innerHTML += `
+                <div class="item">
+                    <strong>${bet.track} R${bet.race} — ${bet.horse}</strong><br>
+                    Confidence: ${bet.confidence}/10<br>
+                    ${bet.explanation}
+                </div>`;
+        });
+    }
+    if (data.value_bets) {
+        wrapper.innerHTML += `<div class="section"><h2>Value Bets</h2></div>`;
+        const sec = wrapper.lastElementChild;
+        data.value_bets.forEach(bet => {
+            sec.innerHTML += `
+                <div class="item">
+                    <strong>${bet.track} R${bet.race} — ${bet.horse}</strong><br>
+                    Confidence: ${bet.confidence}/10<br>
+                    ${bet.explanation}
+                </div>`;
+        });
+    }
+    if (data.races) {
+        wrapper.innerHTML += `<div class="section"><h2>Full Card Selections</h2></div>`;
+        const sec = wrapper.lastElementChild;
+        for (const track in data.races) {
+            sec.innerHTML += `<div class="track-title">${track.toUpperCase()}</div>`;
+            data.races[track].forEach(r => {
+                sec.innerHTML += `
+                    <div class="item">
+                        <strong>Race ${r.race} — ${r.horse}</strong><br>
+                        Confidence: ${r.confidence}/10<br>
+                        ${r.explanation}
+                    </div>`;
+            });
+        }
+    }
+})
+.catch(err => {
+    document.getElementById('loading').innerText = "Error loading picks.";
+    console.error(err);
+});
+</script>
+</body>
+</html>
