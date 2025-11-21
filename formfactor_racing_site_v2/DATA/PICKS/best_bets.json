@@ -1,54 +1,54 @@
 {
-  "date": "",
+  "date": "2025-11-22",
   "tracks": {
-    "sydney": "",
-    "melbourne": "",
-    "brisbane": ""
+    "sydney": "Kembla Grange",
+    "melbourne": "Cranbourne",
+    "brisbane": "Sunshine Coast"
   },
   "best_bets": [
     {
-      "track": "",
-      "race": 0,
-      "horse": "",
-      "confidence": 0,
-      "explanation": ""
+      "track": "Kembla Grange",
+      "race": 5,
+      "horse": "Oceanfront",
+      "confidence": 9.0,
+      "explanation": "On a three-race winning streak with improving speed ratings. Faces 2000m for the first time but pedigree suggests it suits. Carries strong objective data including consistent margins and top benchmark figure in the field."
     },
     {
-      "track": "",
-      "race": 0,
-      "horse": "",
-      "confidence": 0,
-      "explanation": ""
+      "track": "Cranbourne",
+      "race": 4,
+      "horse": "Gumdrops",
+      "confidence": 8.0,
+      "explanation": "Highest benchmark rating (90) in this field. Coming off a strong win with fast closing splits. Perfectly placed under the set weights + penalties and unbeaten on Good tracks."
     },
     {
-      "track": "",
-      "race": 0,
-      "horse": "",
-      "confidence": 0,
-      "explanation": ""
+      "track": "Sunshine Coast",
+      "race": 5,
+      "horse": "Brave Monarch",
+      "confidence": 8.0,
+      "explanation": "Undefeated this prep with sharp sectionals. Class edge on this field at a good weight and maps ideally from barrier 4."
     }
   ],
   "value_bets": [
     {
-      "track": "",
-      "race": 0,
-      "horse": "",
-      "confidence": 0,
-      "explanation": ""
+      "track": "Kembla Grange",
+      "race": 4,
+      "horse": "Weeping Woman",
+      "confidence": 8.0,
+      "explanation": "First-up winner last start with excellent late sectionals. Carries top weight, but drawn well and comes in fitter for the 1200m assignment. Nash Rawiller stays aboard, and form lines are strong for this grade."
     },
     {
-      "track": "",
-      "race": 0,
-      "horse": "",
-      "confidence": 0,
-      "explanation": ""
+      "track": "Cranbourne",
+      "race": 10,
+      "horse": "Celerity",
+      "confidence": 6.0,
+      "explanation": "Trialed brilliantly leading into this run for the Maher stable. Gets in light and has past sectionals indicating strong finishing burst potential. New stable could unlock further improvement."
     },
     {
-      "track": "",
-      "race": 0,
-      "horse": "",
-      "confidence": 0,
-      "explanation": ""
+      "track": "Sunshine Coast",
+      "race": 3,
+      "horse": "Pepperdine",
+      "confidence": 6.0,
+      "explanation": "Hit career-best figures with two straight wins last prep and has strong placing form. Top weight but deserved, and late sectionals make him a data-driven value play."
     }
   ]
 }
