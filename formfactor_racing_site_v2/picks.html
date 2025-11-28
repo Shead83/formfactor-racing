@@ -1,89 +1,595 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>FormFactorTips – Picks Viewer</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<style>
-body { font-family: Arial, sans-serif; background: #0A1E46; color: white; margin: 0; padding: 20px; }
-.logo { text-align: center; margin-bottom: 20px; font-size: 26px; font-weight: bold; letter-spacing: 2px; color: #4CC2FF; }
-.section { background: rgba(255,255,255,0.08); padding: 16px; margin-bottom: 16px; border-radius: 10px; }
-.section h2 { margin: 0 0 10px; color: #4CC2FF; }
-.item { margin-bottom: 10px; padding-bottom: 10px; border-bottom: 1px solid rgba(255,255,255,0.1); }
-.item:last-child { border-bottom: none; }
-.track-title { color: #4CC2FF; font-size: 20px; margin-top: 10px; margin-bottom: 5px; }
-</style>
+  <meta charset="UTF-8" />
+  <title>FORMFACTORTIPS – Saturday 29 November 2025</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    :root {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+      color-scheme: dark;
+    }
+    body {
+      margin: 0;
+      padding: 16px;
+      background: #05050a;
+      color: #f5f5f7;
+    }
+    header {
+      text-align: center;
+      margin-bottom: 16px;
+    }
+    h1 {
+      font-size: 1.4rem;
+      margin: 0 0 4px;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+    }
+    .subheading {
+      font-size: 0.9rem;
+      opacity: 0.8;
+    }
+    .badge-row {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      margin-top: 8px;
+      flex-wrap: wrap;
+    }
+    .badge {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      padding: 4px 8px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.15);
+      opacity: 0.9;
+    }
+    .legend {
+      font-size: 0.7rem;
+      margin: 8px 0 16px;
+      opacity: 0.85;
+      text-align: center;
+    }
+    .track {
+      margin-bottom: 18px;
+      border-radius: 14px;
+      padding: 10px;
+      background: radial-gradient(circle at top left, #26294a 0, #101020 40%, #05050a 100%);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.8);
+    }
+    .track-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 6px;
+    }
+    .track-name {
+      font-size: 1.05rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+    .track-meta {
+      font-size: 0.75rem;
+      opacity: 0.8;
+    }
+    .race-list {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .race-card {
+      border-radius: 10px;
+      padding: 8px 9px;
+      background: rgba(5,5,10,0.88);
+      border: 1px solid rgba(255,255,255,0.06);
+    }
+    .race-heading {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 3px;
+    }
+    .race-num {
+      font-size: 0.85rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      opacity: 0.9;
+    }
+    .horse-name {
+      font-size: 0.95rem;
+      font-weight: 600;
+    }
+    .meta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      font-size: 0.7rem;
+      opacity: 0.9;
+    }
+    .pill {
+      padding: 2px 6px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.12);
+    }
+    .confidence {
+      font-weight: 600;
+    }
+    .explanation {
+      margin-top: 4px;
+      font-size: 0.75rem;
+      opacity: 0.95;
+    }
+    footer {
+      margin-top: 14px;
+      font-size: 0.7rem;
+      opacity: 0.8;
+      text-align: center;
+      line-height: 1.4;
+    }
+  </style>
 </head>
 <body>
-<div class="logo">FORMFACTORTIPS</div>
-<div id="loading">Loading your picks…</div>
-<div id="content" style="display:none;"></div>
-<script>
-const params = new URLSearchParams(window.location.search);
-const pack = params.get("pack");
-let jsonFile = "";
-if (pack === "best_bets") jsonFile = "/data/picks/best_bets.json";
-if (pack === "full") jsonFile = "/data/picks/full_raw_data.json";
-if (pack === "monthly") jsonFile = "/data/picks/full_raw_data.json";
-if (!jsonFile) { document.getElementById('loading').innerText = "Invalid access link."; throw new Error("Invalid pack parameter"); }
-fetch(jsonFile)
-.then(res => res.json())
-.then(data => {
-    document.getElementById('loading').style.display = "none";
-    const wrapper = document.getElementById('content');
-    wrapper.style.display = "block";
-    wrapper.innerHTML += `
-        <div class="section">
-            <h2>Meeting Details</h2>
-            <div><strong>Date:</strong> ${data.date || "Not provided"}</div>
-            <div><strong>Sydney:</strong> ${data.tracks.sydney}</div>
-            <div><strong>Melbourne:</strong> ${data.tracks.melbourne}</div>
-            <div><strong>Brisbane:</strong> ${data.tracks.brisbane}</div>
-        </div>`;
-    if (data.best_bets) {
-        wrapper.innerHTML += `<div class="section"><h2>Best Bets</h2></div>`;
-        const sec = wrapper.lastElementChild;
-        data.best_bets.forEach(bet => {
-            sec.innerHTML += `
-                <div class="item">
-                    <strong>${bet.track} R${bet.race} — ${bet.horse}</strong><br>
-                    Confidence: ${bet.confidence}/10<br>
-                    ${bet.explanation}
-                </div>`;
-        });
-    }
-    if (data.value_bets) {
-        wrapper.innerHTML += `<div class="section"><h2>Value Bets</h2></div>`;
-        const sec = wrapper.lastElementChild;
-        data.value_bets.forEach(bet => {
-            sec.innerHTML += `
-                <div class="item">
-                    <strong>${bet.track} R${bet.race} — ${bet.horse}</strong><br>
-                    Confidence: ${bet.confidence}/10<br>
-                    ${bet.explanation}
-                </div>`;
-        });
-    }
-    if (data.races) {
-        wrapper.innerHTML += `<div class="section"><h2>Full Card Selections</h2></div>`;
-        const sec = wrapper.lastElementChild;
-        for (const track in data.races) {
-            sec.innerHTML += `<div class="track-title">${track.toUpperCase()}</div>`;
-            data.races[track].forEach(r => {
-                sec.innerHTML += `
-                    <div class="item">
-                        <strong>Race ${r.race} — ${r.horse}</strong><br>
-                        Confidence: ${r.confidence}/10<br>
-                        ${r.explanation}
-                    </div>`;
-            });
-        }
-    }
-})
-.catch(err => {
-    document.getElementById('loading').innerText = "Error loading picks.";
-    console.error(err);
-});
-</script>
-</body>
-</html>
+  <header>
+    <h1>FORMFACTORTIPS</h1>
+    <div class="subheading">Full Metro Raw Data Pack – Saturday 29 November 2025</div>
+    <div class="badge-row">
+      <span class="badge">Rosehill</span>
+      <span class="badge">Caulfield</span>
+      <span class="badge">Doomben</span>
+    </div>
+    <div class="legend">
+      Confidence: 1 = low, 10 = max conviction. Data only – no odds used. Gamble responsibly.
+    </div>
+  </header>
+
+  <!-- SYDNEY / ROSEHILL -->
+  <section class="track">
+    <div class="track-header">
+      <div class="track-name">Rosehill</div>
+      <div class="track-meta">Sydney – 10 races</div>
+    </div>
+    <div class="race-list">
+
+      <article class="race-card">
+        <div class="race-heading">
+          <div class="race-num">R1</div>
+          <div class="horse-name">Fireball</div>
+        </div>
+        <div class="meta-row">
+          <span class="pill">Barrier 5</span>
+          <span class="pill">Weight 58kg</span>
+          <span class="pill">Last 600m: 32.66</span>
+          <span class="pill confidence">Conf: 5 / 10</span>
+        </div>
+        <div class="explanation">
+          Impressed at the trials and bred for speed on debut.
+        </div>
+      </article>
+
+      <article class="race-card">
+        <div class="race-heading">
+          <div class="race-num">R2</div>
+          <div class="horse-name">Dr Evil</div>
+        </div>
+        <div class="meta-row">
+          <span class="pill">Barrier 6</span>
+          <span class="pill">Weight 56kg</span>
+          <span class="pill">Last 600m: 35.50</span>
+          <span class="pill confidence">Conf: 3 / 10</span>
+        </div>
+        <div class="explanation">
+          Veteran who can produce a big finish – an upset chance at long odds.
+        </div>
+      </article>
+
+      <article class="race-card">
+        <div class="race-heading">
+          <div class="race-num">R3</div>
+          <div class="horse-name">Lady Olenna</div>
+        </div>
+        <div class="meta-row">
+          <span class="pill">Barrier 15</span>
+          <span class="pill">Weight 57kg</span>
+          <span class="pill">Last 600m: 34.50</span>
+          <span class="pill confidence">Conf: 6 / 10</span>
+        </div>
+        <div class="explanation">
+          Has the ability to win a Highway; won back-to-back country races before last run.
+        </div>
+      </article>
+
+      <article class="race-card">
+        <div class="race-heading">
+          <div class="race-num">R4</div>
+          <div class="horse-name">Meridiana</div>
+        </div>
+        <div class="meta-row">
+          <span class="pill">Barrier 8</span>
+          <span class="pill">Weight 61kg</span>
+          <span class="pill">Last 600m: 33.89</span>
+          <span class="pill confidence">Conf: 8 / 10</span>
+        </div>
+        <div class="explanation">
+          In-form mare with two wins from her last three starts, rising through the grades.
+        </div>
+      </article>
+
+      <article class="race-card">
+        <div class="race-heading">
+          <div class="race-num">R5</div>
+          <div class="horse-name">Lyles</div>
+        </div>
+        <div class="meta-row">
+          <span class="pill">Barrier 6</span>
+          <span class="pill">Weight 58kg</span>
+          <span class="pill">Last 600m: 32.82</span>
+          <span class="pill confidence">Conf: 9 / 10</span>
+        </div>
+        <div class="explanation">
+          Up-and-coming sprinter with consecutive wins in Sydney and Brisbane.
+        </div>
+      </article>
+
+      <article class="race-card">
+        <div class="race-heading">
+          <div class="race-num">R6</div>
+          <div class="horse-name">Blacklist</div>
+        </div>
+        <div class="meta-row">
+          <span class="pill">Barrier 8</span>
+          <span class="pill">Weight 55.5kg</span>
+          <span class="pill">Last 600m: 35.20</span>
+          <span class="pill confidence">Conf: 5 / 10</span>
+        </div>
+        <div class="explanation">
+          Forgive his last start; previously strung together back-to-back wins.
+        </div>
+      </article>
+
+      <article class="race-card">
+        <div class="race-heading">
+          <div class="race-num">R7</div>
+          <div class="horse-name">Zealously</div>
+        </div>
+        <div class="meta-row">
+          <span class="pill">Barrier 9</span>
+          <span class="pill">Weight 54kg</span>
+          <span class="pill">Last 600m: 32.74</span>
+          <span class="pill confidence">Conf: 7 / 10</span>
+        </div>
+        <div class="explanation">
+          Drops in class after a Group 3 placing in Melbourne and gets in well at the weights.
+        </div>
+      </article>
+
+      <article class="race-card">
+        <div class="race-heading">
+          <div class="race-num">R8</div>
+          <div class="horse-name">Yorkshire</div>
+        </div>
+        <div class="meta-row">
+          <span class="pill">Barrier 1</span>
+          <span class="pill">Weight 54kg</span>
+          <span class="pill">Last 600m: 35.50</span>
+          <span class="pill confidence">Conf: 6 / 10</span>
+        </div>
+        <div class="explanation">
+          Talented galloper with six wins from nine; expected to improve sharply second-up.
+        </div>
+      </article>
+
+      <article class="race-card">
+        <div class="race-heading">
+          <div class="race-num">R9</div>
+          <div class="horse-name">God’s Window</div>
+        </div>
+        <div class="meta-row">
+          <span class="pill">Barrier 3</span>
+          <span class="pill">Weight 53kg</span>
+          <span class="pill">Last 600m: 35.00</span>
+          <span class="pill confidence">Conf: 4 / 10</span>
+        </div>
+        <div class="explanation">
+          Imported stayer who ran well at Newcastle two weeks ago; low weight makes him competitive.
+        </div>
+      </article>
+
+      <article class="race-card">
+        <div class="race-heading">
+          <div class="race-num">R10</div>
+          <div class="horse-name">Frosty Girl</div>
+        </div>
+        <div class="meta-row">
+          <span class="pill">Barrier 9</span>
+          <span class="pill">Weight 59kg</span>
+          <span class="pill">Last 600m: 33.80</span>
+          <span class="pill confidence">Conf: 9 / 10</span>
+        </div>
+        <div class="explanation">
+          Should be unbeaten – unlucky when third last start and looks a class above these.
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- MELBOURNE / CAULFIELD -->
+  <section class="track">
+    <div class="track-header">
+      <div class="track-name">Caulfield</div>
+      <div class="track-meta">Melbourne – 10 races</div>
+    </div>
+    <div class="race-list">
+
+      <article class="race-card">
+        <div class="race-heading">
+          <div class="race-num">R1</div>
+          <div class="horse-name">Black Run</div>
+        </div>
+        <div class="meta-row">
+          <span class="pill">Barrier 10</span>
+          <span class="pill">Weight 60kg</span>
+          <span class="pill">Last 600m: 37.00</span>
+          <span class="pill confidence">Conf: 8 / 10</span>
+        </div>
+        <div class="explanation">
+          Chasing a hat-trick after wins at Randwick and Caulfield; in top form over this trip.
+        </div>
+      </article>
+
+      <article class="race-card">
+        <div class="race-heading">
+          <div class="race-num">R2</div>
+          <div class="horse-name">Almost an Angel</div>
+        </div>
+        <div class="meta-row">
+          <span class="pill">Barrier 7</span>
+          <span class="pill">Weight 56kg</span>
+          <span class="pill">Last 600m: 33.50</span>
+          <span class="pill confidence">Conf: 7 / 10</span>
+        </div>
+        <div class="explanation">
+          Brilliant two-year-old filly who won by two lengths on debut and has plenty of upside.
+        </div>
+      </article>
+
+      <article class="race-card">
+        <div class="race-heading">
+          <div class="race-num">R3</div>
+          <div class="horse-name">Skippers Canyon</div>
+        </div>
+        <div class="meta-row">
+          <span class="pill">Barrier 4</span>
+          <span class="pill">Weight 61.5kg</span>
+          <span class="pill">Last 600m: 35.00</span>
+          <span class="pill confidence">Conf: 7 / 10</span>
+        </div>
+        <div class="explanation">
+          Impressive last-start Caulfield winner; former Kiwi stayer with massive upside in this grade.
+        </div>
+      </article>
+
+      <article class="race-card">
+        <div class="race-heading">
+          <div class="race-num">R4</div>
+          <div class="horse-name">Caffettiera</div>
+        </div>
+        <div class="meta-row">
+          <span class="pill">Barrier 5</span>
+          <span class="pill">Weight 55kg</span>
+          <span class="pill">Last 600m: 34.00</span>
+          <span class="pill confidence">Conf: 5 / 10</span>
+        </div>
+        <div class="explanation">
+          Caught the eye running second at Cranbourne last week; won well at Mornington prior.
+        </div>
+      </article>
+
+      <article class="race-card">
+        <div class="race-heading">
+          <div class="race-num">R5</div>
+          <div class="horse-name">Different Gravy</div>
+        </div>
+        <div class="meta-row">
+          <span class="pill">Barrier 5</span>
+          <span class="pill">Weight 58.5kg</span>
+          <span class="pill">Last 600m: 35.80</span>
+          <span class="pill confidence">Conf: 8 / 10</span>
+        </div>
+        <div class="explanation">
+          Was different gravy to his rivals on Cup Day; rising in distance should only improve his chances.
+        </div>
+      </article>
+
+      <article class="race-card">
+        <div class="race-heading">
+          <div class="race-num">R6</div>
+          <div class="horse-name">Lyrics ‘N’ Song</div>
+        </div>
+        <div class="meta-row">
+          <span class="pill">Barrier 8</span>
+          <span class="pill">Weight 56kg</span>
+          <span class="pill">Last 600m: 34.20</span>
+          <span class="pill confidence">Conf: 6 / 10</span>
+        </div>
+        <div class="explanation">
+          Well-bred filly who bolted in at Cranbourne by over two lengths; capable of stepping up to this level.
+        </div>
+      </article>
+
+      <article class="race-card">
+        <div class="race-heading">
+          <div class="race-num">R7</div>
+          <div class="horse-name">Detonator Jack</div>
+        </div>
+        <div class="meta-row">
+          <span class="pill">Barrier 6</span>
+          <span class="pill">Weight 59kg</span>
+          <span class="pill">Last 600m: 34.50</span>
+          <span class="pill confidence">Conf: 6 / 10</span>
+        </div>
+        <div class="explanation">
+          Classy gelding who ran a big race for second at Flemington; has the talent to break through again.
+        </div>
+      </article>
+
+      <article class="race-card">
+        <div class="race-heading">
+          <div class="race-num">R8</div>
+          <div class="horse-name">She’s A Hustler</div>
+        </div>
+        <div class="meta-row">
+          <span class="pill">Barrier 3</span>
+          <span class="pill">Weight 57kg</span>
+          <span class="pill">Last 600m: 36.00</span>
+          <span class="pill confidence">Conf: 7 / 10</span>
+        </div>
+        <div class="explanation">
+          Ultra-consistent mare (six wins and four placings from ten starts) drawn well and tough to beat.
+        </div>
+      </article>
+
+      <article class="race-card">
+        <div class="race-heading">
+          <div class="race-num">R9</div>
+          <div class="horse-name">Boston Rocks</div>
+        </div>
+        <div class="meta-row">
+          <span class="pill">Barrier 3</span>
+          <span class="pill">Weight 55.5kg</span>
+          <span class="pill">Last 600m: 33.50</span>
+          <span class="pill confidence">Conf: 6 / 10</span>
+        </div>
+        <div class="explanation">
+          Hard to fault his last-start win at Caulfield; four-time winner over this trip and well weighted here.
+        </div>
+      </article>
+
+      <article class="race-card">
+        <div class="race-heading">
+          <div class="race-num">R10</div>
+          <div class="horse-name">Proved</div>
+        </div>
+        <div class="meta-row">
+          <span class="pill">Barrier 12</span>
+          <span class="pill">Weight 56.5kg</span>
+          <span class="pill">Last 600m: 34.50</span>
+          <span class="pill confidence">Conf: 4 / 10</span>
+        </div>
+        <div class="explanation">
+          Returned to her best form with a win here last start (six wins from seven); wide gate but knows how to find the line.
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- BRISBANE / DOOMBEN -->
+  <section class="track">
+    <div class="track-header">
+      <div class="track-name">Doomben</div>
+      <div class="track-meta">Brisbane – 10 races</div>
+    </div>
+    <div class="race-list">
+
+      <article class="race-card">
+        <div class="race-heading">
+          <div class="race-num">R1</div>
+          <div class="horse-name">Silver Wedding</div>
+        </div>
+        <div class="meta-row">
+          <span class="pill">Barrier 4</span>
+          <span class="pill">Weight 58kg</span>
+          <span class="pill">Last 600m: 35.50</span>
+          <span class="pill confidence">Conf: 7 / 10</span>
+        </div>
+        <div class="explanation">
+          Sydney form stacks up well – drops in class and this looks right up her alley.
+        </div>
+      </article>
+
+      <article class="race-card">
+        <div class="race-heading">
+          <div class="race-num">R2</div>
+          <div class="horse-name">Thinkhardandfast</div>
+        </div>
+        <div class="meta-row">
+          <span class="pill">Barrier 2</span>
+          <span class="pill">Weight 58.5kg</span>
+          <span class="pill">Last 600m: 36.00</span>
+          <span class="pill confidence">Conf: 5 / 10</span>
+        </div>
+        <div class="explanation">
+          Too strong at the Sunshine Coast last week and could go back-to-back with a light weight and quick backup.
+        </div>
+      </article>
+
+      <article class="race-card">
+        <div class="race-heading">
+          <div class="race-num">R3</div>
+          <div class="horse-name">Margot’s Deel</div>
+        </div>
+        <div class="meta-row">
+          <span class="pill">Barrier 2</span>
+          <span class="pill">Weight 56.5kg</span>
+          <span class="pill">Last 600m: 34.00</span>
+          <span class="pill confidence">Conf: 5 / 10</span>
+        </div>
+        <div class="explanation">
+          Two wins this campaign, including last start at Eagle Farm; bred to thrive over the mile and still on the rise.
+        </div>
+      </article>
+
+      <article class="race-card">
+        <div class="race-heading">
+          <div class="race-num">R4</div>
+          <div class="horse-name">Corfe Castle</div>
+        </div>
+        <div class="meta-row">
+          <span class="pill">Barrier 6</span>
+          <span class="pill">Weight 60kg</span>
+          <span class="pill">Last 600m: 34.50</span>
+          <span class="pill confidence">Conf: 6 / 10</span>
+        </div>
+        <div class="explanation">
+          Went very close when second here last time; loves Doomben and looks poised to go one better on Saturday.
+        </div>
+      </article>
+
+      <article class="race-card">
+        <div class="race-heading">
+          <div class="race-num">R5</div>
+          <div class="horse-name">Balance the Books</div>
+        </div>
+        <div class="meta-row">
+          <span class="pill">Barrier 9</span>
+          <span class="pill">Weight 58kg</span>
+          <span class="pill">Last 600m: 34.00</span>
+          <span class="pill confidence">Conf: 10 / 10</span>
+        </div>
+        <div class="explanation">
+          Unbeaten filly after two dominant wins; no rivals look capable of beating her if she holds form.
+        </div>
+      </article>
+
+      <article class="race-card">
+        <div class="race-heading">
+          <div class="race-num">R6</div>
+          <div class="horse-name">Mean Approach</div>
+        </div>
+        <div class="meta-row">
+          <span class="pill">Barrier 4</span>
+          <span class="pill">Weight 61.5kg</span>
+          <span class="pill">Last 600m: 34.80</span>
+          <span class="pill confidence">Conf: 4 / 10</span>
+        </div>
+        <div class="explanation">
+          Much improved when third here last start; has four placings at this track and is overdue to break through.
+        </div>
+      </article>
+
+      <article class="race-card">
+        <div class="rac
