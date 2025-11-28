@@ -1,308 +1,317 @@
-"races": {
-  "sydney": [
-    {
-      "race": 1,
-      "horse": "Rolling Magic (NZ)",
-      "recent_speed_rating": 95,
-      "sectional_last600": 34.7,
-      "barrier": 17,
-      "weight": 61.5,
-      "confidence": 7.5,
-      "reason": "Top last-start speed figure and fastest final 600m in recent runs, despite a wide gate."
-    },
-    {
-      "race": 2,
-      "horse": "Sonic Scene",
-      "recent_speed_rating": 88,
-      "sectional_last600": 34.5,
-      "barrier": 8,
-      "weight": 54.5,
-      "confidence": 6.5,
-      "reason": "Coming off a last-start win with sharp closing figures. Carries light weight and maps well."
-    },
-    {
-      "race": 3,
-      "horse": "Cassiel",
-      "recent_speed_rating": 91,
-      "sectional_last600": 34.9,
-      "barrier": 3,
-      "weight": 56.5,
-      "confidence": 6.5,
-      "reason": "Closed off last prep with back-to-back wins, strong closing splits, trialled well, well drawn."
-    },
-    {
-      "race": 4,
-      "horse": "Weeping Woman",
-      "recent_speed_rating": 92,
-      "sectional_last600": 35.1,
-      "barrier": 10,
-      "weight": 61.0,
-      "confidence": 8.0,
-      "reason": "Top weight justified by win rating; strong closing 600m on return, drawn well for stalk-and-sprint."
-    },
-    {
-      "race": 5,
-      "horse": "Oceanfront",
-      "recent_speed_rating": 94,
-      "sectional_last600": 34.8,
-      "barrier": 6,
-      "weight": 58.0,
-      "confidence": 9.0,
-      "reason": "Three wins on the bounce, sharp sectionals, suited to rise in trip, maps forward from ideal draw."
-    },
-    {
-      "race": 6,
-      "horse": "Applaud",
-      "recent_speed_rating": 90,
-      "sectional_last600": 35.0,
-      "barrier": 11,
-      "weight": 54.5,
-      "confidence": 6.0,
-      "reason": "Hat-trick of wins last prep; resumes off sharp trial, drawn wide but has acceleration and light weight."
-    },
-    {
-      "race": 7,
-      "horse": "Zealously",
-      "recent_speed_rating": 89,
-      "sectional_last600": 33.9,
-      "barrier": 1,
-      "weight": 54.0,
-      "confidence": 5.5,
-      "reason": "Blistering 33.9s close two back, low weight and inside draw suit, strong 1000m data profile."
-    },
-    {
-      "race": 8,
-      "horse": "SCR",
-      "recent_speed_rating": null,
-      "sectional_last600": null,
-      "barrier": null,
-      "weight": null,
-      "confidence": 0.0,
-      "reason": "Scratched — previously Detonator Jack (NZ)"
-    },
-    {
-      "race": 9,
-      "horse": "Well Timed",
-      "recent_speed_rating": 90,
-      "sectional_last600": 35.4,
-      "barrier": 3,
-      "weight": 60.5,
-      "confidence": 7.0,
-      "reason": "Top last-start speed figure in this field, drawn to stalk, consistent 1600m metrics, Nash rides."
-    },
-    {
-      "race": 10,
-      "horse": "Bravissima",
-      "recent_speed_rating": 87,
-      "sectional_last600": 34.6,
-      "barrier": 11,
-      "weight": 54.5,
-      "confidence": 7.0,
-      "reason": "First-up winner with slick splits, drawn awkwardly but has strong sprinting base and form peak."
-    }
-  ]
+{
+  "date": "2025-11-29",
+  "tracks": {
+    "sydney": "Rosehill",
+    "melbourne": "Caulfield",
+    "brisbane": "Doomben"
+  },
+  "races": {
+    "sydney": [
+      {
+        "race": 1,
+        "horse": "Fireball",
+        "recent_speed_rating": 0,
+        "sectional_last600": 32.66,
+        "barrier": 5,
+        "weight": 58,
+        "confidence": 5,
+        "explanation": "Impressed at the trials and bred for speed on debut."
+      },
+      {
+        "race": 2,
+        "horse": "Dr Evil",
+        "recent_speed_rating": 0,
+        "sectional_last600": 35.5,
+        "barrier": 6,
+        "weight": 56,
+        "confidence": 3,
+        "explanation": "Veteran who can produce a big finish – an upset chance at long odds."
+      },
+      {
+        "race": 3,
+        "horse": "Lady Olenna",
+        "recent_speed_rating": 0,
+        "sectional_last600": 34.5,
+        "barrier": 15,
+        "weight": 57,
+        "confidence": 6,
+        "explanation": "Has the ability to win a Highway; won back-to-back country races before last run."
+      },
+      {
+        "race": 4,
+        "horse": "Meridiana",
+        "recent_speed_rating": 0,
+        "sectional_last600": 33.89,
+        "barrier": 8,
+        "weight": 61,
+        "confidence": 8,
+        "explanation": "In-form mare with two wins from her last three starts, rising through the grades."
+      },
+      {
+        "race": 5,
+        "horse": "Lyles",
+        "recent_speed_rating": 0,
+        "sectional_last600": 32.82,
+        "barrier": 6,
+        "weight": 58,
+        "confidence": 9,
+        "explanation": "Up-and-coming sprinter with consecutive wins in Sydney and Brisbane."
+      },
+      {
+        "race": 6,
+        "horse": "Blacklist",
+        "recent_speed_rating": 0,
+        "sectional_last600": 35.2,
+        "barrier": 8,
+        "weight": 55.5,
+        "confidence": 5,
+        "explanation": "Forgive his last start; previously strung together back-to-back wins."
+      },
+      {
+        "race": 7,
+        "horse": "Zealously",
+        "recent_speed_rating": 0,
+        "sectional_last600": 32.74,
+        "barrier": 9,
+        "weight": 54,
+        "confidence": 7,
+        "explanation": "Drops in class after a Group 3 placing in Melbourne and gets in well at the weights."
+      },
+      {
+        "race": 8,
+        "horse": "Yorkshire",
+        "recent_speed_rating": 0,
+        "sectional_last600": 35.5,
+        "barrier": 1,
+        "weight": 54,
+        "confidence": 6,
+        "explanation": "Talented galloper with six wins from nine; expected to improve sharply second-up."
+      },
+      {
+        "race": 9,
+        "horse": "God’s Window",
+        "recent_speed_rating": 0,
+        "sectional_last600": 35.0,
+        "barrier": 3,
+        "weight": 53,
+        "confidence": 4,
+        "explanation": "Imported stayer who ran well at Newcastle two weeks ago; low weight makes him competitive."
+      },
+      {
+        "race": 10,
+        "horse": "Frosty Girl",
+        "recent_speed_rating": 0,
+        "sectional_last600": 33.8,
+        "barrier": 9,
+        "weight": 59,
+        "confidence": 9,
+        "explanation": "Should be unbeaten – unlucky when third last start and looks a class above these."
+      }
+    ],
+    "melbourne": [
+      {
+        "race": 1,
+        "horse": "Black Run",
+        "recent_speed_rating": 0,
+        "sectional_last600": 37.0,
+        "barrier": 10,
+        "weight": 60,
+        "confidence": 8,
+        "explanation": "Chasing a hat-trick after wins at Randwick and Caulfield; in top form over this trip."
+      },
+      {
+        "race": 2,
+        "horse": "Almost an Angel",
+        "recent_speed_rating": 0,
+        "sectional_last600": 33.5,
+        "barrier": 7,
+        "weight": 56,
+        "confidence": 7,
+        "explanation": "Brilliant two-year-old filly who won by two lengths on debut and has plenty of upside."
+      },
+      {
+        "race": 3,
+        "horse": "Skippers Canyon",
+        "recent_speed_rating": 0,
+        "sectional_last600": 35.0,
+        "barrier": 4,
+        "weight": 61.5,
+        "confidence": 7,
+        "explanation": "Impressive last-start Caulfield winner; former Kiwi stayer with massive upside in this grade."
+      },
+      {
+        "race": 4,
+        "horse": "Caffettiera",
+        "recent_speed_rating": 0,
+        "sectional_last600": 34.0,
+        "barrier": 5,
+        "weight": 55,
+        "confidence": 5,
+        "explanation": "Caught the eye running second at Cranbourne last week; won well at Mornington prior."
+      },
+      {
+        "race": 5,
+        "horse": "Different Gravy",
+        "recent_speed_rating": 0,
+        "sectional_last600": 35.8,
+        "barrier": 5,
+        "weight": 58.5,
+        "confidence": 8,
+        "explanation": "Was different gravy to his rivals on Cup Day; rising in distance should only improve his chances."
+      },
+      {
+        "race": 6,
+        "horse": "Lyrics ‘N’ Song",
+        "recent_speed_rating": 0,
+        "sectional_last600": 34.2,
+        "barrier": 8,
+        "weight": 56,
+        "confidence": 6,
+        "explanation": "Well-bred filly who bolted in at Cranbourne by over two lengths; capable of stepping up to this level."
+      },
+      {
+        "race": 7,
+        "horse": "Detonator Jack",
+        "recent_speed_rating": 0,
+        "sectional_last600": 34.5,
+        "barrier": 6,
+        "weight": 59,
+        "confidence": 6,
+        "explanation": "Classy gelding who ran a big race for second at Flemington; has the talent to break through again."
+      },
+      {
+        "race": 8,
+        "horse": "She’s A Hustler",
+        "recent_speed_rating": 0,
+        "sectional_last600": 36.0,
+        "barrier": 3,
+        "weight": 57,
+        "confidence": 7,
+        "explanation": "Ultra-consistent mare (six wins and four placings from ten starts) drawn well and tough to beat."
+      },
+      {
+        "race": 9,
+        "horse": "Boston Rocks",
+        "recent_speed_rating": 0,
+        "sectional_last600": 33.5,
+        "barrier": 3,
+        "weight": 55.5,
+        "confidence": 6,
+        "explanation": "Hard to fault his last-start win at Caulfield; four-time winner over this trip and well weighted here."
+      },
+      {
+        "race": 10,
+        "horse": "Proved",
+        "recent_speed_rating": 0,
+        "sectional_last600": 34.5,
+        "barrier": 12,
+        "weight": 56.5,
+        "confidence": 4,
+        "explanation": "Returned to her best form with a win here last start (six wins from seven); wide gate but knows how to find the line."
+      }
+    ],
+    "brisbane": [
+      {
+        "race": 1,
+        "horse": "Silver Wedding",
+        "recent_speed_rating": 0,
+        "sectional_last600": 35.5,
+        "barrier": 4,
+        "weight": 58,
+        "confidence": 7,
+        "explanation": "Sydney form stacks up well – drops in class and this looks right up her alley."
+      },
+      {
+        "race": 2,
+        "horse": "Thinkhardandfast",
+        "recent_speed_rating": 0,
+        "sectional_last600": 36.0,
+        "barrier": 2,
+        "weight": 58.5,
+        "confidence": 5,
+        "explanation": "Too strong at the Sunshine Coast last week and could go back-to-back with a light weight and quick backup."
+      },
+      {
+        "race": 3,
+        "horse": "Margot’s Deel",
+        "recent_speed_rating": 0,
+        "sectional_last600": 34.0,
+        "barrier": 2,
+        "weight": 56.5,
+        "confidence": 5,
+        "explanation": "Two wins this campaign, including last start at Eagle Farm; bred to thrive over the mile and still on the rise."
+      },
+      {
+        "race": 4,
+        "horse": "Corfe Castle",
+        "recent_speed_rating": 0,
+        "sectional_last600": 34.5,
+        "barrier": 6,
+        "weight": 60,
+        "confidence": 6,
+        "explanation": "Went very close when second here last time; loves Doomben and looks poised to go one better on Saturday."
+      },
+      {
+        "race": 5,
+        "horse": "Balance the Books",
+        "recent_speed_rating": 0,
+        "sectional_last600": 34.0,
+        "barrier": 9,
+        "weight": 58,
+        "confidence": 10,
+        "explanation": "Unbeaten filly after two dominant wins; no rivals look capable of beating her if she holds form."
+      },
+      {
+        "race": 6,
+        "horse": "Mean Approach",
+        "recent_speed_rating": 0,
+        "sectional_last600": 34.8,
+        "barrier": 4,
+        "weight": 61.5,
+        "confidence": 4,
+        "explanation": "Much improved when third here last start; has four placings at this track and is overdue to break through."
+      },
+      {
+        "race": 7,
+        "horse": "Zaszou",
+        "recent_speed_rating": 0,
+        "sectional_last600": 33.8,
+        "barrier": 3,
+        "weight": 57,
+        "confidence": 6,
+        "explanation": "Travels north with strong Sydney form (third at Randwick fresh); should be hard to hold out in this Listed sprint."
+      },
+      {
+        "race": 8,
+        "horse": "Boomtown Boss",
+        "recent_speed_rating": 0,
+        "sectional_last600": 34.0,
+        "barrier": 10,
+        "weight": 54,
+        "confidence": 5,
+        "explanation": "Five-time winner who scored nicely first-up; has good second-up form and can measure up to this company."
+      },
+      {
+        "race": 9,
+        "horse": "Perfect Play",
+        "recent_speed_rating": 0,
+        "sectional_last600": 35.5,
+        "barrier": 10,
+        "weight": 60,
+        "confidence": 3,
+        "explanation": "Only three wins from 32 starts but one was earlier this prep in NSW; the form translates well and he’s an each-way value hope."
+      },
+      {
+        "race": 10,
+        "horse": "Mister Bianco",
+        "recent_speed_rating": 0,
+        "sectional_last600": 35.0,
+        "barrier": 12,
+        "weight": 58.5,
+        "confidence": 3,
+        "explanation": "Won three on the bounce last preparation; hasn’t run a bad race at Doomben and can show up fresh at big odds."
+      }
+    ]
+  }
 }
-"melbourne": [
-  {
-    "race": 1,
-    "horse": "Prince Tycoon",
-    "recent_speed_rating": 82,
-    "sectional_last600": 35.8,
-    "barrier": 8,
-    "weight": 58.5,
-    "confidence": 6.0,
-    "reason": "Won two starts ago; reliable speed rating and finishes well in stronger races."
-  },
-  {
-    "race": 2,
-    "horse": "Caffettiera",
-    "recent_speed_rating": 85,
-    "sectional_last600": 35.1,
-    "barrier": 1,
-    "weight": 54.0,
-    "confidence": 7.0,
-    "reason": "Consistent improving profile with excellent closing speed and inside draw."
-  },
-  {
-    "race": 3,
-    "horse": "Hot Too Go",
-    "recent_speed_rating": 79,
-    "sectional_last600": 36.2,
-    "barrier": 2,
-    "weight": 59.0,
-    "confidence": 6.0,
-    "reason": "Top-rated stayer in the field, strong final splits and good barrier for position."
-  },
-  {
-    "race": 4,
-    "horse": "Gumdrops",
-    "recent_speed_rating": 93,
-    "sectional_last600": 34.4,
-    "barrier": 7,
-    "weight": 56.0,
-    "confidence": 8.0,
-    "reason": "Highest rating in the field; comes off strong win and best final splits."
-  },
-  {
-    "race": 5,
-    "horse": "Acelum",
-    "recent_speed_rating": 80,
-    "sectional_last600": 35.6,
-    "barrier": 3,
-    "weight": 60.0,
-    "confidence": 7.0,
-    "reason": "Top-rated in Class 3 Plate; strong recent form and well drawn."
-  },
-  {
-    "race": 6,
-    "horse": "Shockletz (NZ)",
-    "recent_speed_rating": 92,
-    "sectional_last600": 36.0,
-    "barrier": 6,
-    "weight": 57.5,
-    "confidence": 7.0,
-    "reason": "Two strong recent wins; sharp late acceleration and competitive weight."
-  },
-  {
-    "race": 7,
-    "horse": "Naval Academy",
-    "recent_speed_rating": 86,
-    "sectional_last600": 34.3,
-    "barrier": 1,
-    "weight": 58.0,
-    "confidence": 6.0,
-    "reason": "Excellent gate speed, ideal barrier and fast 600m close in recent win."
-  },
-  {
-    "race": 8,
-    "horse": "Steparty",
-    "recent_speed_rating": 98,
-    "sectional_last600": 35.0,
-    "barrier": 8,
-    "weight": 59.5,
-    "confidence": 7.0,
-    "reason": "Group-class 3YO with top-class figures and strong 2000m metrics."
-  },
-  {
-    "race": 9,
-    "horse": "Jigsaw",
-    "recent_speed_rating": 96,
-    "sectional_last600": 33.8,
-    "barrier": 6,
-    "weight": 58.0,
-    "confidence": 6.5,
-    "reason": "Top-tier sprinter; dominant sectionals and reliable straight-track form."
-  },
-  {
-    "race": 10,
-    "horse": "Celerity",
-    "recent_speed_rating": 84,
-    "sectional_last600": 34.1,
-    "barrier": 9,
-    "weight": 54.0,
-    "confidence": 6.0,
-    "reason": "Trial standout; lightweight and good 1100m profile."
-  }
-]
-"brisbane": [
-  {
-    "race": 1,
-    "horse": "Scartoon",
-    "recent_speed_rating": 79,
-    "sectional_last600": 34.7,
-    "barrier": 6,
-    "weight": 57.5,
-    "confidence": 6.0,
-    "reason": "Runner-up on debut with a strong finish; only horse with proven data."
-  },
-  {
-    "race": 2,
-    "horse": "SCR",
-    "recent_speed_rating": null,
-    "sectional_last600": null,
-    "barrier": null,
-    "weight": null,
-    "confidence": 0.0,
-    "reason": "Scratched — previously Mr Buster (IRE)."
-  },
-  {
-    "race": 3,
-    "horse": "Pepperdine",
-    "recent_speed_rating": 83,
-    "sectional_last600": 36.8,
-    "barrier": 13,
-    "weight": 60.5,
-    "confidence": 6.0,
-    "reason": "Career-best speed ratings and strong weight-for-rating profile."
-  },
-  {
-    "race": 4,
-    "horse": "Luton Hoo (NZ)",
-    "recent_speed_rating": 78,
-    "sectional_last600": 35.2,
-    "barrier": 9,
-    "weight": 58.5,
-    "confidence": 7.0,
-    "reason": "First-up win with top sectional; consistent form and suited at 1400m."
-  },
-  {
-    "race": 5,
-    "horse": "Brave Monarch",
-    "recent_speed_rating": 87,
-    "sectional_last600": 34.6,
-    "barrier": 4,
-    "weight": 59.0,
-    "confidence": 8.0,
-    "reason": "Undefeated this prep with sharp times; top class edge and ideal weight."
-  },
-  {
-    "race": 6,
-    "horse": "Warby",
-    "recent_speed_rating": 81,
-    "sectional_last600": 35.3,
-    "barrier": 3,
-    "weight": 60.0,
-    "confidence": 7.0,
-    "reason": "Consistent miler with peak rating; draws to stalk speed and finish well."
-  },
-  {
-    "race": 7,
-    "horse": "Walsh Bay",
-    "recent_speed_rating": 94,
-    "sectional_last600": 34.0,
-    "barrier": 4,
-    "weight": 55.0,
-    "confidence": 8.0,
-    "reason": "Four straight wins with top benchmarks; well weighted and maps well."
-  },
-  {
-    "race": 8,
-    "horse": "Hidden Wealth",
-    "recent_speed_rating": 90,
-    "sectional_last600": 33.7,
-    "barrier": 5,
-    "weight": 58.0,
-    "confidence": 7.5,
-    "reason": "Fast trial, proven 1000m form, high rating and strong closing splits."
-  },
-  {
-    "race": 9,
-    "horse": "Impervious",
-    "recent_speed_rating": 88,
-    "sectional_last600": 34.4,
-    "barrier": 6,
-    "weight": 60.0,
-    "confidence": 7.0,
-    "reason": "Three wins from five; strong prep and quick sectionals at 1000m."
-  },
-  {
-    "race": 10,
-    "horse": "Colophon",
-    "recent_speed_rating": 89,
-    "sectional_last600": 34.8,
-    "barrier": 5,
-    "weight": 60.5,
-    "confidence": 8.0,
-    "reason": "Back-to-back wins; excellent closing data and ideal gate at 1200m."
-  }
-]
+.47
