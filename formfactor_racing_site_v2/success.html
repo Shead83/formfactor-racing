@@ -11,79 +11,101 @@
         margin: 40px auto;
         padding: 0 16px;
         text-align: center;
+        background: radial-gradient(circle at top, #0b1120 0, #020617 60%);
+        color: #e5e7eb;
       }
-      #code-box {
-        margin-top: 24px;
+      h1 {
+        font-size: 1.6rem;
+        margin-bottom: 10px;
+        text-transform: uppercase;
+        letter-spacing: 0.12em;
       }
-      input {
-        width: 100%;
-        padding: 8px;
+      p {
+        font-size: 0.95rem;
+        margin-bottom: 10px;
+        color: #cbd5f5;
       }
-      button {
-        margin-top: 12px;
-        padding: 8px 16px;
-        cursor: pointer;
+      .card {
+        margin-top: 18px;
+        padding: 16px 14px;
+        border-radius: 16px;
+        background: radial-gradient(circle at top left, #111827 0, #020617 70%);
+        border: 1px solid rgba(148, 163, 184, 0.5);
+        box-shadow: 0 16px 40px rgba(15, 23, 42, 0.9);
+        text-align: left;
+      }
+      .code-label {
+        font-size: 0.85rem;
+        text-transform: uppercase;
+        letter-spacing: 0.12em;
+        opacity: 0.9;
+        margin-bottom: 4px;
+      }
+      .code-box {
+        font-size: 1.1rem;
+        font-weight: 700;
+        padding: 10px 12px;
+        border-radius: 999px;
+        background: #020617;
+        border: 1px solid rgba(248, 250, 252, 0.3);
+        text-align: center;
+        margin-bottom: 8px;
+      }
+      .highlight {
+        color: #bbf7d0;
+        font-weight: 500;
+      }
+      a {
+        color: #60a5fa;
+        text-decoration: none;
+      }
+      a:hover {
+        text-decoration: underline;
+      }
+      .steps {
+        font-size: 0.9rem;
+        margin-top: 8px;
+        color: #e5e7eb;
+      }
+      .steps ol {
+        padding-left: 18px;
+        margin: 6px 0 0;
+      }
+      .steps li {
+        margin-bottom: 4px;
+      }
+      footer {
+        margin-top: 20px;
+        font-size: 0.75rem;
+        opacity: 0.8;
       }
     </style>
   </head>
   <body>
     <h1>Thanks for your purchase 🎉</h1>
-    <p id="status">Generating your access link…</p>
+    <p>You’ve unlocked today’s <strong>Full Metro Pack</strong> with FormFactor Racing.</p>
 
-    <div id="code-box" style="display: none;">
-      <p>Save this link – it’s your access to this week’s metro tips:</p>
-      <input id="access-link" readonly />
-      <button type="button" onclick="copyLink()">Copy link</button>
+    <div class="card">
+      <div class="code-label">Your Full Access code</div>
+      <div class="code-box">FULL123</div>
+
+      <div class="steps">
+        <p><span class="highlight">How to use this code:</span></p>
+        <ol>
+          <li>Go to <strong><a href="https://formfactortips.com/">formfactortips.com</a></strong>.</li>
+          <li>Tap <strong>“Members Login”</strong> at the top of the page.</li>
+          <li>Enter your code <strong>FULL123</strong> in the box and press <strong>Unlock Access</strong>.</li>
+          <li>Once unlocked, tap <strong>“View Full Metro Pack”</strong> to see all of today’s selections.</li>
+        </ol>
+        <p style="margin-top:8px;">
+          Keep this code handy – you can reuse it on this device for the rest of today.
+        </p>
+      </div>
     </div>
 
-    <script>
-      async function main() {
-        const params = new URLSearchParams(window.location.search);
-        const sessionId = params.get("session_id");
-        const statusEl = document.getElementById("status");
-
-        if (!sessionId) {
-          statusEl.textContent = "Missing Stripe session ID.";
-          return;
-        }
-
-        try {
-          const res = await fetch(
-            "/.netlify/functions/create-token?session_id=" +
-              encodeURIComponent(sessionId)
-          );
-
-          if (!res.ok) {
-            statusEl.textContent =
-              "Could not generate your access link. Please contact support.";
-            return;
-          }
-
-          const data = await res.json();
-          const token = data.token;
-          const accessUrl =
-            window.location.origin +
-            "/tips.html?access=" +
-            encodeURIComponent(token);
-
-          document.getElementById("access-link").value = accessUrl;
-          statusEl.textContent = "Your access link is ready. Save it now.";
-          document.getElementById("code-box").style.display = "block";
-        } catch (e) {
-          console.error(e);
-          statusEl.textContent =
-            "Something went wrong making your access link.";
-        }
-      }
-
-      function copyLink() {
-        const input = document.getElementById("access-link");
-        input.select();
-        document.execCommand("copy");
-        alert("Link copied to clipboard");
-      }
-
-      main();
-    </script>
+    <footer>
+      If you have any issues with access, contact support and include your email and this code.
+      <br />FormFactor Racing – play smart, gamble responsibly.
+    </footer>
   </body>
 </html>
