@@ -168,8 +168,8 @@
         View Full Metro Pack
       </a>
 
-      <!-- Best bets button -->
-      <a id="bestBtn" class="link-btn" href="best_value_bets.html" target="_blank" rel="noopener">
+      <!-- Best bets button (FIXED PATH HERE) -->
+      <a id="bestBtn" class="link-btn" href="formfactor_best_value_bets.html" target="_blank" rel="noopener">
         View Best &amp; Value Bets
       </a>
     </section>
@@ -181,12 +181,11 @@
   </footer>
 
   <script>
-    // 🔐 EDIT THESE CODES YOURSELF
-    // Use random, non-obvious codes and change them regularly.
-
-    const BEST_CODE  = "BEST123";   // Best Bets purchasers
-    const FULL_CODE  = "FULL123";   // Full Pack purchasers
-    const MEMBER_CODE = "MEMB123";  // Members (30-day access on this device)
+    // 🔐 ACCESS CODES (set these to whatever you want)
+    // These are the ones we discussed:
+    const BEST_CODE   = "FFB729"; // Best Bets purchasers
+    const FULL_CODE   = "FFF104"; // Full Pack purchasers
+    const MEMBER_CODE = "FFM830"; // Members (30-day access on this device)
 
     // Membership duration (ms) – 30 days
     const MEMBERSHIP_DURATION_MS = 30 * 24 * 60 * 60 * 1000;
@@ -213,11 +212,9 @@
           if (!isNaN(exp) && now < exp) {
             return "member";
           } else {
-            // expired
             localStorage.removeItem(STORAGE_MEMBER_EXPIRES);
           }
         }
-
         const full = localStorage.getItem(STORAGE_FULL);
         if (full === "yes") return "full";
 
@@ -237,15 +234,18 @@
       if (level === "member") {
         fullBtn.style.display = "block";
         bestBtn.style.display = "block";
-        accessLevelLabel.textContent = "Access level: MEMBER – Full Pack + Best & Value Bets (30-day access on this device).";
+        accessLevelLabel.textContent =
+          "Access level: MEMBER – Full Pack + Best & Value Bets (30-day access on this device).";
       } else if (level === "full") {
         fullBtn.style.display = "block";
-        bestBtn.style.display = "block"; // full pack buyers can also see Best Bets page
-        accessLevelLabel.textContent = "Access level: FULL PACK – full metro selections + Best & Value Bets.";
+        bestBtn.style.display = "block"; // full pack buyers can also see Best Bets
+        accessLevelLabel.textContent =
+          "Access level: FULL PACK – full metro selections + Best & Value Bets.";
       } else if (level === "best") {
         fullBtn.style.display = "none";
         bestBtn.style.display = "block";
-        accessLevelLabel.textContent = "Access level: BEST BETS – Best & Value Bets page only.";
+        accessLevelLabel.textContent =
+          "Access level: BEST BETS – Best & Value Bets page only.";
       }
     }
 
@@ -281,7 +281,8 @@
       }
 
       if (!level) {
-        statusEl.textContent = "Incorrect code. Please check the code from your purchase confirmation.";
+        statusEl.textContent =
+          "Incorrect code. Please check the code from your purchase confirmation.";
         statusEl.className = "status error";
         return;
       }
