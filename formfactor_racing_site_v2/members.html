@@ -164,12 +164,14 @@
       <div id="accessLevelLabel" class="access-label"></div>
 
       <!-- Full pack button -->
-      <a id="fullBtn" class="link-btn primary" href="picks.html" target="_blank" rel="noopener">
+      <!-- IMPORTANT: this must point to picks.html -->
+      <a id="fullBtn" class="link-btn primary" href="/picks.html" target="_blank" rel="noopener">
         View Full Metro Pack
       </a>
 
-      <!-- Best bets button (FIXED PATH HERE) -->
-      <a id="bestBtn" class="link-btn" href="formfactor_best_value_bets.html" target="_blank" rel="noopener">
+      <!-- Best & value bets button -->
+      <!-- IMPORTANT: this must point to your best/value file -->
+      <a id="bestBtn" class="link-btn" href="/formfactor_best_value_bets.html" target="_blank" rel="noopener">
         View Best &amp; Value Bets
       </a>
     </section>
@@ -181,8 +183,7 @@
   </footer>
 
   <script>
-    // 🔐 ACCESS CODES (set these to whatever you want)
-    // These are the ones we discussed:
+    // 🔐 ACCESS CODES – these must match what you show on the success pages
     const BEST_CODE   = "FFB729"; // Best Bets purchasers
     const FULL_CODE   = "FFF104"; // Full Pack purchasers
     const MEMBER_CODE = "FFM830"; // Members (30-day access on this device)
@@ -190,7 +191,7 @@
     // Membership duration (ms) – 30 days
     const MEMBERSHIP_DURATION_MS = 30 * 24 * 60 * 60 * 1000;
 
-    // Storage keys – change identifiers if you want a global reset
+    // Storage keys – change suffix if you want to reset everyone
     const STORAGE_BEST  = "ffr_best_access_v1";
     const STORAGE_FULL  = "ffr_full_access_v1";
     const STORAGE_MEMBER_EXPIRES = "ffr_member_expires_at_v1";
@@ -217,7 +218,6 @@
         }
         const full = localStorage.getItem(STORAGE_FULL);
         if (full === "yes") return "full";
-
         const best = localStorage.getItem(STORAGE_BEST);
         if (best === "yes") return "best";
       } catch (e) {
@@ -250,14 +250,14 @@
     }
 
     function handleCodeEntry() {
-      const entered = (codeInput.value || "").trim();
-      if (!entered) {
+      const enteredRaw = (codeInput.value || "").trim();
+      if (!enteredRaw) {
         statusEl.textContent = "Please enter the access code shown after purchase.";
         statusEl.className = "status error";
         return;
       }
 
-      const code = entered.toUpperCase();
+      const entered = enteredRaw.toUpperCase();
       const best = BEST_CODE.toUpperCase();
       const full = FULL_CODE.toUpperCase();
       const member = MEMBER_CODE.toUpperCase();
@@ -265,14 +265,14 @@
       let level = null;
 
       try {
-        if (code === member && MEMBER_CODE) {
+        if (entered === member && MEMBER_CODE) {
           level = "member";
           const expiresAt = Date.now() + MEMBERSHIP_DURATION_MS;
           localStorage.setItem(STORAGE_MEMBER_EXPIRES, String(expiresAt));
-        } else if (code === full && FULL_CODE) {
+        } else if (entered === full && FULL_CODE) {
           level = "full";
           localStorage.setItem(STORAGE_FULL, "yes");
-        } else if (code === best && BEST_CODE) {
+        } else if (entered === best && BEST_CODE) {
           level = "best";
           localStorage.setItem(STORAGE_BEST, "yes");
         }
