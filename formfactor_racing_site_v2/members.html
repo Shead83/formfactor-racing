@@ -163,15 +163,25 @@
       <div class="links-title">You’re in ✅</div>
       <div id="accessLevelLabel" class="access-label"></div>
 
-      <!-- Full pack button -->
-      <!-- IMPORTANT: this must point to picks.html -->
-      <a id="fullBtn" class="link-btn primary" href="/picks.html" target="_blank" rel="noopener">
+      <!-- Full pack button – now using absolute URL -->
+      <a
+        id="fullBtn"
+        class="link-btn primary"
+        href="https://formfactortips.com/picks.html"
+        target="_blank"
+        rel="noopener"
+      >
         View Full Metro Pack
       </a>
 
-      <!-- Best & value bets button -->
-      <!-- IMPORTANT: this must point to your best/value file -->
-      <a id="bestBtn" class="link-btn" href="/formfactor_best_value_bets.html" target="_blank" rel="noopener">
+      <!-- Best & value bets button – absolute URL -->
+      <a
+        id="bestBtn"
+        class="link-btn"
+        href="https://formfactortips.com/formfactor_best_value_bets.html"
+        target="_blank"
+        rel="noopener"
+      >
         View Best &amp; Value Bets
       </a>
     </section>
@@ -183,7 +193,7 @@
   </footer>
 
   <script>
-    // 🔐 ACCESS CODES – these must match what you show on the success pages
+    // 🔐 ACCESS CODES – must match your success pages
     const BEST_CODE   = "FFB729"; // Best Bets purchasers
     const FULL_CODE   = "FFF104"; // Full Pack purchasers
     const MEMBER_CODE = "FFM830"; // Members (30-day access on this device)
@@ -191,7 +201,7 @@
     // Membership duration (ms) – 30 days
     const MEMBERSHIP_DURATION_MS = 30 * 24 * 60 * 60 * 1000;
 
-    // Storage keys – change suffix if you want to reset everyone
+    // Storage keys – change suffix if you want a global reset
     const STORAGE_BEST  = "ffr_best_access_v1";
     const STORAGE_FULL  = "ffr_full_access_v1";
     const STORAGE_MEMBER_EXPIRES = "ffr_member_expires_at_v1";
