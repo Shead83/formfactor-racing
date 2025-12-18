@@ -33,7 +33,7 @@
       <p>Enter your access code below to unlock Best Bets + Raw Data selections.</p>
 
       <div class="row">
-        <input id="codeInput" type="text" placeholder="Enter your code (e.g., FFA269)" autocomplete="off" />
+        <input id="codeInput" type="text" placeholder="Enter your code" autocomplete="off" />
         <button id="unlockBtn" type="button">Unlock</button>
       </div>
 
@@ -64,7 +64,7 @@
     // - Weekly: Best Bets + Raw Data (7 days)
     // - Monthly: Best Bets + Raw Data (30 days)
     // - Annual: Best Bets + Raw Data (12 months)
-    // - Best Bets Only: Best Bets only (30 days)
+    // - Best Bets Only: Best Bets only (7 days)
     const CODES = {
       // Full access (Best Bets + Raw Data)
       "FFW700":   { level: "weekly",   days: 7,   label: "Member (7 days)" },
@@ -72,7 +72,7 @@
       "FFA269":   { level: "annual",   days: 365, label: "Member (12 months)" },
 
       // Best Bets only
-      "FFBETS30": { level: "bestbets", days: 30,  label: "Best Bets Only (30 days)" }
+      "FFBETS30": { level: "bestbets", days: 7,  label: "Best Bets Only (7 days)" }
     };
 
     // Storage keys
