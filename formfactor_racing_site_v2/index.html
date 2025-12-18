@@ -590,6 +590,23 @@
             and best value plays of the day.
           </p>
 
+          <div class="ffr-xmas-banner" role="region" aria-label="Christmas Annual Offer">
+            <div class="ffr-xmas-left">
+              <div class="ffr-xmas-kicker">🎄 Christmas Special</div>
+              <div class="ffr-xmas-title"><strong>12-Month Membership</strong> — Pay for 9 months, get 12</div>
+              <div class="ffr-xmas-price"><span class="ffr-xmas-now">$269</span> <span class="ffr-xmas-was">$360</span> <span class="ffr-xmas-save">Save $91</span></div>
+              <div class="ffr-xmas-meta">Ends <strong>24 Dec 2025</strong> at <strong>11:59pm AEDT</strong></div>
+            </div>
+            <div class="ffr-xmas-right">
+              <div class="ffr-countdown" id="xmas-countdown-hero">Loading countdown…</div>
+              <a class="ffr-btn ffr-btn-primary" href="https://buy.stripe.com/REPLACE_WITH_YOUR_269_ANNUAL_LINK">
+                Get Christmas Annual – $269
+              </a>
+              <div class="ffr-xmas-note">Includes Best Bets + Raw Data Selections.</div>
+            </div>
+          </div>
+
+
           <div class="ffr-hero-cta">
             <a class="ffr-btn ffr-btn-primary" href="https://buy.stripe.com/3cI4gy9cedFcbtV51bafS06">
               Get this Saturday's full card – $10
@@ -846,5 +863,32 @@
     setInterval(tick, 60000);
   })();
 </script>
+
+  <script>
+    (function(){
+      function fmt(ms){
+        var s = Math.max(0, Math.floor(ms/1000));
+        var d = Math.floor(s/86400); s -= d*86400;
+        var h = Math.floor(s/3600); s -= h*3600;
+        var m = Math.floor(s/60); s -= m*60;
+        return d + "d " + String(h).padStart(2,"0") + "h " + String(m).padStart(2,"0") + "m " + String(s).padStart(2,"0") + "s";
+      }
+      // Christmas offer ends 24 Dec 2025 23:59 AEDT (UTC+11)
+      var end = new Date("2025-12-24T23:59:00+11:00").getTime();
+      var ids = ["xmas-countdown","xmas-countdown-hero"];
+      function tick(){
+        var now = Date.now();
+        var left = end - now;
+        var text = (left <= 0) ? "Offer ended" : ("Ends in: " + fmt(left));
+        ids.forEach(function(id){
+          var el = document.getElementById(id);
+          if(el) el.textContent = text;
+        });
+      }
+      tick();
+      setInterval(tick, 1000);
+    })();
+  </script>
+
 </body>
 </html>
