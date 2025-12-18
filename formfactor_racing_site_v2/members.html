@@ -38,14 +38,13 @@
       </div>
 
       <div id="status" class="msg"></div>
-
       <div id="memberInfo" class="pill" style="display:none;"></div>
 
       <div id="links" class="links">
         <div class="link-grid" id="linkGrid">
           <!-- ✅ Correct member links -->
-          <a class="a" href="/formfactor_best_value_bets.html" target="_blank" rel="noopener">Best Bets</a>
-          <a class="a" href="/picks.html" target="_blank" rel="noopener">Raw Data Pack</a>
+          <a class="a" id="bestBetsLink" href="/formfactor_best_value_bets.html" target="_blank" rel="noopener">Best Bets</a>
+          <a class="a" id="rawDataLink" href="/picks.html" target="_blank" rel="noopener">Raw Data Pack</a>
         </div>
 
         <div class="danger">
@@ -61,10 +60,19 @@
 
   <script>
     // --- CONFIG ---
-    // Monthly + Annual codes
+    // Codes:
+    // - Weekly: Best Bets + Raw Data (7 days)
+    // - Monthly: Best Bets + Raw Data (30 days)
+    // - Annual: Best Bets + Raw Data (12 months)
+    // - Best Bets Only: Best Bets only (30 days)
     const CODES = {
-      "FFM840": { level: "monthly", days: 30, label: "Member (30 days)" },
-      "FFA269": { level: "annual",  days: 365, label: "Member (12 months)" }
+      // Full access (Best Bets + Raw Data)
+      "FFW700":   { level: "weekly",   days: 7,   label: "Member (7 days)" },
+      "FFM840":   { level: "monthly",  days: 30,  label: "Member (30 days)" },
+      "FFA269":   { level: "annual",   days: 365, label: "Member (12 months)" },
+
+      // Best Bets only
+      "FFBETS30": { level: "bestbets", days: 30,  label: "Best Bets Only (30 days)" }
     };
 
     // Storage keys
@@ -77,6 +85,8 @@
     const statusEl = document.getElementById("status");
     const linksEl = document.getElementById("links");
     const memberInfoEl = document.getElementById("memberInfo");
+    const bestBetsLink = document.getElementById("bestBetsLink");
+    const rawDataLink  = document.getElementById("rawDataLink");
 
     function nowMs() { return Date.now(); }
 
@@ -121,8 +131,16 @@
     }
 
     function showLinksForLevel(level) {
-      // Both monthly & annual unlock the same links for now.
       linksEl.style.display = "block";
+
+      // Default: show both
+      if (bestBetsLink) bestBetsLink.style.display = "block";
+      if (rawDataLink)  rawDataLink.style.display  = "block";
+
+      // Best Bets only: hide Raw Data
+      if (level === "bestbets") {
+        if (rawDataLink) rawDataLink.style.display = "none";
+      }
     }
 
     function renderAccess(access) {
@@ -133,9 +151,12 @@
       }
 
       const expiresText = formatExpiry(access.expires);
+
       const label =
-        (access.level === "annual") ? "Member (12 months)" :
-        (access.level === "monthly") ? "Member (30 days)" :
+        (access.level === "annual")   ? "Member (12 months)" :
+        (access.level === "monthly")  ? "Member (30 days)" :
+        (access.level === "weekly")   ? "Member (7 days)" :
+        (access.level === "bestbets") ? "Best Bets Only (30 days)" :
         "Member";
 
       memberInfoEl.style.display = "inline-block";
@@ -178,4 +199,5 @@
   </script>
 </body>
 </html>
+
 
