@@ -1,0 +1,850 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>FormFactor Racing | Saturday Metro Selections</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta
+    name="description"
+    content="FormFactor Racing – data-backed Saturday metro selections for Sydney, Melbourne & Brisbane. One clear pick per race, confidence rating and a short explanation."
+  />
+
+  <style>
+    :root {
+      --ffr-bg: #050816;
+      --ffr-bg-alt: #070b16;
+      --ffr-card: #0b1220;
+      --ffr-border: #1f2937;
+      --ffr-text: #f9fafb;
+      --ffr-muted: #9ca3af;
+      --ffr-primary: #2563eb;   /* electric blue */
+      --ffr-primary-soft: rgba(37, 99, 235, 0.15);
+      --ffr-accent: #f97316;    /* orange */
+      --ffr-success: #22c55e;   /* green */
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+        sans-serif;
+      background: radial-gradient(circle at top, #0b1120 0, #020617 55%);
+      color: var(--ffr-text);
+      min-height: 100vh;
+      line-height: 1.5;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    .ffr-container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 16px 40px;
+    }
+
+    /* BRAND STRIP */
+
+    .ffr-brand-strip {
+      width: 100%;
+      background: linear-gradient(90deg, #020617, #0b1120);
+      border-bottom: 1px solid rgba(148, 163, 184, 0.18);
+    }
+
+    .ffr-brand-strip-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 6px 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: #9ca3af;
+    }
+
+    .ffr-brand-strip-inner span strong {
+      color: #e5e7eb;
+    }
+
+    /* HEADER */
+
+    .ffr-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 0 18px;
+      gap: 12px;
+    }
+
+    .ffr-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .ffr-logo-mark {
+      width: 38px;
+      height: 38px;
+      border-radius: 12px;
+      background: radial-gradient(circle at 30% 20%, #60a5fa, #1d4ed8);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 900;
+      font-size: 18px;
+      box-shadow: 0 0 22px rgba(37, 99, 235, 0.9);
+      border: 1px solid rgba(191, 219, 254, 0.7);
+    }
+
+    .ffr-logo-word {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.1;
+    }
+
+    .ffr-logo-main {
+      font-weight: 900;
+      font-size: 1.1rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+
+    .ffr-logo-main span {
+      color: #60a5fa;
+    }
+
+    .ffr-logo-tag {
+      font-size: 0.78rem;
+      color: var(--ffr-muted);
+    }
+
+    .ffr-nav {
+      display: flex;
+      gap: 16px;
+      font-size: 0.88rem;
+    }
+
+    .ffr-nav a {
+      text-decoration: none;
+      color: var(--ffr-muted);
+      padding: 4px 0;
+    }
+
+    .ffr-nav a:hover {
+      color: var(--ffr-text);
+    }
+
+    /* BUTTONS */
+
+    .ffr-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 10px 22px;
+      border-radius: 999px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+      transition: transform 0.08s ease, box-shadow 0.08s ease, background 0.08s ease;
+      white-space: nowrap;
+      gap: 6px;
+    }
+
+    .ffr-btn-primary {
+      background: linear-gradient(135deg, #2563eb, #3b82f6);
+      color: white;
+      box-shadow: 0 8px 24px rgba(37, 99, 235, 0.55);
+    }
+
+    .ffr-btn-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 10px 30px rgba(37, 99, 235, 0.7);
+    }
+
+    .ffr-btn-outline {
+      background: transparent;
+      color: var(--ffr-muted);
+      border: 1px solid var(--ffr-border);
+    }
+
+    .ffr-btn-outline:hover {
+      color: var(--ffr-text);
+      border-color: #4b5563;
+      transform: translateY(-1px);
+    }
+
+    .ffr-btn-sub {
+      background: linear-gradient(135deg, #f97316, #f59e0b);
+      color: #0b1120;
+      box-shadow: 0 8px 24px rgba(249, 115, 22, 0.5);
+    }
+
+    .ffr-btn-sub:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 10px 30px rgba(249, 115, 22, 0.7);
+    }
+
+    /* HERO */
+
+    .ffr-hero {
+      display: grid;
+      grid-template-columns: minmax(0, 3fr) minmax(0, 2.2fr);
+      gap: 32px;
+      padding: 24px 0 40px;
+      align-items: center;
+    }
+
+    .ffr-hero-kicker {
+      font-size: 0.85rem;
+      color: var(--ffr-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      margin-bottom: 8px;
+    }
+
+    .ffr-hero-title {
+      font-size: 2.5rem;
+      line-height: 1.1;
+      margin-bottom: 10px;
+      font-weight: 900;
+    }
+
+    .ffr-hero-title span {
+      color: #60a5fa;
+    }
+
+    .ffr-hero-subtitle {
+      font-size: 1rem;
+      color: var(--ffr-muted);
+      margin-bottom: 18px;
+    }
+
+    .ffr-hero-cta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+
+    .ffr-hero-note {
+      font-size: 0.8rem;
+      color: var(--ffr-muted);
+    }
+
+    .ffr-hero-right {
+      border-radius: 22px;
+      padding: 18px 18px 16px;
+      background: radial-gradient(circle at top left, #111827 0, #020617 70%);
+      border: 1px solid rgba(148, 163, 184, 0.35);
+      box-shadow: 0 16px 40px rgba(15, 23, 42, 0.9);
+    }
+
+    .ffr-tagline {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--ffr-muted);
+      margin-bottom: 6px;
+    }
+
+    .ffr-hero-card-title {
+      font-size: 1.05rem;
+      margin-bottom: 10px;
+      font-weight: 600;
+    }
+
+    .ffr-badge-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 10px;
+    }
+
+    .ffr-badge {
+      font-size: 0.72rem;
+      padding: 3px 8px;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      color: #e5e7eb;
+    }
+
+    .ffr-hero-card-list {
+      list-style: none;
+      font-size: 0.8rem;
+      color: var(--ffr-muted);
+      margin-bottom: 10px;
+    }
+
+    .ffr-hero-card-list li {
+      margin-bottom: 4px;
+    }
+
+    .ffr-hero-highlight {
+      font-size: 0.8rem;
+      color: #bbf7d0;
+    }
+
+    /* SECTIONS */
+
+    .ffr-section {
+      padding: 24px 0;
+    }
+
+    .ffr-section h2 {
+      font-size: 1.6rem;
+      margin-bottom: 10px;
+      font-weight: 700;
+    }
+
+    .ffr-section p {
+      font-size: 0.95rem;
+      color: var(--ffr-muted);
+      max-width: 720px;
+    }
+
+    .ffr-list {
+      margin-top: 12px;
+      list-style: none;
+      padding-left: 0;
+      font-size: 0.92rem;
+      color: var(--ffr-text);
+    }
+
+    .ffr-list li {
+      margin-bottom: 6px;
+      position: relative;
+      padding-left: 20px;
+    }
+
+    .ffr-list li::before {
+      content: "•";
+      position: absolute;
+      left: 6px;
+      color: #60a5fa;
+    }
+
+    .ffr-split {
+      display: grid;
+      grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
+      gap: 28px;
+      align-items: start;
+    }
+
+    .ffr-step-list {
+      margin-top: 12px;
+      padding-left: 20px;
+      font-size: 0.92rem;
+      color: var(--ffr-text);
+    }
+
+    .ffr-step-list li {
+      margin-bottom: 6px;
+    }
+
+    .ffr-card {
+      border-radius: 16px;
+      background: var(--ffr-card);
+      padding: 16px 18px;
+      border: 1px solid var(--ffr-border);
+      font-size: 0.9rem;
+      color: var(--ffr-muted);
+    }
+
+    /* SAMPLE RACE */
+
+    .ffr-sample {
+      border-radius: 16px;
+      background: #020617;
+      border: 1px dashed rgba(148, 163, 184, 0.5);
+      padding: 14px 16px;
+      font-size: 0.86rem;
+      color: var(--ffr-muted);
+      margin-top: 14px;
+    }
+
+    .ffr-sample-header {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 6px;
+      font-size: 0.8rem;
+    }
+
+    .ffr-sample-title {
+      font-weight: 600;
+      color: var(--ffr-text);
+    }
+
+    .ffr-sample-pick {
+      font-size: 0.9rem;
+      margin-bottom: 4px;
+      color: var(--ffr-text);
+    }
+
+    .ffr-sample-meta {
+      font-size: 0.8rem;
+      color: var(--ffr-muted);
+    }
+
+    /* PRICING */
+
+    #pricing {
+      padding: 32px 0 28px;
+    }
+
+    .ffr-pricing-grid {
+      display: grid;
+      gap: 20px;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      margin-top: 18px;
+    }
+
+    .ffr-pricing-card {
+      border-radius: 16px;
+      background: var(--ffr-card);
+      border: 1px solid var(--ffr-border);
+      padding: 20px 18px 18px;
+      text-align: center;
+    }
+
+    .ffr-pricing-card h3 {
+      font-size: 1.2rem;
+      margin-bottom: 6px;
+      font-weight: 600;
+    }
+
+    .ffr-price {
+      font-size: 2rem;
+      font-weight: 800;
+      margin-bottom: 4px;
+    }
+
+    .ffr-price-note {
+      font-size: 0.8rem;
+      color: var(--ffr-muted);
+      margin-bottom: 12px;
+    }
+
+    .ffr-pricing-desc {
+      font-size: 0.9rem;
+      color: var(--ffr-muted);
+      margin-bottom: 16px;
+      min-height: 70px;
+    }
+
+    .ffr-badge-pill {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.78rem;
+      padding: 3px 10px;
+      border-radius: 999px;
+      background: rgba(16, 185, 129, 0.12);
+      color: #6ee7b7;
+      margin-bottom: 8px;
+    }
+
+    
+
+.ffr-countdown {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 10px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 0.78rem;
+  border: 1px solid rgba(249, 115, 22, 0.35);
+  background: rgba(249, 115, 22, 0.12);
+  color: #fde68a;
+}
+.ffr-pricing-card--featured {
+      border-color: var(--ffr-accent);
+      box-shadow: 0 0 26px rgba(249, 115, 22, 0.3);
+      background: radial-gradient(circle at top, #111827 0, #020617 70%);
+    }
+
+    /* FAQ */
+
+    .ffr-faq-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+      gap: 24px;
+      font-size: 0.9rem;
+      color: var(--ffr-muted);
+    }
+
+    .ffr-faq-item {
+      margin-bottom: 10px;
+    }
+
+    .ffr-faq-item h3 {
+      font-size: 0.95rem;
+      margin-bottom: 4px;
+      color: var(--ffr-text);
+    }
+
+    /* FOOTER */
+
+    .ffr-footer {
+      border-top: 1px solid rgba(55, 65, 81, 0.8);
+      margin-top: 24px;
+      padding-top: 14px;
+      font-size: 0.8rem;
+      color: var(--ffr-muted);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .ffr-footer a {
+      color: #93c5fd;
+      text-decoration: none;
+    }
+
+    .ffr-footer a:hover {
+      text-decoration: underline;
+    }
+
+    /* RESPONSIVE */
+
+    @media (max-width: 800px) {
+      .ffr-hero {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .ffr-header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .ffr-nav {
+        width: 100%;
+        justify-content: flex-start;
+        overflow-x: auto;
+      }
+
+      .ffr-split {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- BRAND STRIP -->
+  <div class="ffr-brand-strip">
+    <div class="ffr-brand-strip-inner">
+      <span><strong>FORMFACTOR RACING</strong> · SATURDAY METRO SPECIALIST</span>
+      <span>Pure data. No bullshit.</span>
+    </div>
+  </div>
+
+  <div class="ffr-container">
+    <!-- HEADER -->
+    <header class="ffr-header">
+      <div class="ffr-logo">
+        <div class="ffr-logo-mark">FF</div>
+        <div class="ffr-logo-word">
+          <div class="ffr-logo-main">
+            FORM<span>FACTOR</span> RACING
+          </div>
+          <div class="ffr-logo-tag">
+            Sydney · Melbourne · Brisbane · Saturdays
+          </div>
+        </div>
+      </div>
+      <nav class="ffr-nav">
+        <a href="#what-is-formfactor">What is FormFactor?</a>
+        <a href="#how-it-works">How it works</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#faq">FAQ</a>
+        <a href="members.html">Members Login</a>
+      </nav>
+    </header>
+
+    <!-- HERO -->
+    <main>
+      <section class="ffr-hero">
+        <div>
+          <div class="ffr-hero-kicker">Saturday Metro · Sydney · Melbourne · Brisbane</div>
+          <h1 class="ffr-hero-title">
+            Weekend metro picks<br />
+            with a real <span>data edge</span>.
+          </h1>
+          <p class="ffr-hero-subtitle">
+            FormFactor Racing gives you one clear pick per race, a confidence rating
+            and a short explanation – plus a separate Best Bets pack for the strongest
+            and best value plays of the day.
+          </p>
+
+          <div class="ffr-hero-cta">
+            <a class="ffr-btn ffr-btn-primary" href="https://buy.stripe.com/3cI4gy9cedFcbtV51bafS06">
+              Get this Saturday's full card – $10
+            </a>
+            <a class="ffr-btn ffr-btn-sub" href="https://buy.stripe.com/5kQcN4gEGeJgcxZ2T3afS07">
+              Go monthly – $29.99
+            </a>
+            <a class="ffr-btn ffr-btn-outline" href="#pricing">
+              View all options
+            </a>
+          </div>
+          <div class="ffr-hero-note">
+            Built for punters who want a clean, confident view of the form – not another loud tipster.
+          </div>
+        </div>
+
+        <aside class="ffr-hero-right">
+          <div class="ffr-tagline">FormFactor Sample · Preview Only</div>
+          <div class="ffr-hero-card-title">What a race looks like in the pack:</div>
+
+          <div class="ffr-sample">
+            <div class="ffr-sample-header">
+              <div class="ffr-sample-title">RACE 4 · RANDWICK · 1400m</div>
+              <div>FormFactor pick · Confidence: ★★★★☆</div>
+            </div>
+            <div class="ffr-sample-pick">
+              #7 – [Redacted Runner Name]
+            </div>
+            <div class="ffr-sample-meta">
+              Short explanation example:<br />
+              Maps to get the right run on-speed, holding consistent figures this prep and proven in similar conditions.
+            </div>
+          </div>
+
+          <ul class="ffr-hero-card-list">
+            <li>One clear selection per race – no endless shortlists.</li>
+            <li>Confidence rating for every pick so you can structure your staking.</li>
+            <li>Short explanation only – the engine stays under the bonnet.</li>
+          </ul>
+          <div class="ffr-hero-highlight">
+            FormFactor packs are built off the same underlying data every week – you just see the final picks.
+          </div>
+        </aside>
+      </section>
+
+      <!-- WHAT IS FORMFACTOR -->
+      <section class="ffr-section" id="what-is-formfactor">
+        <h2>What is FormFactor Racing?</h2>
+        <p>
+          FormFactor Racing is a Saturday metro selection service focused on clarity and confidence.
+          No hype, no glossy tipsheets – just one pick per race, a confidence rating, and a short,
+          straight explanation of why that horse is on top.
+        </p>
+        <ul class="ffr-list">
+          <li>Brand built around data, not personality.</li>
+          <li>Same framework every week so you know what you’re getting.</li>
+          <li>Designed for punters who want help making decisions, not someone to blame.</li>
+        </ul>
+      </section>
+
+      <!-- WHAT YOU GET -->
+      <section class="ffr-section" id="what-you-get">
+        <h2>What you get in each Saturday pack</h2>
+        <p>
+          Every FormFactor Saturday metro pack follows the same simple structure. No clutter, no
+          secrets dumped on the page – just the parts you actually use when you’re having a bet.
+        </p>
+        <ul class="ffr-list">
+          <li><strong>One selection per metro race</strong> across Sydney, Melbourne &amp; Brisbane (Full Raw Data Pack &amp; Monthly only).</li>
+          <li><strong>Confidence rating</strong> for every pick so you can rank your bets.</li>
+          <li><strong>Short explanation</strong> – 1–2 lines on why that horse is the FormFactor pick.</li>
+          <li><strong>Best Bets pack</strong> with the 3 best bets and 3 best value bets of the day.</li>
+          <li>Clean, mobile-friendly format that’s easy to use on track or on the couch.</li>
+        </ul>
+      </section>
+
+      <!-- HOW IT WORKS -->
+      <section class="ffr-section" id="how-it-works">
+        <div class="ffr-split">
+          <div>
+            <h2>How FormFactor works</h2>
+            <p>
+              Not a tipping circus. Not a Discord group. FormFactor is a simple weekly pack built
+              off a consistent underlying process – you just see the sharpened end product.
+            </p>
+            <ol class="ffr-step-list">
+              <li><strong>Choose your option</strong> – Best Bets, Full Raw Data Pack, Monthly Membership, or the Christmas Annual.</li>
+              <li><strong>Pay securely</strong> via Stripe (card, Apple Pay, etc.).</li>
+              <li><strong>Get the link</strong> to this Saturday’s FormFactor pack once payment is confirmed.</li>
+              <li><strong>Open on your phone</strong>, scroll race by race, and use the picks alongside your own judgement.</li>
+            </ol>
+          </div>
+          <div>
+            <div class="ffr-card">
+              <strong>Why “FormFactor” and not just another tipster?</strong><br /><br />
+              Most services sell noise. FormFactor sells structure:
+              <br /><br />
+              • One selection per race – no confused shortlists.<br />
+              • A confidence rating so you can instantly see which races you want to play harder or softer.<br />
+              • A short explanation, in plain language, so you understand the pick without needing a novel.<br /><br />
+              The engine under the hood is data-driven – but you only see what you actually need to place a bet.
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- PRICING -->
+      <section class="ffr-section" id="pricing">
+        <h2>Pricing</h2>
+        <p>
+          Start with the Best Bets, grab the full card, go monthly, or lock in the <strong>Christmas Annual</strong> (pay for 9 months, get 12).
+        </p>
+
+        <div class="ffr-pricing-grid">
+          <!-- Best Bets Only -->
+          <div class="ffr-pricing-card">
+            <h3>Best Bets Pack</h3>
+            <div class="ffr-price">$5</div>
+            <div class="ffr-price-note">Per Saturday · 6 key plays</div>
+            <div class="ffr-pricing-desc">
+              3 Best Bets of the day + 3 Best Value Bets.<br />
+              Each pick comes with a confidence rating and a short explanation.
+            </div>
+            <a class="ffr-btn ffr-btn-primary" href="https://buy.stripe.com/bJe00ibkmeJg7dF0KVafS05">
+              Buy Best Bets – $5
+            </a>
+          </div>
+
+          <!-- All Race Selections -->
+          <div class="ffr-pricing-card">
+            <h3>Full Raw Data Pack</h3>
+            <div class="ffr-price">$10</div>
+            <div class="ffr-price-note">Per Saturday · All metro races</div>
+            <div class="ffr-pricing-desc">
+              Everything in the Best Bets Pack <strong>plus</strong> one selection in every metro race
+              across Sydney, Melbourne &amp; Brisbane – each with a confidence rating and short explanation.
+            </div>
+            <a class="ffr-btn ffr-btn-primary" href="https://buy.stripe.com/3cI4gy9cedFcbtV51bafS06">
+              Buy Full Card – $10
+            </a>
+          </div>
+
+              <!-- Christmas Annual (3 months free) -->
+    <div class="ffr-pricing-card ffr-pricing-card--featured" id="christmas-annual">
+      <div class="ffr-badge-pill">Christmas Annual · 3 months free</div>
+      <h3>12‑Month Membership</h3>
+      <div class="ffr-price">$269</div>
+      <div class="ffr-price-note">One payment · 12 months access</div>
+      <div class="ffr-pricing-desc">
+        Best Bets Pack <strong>and</strong> the full metro card every Saturday.<br />
+        Pay for 9 months, get 12. <strong>Ends 24 Dec (11:59pm AEDT)</strong>.<br />
+        <span class="ffr-countdown" id="ffr-countdown">Offer ends soon</span>
+      </div>
+      <!-- Replace this Stripe link with your $269 Annual Payment Link -->
+      <a class="ffr-btn ffr-btn-sub" href="https://buy.stripe.com/REPLACE_WITH_YOUR_269_ANNUAL_LINK">
+        Get Christmas Annual – $269
+      </a>
+    </div>
+
+    <!-- Monthly Subscription -->
+    <div class="ffr-pricing-card">
+      <div class="ffr-badge-pill">For regulars</div>
+      <h3>Monthly Membership</h3>
+      <div class="ffr-price">$29.99</div>
+      <div class="ffr-price-note">Per month · Recurring</div>
+      <div class="ffr-pricing-desc">
+        Every Saturday you get the Best Bets Pack <strong>and</strong> the full metro card,
+        with confidence ratings and explanations for every pick.
+      </div>
+      <a class="ffr-btn ffr-btn-primary" href="https://buy.stripe.com/5kQcN4gEGeJgcxZ2T3afS07">
+        Subscribe Monthly – $29.99
+      </a>
+    </div>
+  </div>
+</section>
+
+      <!-- FAQ -->
+      <section class="ffr-section" id="faq">
+        <h2>FAQ</h2>
+        <div class="ffr-faq-grid">
+          <div>
+            <div class="ffr-faq-item">
+              <h3>When are the packs updated?</h3>
+              <p>
+                Packs are built for the main Saturday metro meetings. If a meeting shifts or is abandoned,
+                that’ll be reflected in the pack for that week.
+              </p>
+            </div>
+            <div class="ffr-faq-item">
+              <h3>What exactly do I see for each race?</h3>
+              <p>
+                One FormFactor selection, a confidence rating, and a short explanation. That’s it.
+                No giant spreadsheets, no walls of text – just the parts you’ll actually use.
+              </p>
+            </div>
+          </div>
+          <div>
+            <div class="ffr-faq-item">
+              <h3>Do you share staking plans or tell me how much to bet?</h3>
+              <p>
+                No. FormFactor is a selection and structure service. You stay in control of staking,
+                risk, and bank management. The packs help you decide what to back – not how to manage your money.
+              </p>
+            </div>
+            <div class="ffr-faq-item">
+              <h3>Can I try it before going monthly?</h3>
+              <p>
+                Yes – you can start with the Best Bets Pack for $5 or the Full Raw Data Pack for $10.
+                If you like how it fits into your routine, you can swap to the monthly membership later.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="ffr-footer">
+      <div>© <span id="ffr-year"></span> FormFactor Racing. All rights reserved.</div>
+      <div>
+        This service provides selections only and does not guarantee results. Gamble responsibly.
+      </div>
+    </footer>
+  </div>
+
+  <script>
+  // Set current year in footer
+  document.getElementById("ffr-year").textContent = new Date().getFullYear();
+
+  // Christmas Annual countdown (AEDT)
+  (function () {
+    const el = document.getElementById("ffr-countdown");
+    if (!el) return;
+
+    const end = new Date("2025-12-24T23:59:59+11:00"); // 11:59pm AEDT
+    function tick() {
+      const now = new Date();
+      const ms = end - now;
+
+      if (ms <= 0) {
+        el.textContent = "Christmas Annual offer has ended.";
+        return;
+      }
+
+      const totalSec = Math.floor(ms / 1000);
+      const d = Math.floor(totalSec / 86400);
+      const h = Math.floor((totalSec % 86400) / 3600);
+      const m = Math.floor((totalSec % 3600) / 60);
+
+      el.textContent = `Ends in ${d}d ${h}h ${m}m (AEDT)`;
+    }
+
+    tick();
+    setInterval(tick, 60000);
+  })();
+</script>
+</body>
+</html>
