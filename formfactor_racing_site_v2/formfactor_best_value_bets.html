@@ -1,218 +1,117 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>FORMFACTORTIPS – Saturday 2025-12-27</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <style>
-    :root {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
-      color-scheme: dark;
-    }
-    body {
-      margin: 0;
-      padding: 16px;
-      background: #05050a;
-      color: #f5f5f7;
-    }
-    header {
-      text-align: center;
-      margin-bottom: 16px;
-    }
-    h1 {
-      font-size: 1.4rem;
-      margin: 0 0 4px;
-      text-transform: uppercase;
-      letter-spacing: 0.18em;
-    }
-    .subheading {
-      font-size: 0.9rem;
-      opacity: 0.8;
-    }
-    .badge-row {
-      display: flex;
-      justify-content: center;
-      gap: 8px;
-      margin-top: 8px;
-      flex-wrap: wrap;
-    }
-    .badge {
-      font-size: 0.7rem;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      padding: 4px 8px;
-      border-radius: 999px;
-      border: 1px solid rgba(255,255,255,0.15);
-      opacity: 0.9;
-    }
-    .legend {
-      font-size: 0.7rem;
-      margin: 8px 0 16px;
-      opacity: 0.85;
-      text-align: center;
-    }
-    .track {
-      margin-bottom: 18px;
-      border-radius: 14px;
-      padding: 10px;
-      background: radial-gradient(circle at top left, #26294a 0, #101020 40%, #05050a 100%);
-      box-shadow: 0 8px 24px rgba(0,0,0,0.8);
-    }
-    .track-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: baseline;
-      margin-bottom: 6px;
-    }
-    .track-name {
-      font-size: 1.05rem;
-      font-weight: 600;
-      letter-spacing: 0.05em;
-      text-transform: uppercase;
-    }
-    .track-meta {
-      font-size: 0.75rem;
-      opacity: 0.8;
-    }
-    .race-list {
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
-    }
-    .race-card {
-      border-radius: 10px;
-      padding: 8px 9px;
-      background: rgba(5,5,10,0.88);
-      border: 1px solid rgba(255,255,255,0.06);
-    }
-    .race-heading {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 3px;
-    }
-    .race-num {
-      font-size: 0.85rem;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      opacity: 0.9;
-    }
-    .horse-name {
-      font-size: 0.95rem;
-      font-weight: 600;
-    }
-    .meta-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 6px;
-      font-size: 0.7rem;
-      opacity: 0.9;
-    }
-    .pill {
-      padding: 2px 6px;
-      border-radius: 999px;
-      border: 1px solid rgba(255,255,255,0.12);
-    }
-    .explanation {
-      margin-top: 4px;
-      font-size: 0.75rem;
-      opacity: 0.95;
-    }
-    footer {
-      margin-top: 14px;
-      font-size: 0.7rem;
-      opacity: 0.8;
-      text-align: center;
-      line-height: 1.4;
-    }
-  </style>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>FormFactor Racing — Best + Value</title>
+<style>
+    :root{--bg:#0b0f17;--card:#121a27;--card2:#0f1623;--text:#e9eef7;--muted:#a6b2c3;--accent:#7cf6b0;--accent2:#7cb7ff;--border:rgba(255,255,255,.08);}
+    *{box-sizing:border-box}
+    body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;background:linear-gradient(180deg,#070a10, #0b0f17 25%, #0b0f17);color:var(--text)}
+    .wrap{max-width:920px;margin:0 auto;padding:20px 14px 60px}
+    header{padding:18px 14px 10px;border:1px solid var(--border);background:radial-gradient(1200px 400px at 20% -10%, rgba(124,246,176,.22), transparent 55%),radial-gradient(900px 300px at 110% 0%, rgba(124,183,255,.18), transparent 55%),var(--card);border-radius:18px}
+    .brand{display:flex;align-items:center;gap:10px}
+    .logo{width:42px;height:42px;border-radius:12px;background:linear-gradient(135deg,var(--accent),var(--accent2));display:grid;place-items:center;color:#081018;font-weight:900}
+    h1{margin:6px 0 0;font-size:22px}
+    .sub{margin:6px 0 0;color:var(--muted);font-size:13px;line-height:1.35}
+    .grid{display:grid;gap:12px;margin-top:14px}
+    .card{border:1px solid var(--border);background:var(--card);border-radius:18px;padding:14px}
+    .bbgrid{display:grid;grid-template-columns:1fr;gap:10px}
+    @media(min-width:720px){.bbgrid{grid-template-columns:1fr 1fr}}
+    .pick{border:1px solid var(--border);background:linear-gradient(180deg,var(--card2), var(--card));border-radius:16px;padding:12px}
+    .meta{display:flex;justify-content:space-between;gap:8px;align-items:flex-start}
+    .tag{display:inline-flex;align-items:center;gap:6px;border-radius:999px;padding:4px 8px;font-size:11px;font-weight:800}
+    .tag.best{background:rgba(124,246,176,.14);border:1px solid rgba(124,246,176,.35);color:var(--accent)}
+    .tag.value{background:rgba(124,183,255,.14);border:1px solid rgba(124,183,255,.35);color:var(--accent2)}
+    .tag.note{background:rgba(255,255,255,.06);border:1px solid var(--border);color:var(--muted)}
+    .pick h3{margin:10px 0 4px;font-size:15px}
+    .line{color:var(--muted);font-size:12px}
+    </style>
 </head>
 <body>
+<div class="wrap">
   <header>
-    <h1>FORMFACTORTIPS</h1>
-    <div class="subheading">P26-01-03</div>
-    <div class="badge-row">
-      <span class="badge">Randwick</span>
-      <span class="badge">Geelong</span>
-      <span class="badge">Eagle Farm</span>
-    </div>
-    <div class="legend">
-      Confidence: 1 = low, 10 = max conviction. Data only – no odds used. Gamble responsibly.
+    <div class="brand">
+      <div class="logo">FF</div>
+      <div>
+        <h1>FormFactor Racing — Best + Value</h1>
+        <div class="sub">Saturday 10 Jan 2026 • Best Bets + Value Bets</div>
+      </div>
     </div>
   </header>
 
-  <section class="track">
-    <div class="track-header">
-      <div class="track-name">BEST BETS</div>
-      <div class="track-meta">Top play each track</div>
-    </div>
-    <div class="race-list">
-      
-      <article class="race-card">
-        <div class="race-heading">
-          <div class="race-num">Randwick · R9</div>
-          <div class="horse-name">HAWKER HALL <span style="font-size:0.8rem;opacity:0.8;">(Best Bet)</span></div>
+  <div class="grid">
+    
+        <div class="card">
+          <h2 style="margin:0 0 10px;font-size:16px">Wyong</h2>
+          <div class="bbgrid">
+            <div class="pick">
+              <div class="meta">
+                <span class="tag best">BEST BET</span>
+                <span class="tag note">Confidence 9</span>
+              </div>
+              <h3>R8 • Accredited</h3>
+              <div class="line">Track: Wyong</div>
+            </div>
+            
+            <div class="pick">
+              <div class="meta">
+                <span class="tag value">VALUE BET</span>
+                <span class="tag note">Confidence 3</span>
+              </div>
+              <h3>R5 • Rhapsody Chic</h3>
+              <div class="line">Track: Wyong</div>
+            </div>
+            </div>
         </div>
-        <div class="meta-row"><span class="pill">Confidence: 8.0/10</span></div>
-        <div class='explanation'>In-form sprinter chasing third win this prep; won Rosehill BM88 1100m decisively; rises 7kg dropping in class to BM78; trial winner since – the one to beat.</div>
-      </article>
-
-      <article class="race-card">
-        <div class="race-heading">
-          <div class="race-num">Geelong · R8</div>
-          <div class="horse-name">HOLYMANZ (NZ) <span style="font-size:0.8rem;opacity:0.8;">(Best Bet)</span></div>
+        
+        <div class="card">
+          <h2 style="margin:0 0 10px;font-size:16px">Flemington</h2>
+          <div class="bbgrid">
+            <div class="pick">
+              <div class="meta">
+                <span class="tag best">BEST BET</span>
+                <span class="tag note">Confidence 9</span>
+              </div>
+              <h3>R8 • Aviatress</h3>
+              <div class="line">Track: Flemington</div>
+            </div>
+            
+            <div class="pick">
+              <div class="meta">
+                <span class="tag value">VALUE BET</span>
+                <span class="tag note">Confidence 5</span>
+              </div>
+              <h3>R3 • Pacific Glamour</h3>
+              <div class="line">Track: Flemington</div>
+            </div>
+            </div>
         </div>
-        <div class="meta-row"><span class="pill">Confidence: 8.0/10</span></div>
-        <div class='explanation'>Group-performed 4YO who won convincingly at Flemington last start (1600m); top-rated (101) and proven with weight; drawn gate6; looks a class above these.</div>
-      </article>
-
-      <article class="race-card">
-        <div class="race-heading">
-          <div class="race-num">Eagle Farm · R6</div>
-          <div class="horse-name">Midnight In Tokyo <span style="font-size:0.8rem;opacity:0.8;">(Best Bet)</span></div>
+        
+        <div class="card">
+          <h2 style="margin:0 0 10px;font-size:16px">Gold Coast</h2>
+          <div class="bbgrid">
+            <div class="pick">
+              <div class="meta">
+                <span class="tag best">BEST BET</span>
+                <span class="tag note">Confidence 10</span>
+              </div>
+              <h3>R7 • Miss Joelene</h3>
+              <div class="line">Track: Gold Coast</div>
+            </div>
+            
+            <div class="pick">
+              <div class="meta">
+                <span class="tag value">VALUE BET</span>
+                <span class="tag note">Confidence 3</span>
+              </div>
+              <h3>R6 • King Of Pop</h3>
+              <div class="line">Track: Gold Coast</div>
+            </div>
+            </div>
         </div>
-        <div class="meta-row"><span class="pill">Confidence: 8.0/10</span></div>
-        <div class='explanation'>She boasts outstanding form and class for the Nudgee Stakes, coming off a dominant Listed win and a fast-finishing placing under weight last start. With the highest rating in the field and strong sectionals, she is well placed to win despite a wide gate.</div>
-      </article>
-    </div>
-  </section>
-
-  <section class="track">
-    <div class="track-header">
-      <div class="track-name">VALUE BETS</div>
-      <div class="track-meta">Value play each track</div>
-    </div>
-    <div class="race-list">
-      
-      <article class="race-card">
-        <div class="race-heading">
-          <div class="race-num">Randwick · R7</div>
-          <div class="horse-name">CIGAR FLICK <span style="font-size:0.8rem;opacity:0.8;">(Value Bet)</span></div>
-        </div>
-        <div class="meta-row"><span class="pill">Confidence: 6.5/10</span></div>
-        <div class='explanation'>Class mare dropping from G3 level; ran a solid 4th first-up in BM88; fitter now second-up; inside barrier should yield an economical run; can bounce back.</div>
-      </article>
-
-      <article class="race-card">
-        <div class="race-heading">
-          <div class="race-num">Geelong · R7</div>
-          <div class="horse-name">BIG SWINGER <span style="font-size:0.8rem;opacity:0.8;">(Value Bet)</span></div>
-        </div>
-        <div class="meta-row"><span class="pill">Confidence: 7.0/10</span></div>
-        <div class='explanation'>Super honest sprinter; 5 wins and 4 placings from 11; narrowly beaten last two in this grade; down to 60.5kg with claim; should be right in the finish again.</div>
-      </article>
-
-      <article class="race-card">
-        <div class="race-heading">
-          <div class="race-num">Eagle Farm · R8</div>
-          <div class="horse-name">Rockribbed <span style="font-size:0.8rem;opacity:0.8;">(Value Bet)</span></div>
-        </div>
-        <div class="meta-row"><span class="pill">Confidence: 8.5/10</span></div>
-        <div class='explanation'>Likely to offer value in a field with other Group performers, he has beaten a Group 1 horse by 3+ lengths last start and is flying this prep. His on-pace style and blistering final sectionals make him an excellent each-way play in the Buffering.</div>
-      </article>
-    </div>
-  </section>
-
-  </body>
+        
+  </div>
+</div>
+</body>
 </html>
