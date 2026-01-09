@@ -2,542 +2,684 @@
 <html lang="en">
 <head>
 <meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>FormFactor Racing — Full Pack</title>
-<style>
-    :root{--bg:#0b0f17;--card:#121a27;--card2:#0f1623;--text:#e9eef7;--muted:#a6b2c3;--accent:#7cf6b0;--accent2:#7cb7ff;--danger:#ff6b6b;--border:rgba(255,255,255,.08);}
-    *{box-sizing:border-box}
-    body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;background:linear-gradient(180deg,#070a10, #0b0f17 25%, #0b0f17);color:var(--text)}
-    .wrap{max-width:980px;margin:0 auto;padding:20px 14px 60px}
-    header{padding:18px 14px 10px;border:1px solid var(--border);background:radial-gradient(1200px 400px at 20% -10%, rgba(124,246,176,.22), transparent 55%),radial-gradient(900px 300px at 110% 0%, rgba(124,183,255,.18), transparent 55%),var(--card);border-radius:18px}
-    .brand{display:flex;align-items:center;gap:10px}
-    .logo{width:42px;height:42px;border-radius:12px;background:linear-gradient(135deg,var(--accent),var(--accent2));display:grid;place-items:center;color:#081018;font-weight:900}
-    h1{margin:6px 0 0;font-size:22px;letter-spacing:.2px}
-    .sub{margin:6px 0 0;color:var(--muted);font-size:13px;line-height:1.35}
-    .pillrow{margin-top:12px;display:flex;gap:8px;flex-wrap:wrap}
-    .pill{border:1px solid var(--border);background:rgba(255,255,255,.03);color:var(--muted);padding:6px 10px;border-radius:999px;font-size:12px}
-    .pill strong{color:var(--text);font-weight:700}
-    .grid{display:grid;gap:12px;margin-top:14px}
-    .card{border:1px solid var(--border);background:var(--card);border-radius:18px;padding:14px}
-    .card h2{margin:0 0 10px;font-size:16px}
-    .tracknav{display:flex;gap:10px;flex-wrap:wrap;margin:14px 0 0}
-    .tabbtn{cursor:pointer;border:1px solid var(--border);background:rgba(255,255,255,.03);color:var(--text);padding:10px 12px;border-radius:14px;font-weight:700;font-size:13px}
-    .tabbtn small{display:block;color:var(--muted);font-weight:600;font-size:11px;margin-top:2px}
-    .tabbtn.active{border-color:rgba(124,246,176,.45);box-shadow:0 0 0 3px rgba(124,246,176,.12) inset}
-    .sectiontitle{display:flex;align-items:baseline;justify-content:space-between;gap:10px;margin:0 0 10px}
-    .sectiontitle .hint{color:var(--muted);font-size:12px}
-    .bbgrid{display:grid;grid-template-columns:1fr;gap:10px}
-    @media(min-width:720px){.bbgrid{grid-template-columns:1fr 1fr 1fr}}
-    .pick{border:1px solid var(--border);background:linear-gradient(180deg,var(--card2), var(--card));border-radius:16px;padding:12px}
-    .pick .meta{display:flex;justify-content:space-between;gap:8px;align-items:flex-start}
-    .tag{display:inline-flex;align-items:center;gap:6px;border-radius:999px;padding:4px 8px;font-size:11px;font-weight:800}
-    .tag.best{background:rgba(124,246,176,.14);border:1px solid rgba(124,246,176,.35);color:var(--accent)}
-    .tag.value{background:rgba(124,183,255,.14);border:1px solid rgba(124,183,255,.35);color:var(--accent2)}
-    .tag.note{background:rgba(255,255,255,.06);border:1px solid var(--border);color:var(--muted)}
-    .pick h3{margin:10px 0 4px;font-size:15px}
-    .pick .line{color:var(--muted);font-size:12px}
-    .tablewrap{overflow:auto;border-radius:16px;border:1px solid var(--border)}
-    table{width:100%;border-collapse:collapse;min-width:720px;background:rgba(0,0,0,.15)}
-    th,td{padding:10px 10px;border-bottom:1px solid var(--border);text-align:left;font-size:13px}
-    th{color:var(--muted);font-weight:800;font-size:12px;text-transform:uppercase;letter-spacing:.06em;background:rgba(255,255,255,.03);position:sticky;top:0}
-    tr:last-child td{border-bottom:none}
-    .conf{font-weight:900}
-    .muted{color:var(--muted)}
-    .footer{margin-top:16px;color:var(--muted);font-size:12px;line-height:1.5}
-    .hidden{display:none}
-    a{color:inherit}
-    </style>
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>FORMFACTORTIPS — FULL PACK — Saturday 10 January 2026</title>
+<style>/* Premium dark editorial UI */
+:root{
+  --bg0:#05060a; --bg1:#070816;
+  --stroke:rgba(255,255,255,.08); --stroke2:rgba(255,255,255,.14);
+  --text:#f4f6ff; --muted:rgba(244,246,255,.70); --muted2:rgba(244,246,255,.55);
+  --gold:#f5c542; --teal:#35d0c0; --shadow:0 20px 60px rgba(0,0,0,.60); --shadow2:0 10px 30px rgba(0,0,0,.55);
+  --radius:18px;
+}
+*{box-sizing:border-box}
+body{
+  margin:0;
+  background:
+    radial-gradient(1200px 600px at 15% 10%, rgba(53,208,192,.16), transparent 60%),
+    radial-gradient(900px 500px at 85% 15%, rgba(245,197,66,.16), transparent 60%),
+    radial-gradient(900px 700px at 40% 100%, rgba(255,77,141,.12), transparent 60%),
+    linear-gradient(180deg, var(--bg1), var(--bg0));
+  color:var(--text);
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+  letter-spacing:.2px;
+}
+a{color:inherit; text-decoration:none}
+.container{max-width:1080px; margin:0 auto; padding:24px 16px 48px}
+.hero{
+  border:1px solid var(--stroke);
+  background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
+  box-shadow: var(--shadow);
+  border-radius: calc(var(--radius) + 6px);
+  padding:18px;
+  position:relative;
+  overflow:hidden;
+}
+.hero:before{
+  content:""; position:absolute; inset:-2px;
+  background: radial-gradient(500px 200px at 20% 0%, rgba(53,208,192,.25), transparent 70%),
+              radial-gradient(500px 200px at 80% 0%, rgba(245,197,66,.22), transparent 70%);
+  filter: blur(6px);
+  opacity:.9;
+  pointer-events:none;
+}
+.brand-row{display:flex; align-items:center; gap:14px; position:relative; z-index:1;}
+.logo{
+  width:48px; height:48px; border-radius:16px; display:grid; place-items:center;
+  background: linear-gradient(135deg, rgba(245,197,66,.25), rgba(53,208,192,.18));
+  border:1px solid var(--stroke2);
+  box-shadow: var(--shadow2);
+  font-weight:900; letter-spacing:.08em;
+}
+.brand-title{font-size:14px; letter-spacing:.24em; text-transform:uppercase; font-weight:900;}
+.brand-sub{margin-top:4px; color:var(--muted); font-size:12.5px;}
+.hero-actions{margin-left:auto; display:flex; gap:8px; flex-wrap:wrap; justify-content:flex-end;}
+.track-chip{
+  padding:8px 10px; border-radius:999px;
+  border:1px solid var(--stroke);
+  background: rgba(255,255,255,.03);
+  font-size:12px; color:var(--muted);
+}
+.track-chip:hover{border-color:rgba(255,255,255,.18); color:var(--text)}
+.section{margin-top:22px;}
+.section-head{display:flex; align-items:flex-end; justify-content:space-between; gap:10px; margin:16px 4px 10px;}
+.h2{font-size:13px; letter-spacing:.22em; text-transform:uppercase; font-weight:900;}
+.p{font-size:12.5px; color:var(--muted); margin:0;}
+.grid{display:grid; grid-template-columns: repeat(12, 1fr); gap:12px;}
+.feature{grid-column: span 4;}
+@media (max-width:900px){.feature{grid-column: span 6;}}
+@media (max-width:640px){.feature{grid-column: span 12;} .brand-row{flex-wrap:wrap} .hero-actions{margin-left:0}}
+.card{
+  border:1px solid var(--stroke);
+  background: linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.015));
+  border-radius: var(--radius);
+  padding:14px 14px 12px;
+  box-shadow: var(--shadow2);
+  position:relative; overflow:hidden;
+}
+.card:after{
+  content:""; position:absolute; inset:0;
+  background: radial-gradient(300px 120px at 15% 0%, rgba(255,255,255,.06), transparent 60%);
+  pointer-events:none;
+}
+.card-top{display:flex; align-items:center; gap:10px; position:relative; z-index:1;}
+.race-chip{
+  font-size:12px; font-weight:900; letter-spacing:.18em; text-transform:uppercase;
+  padding:6px 10px; border-radius:999px;
+  border:1px solid var(--stroke); background: rgba(255,255,255,.03); color:var(--muted);
+}
+.horse{font-size:16px; font-weight:900; letter-spacing:.02em;}
+.card-right{margin-left:auto}
+.tag{
+  font-size:11px; font-weight:900; letter-spacing:.18em; text-transform:uppercase;
+  padding:6px 10px; border-radius:999px;
+  border:1px solid var(--stroke2); background: rgba(255,255,255,.04);
+}
+.tag-best{border-color: rgba(245,197,66,.55); background: rgba(245,197,66,.12); color: var(--gold);}
+.tag-value{border-color: rgba(53,208,192,.55); background: rgba(53,208,192,.12); color: var(--teal);}
+.tag-scratch{border-color: rgba(255,255,255,.22); background: rgba(255,255,255,.06); color: var(--muted);}
+.pills{display:flex; flex-wrap:wrap; gap:8px; margin-top:10px; position:relative; z-index:1;}
+.pill{
+  display:inline-flex; gap:6px; align-items:baseline;
+  padding:6px 10px; border-radius:999px;
+  border:1px solid var(--stroke); background: rgba(0,0,0,.18);
+  font-size:12px;
+}
+.pill-label{color:var(--muted2)}
+.pill-value{font-weight:800; color:var(--text)}
+.pill-scratch{border-color: rgba(255,255,255,.25); background: rgba(255,255,255,.06)}
+.reason{margin-top:10px; font-size:12.5px; color:var(--muted); line-height:1.5; position:relative; z-index:1;}
+.is-scratched{opacity:.62; filter:saturate(.6);}
+.track-block{
+  margin-top:18px;
+  border:1px solid var(--stroke);
+  background: linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.01));
+  border-radius: calc(var(--radius) + 6px);
+  box-shadow: var(--shadow);
+  overflow:hidden;
+}
+.track-head{
+  padding:16px 16px 12px;
+  display:flex; align-items:flex-end; justify-content:space-between; gap:10px;
+  background: radial-gradient(800px 200px at 20% 0%, rgba(53,208,192,.10), transparent 70%),
+              radial-gradient(800px 200px at 80% 0%, rgba(245,197,66,.10), transparent 70%);
+  border-bottom:1px solid var(--stroke);
+}
+.track-name{font-size:14px; letter-spacing:.22em; text-transform:uppercase; font-weight:900;}
+.track-sub{font-size:12px; color:var(--muted);}
+.track-body{padding:14px 14px 18px}
+.track-sep{height:1px; background: var(--stroke); margin:14px 0;}
+.small-head{
+  display:flex; align-items:center; justify-content:space-between;
+  font-size:12px; letter-spacing:.22em; text-transform:uppercase; font-weight:900;
+  margin:0 2px 10px; color:var(--muted);
+}
+.footer{margin-top:18px; text-align:center; color:var(--muted2); font-size:12px; line-height:1.5;}
+</style>
 </head>
 <body>
-<div class="wrap">
-  <header>
-    <div class="brand">
-      <div class="logo">FF</div>
-      <div>
-        <h1>FormFactor Racing — Full Pack</h1>
-        <div class="sub">Saturday 10 Jan 2026 • Best Bets + Value Bets + Full Card</div>
-      </div>
+<div class="container">
+<header class="hero">
+  <div class="brand-row">
+    <div class="logo">FF</div>
+    <div>
+      <div class="brand-title">FORMFACTOR TIPS</div>
+      <div class="brand-sub">FULL PACK • Saturday 10 January 2026 • Best Bets • Value Bets • Full Card</div>
     </div>
-    <div class="pillrow">
-      <div class="pill"><strong>Mobile-friendly</strong> swipe tables horizontally</div>
-      <div class="pill"><strong>Tip:</strong> add to Home Screen for quick access</div>
-    </div>
-    <div class="tracknav"><button class="tabbtn" data-target="panel_0" onclick="showTrack('panel_0')">Wyong<small>Best R8 • Value R5</small></button><button class="tabbtn" data-target="panel_1" onclick="showTrack('panel_1')">Flemington<small>Best R8 • Value R3</small></button><button class="tabbtn" data-target="panel_2" onclick="showTrack('panel_2')">Gold Coast<small>Best R7 • Value R6</small></button></div>
-  </header>
-
-  <div class="grid">
-    
-        <section id="panel_0" class="trackpanel hidden">
-          <div class="card">
-            <div class="sectiontitle">
-              <h2>Best & Value — Wyong</h2>
-              <div class="hint">Tap a track above to switch.</div>
-            </div>
-            <div class="bbgrid">
-              
-            <div class="pick">
-              <div class="meta">
-                <span class="tag best">BEST BET</span>
-                <span class="tag note">Confidence 9</span>
-              </div>
-              <h3>R8 • Accredited</h3>
-              <div class="line muted">Track: Wyong</div>
-            </div>
-            
-            <div class="pick">
-              <div class="meta">
-                <span class="tag value">VALUE BET</span>
-                <span class="tag note">Confidence 3</span>
-              </div>
-              <h3>R5 • Rhapsody Chic</h3>
-              <div class="line muted">Track: Wyong</div>
-            </div>
-            
-            </div>
-          </div>
-
-          <div class="card">
-            <div class="sectiontitle">
-              <h2>Full Card — Wyong</h2>
-              <div class="hint">Objective fields: rating • last 600 • barrier • weight • confidence.</div>
-            </div>
-            <div class="tablewrap">
-              <table>
-                <thead>
-                  <tr>
-                    <th>Race</th>
-                    <th>Selection</th>
-                    <th>Rating</th>
-                    <th>L600</th>
-                    <th>Barrier</th>
-                    <th>Weight</th>
-                    <th>Conf</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  
-                <tr>
-                  <td class="conf">R1</td>
-                  <td><strong>Royal Exile</strong><div class="muted" style="margin-top:4px;font-size:12px;max-width:520px">Won debut maiden at Taree (Good4) in 0:57.75, last 600m 33.89; barrier 2, 58kg.</div></td>
-                  <td>—</td>
-                  <td>33.89</td>
-                  <td>2</td>
-                  <td>58kg</td>
-                  <td class="conf">6</td>
-                </tr>
-                
-                <tr>
-                  <td class="conf">R2</td>
-                  <td><strong>Zumbo</strong><div class="muted" style="margin-top:4px;font-size:12px;max-width:520px">Scratched from race.</div></td>
-                  <td>—</td>
-                  <td>—</td>
-                  <td>6</td>
-                  <td>55kg</td>
-                  <td class="conf">0.2</td>
-                </tr>
-                
-                <tr>
-                  <td class="conf">R3</td>
-                  <td><strong>Charleroi</strong><div class="muted" style="margin-top:4px;font-size:12px;max-width:520px">3rd in a 1600m BM78 at Randwick (Good4) last start; last 600m 35.64, barrier 5, 57kg.</div></td>
-                  <td>64</td>
-                  <td>35.64</td>
-                  <td>5</td>
-                  <td>57kg</td>
-                  <td class="conf">5</td>
-                </tr>
-                
-                <tr>
-                  <td class="conf">R4</td>
-                  <td><strong>Unlimited</strong><div class="muted" style="margin-top:4px;font-size:12px;max-width:520px">Won 2000m BM72 (Good) last start (Rtg 81), but drops to 1300m; carries 59.5kg, barrier 3.</div></td>
-                  <td>81</td>
-                  <td>35.92</td>
-                  <td>3</td>
-                  <td>59.5kg</td>
-                  <td class="conf">6</td>
-                </tr>
-                <tr><td class='conf'>R5</td><td colspan='6' class='muted'>Not provided in the attached PDF export.</td></tr>
-                <tr>
-                  <td class="conf">R6</td>
-                  <td><strong>Indefensible</strong><div class="muted" style="margin-top:4px;font-size:12px;max-width:520px">Won last start 1300m BM72 at WFM (Good4) in 0:56.57, 600m 33.06; barrier 1, 54kg.</div></td>
-                  <td>61</td>
-                  <td>33.06</td>
-                  <td>1</td>
-                  <td>54kg</td>
-                  <td class="conf">7</td>
-                </tr>
-                
-                <tr>
-                  <td class="conf">R7</td>
-                  <td><strong>Shelstein</strong><div class="muted" style="margin-top:4px;font-size:12px;max-width:520px">3rd of 9 in 1300m at Randwick (Good4) last start, Rtg 66, last 600m 34.63; barrier 2, 57.5kg.</div></td>
-                  <td>66</td>
-                  <td>34.63</td>
-                  <td>2</td>
-                  <td>57.5kg</td>
-                  <td class="conf">6</td>
-                </tr>
-                
-                <tr>
-                  <td class="conf">R8</td>
-                  <td><strong>Accredited</strong><div class="muted" style="margin-top:4px;font-size:12px;max-width:520px">Stayer dropping in trip; rating 102, placed in Listed stakes; last 600m 33.46 at 1500m on Good4; barrier 2, 60.5kg.</div></td>
-                  <td>102</td>
-                  <td>33.46</td>
-                  <td>2</td>
-                  <td>60.5kg</td>
-                  <td class="conf">9</td>
-                </tr>
-                
-                <tr>
-                  <td class="conf">R9</td>
-                  <td><strong>Know Thyself</strong><div class="muted" style="margin-top:4px;font-size:12px;max-width:520px">Last raced Dec\u201925 (0.75L 2nd at Randwick 1100m, Good4, Rtg 67); barrier 4, 56.5kg.</div></td>
-                  <td>67</td>
-                  <td>34.89</td>
-                  <td>4</td>
-                  <td>56.5kg</td>
-                  <td class="conf">2</td>
-                </tr>
-                
-                <tr>
-                  <td class="conf">R10</td>
-                  <td><strong>Althoff</strong><div class="muted" style="margin-top:4px;font-size:12px;max-width:520px">Scratched.</div></td>
-                  <td>—</td>
-                  <td>—</td>
-                  <td>11</td>
-                  <td>58kg</td>
-                  <td class="conf">0.2</td>
-                </tr>
-                
-                </tbody>
-              </table>
-            </div>
-          + </div>
-        </section>
-        
-        <section id="panel_1" class="trackpanel hidden">
-          <div class="card">
-            <div class="sectiontitle">
-              <h2>Best & Value — Flemington</h2>
-              <div class="hint">Tap a track above to switch.</div>
-            </div>
-            <div class="bbgrid">
-              
-            <div class="pick">
-              <div class="meta">
-                <span class="tag best">BEST BET</span>
-                <span class="tag note">Confidence 9</span>
-              </div>
-              <h3>R8 • Aviatress</h3>
-              <div class="line muted">Track: Flemington</div>
-            </div>
-            
-            <div class="pick">
-              <div class="meta">
-                <span class="tag value">VALUE BET</span>
-                <span class="tag note">Confidence 5</span>
-              </div>
-              <h3>R3 • Pacific Glamour</h3>
-              <div class="line muted">Track: Flemington</div>
-            </div>
-            
-            </div>
-          </div>
-
-          <div class="card">
-            <div class="sectiontitle">
-              <h2>Full Card — Flemington</h2>
-              <div class="hint">Objective fields: rating • last 600 • barrier • weight • confidence.</div>
-            </div>
-            <div class="tablewrap">
-              <table>
-                <thead>
-                  <tr>
-                    <th>Race</th>
-                    <th>Selection</th>
-                    <th>Rating</th>
-                    <th>L600</th>
-                    <th>Barrier</th>
-                    <th>Weight</th>
-                    <th>Conf</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  
-                <tr>
-                  <td class="conf">R1</td>
-                  <td><strong>Flying Done</strong><div class="muted" style="margin-top:4px;font-size:12px;max-width:520px">Won Sandown 1600m BM70 (Good4) last start in 1:36.80, last 600m 35.66; barrier 2, 58.5kg.</div></td>
-                  <td>62</td>
-                  <td>35.66</td>
-                  <td>2</td>
-                  <td>58.5kg</td>
-                  <td class="conf">6</td>
-                </tr>
-                
-                <tr>
-                  <td class="conf">R2</td>
-                  <td><strong>Sun Gift</strong><div class="muted" style="margin-top:4px;font-size:12px;max-width:520px">Won 1200m Open Hcp at Cranbourne last start (Soft); rating 66, 600m 36.23; barrier 8, 55kg.</div></td>
-                  <td>66</td>
-                  <td>36.23</td>
-                  <td>8</td>
-                  <td>55kg</td>
-                  <td class="conf">5</td>
-                </tr>
-                
-                <tr>
-                  <td class="conf">R3</td>
-                  <td><strong>Pacific Glamour</strong><div class="muted" style="margin-top:4px;font-size:12px;max-width:520px">3rd of 7 in Caulfield 1400m BM74 (Good4) last start; rating 62, 600m 34.83; barrier 7, 54kg.</div></td>
-                  <td>62</td>
-                  <td>34.83</td>
-                  <td>7</td>
-                  <td>54kg</td>
-                  <td class="conf">5</td>
-                </tr>
-                
-                <tr>
-                  <td class="conf">R4</td>
-                  <td><strong>Miss Playlounge</strong><div class="muted" style="margin-top:4px;font-size:12px;max-width:520px">2nd in Cranbourne BM72 1300m, Soft; rating 69, 600m 35.07; barrier 9, 58.5kg.</div></td>
-                  <td>69</td>
-                  <td>35.07</td>
-                  <td>9</td>
-                  <td>58.5kg</td>
-                  <td class="conf">4</td>
-                </tr>
-                
-                <tr>
-                  <td class="conf">R5</td>
-                  <td><strong>Watersports</strong><div class="muted" style="margin-top:4px;font-size:12px;max-width:520px">Won Cranbourne 1400m MDN-SW (Good4) last start; rating 62, 600m 36.05; barrier 6, 57kg.</div></td>
-                  <td>62</td>
-                  <td>36.05</td>
-                  <td>6</td>
-                  <td>57kg</td>
-                  <td class="conf">6</td>
-                </tr>
-                
-                <tr>
-                  <td class="conf">R6</td>
-                  <td><strong>Castellar</strong><div class="muted" style="margin-top:4px;font-size:12px;max-width:520px">No recent runs in 2025 (last raced early 2025); carries top 60.5kg, barrier 10.</div></td>
-                  <td>71</td>
-                  <td>—</td>
-                  <td>10</td>
-                  <td>60.5kg</td>
-                  <td class="conf">3</td>
-                </tr>
-                
-                <tr>
-                  <td class="conf">R7</td>
-                  <td><strong>Teardrop Rotation</strong><div class="muted" style="margin-top:4px;font-size:12px;max-width:520px">Won Murray Bridge 1400m BM72 (Good4) in Dec\u201925, rating 73, 600m 35.43; barrier 4, 55kg.</div></td>
-                  <td>73</td>
-                  <td>35.43</td>
-                  <td>4</td>
-                  <td>55kg</td>
-                  <td class="conf">7</td>
-                </tr>
-                
-                <tr>
-                  <td class="conf">R8</td>
-                  <td><strong>Aviatress</strong><div class="muted" style="margin-top:4px;font-size:12px;max-width:520px">Stakes filly; won Caulfield LR 1100m (Nov\u201925), rating 100, then 3rd in Xmas LR 1200m (Dec\u201925, Rtg 104, 600m 33.93); barrier 10, 58…</div></td>
-                  <td>104</td>
-                  <td>33.93</td>
-                  <td>10</td>
-                  <td>58kg</td>
-                  <td class="conf">9</td>
-                </tr>
-                
-                <tr>
-                  <td class="conf">R9</td>
-                  <td><strong>Ikasara</strong><div class="muted" style="margin-top:4px;font-size:12px;max-width:520px">11th of 11 at Caulfield 1100m BM74 (Nov\u201925), rating 74, 600m 34.64; barrier 9, 59kg.</div></td>
-                  <td>74</td>
-                  <td>34.64</td>
-                  <td>9</td>
-                  <td>59kg</td>
-                  <td class="conf">2</td>
-                </tr>
-                
-                <tr>
-                  <td class="conf">R10</td>
-                  <td><strong>Kahhof</strong><div class="muted" style="margin-top:4px;font-size:12px;max-width:520px">2nd of 9 at Sandown 1400m BM70 (Dec\u201925), rating 75, 600m 35.08; barrier 11, 60.5kg.</div></td>
-                  <td>75</td>
-                  <td>35.08</td>
-                  <td>11</td>
-                  <td>60.5kg</td>
-                  <td class="conf">6</td>
-                </tr>
-                
-                </tbody>
-              </table>
-            </div>
-           </div>
-        </section>
-        
-        <section id="panel_2" class="trackpanel hidden">
-          <div class="card">
-            <div class="sectiontitle">
-              <h2>Best & Value — Gold Coast</h2>
-              <div class="hint">Tap a track above to switch.</div>
-            </div>
-            <div class="bbgrid">
-              
-            <div class="pick">
-              <div class="meta">
-                <span class="tag best">BEST BET</span>
-                <span class="tag note">Confidence 10</span>
-              </div>
-              <h3>R7 • Miss Joelene</h3>
-              <div class="line muted">Track: Gold Coast</div>
-            </div>
-            
-            <div class="pick">
-              <div class="meta">
-                <span class="tag value">VALUE BET</span>
-                <span class="tag note">Confidence 3</span>
-              </div>
-              <h3>R6 • King Of Pop</h3>
-              <div class="line muted">Track: Gold Coast</div>
-            </div>
-            
-            </div>
-          </div>
-
-          <div class="card">
-            <div class="sectiontitle">
-              <h2>Full Card — Gold Coast</h2>
-              <div class="hint">Objective fields: rating • last 600 • barrier • weight • confidence.</div>
-            </div>
-            <div class="tablewrap">
-              <table>
-                <thead>
-                  <tr>
-                    <th>Race</th>
-                    <th>Selection</th>
-                    <th>Rating</th>
-                    <th>L600</th>
-                    <th>Barrier</th>
-                    <th>Weight</th>
-                    <th>Conf</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  
-                <tr>
-                  <td class="conf">R1</td>
-                  <td><strong>Itchintogo</strong><div class="muted" style="margin-top:4px;font-size:12px;max-width:520px">Won Doomben 1110m 2YO (Good3) on 6Dec25, last 600m 34.65; barrier 4, 58kg, Soft5 track.</div></td>
-                  <td>70</td>
-                  <td>34.65</td>
-                  <td>4</td>
-                  <td>58kg</td>
-                  <td class="conf">5</td>
-                </tr>
-                
-                <tr>
-                  <td class="conf">R2</td>
-                  <td><strong>Tigroni</strong><div class="muted" style="margin-top:4px;font-size:12px;max-width:520px">2nd in Doomben 1100m 2YO HCP (Nov\u201925), rating 66, 600m 35.74; barrier 7, 56kg.</div></td>
-                  <td>66</td>
-                  <td>35.74</td>
-                  <td>7</td>
-                  <td>56kg</td>
-                  <td class="conf">5</td>
-                </tr>
-                
-                <tr>
-                  <td class="conf">R3</td>
-                  <td><strong>Bello Cavallo</strong><div class="muted" style="margin-top:4px;font-size:12px;max-width:520px">Modest form as a 2YO (4th of 6 at Hawkesbury 1400m Heavy10, 600m 35.54); barrier 11, 57kg.</div></td>
-                  <td>0</td>
-                  <td>35.54</td>
-                  <td>11</td>
-                  <td>57kg</td>
-                  <td class="conf">2</td>
-                </tr>
-                
-                <tr>
-                  <td class="conf">R4</td>
-                  <td><strong>Mamushka</strong><div class="muted" style="margin-top:4px;font-size:12px;max-width:520px">Win at G3 level as 3YO; barrier 7, 58.5kg on Soft5, rating ~70.</div></td>
-                  <td>70</td>
-                  <td>—</td>
-                  <td>7</td>
-                  <td>58.5kg</td>
-                  <td class="conf">6</td>
-                </tr>
-                
-                <tr>
-                  <td class="conf">R5</td>
-                  <td><strong>Axius</strong><div class="muted" style="margin-top:4px;font-size:12px;max-width:520px">Won 1100m BM72 at Kensington (Good, Jun\u201925) by 0.75L, 600m 34.46; barrier 9, 60kg.</div></td>
-                  <td>68</td>
-                  <td>34.46</td>
-                  <td>9</td>
-                  <td>60kg</td>
-                  <td class="conf">7</td>
-                </tr>
-                
-                <tr>
-                  <td class="conf">R6</td>
-                  <td><strong>King Of Pop</strong><div class="muted" style="margin-top:4px;font-size:12px;max-width:520px">4th of 8 in BM70 (Cranbourne 1300m, Good, Nov\u201925), rating 75, 600m 34.95; barrier 5, 57kg.</div></td>
-                  <td>75</td>
-                  <td>34.95</td>
-                  <td>5</td>
-                  <td>57kg</td>
-                  <td class="conf">3</td>
-                </tr>
-                
-                <tr>
-                  <td class="conf">R7</td>
-                  <td><strong>Miss Joelene</strong><div class="muted" style="margin-top:4px;font-size:12px;max-width:520px">Multiple stakes wins (1800m \</div></td>
-                  <td>107</td>
-                  <td>0</td>
-                  <td>9</td>
-                  <td>57kg</td>
-                  <td class="conf">10</td>
-                </tr>
-                
-                <tr>
-                  <td class="conf">R8</td>
-                  <td><strong>Payline</strong><div class="muted" style="margin-top:4px;font-size:12px;max-width:520px">3rd in Doveton S. 1200m LR and Xmas LR 1200m (Dec25, rating 104), 600m 34.71; barrier 3, 58.5kg.</div></td>
-                  <td>104</td>
-                  <td>34.71</td>
-                  <td>3</td>
-                  <td>58.5kg</td>
-                  <td class="conf">9</td>
-                </tr>
-                
-                <tr>
-                  <td class="conf">R9</td>
-                  <td><strong>Grafterburners</strong><div class="muted" style="margin-top:4px;font-size:12px;max-width:520px">Rated 88 after Group races (6th JJ Atkins, 2nd Xmas Stks LR Dec25); barrier 2, 57kg.</div></td>
-                  <td>90</td>
-                  <td>35.96</td>
-                  <td>2</td>
-                  <td>57kg</td>
-                  <td class="conf">8</td>
-                </tr>
-                
-                <tr>
-                  <td class="conf">R10</td>
-                  <td><strong>Yellow Brick</strong><div class="muted" style="margin-top:4px;font-size:12px;max-width:520px">Won Queensland Magic Millions 1200m in Dec25; top rating 107, barrier 7, 61kg.</div></td>
-                  <td>107</td>
-                  <td>0</td>
-                  <td>7</td>
-                  <td>61kg</td>
-                  <td class="conf">8</td>
-                </tr>
-                
-                </tbody>
-              </table>
-            </div>
-           </div>
-          </div>
-        </section>
-        
+    <div class="hero-actions"><a class="track-chip" href="#wyong">Wyong</a><a class="track-chip" href="#flemington">Flemington</a><a class="track-chip" href="#gold-coast">Gold Coast</a></div>
   </div>
+</header>
+
+
+<section class="section" id="best-bets">
+  <div class="section-head">
+    <div>
+      <div class="h2">Best Bets</div>
+      <p class="p">Highest confidence runners across the three meetings.</p>
+    </div>
+    <div class="p">Saturday 10 January 2026</div>
+  </div>
+  <div class="grid">
+
+<div class="feature">
+    <article class="card">
+      <div class="card-top">
+        <div class="race-chip">R8</div>
+        <div class="horse">Accredited</div>
+        <div class="card-right"><span class="tag tag-best">Wyong • BEST</span></div>
+      </div>
+      <div class="pills"><span class="pill"><span class="pill-label">Barrier</span><span class="pill-value">2</span></span><span class="pill"><span class="pill-label">Weight</span><span class="pill-value">60.5kg</span></span><span class="pill"><span class="pill-label">Speed</span><span class="pill-value">102</span></span><span class="pill"><span class="pill-label">L600</span><span class="pill-value">33.46s</span></span><span class="pill"><span class="pill-label">Confidence</span><span class="pill-value">9 / 10</span></span></div>
+      <div class="reason">Stayer dropping in trip; rating 102, placed in Listed stakes; last 600m 33.46 at 1500m on Good4; barrier 2, 60.5kg.</div>
+    </article>
+    </div>
+<div class="feature">
+    <article class="card">
+      <div class="card-top">
+        <div class="race-chip">R8</div>
+        <div class="horse">Aviatress</div>
+        <div class="card-right"><span class="tag tag-best">Flemington • BEST</span></div>
+      </div>
+      <div class="pills"><span class="pill"><span class="pill-label">Barrier</span><span class="pill-value">10</span></span><span class="pill"><span class="pill-label">Weight</span><span class="pill-value">58kg</span></span><span class="pill"><span class="pill-label">Speed</span><span class="pill-value">104</span></span><span class="pill"><span class="pill-label">L600</span><span class="pill-value">33.93s</span></span><span class="pill"><span class="pill-label">Confidence</span><span class="pill-value">9 / 10</span></span></div>
+      <div class="reason">Stakes filly; won Caulfield LR 1100m (Nov’25), rating 100, then 3rd in Xmas LR 1200m (Dec’25, Rtg 104, 600m 33.93); barrier 10, 58kg.</div>
+    </article>
+    </div>
+<div class="feature">
+    <article class="card">
+      <div class="card-top">
+        <div class="race-chip">R7</div>
+        <div class="horse">Miss Joelene</div>
+        <div class="card-right"><span class="tag tag-best">Gold Coast • BEST</span></div>
+      </div>
+      <div class="pills"><span class="pill"><span class="pill-label">Barrier</span><span class="pill-value">9</span></span><span class="pill"><span class="pill-label">Weight</span><span class="pill-value">57kg</span></span><span class="pill"><span class="pill-label">Speed</span><span class="pill-value">107</span></span><span class="pill"><span class="pill-label">Confidence</span><span class="pill-value">10 / 10</span></span></div>
+      <div class="reason">Multiple stakes wins (1800m &quot;The Wave&quot; Dec25); top rating 107, barrier 9, 57kg.</div>
+    </article>
+    </div>
+</div></section>
+
+<section class="section" id="value-bets">
+  <div class="section-head">
+    <div>
+      <div class="h2">Value Bets</div>
+      <p class="p">Potential overlays based on the available raw metrics.</p>
+    </div>
+    <div class="p">Barriers • Weights • Speed • Sectionals</div>
+  </div>
+  <div class="grid">
+
+<div class="feature">
+    <article class="card">
+      <div class="card-top">
+        <div class="race-chip">R6</div>
+        <div class="horse">Indefensible</div>
+        <div class="card-right"><span class="tag tag-value">Wyong • VALUE</span></div>
+      </div>
+      <div class="pills"><span class="pill"><span class="pill-label">Barrier</span><span class="pill-value">1</span></span><span class="pill"><span class="pill-label">Weight</span><span class="pill-value">54kg</span></span><span class="pill"><span class="pill-label">Speed</span><span class="pill-value">61</span></span><span class="pill"><span class="pill-label">L600</span><span class="pill-value">33.06s</span></span><span class="pill"><span class="pill-label">Confidence</span><span class="pill-value">7 / 10</span></span></div>
+      <div class="reason">Won last start 1300m BM72 at WFM (Good4) in 0:56.57, 600m 33.06; barrier 1, 54kg.</div>
+    </article>
+    </div>
+<div class="feature">
+    <article class="card">
+      <div class="card-top">
+        <div class="race-chip">R3</div>
+        <div class="horse">Pacific Glamour</div>
+        <div class="card-right"><span class="tag tag-value">Flemington • VALUE</span></div>
+      </div>
+      <div class="pills"><span class="pill"><span class="pill-label">Barrier</span><span class="pill-value">7</span></span><span class="pill"><span class="pill-label">Weight</span><span class="pill-value">54kg</span></span><span class="pill"><span class="pill-label">Speed</span><span class="pill-value">62</span></span><span class="pill"><span class="pill-label">L600</span><span class="pill-value">34.83s</span></span><span class="pill"><span class="pill-label">Confidence</span><span class="pill-value">5 / 10</span></span></div>
+      <div class="reason">3rd of 7 in Caulfield 1400m BM74 (Good4) last start; rating 62, 600m 34.83; barrier 7, 54kg.</div>
+    </article>
+    </div>
+<div class="feature">
+    <article class="card">
+      <div class="card-top">
+        <div class="race-chip">R6</div>
+        <div class="horse">King Of Pop</div>
+        <div class="card-right"><span class="tag tag-value">Gold Coast • VALUE</span></div>
+      </div>
+      <div class="pills"><span class="pill"><span class="pill-label">Barrier</span><span class="pill-value">5</span></span><span class="pill"><span class="pill-label">Weight</span><span class="pill-value">57kg</span></span><span class="pill"><span class="pill-label">Speed</span><span class="pill-value">75</span></span><span class="pill"><span class="pill-label">L600</span><span class="pill-value">34.95s</span></span><span class="pill"><span class="pill-label">Confidence</span><span class="pill-value">7 / 10</span></span></div>
+      <div class="reason">4th of 8 in BM70 (Cranbourne 1300m, Good, Nov’25), rating 75, 600m 34.95; barrier 5, 57kg.</div>
+    </article>
+    </div>
+</div></section>
+
+<section class="track-block" id="wyong">
+  <div class="track-head">
+    <div>
+      <div class="track-name">Wyong</div>
+      <div class="track-sub">Best + Value + Full Card</div>
+    </div>
+    <div class="track-sub">Scroll: <a href="#best-bets">Best</a> • <a href="#value-bets">Value</a></div>
+  </div>
+  <div class="track-body">
+
+<div class="small-head">Best Bet</div>
+    <article class="card">
+      <div class="card-top">
+        <div class="race-chip">R8</div>
+        <div class="horse">Accredited</div>
+        <div class="card-right"><span class="tag tag-best">BEST BET</span></div>
+      </div>
+      <div class="pills"><span class="pill"><span class="pill-label">Barrier</span><span class="pill-value">2</span></span><span class="pill"><span class="pill-label">Weight</span><span class="pill-value">60.5kg</span></span><span class="pill"><span class="pill-label">Speed</span><span class="pill-value">102</span></span><span class="pill"><span class="pill-label">L600</span><span class="pill-value">33.46s</span></span><span class="pill"><span class="pill-label">Confidence</span><span class="pill-value">9 / 10</span></span></div>
+      <div class="reason">Stayer dropping in trip; rating 102, placed in Listed stakes; last 600m 33.46 at 1500m on Good4; barrier 2, 60.5kg.</div>
+    </article>
+    
+<div class="track-sep"></div><div class="small-head">Value Bet</div>
+    <article class="card">
+      <div class="card-top">
+        <div class="race-chip">R6</div>
+        <div class="horse">Indefensible</div>
+        <div class="card-right"><span class="tag tag-value">VALUE BET</span></div>
+      </div>
+      <div class="pills"><span class="pill"><span class="pill-label">Barrier</span><span class="pill-value">1</span></span><span class="pill"><span class="pill-label">Weight</span><span class="pill-value">54kg</span></span><span class="pill"><span class="pill-label">Speed</span><span class="pill-value">61</span></span><span class="pill"><span class="pill-label">L600</span><span class="pill-value">33.06s</span></span><span class="pill"><span class="pill-label">Confidence</span><span class="pill-value">7 / 10</span></span></div>
+      <div class="reason">Won last start 1300m BM72 at WFM (Good4) in 0:56.57, 600m 33.06; barrier 1, 54kg.</div>
+    </article>
+    
+<div class="track-sep"></div><div class="small-head">Full Card</div>
+
+    <article class="card">
+      <div class="card-top">
+        <div class="race-chip">R1</div>
+        <div class="horse">Royal Exile</div>
+        <div class=></div>
+      </div>
+      <div class="pills"><span class="pill"><span class="pill-label">Barrier</span><span class="pill-value">2</span></span><span class="pill"><span class="pill-label">Weight</span><span class="pill-value">58kg</span></span><span class="pill"><span class="pill-label">L600</span><span class="pill-value">33.89s</span></span><span class="pill"><span class="pill-label">Confidence</span><span class="pill-value">6 / 10</span></span></div>
+      <div class="reason">Won debut maiden at Taree (Good4) in 0:57.75, last 600m 33.89; barrier 2, 58kg.</div>
+    </article>
+    
+
+    <article class="card ">
+      <div class="card-top">
+        <div class="race-chip">R2</div>
+        <div class="horse">Nimble star</div>
+        <div class=></div>
+      </div>
+      <div class="pills"><span class="pill pill-scratch"><span class="pill-label"></span></span><span class="pill"><span class="pill-label">Barrier</span><span class="pill-value">13</span></span><span class="pill"><span class="pill-label">Weight</span><span class="pill-value">57.5kg</span></span><span class="pill"><span class="pill-label">Confidence</span><span class="pill-value">6 / 10</span></span></div>
+      <div class="reason">Track and Distance form, Form 2nd up.</div>
+    </article>
+    
+
+    <article class="card">
+      <div class="card-top">
+        <div class="race-chip">R3</div>
+        <div class="horse">Charleroi</div>
+        <div class="card-right"></div>
+      </div>
+      <div class="pills"><span class="pill"><span class="pill-label">Barrier</span><span class="pill-value">5</span></span><span class="pill"><span class="pill-label">Weight</span><span class="pill-value">57kg</span></span><span class="pill"><span class="pill-label">Speed</span><span class="pill-value">64</span></span><span class="pill"><span class="pill-label">L600</span><span class="pill-value">35.64s</span></span><span class="pill"><span class="pill-label">Confidence</span><span class="pill-value">5 / 10</span></span></div>
+      <div class="reason">3rd in a 1600m BM78 at Randwick (Good4) last start; last 600m 35.64, barrier 5, 57kg.</div>
+    </article>
+    
+
+    <article class="card">
+      <div class="card-top">
+        <div class="race-chip">R4</div>
+        <div class="horse">Unlimited</div>
+        <div class="card-right"></div>
+      </div>
+      <div class="pills"><span class="pill"><span class="pill-label">Barrier</span><span class="pill-value">3</span></span><span class="pill"><span class="pill-label">Weight</span><span class="pill-value">59.5kg</span></span><span class="pill"><span class="pill-label">Speed</span><span class="pill-value">81</span></span><span class="pill"><span class="pill-label">L600</span><span class="pill-value">35.92s</span></span><span class="pill"><span class="pill-label">Confidence</span><span class="pill-value">6 / 10</span></span></div>
+      <div class="reason">Won 2000m BM72 (Good) last start (Rtg 81), but drops to 1300m; carries 59.5kg, barrier 3.</div>
+    </article>
+    
+
+    <article class="card">
+      <div class="card-top">
+        <div class="race-chip">R5</div>
+        <div class="horse">slinky</div>
+        <div class="card-right"></div>
+      </div>
+      <div class="pills"><span class="pill"><span class="pill-label">Barrier</span><span class="pill-value">1</span></span><span class="pill"><span class="pill-label">Weight</span><span class="pill-value">55.5kg</span></span><span class="pill"><span class="pill-label">Speed</span><span class="pill-value">83</span></span><span class="pill"><span class="pill-label">L600</span><span class="pill-value">34.38s</span></span><span class="pill"><span class="pill-label">Confidence</span><span class="pill-value">7 / 10</span></span></div>
+      <div class="reason">won at distance and track, good form second up</div>
+    </article>
+    
+
+    <article class="card">
+      <div class="card-top">
+        <div class="race-chip">R6</div>
+        <div class="horse">Indefensible</div>
+        <div class="card-right"><span class="tag tag-value">VALUE</span></div>
+      </div>
+      <div class="pills"><span class="pill"><span class="pill-label">Barrier</span><span class="pill-value">1</span></span><span class="pill"><span class="pill-label">Weight</span><span class="pill-value">54kg</span></span><span class="pill"><span class="pill-label">Speed</span><span class="pill-value">61</span></span><span class="pill"><span class="pill-label">L600</span><span class="pill-value">33.06s</span></span><span class="pill"><span class="pill-label">Confidence</span><span class="pill-value">7 / 10</span></span></div>
+      <div class="reason">Won last start 1300m BM72 at WFM (Good4) in 0:56.57, 600m 33.06; barrier 1, 54kg.</div>
+    </article>
+    
+
+    <article class="card">
+      <div class="card-top">
+        <div class="race-chip">R7</div>
+        <div class="horse">Shelstein</div>
+        <div class="card-right"></div>
+      </div>
+      <div class="pills"><span class="pill"><span class="pill-label">Barrier</span><span class="pill-value">2</span></span><span class="pill"><span class="pill-label">Weight</span><span class="pill-value">57.5kg</span></span><span class="pill"><span class="pill-label">Speed</span><span class="pill-value">66</span></span><span class="pill"><span class="pill-label">L600</span><span class="pill-value">34.63s</span></span><span class="pill"><span class="pill-label">Confidence</span><span class="pill-value">6 / 10</span></span></div>
+      <div class="reason">3rd of 9 in 1300m at Randwick (Good4) last start, Rtg 66, last 600m 34.63; barrier 2, 57.5kg.</div>
+    </article>
+    
+
+    <article class="card">
+      <div class="card-top">
+        <div class="race-chip">R8</div>
+        <div class="horse">Accredited</div>
+        <div class="card-right"><span class="tag tag-best">BEST</span></div>
+      </div>
+      <div class="pills"><span class="pill"><span class="pill-label">Barrier</span><span class="pill-value">2</span></span><span class="pill"><span class="pill-label">Weight</span><span class="pill-value">60.5kg</span></span><span class="pill"><span class="pill-label">Speed</span><span class="pill-value">102</span></span><span class="pill"><span class="pill-label">L600</span><span class="pill-value">33.46s</span></span><span class="pill"><span class="pill-label">Confidence</span><span class="pill-value">9 / 10</span></span></div>
+      <div class="reason">Stayer dropping in trip; rating 102, placed in Listed stakes; last 600m 33.46 at 1500m on Good4; barrier 2, 60.5kg.</div>
+    </article>
+    
+
+    <article class="card">
+      <div class="card-top">
+        <div class="race-chip">R9</div>
+        <div class="horse">Know Thyself</div>
+        <div class="card-right"></div>
+      </div>
+      <div class="pills"><span class="pill"><span class="pill-label">Barrier</span><span class="pill-value">4</span></span><span class="pill"><span class="pill-label">Weight</span><span class="pill-value">56.5kg</span></span><span class="pill"><span class="pill-label">Speed</span><span class="pill-value">67</span></span><span class="pill"><span class="pill-label">L600</span><span class="pill-value">34.89s</span></span><span class="pill"><span class="pill-label">Confidence</span><span class="pill-value">7 / 10</span></span></div>
+      <div class="reason">Last raced Dec’25 (0.75L 2nd at Randwick 1100m, Good4, Rtg 67); barrier 4, 56.5kg.</div>
+    </article>
+    
+
+    <article class="card">
+      <div class="card-top">
+        <div class="race-chip">R10</div>
+        <div class="horse">Althoff</div>
+        <div class="card-right"></div>
+      </div>
+      <div class="pills"><span class="pill pill-scratch"><span class="pill-label"></span></span><span class="pill"><span class="pill-label">Barrier</span><span class="pill-value">11</span></span><span class="pill"><span class="pill-label">Weight</span><span class="pill-value">58kg</span></span><span class="pill"><span class="pill-label">Confidence</span><span class="pill-value">0.2 / 10</span></span></div>
+      <div class="reason">3rd up ready to fire .</div>
+    </article>
+    
+</div></section>
+
+<section class="track-block" id="flemington">
+  <div class="track-head">
+    <div>
+      <div class="track-name">Flemington</div>
+      <div class="track-sub">Best + Value + Full Card</div>
+    </div>
+    <div class="track-sub">Scroll: <a href="#best-bets">Best</a> • <a href="#value-bets">Value</a></div>
+  </div>
+  <div class="track-body">
+
+<div class="small-head">Best Bet</div>
+    <article class="card">
+      <div class="card-top">
+        <div class="race-chip">R8</div>
+        <div class="horse">Aviatress</div>
+        <div class="card-right"><span class="tag tag-best">BEST BET</span></div>
+      </div>
+      <div class="pills"><span class="pill"><span class="pill-label">Barrier</span><span class="pill-value">10</span></span><span class="pill"><span class="pill-label">Weight</span><span class="pill-value">58kg</span></span><span class="pill"><span class="pill-label">Speed</span><span class="pill-value">104</span></span><span class="pill"><span class="pill-label">L600</span><span class="pill-value">33.93s</span></span><span class="pill"><span class="pill-label">Confidence</span><span class="pill-value">9 / 10</span></span></div>
+      <div class="reason">Stakes filly; won Caulfield LR 1100m (Nov’25), rating 100, then 3rd in Xmas LR 1200m (Dec’25, Rtg 104, 600m 33.93); barrier 10, 58kg.</div>
+    </article>
+    
+<div class="track-sep"></div><div class="small-head">Value Bet</div>
+    <article class="card">
+      <div class="card-top">
+        <div class="race-chip">R3</div>
+        <div class="horse">Pacific Glamour</div>
+        <div class="card-right"><span class="tag tag-value">VALUE BET</span></div>
+      </div>
+      <div class="pills"><span class="pill"><span class="pill-label">Barrier</span><span class="pill-value">7</span></span><span class="pill"><span class="pill-label">Weight</span><span class="pill-value">54kg</span></span><span class="pill"><span class="pill-label">Speed</span><span class="pill-value">62</span></span><span class="pill"><span class="pill-label">L600</span><span class="pill-value">34.83s</span></span><span class="pill"><span class="pill-label">Confidence</span><span class="pill-value">5 / 10</span></span></div>
+      <div class="reason">3rd of 7 in Caulfield 1400m BM74 (Good4) last start; rating 62, 600m 34.83; barrier 7, 54kg.</div>
+    </article>
+    
+<div class="track-sep"></div><div class="small-head">Full Card</div>
+
+    <article class="card">
+      <div class="card-top">
+        <div class="race-chip">R1</div>
+        <div class="horse">Flying Done</div>
+        <div class="card-right"></div>
+      </div>
+      <div class="pills"><span class="pill"><span class="pill-label">Barrier</span><span class="pill-value">2</span></span><span class="pill"><span class="pill-label">Weight</span><span class="pill-value">58.5kg</span></span><span class="pill"><span class="pill-label">Speed</span><span class="pill-value">62</span></span><span class="pill"><span class="pill-label">L600</span><span class="pill-value">35.66s</span></span><span class="pill"><span class="pill-label">Confidence</span><span class="pill-value">6 / 10</span></span></div>
+      <div class="reason">Won Sandown 1600m BM70 (Good4) last start in 1:36.80, last 600m 35.66; barrier 2, 58.5kg.</div>
+    </article>
+    
+
+    <article class="card">
+      <div class="card-top">
+        <div class="race-chip">R2</div>
+        <div class="horse">Sun Gift</div>
+        <div class="card-right"></div>
+      </div>
+      <div class="pills"><span class="pill"><span class="pill-label">Barrier</span><span class="pill-value">8</span></span><span class="pill"><span class="pill-label">Weight</span><span class="pill-value">55kg</span></span><span class="pill"><span class="pill-label">Speed</span><span class="pill-value">66</span></span><span class="pill"><span class="pill-label">L600</span><span class="pill-value">36.23s</span></span><span class="pill"><span class="pill-label">Confidence</span><span class="pill-value">5 / 10</span></span></div>
+      <div class="reason">Won 1200m Open Hcp at Cranbourne last start (Soft); rating 66, 600m 36.23; barrier 8, 55kg.</div>
+    </article>
+    
+
+    <article class="card">
+      <div class="card-top">
+        <div class="race-chip">R3</div>
+        <div class="horse">Pacific Glamour</div>
+        <div class="card-right"><span class="tag tag-value">VALUE</span></div>
+      </div>
+      <div class="pills"><span class="pill"><span class="pill-label">Barrier</span><span class="pill-value">7</span></span><span class="pill"><span class="pill-label">Weight</span><span class="pill-value">54kg</span></span><span class="pill"><span class="pill-label">Speed</span><span class="pill-value">62</span></span><span class="pill"><span class="pill-label">L600</span><span class="pill-value">34.83s</span></span><span class="pill"><span class="pill-label">Confidence</span><span class="pill-value">5 / 10</span></span></div>
+      <div class="reason">3rd of 7 in Caulfield 1400m BM74 (Good4) last start; rating 62, 600m 34.83; barrier 7, 54kg.</div>
+    </article>
+    
+
+    <article class="card">
+      <div class="card-top">
+        <div class="race-chip">R4</div>
+        <div class="horse">Miss Playlounge</div>
+        <div class="card-right"></div>
+      </div>
+      <div class="pills"><span class="pill"><span class="pill-label">Barrier</span><span class="pill-value">9</span></span><span class="pill"><span class="pill-label">Weight</span><span class="pill-value">58.5kg</span></span><span class="pill"><span class="pill-label">Speed</span><span class="pill-value">69</span></span><span class="pill"><span class="pill-label">L600</span><span class="pill-value">35.07s</span></span><span class="pill"><span class="pill-label">Confidence</span><span class="pill-value">7 / 10</span></span></div>
+      <div class="reason">2nd in Cranbourne BM72 1300m, Soft; rating 69, 600m 35.07; barrier 9, 58.5kg.</div>
+    </article>
+    
+
+    <article class="card">
+      <div class="card-top">
+        <div class="race-chip">R5</div>
+        <div class="horse">Watersports</div>
+        <div class="card-right"></div>
+      </div>
+      <div class="pills"><span class="pill"><span class="pill-label">Barrier</span><span class="pill-value">6</span></span><span class="pill"><span class="pill-label">Weight</span><span class="pill-value">57kg</span></span><span class="pill"><span class="pill-label">Speed</span><span class="pill-value">62</span></span><span class="pill"><span class="pill-label">L600</span><span class="pill-value">36.05s</span></span><span class="pill"><span class="pill-label">Confidence</span><span class="pill-value">6 / 10</span></span></div>
+      <div class="reason">Won Cranbourne 1400m MDN-SW (Good4) last start; rating 62, 600m 36.05; barrier 6, 57kg.</div>
+    </article>
+    
+
+    <article class="card">
+      <div class="card-top">
+        <div class="race-chip">R6</div>
+        <div class="horse">Castellar</div>
+        <div class="card-right"></div>
+      </div>
+      <div class="pills"><span class="pill"><span class="pill-label">Barrier</span><span class="pill-value">10</span></span><span class="pill"><span class="pill-label">Weight</span><span class="pill-value">60.5kg</span></span><span class="pill"><span class="pill-label">Speed</span><span class="pill-value">71</span></span><span class="pill"><span class="pill-label">Confidence</span><span class="pill-value">3 / 10</span></span></div>
+      <div class="reason">No recent runs in 2025 (last raced early 2025); carries top 60.5kg, barrier 10.</div>
+    </article>
+    
+
+    <article class="card">
+      <div class="card-top">
+        <div class="race-chip">R7</div>
+        <div class="horse">Teardrop Rotation</div>
+        <div class="card-right"></div>
+      </div>
+      <div class="pills"><span class="pill"><span class="pill-label">Barrier</span><span class="pill-value">4</span></span><span class="pill"><span class="pill-label">Weight</span><span class="pill-value">55kg</span></span><span class="pill"><span class="pill-label">Speed</span><span class="pill-value">73</span></span><span class="pill"><span class="pill-label">L600</span><span class="pill-value">35.43s</span></span><span class="pill"><span class="pill-label">Confidence</span><span class="pill-value">7 / 10</span></span></div>
+      <div class="reason">Won Murray Bridge 1400m BM72 (Good4) in Dec’25, rating 73, 600m 35.43; barrier 4, 55kg.</div>
+    </article>
+    
+
+    <article class="card">
+      <div class="card-top">
+        <div class="race-chip">R8</div>
+        <div class="horse">Aviatress</div>
+        <div class="card-right"><span class="tag tag-best">BEST</span></div>
+      </div>
+      <div class="pills"><span class="pill"><span class="pill-label">Barrier</span><span class="pill-value">10</span></span><span class="pill"><span class="pill-label">Weight</span><span class="pill-value">58kg</span></span><span class="pill"><span class="pill-label">Speed</span><span class="pill-value">104</span></span><span class="pill"><span class="pill-label">L600</span><span class="pill-value">33.93s</span></span><span class="pill"><span class="pill-label">Confidence</span><span class="pill-value">9 / 10</span></span></div>
+      <div class="reason">Stakes filly; won Caulfield LR 1100m (Nov’25), rating 100, then 3rd in Xmas LR 1200m (Dec’25, Rtg 104, 600m 33.93); barrier 10, 58kg.</div>
+    </article>
+    
+
+    <article class="card">
+      <div class="card-top">
+        <div class="race-chip">R9</div>
+        <div class="horse">Ikasara</div>
+        <div class="card-right"></div>
+      </div>
+      <div class="pills"><span class="pill"><span class="pill-label">Barrier</span><span class="pill-value">9</span></span><span class="pill"><span class="pill-label">Weight</span><span class="pill-value">59kg</span></span><span class="pill"><span class="pill-label">Speed</span><span class="pill-value">74</span></span><span class="pill"><span class="pill-label">L600</span><span class="pill-value">34.64s</span></span><span class="pill"><span class="pill-label">Confidence</span><span class="pill-value">2 / 10</span></span></div>
+      <div class="reason">11th of 11 at Caulfield 1100m BM74 (Nov’25), rating 74, 600m 34.64; barrier 9, 59kg.</div>
+    </article>
+    
+
+    <article class="card">
+      <div class="card-top">
+        <div class="race-chip">R10</div>
+        <div class="horse">Kahhof</div>
+        <div class="card-right"></div>
+      </div>
+      <div class="pills"><span class="pill"><span class="pill-label">Barrier</span><span class="pill-value">11</span></span><span class="pill"><span class="pill-label">Weight</span><span class="pill-value">60.5kg</span></span><span class="pill"><span class="pill-label">Speed</span><span class="pill-value">75</span></span><span class="pill"><span class="pill-label">L600</span><span class="pill-value">35.08s</span></span><span class="pill"><span class="pill-label">Confidence</span><span class="pill-value">6 / 10</span></span></div>
+      <div class="reason">2nd of 9 at Sandown 1400m BM70 (Dec’25), rating 75, 600m 35.08; barrier 11, 60.5kg.</div>
+    </article>
+    
+</div></section>
+
+<section class="track-block" id="gold-coast">
+  <div class="track-head">
+    <div>
+      <div class="track-name">Gold Coast</div>
+      <div class="track-sub">Best + Value + Full Card</div>
+    </div>
+    <div class="track-sub">Scroll: <a href="#best-bets">Best</a> • <a href="#value-bets">Value</a></div>
+  </div>
+  <div class="track-body">
+
+<div class="small-head">Best Bet</div>
+    <article class="card">
+      <div class="card-top">
+        <div class="race-chip">R7</div>
+        <div class="horse">Miss Joelene</div>
+        <div class="card-right"><span class="tag tag-best">BEST BET</span></div>
+      </div>
+      <div class="pills"><span class="pill"><span class="pill-label">Barrier</span><span class="pill-value">9</span></span><span class="pill"><span class="pill-label">Weight</span><span class="pill-value">57kg</span></span><span class="pill"><span class="pill-label">Speed</span><span class="pill-value">107</span></span><span class="pill"><span class="pill-label">Confidence</span><span class="pill-value">10 / 10</span></span></div>
+      <div class="reason">Multiple stakes wins (1800m &quot;The Wave&quot; Dec25); top rating 107, barrier 9, 57kg.</div>
+    </article>
+    
+<div class="track-sep"></div><div class="small-head">Value Bet</div>
+    <article class="card">
+      <div class="card-top">
+        <div class="race-chip">R6</div>
+        <div class="horse">King Of Pop</div>
+        <div class="card-right"><span class="tag tag-value">VALUE BET</span></div>
+      </div>
+      <div class="pills"><span class="pill"><span class="pill-label">Barrier</span><span class="pill-value">5</span></span><span class="pill"><span class="pill-label">Weight</span><span class="pill-value">57kg</span></span><span class="pill"><span class="pill-label">Speed</span><span class="pill-value">75</span></span><span class="pill"><span class="pill-label">L600</span><span class="pill-value">34.95s</span></span><span class="pill"><span class="pill-label">Confidence</span><span class="pill-value">7 / 10</span></span></div>
+      <div class="reason">4th of 8 in BM70 (Cranbourne 1300m, Good, Nov’25), rating 75, 600m 34.95; barrier 5, 57kg.</div>
+    </article>
+    
+<div class="track-sep"></div><div class="small-head">Full Card</div>
+
+    <article class="card">
+      <div class="card-top">
+        <div class="race-chip">R1</div>
+        <div class="horse">Itchintogo</div>
+        <div class="card-right"></div>
+      </div>
+      <div class="pills"><span class="pill"><span class="pill-label">Barrier</span><span class="pill-value">4</span></span><span class="pill"><span class="pill-label">Weight</span><span class="pill-value">58kg</span></span><span class="pill"><span class="pill-label">Speed</span><span class="pill-value">70</span></span><span class="pill"><span class="pill-label">L600</span><span class="pill-value">34.65s</span></span><span class="pill"><span class="pill-label">Confidence</span><span class="pill-value">9 / 10</span></span></div>
+      <div class="reason">Won Doomben 1110m 2YO (Good3) on 6Dec25, last 600m 34.65; barrier 4, 58kg, Soft5 track.</div>
+    </article>
+    
+
+    <article class="card">
+      <div class="card-top">
+        <div class="race-chip">R2</div>
+        <div class="horse">Tigroni</div>
+        <div class="card-right"></div>
+      </div>
+      <div class="pills"><span class="pill"><span class="pill-label">Barrier</span><span class="pill-value">7</span></span><span class="pill"><span class="pill-label">Weight</span><span class="pill-value">56kg</span></span><span class="pill"><span class="pill-label">Speed</span><span class="pill-value">66</span></span><span class="pill"><span class="pill-label">L600</span><span class="pill-value">35.74s</span></span><span class="pill"><span class="pill-label">Confidence</span><span class="pill-value">6 / 10</span></span></div>
+      <div class="reason">2nd in Doomben 1100m 2YO HCP (Nov’25), rating 66, 600m 35.74; barrier 7, 56kg.</div>
+    </article>
+    
+
+    <article class="card">
+      <div class="card-top">
+        <div class="race-chip">R3</div>
+        <div class="horse">Bello Cavallo</div>
+        <div class="card-right"></div>
+      </div>
+      <div class="pills"><span class="pill"><span class="pill-label">Barrier</span><span class="pill-value">11</span></span><span class="pill"><span class="pill-label">Weight</span><span class="pill-value">57kg</span></span><span class="pill"><span class="pill-label">L600</span><span class="pill-value">35.54s</span></span><span class="pill"><span class="pill-label">Confidence</span><span class="pill-value">5 / 10</span></span></div>
+      <div class="reason">Modest form as a 2YO (4th of 6 at Hawkesbury 1400m Heavy10, 600m 35.54); barrier 11, 57kg.</div>
+    </article>
+    
+
+    <article class="card">
+      <div class="card-top">
+        <div class="race-chip">R4</div>
+        <div class="horse">Mamushka</div>
+        <div class="card-right"></div>
+      </div>
+      <div class="pills"><span class="pill"><span class="pill-label">Barrier</span><span class="pill-value">7</span></span><span class="pill"><span class="pill-label">Weight</span><span class="pill-value">58.5kg</span></span><span class="pill"><span class="pill-label">Speed</span><span class="pill-value">70</span></span><span class="pill"><span class="pill-label">Confidence</span><span class="pill-value">7 / 10</span></span></div>
+      <div class="reason">Win at G3 level as 3YO; barrier 7, 58.5kg on Soft5, rating ~70.</div>
+    </article>
+    
+
+    <article class="card">
+      <div class="card-top">
+        <div class="race-chip">R5</div>
+        <div class="horse">Axius</div>
+        <div class="card-right"></div>
+      </div>
+      <div class="pills"><span class="pill"><span class="pill-label">Barrier</span><span class="pill-value">9</span></span><span class="pill"><span class="pill-label">Weight</span><span class="pill-value">60kg</span></span><span class="pill"><span class="pill-label">Speed</span><span class="pill-value">68</span></span><span class="pill"><span class="pill-label">L600</span><span class="pill-value">34.46s</span></span><span class="pill"><span class="pill-label">Confidence</span><span class="pill-value">7 / 10</span></span></div>
+      <div class="reason">Won 1100m BM72 at Kensington (Good, Jun’25) by 0.75L, 600m 34.46; barrier 9, 60kg.</div>
+    </article>
+    
+
+    <article class="card">
+      <div class="card-top">
+        <div class="race-chip">R6</div>
+        <div class="horse">King Of Pop</div>
+        <div class="card-right"><span class="tag tag-value">VALUE</span></div>
+      </div>
+      <div class="pills"><span class="pill"><span class="pill-label">Barrier</span><span class="pill-value">5</span></span><span class="pill"><span class="pill-label">Weight</span><span class="pill-value">57kg</span></span><span class="pill"><span class="pill-label">Speed</span><span class="pill-value">75</span></span><span class="pill"><span class="pill-label">L600</span><span class="pill-value">34.95s</span></span><span class="pill"><span class="pill-label">Confidence</span><span class="pill-value">7 / 10</span></span></div>
+      <div class="reason">4th of 8 in BM70 (Cranbourne 1300m, Good, Nov’25), rating 75, 600m 34.95; barrier 5, 57kg.</div>
+    </article>
+    
+
+    <article class="card">
+      <div class="card-top">
+        <div class="race-chip">R7</div>
+        <div class="horse">Miss Joelene</div>
+        <div class="card-right"><span class="tag tag-best">BEST</span></div>
+      </div>
+      <div class="pills"><span class="pill"><span class="pill-label">Barrier</span><span class="pill-value">9</span></span><span class="pill"><span class="pill-label">Weight</span><span class="pill-value">57kg</span></span><span class="pill"><span class="pill-label">Speed</span><span class="pill-value">107</span></span><span class="pill"><span class="pill-label">Confidence</span><span class="pill-value">10 / 10</span></span></div>
+      <div class="reason">Multiple stakes wins (1800m &quot;The Wave&quot; Dec25); top rating 107, barrier 9, 57kg.</div>
+    </article>
+    
+
+    <article class="card">
+      <div class="card-top">
+        <div class="race-chip">R8</div>
+        <div class="horse">Payline</div>
+        <div class="card-right"></div>
+      </div>
+      <div class="pills"><span class="pill"><span class="pill-label">Barrier</span><span class="pill-value">3</span></span><span class="pill"><span class="pill-label">Weight</span><span class="pill-value">58.5kg</span></span><span class="pill"><span class="pill-label">Speed</span><span class="pill-value">104</span></span><span class="pill"><span class="pill-label">L600</span><span class="pill-value">34.71s</span></span><span class="pill"><span class="pill-label">Confidence</span><span class="pill-value">9 / 10</span></span></div>
+      <div class="reason">3rd in Doveton S. 1200m LR and Xmas LR 1200m (Dec25, rating 104), 600m 34.71; barrier 3, 58.5kg.</div>
+    </article>
+    
+
+    <article class="card">
+      <div class="card-top">
+        <div class="race-chip">R9</div>
+        <div class="horse">Grafterburners</div>
+        <div class="card-right"></div>
+      </div>
+      <div class="pills"><span class="pill"><span class="pill-label">Barrier</span><span class="pill-value">2</span></span><span class="pill"><span class="pill-label">Weight</span><span class="pill-value">57kg</span></span><span class="pill"><span class="pill-label">Speed</span><span class="pill-value">90</span></span><span class="pill"><span class="pill-label">L600</span><span class="pill-value">35.96s</span></span><span class="pill"><span class="pill-label">Confidence</span><span class="pill-value">8 / 10</span></span></div>
+      <div class="reason">Rated 88 after Group races (6th JJ Atkins, 2nd Xmas Stks LR Dec25); barrier 2, 57kg.</div>
+    </article>
+    
+
+    <article class="card">
+      <div class="card-top">
+        <div class="race-chip">R10</div>
+        <div class="horse">Yellow Brick</div>
+        <div class="card-right"></div>
+      </div>
+      <div class="pills"><span class="pill"><span class="pill-label">Barrier</span><span class="pill-value">7</span></span><span class="pill"><span class="pill-label">Weight</span><span class="pill-value">61kg</span></span><span class="pill"><span class="pill-label">Speed</span><span class="pill-value">107</span></span><span class="pill"><span class="pill-label">Confidence</span><span class="pill-value">8 / 10</span></span></div>
+      <div class="reason">Won Queensland Magic Millions 1200m in Dec25; top rating 107, barrier 7, 61kg.</div>
+    </article>
+    
+</div></section>
+
+<footer class="footer">
+  <div><strong>FORMFACTORTIPS.COM</strong></div>
+  <div>Gamble responsibly • 18+</div>
+</footer>
 </div>
-<script>
-    function showTrack(id){
-      document.querySelectorAll('.trackpanel').forEach(p=>p.classList.add('hidden'));
-      document.querySelectorAll('.tabbtn').forEach(b=>b.classList.remove('active'));
-      document.getElementById(id).classList.remove('hidden');
-      document.querySelector('[data-target="'+id+'"]').classList.add('active');
-      localStorage.setItem('ff_track', id);
-    }
-    window.addEventListener('DOMContentLoaded', ()=>{
-      const saved = localStorage.getItem('ff_track');
-      const first = document.querySelector('.trackpanel')?.id;
-      showTrack(saved && document.getElementById(saved) ? saved : first);
-    });
-    </script>
 </body>
 </html>
