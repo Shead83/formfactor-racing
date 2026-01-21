@@ -591,17 +591,17 @@
             and best value plays of the day.
           </p>
 
-          <div class="ffr-xmas-banner" role="region" aria-label="Christmas Annual Offer">
+          <div class="ffr-xmas-banner" role="region" aria-label="Annual Membership Offer">
             <div class="ffr-xmas-left">
-              <div class="ffr-xmas-kicker">🎄 Christmas Special</div>
+              <div class="ffr-xmas-kicker">⭐ Annual Membership</div>
               <div class="ffr-xmas-title"><strong>12-Month Membership</strong> — Pay for 9 months, get 12</div>
               <div class="ffr-xmas-price"><span class="ffr-xmas-now">$269</span> <span class="ffr-xmas-was">$360</span> <span class="ffr-xmas-save">Save $91</span></div>
-              <div class="ffr-xmas-meta">Ends <strong>24 Dec 2025</strong> at <strong>11:59pm AEDT</strong></div>
+              <div class="ffr-xmas-meta">Best value for committed members.</div>
             </div>
             <div class="ffr-xmas-right">
-              <div class="ffr-countdown" id="xmas-countdown-hero">Loading countdown…</div>
+              <div class="ffr-countdown" id="annual-note-hero">Instant access after purchase.</div>
               <a class="ffr-btn ffr-btn-primary" href="https://buy.stripe.com/fZu5kC4VYbx49lN79jafS08">
-                Get Christmas Annual – $269
+                Get Annual Membership – $269
               </a>
               <div class="ffr-xmas-note">Includes Best Bets + Raw Data Selections.</div>
             </div>
@@ -694,7 +694,7 @@
               off a consistent underlying process – you just see the sharpened end product.
             </p>
             <ol class="ffr-step-list">
-              <li><strong>Choose your option</strong> – Best Bets, Full Raw Data Pack, Monthly Membership, or the Christmas Annual.</li>
+              <li><strong>Choose your option</strong> – Best Bets, Full Raw Data Pack, Monthly Membership, or the Annual Membership.</li>
               <li><strong>Pay securely</strong> via Stripe (card, Apple Pay, etc.).</li>
               <li><strong>Get the link</strong> to this Saturday’s FormFactor pack once payment is confirmed.</li>
               <li><strong>Open on your phone</strong>, scroll race by race, and use the picks alongside your own judgement.</li>
@@ -718,7 +718,7 @@
       <section class="ffr-section" id="pricing">
         <h2>Pricing</h2>
         <p>
-          Start with the Best Bets, grab the full card, go monthly, or lock in the <strong>Christmas Annual</strong> (pay for 9 months, get 12).
+          Start with the Best Bets, grab the full card, go monthly, or lock in the <strong>Annual Membership</strong> (pay for 9 months, get 12).
         </p>
 
         <div class="ffr-pricing-grid">
@@ -750,20 +750,19 @@
             </a>
           </div>
 
-              <!-- Christmas Annual (3 months free) -->
-    <div class="ffr-pricing-card ffr-pricing-card--featured" id="christmas-annual">
-      <div class="ffr-badge-pill">Christmas Annual · 3 months free</div>
+              <!-- Annual Membership (3 months free) -->
+    <div class="ffr-pricing-card ffr-pricing-card--featured" id="annual-membership">
+      <div class="ffr-badge-pill">Annual Membership · 3 months free</div>
       <h3>12‑Month Membership</h3>
       <div class="ffr-price">$269</div>
       <div class="ffr-price-note">One payment · 12 months access</div>
       <div class="ffr-pricing-desc">
         Best Bets Pack <strong>and</strong> the full metro card every Saturday.<br />
-        Pay for 9 months, get 12. <strong>Ends 24 Dec (11:59pm AEDT)</strong>.<br />
-        <span class="ffr-countdown" id="ffr-countdown">Offer ends soon</span>
+        Pay for 9 months, get 12.<br /><span class="ffr-countdown" id="ffr-annual-note">Best value for committed members.</span>
       </div>
       <!-- Replace this Stripe link with your $269 Annual Payment Link -->
       <a class="ffr-btn ffr-btn-sub" href="https://buy.stripe.com/fZu5kC4VYbx49lN79jafS08">
-        Get Christmas Annual – $269
+        Get Annual Membership – $269
       </a>
     </div>
 
@@ -836,60 +835,6 @@
   <script>
   // Set current year in footer
   document.getElementById("ffr-year").textContent = new Date().getFullYear();
-
-  // Christmas Annual countdown (AEDT)
-  (function () {
-    const el = document.getElementById("ffr-countdown");
-    if (!el) return;
-
-    const end = new Date("2025-12-24T23:59:59+11:00"); // 11:59pm AEDT
-    function tick() {
-      const now = new Date();
-      const ms = end - now;
-
-      if (ms <= 0) {
-        el.textContent = "Christmas Annual offer has ended.";
-        return;
-      }
-
-      const totalSec = Math.floor(ms / 1000);
-      const d = Math.floor(totalSec / 86400);
-      const h = Math.floor((totalSec % 86400) / 3600);
-      const m = Math.floor((totalSec % 3600) / 60);
-
-      el.textContent = `Ends in ${d}d ${h}h ${m}m (AEDT)`;
-    }
-
-    tick();
-    setInterval(tick, 60000);
-  })();
 </script>
-
-  <script>
-    (function(){
-      function fmt(ms){
-        var s = Math.max(0, Math.floor(ms/1000));
-        var d = Math.floor(s/86400); s -= d*86400;
-        var h = Math.floor(s/3600); s -= h*3600;
-        var m = Math.floor(s/60); s -= m*60;
-        return d + "d " + String(h).padStart(2,"0") + "h " + String(m).padStart(2,"0") + "m " + String(s).padStart(2,"0") + "s";
-      }
-      // Christmas offer ends 24 Dec 2025 23:59 AEDT (UTC+11)
-      var end = new Date("2025-12-24T23:59:00+11:00").getTime();
-      var ids = ["xmas-countdown","xmas-countdown-hero"];
-      function tick(){
-        var now = Date.now();
-        var left = end - now;
-        var text = (left <= 0) ? "Offer ended" : ("Ends in: " + fmt(left));
-        ids.forEach(function(id){
-          var el = document.getElementById(id);
-          if(el) el.textContent = text;
-        });
-      }
-      tick();
-      setInterval(tick, 1000);
-    })();
-  </script>
-
 </body>
 </html>
