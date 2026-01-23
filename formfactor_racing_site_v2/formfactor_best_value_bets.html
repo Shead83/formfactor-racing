@@ -1,118 +1,156 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>FormFactor Racing — Best + Value</title>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Best Bets + Value Bets</title>
 <style>
-    :root{--bg:#0b0f17;--card:#121a27;--card2:#0f1623;--text:#e9eef7;--muted:#a6b2c3;--accent:#7cf6b0;--accent2:#7cb7ff;--border:rgba(255,255,255,.08);}
-    *{box-sizing:border-box}
-    body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;background:linear-gradient(180deg,#070a10, #0b0f17 25%, #0b0f17);color:var(--text)}
-    .wrap{max-width:920px;margin:0 auto;padding:20px 14px 60px}
-    header{padding:18px 14px 10px;border:1px solid var(--border);background:radial-gradient(1200px 400px at 20% -10%, rgba(124,246,176,.22), transparent 55%),radial-gradient(900px 300px at 110% 0%, rgba(124,183,255,.18), transparent 55%),var(--card);border-radius:18px}
-    .brand{display:flex;align-items:center;gap:10px}
-    .logo{width:42px;height:42px;border-radius:12px;background:linear-gradient(135deg,var(--accent),var(--accent2));display:grid;place-items:center;color:#081018;font-weight:900}
-    h1{margin:6px 0 0;font-size:22px}
-    .sub{margin:6px 0 0;color:var(--muted);font-size:13px;line-height:1.35}
-    .grid{display:grid;gap:12px;margin-top:14px}
-    .card{border:1px solid var(--border);background:var(--card);border-radius:18px;padding:14px}
-    .bbgrid{display:grid;grid-template-columns:1fr;gap:10px}
-    @media(min-width:720px){.bbgrid{grid-template-columns:1fr 1fr}}
-    .pick{border:1px solid var(--border);background:linear-gradient(180deg,var(--card2), var(--card));border-radius:16px;padding:12px}
-    .meta{display:flex;justify-content:space-between;gap:8px;align-items:flex-start}
-    .tag{display:inline-flex;align-items:center;gap:6px;border-radius:999px;padding:4px 8px;font-size:11px;font-weight:800}
-    .tag.best{background:rgba(124,246,176,.14);border:1px solid rgba(124,246,176,.35);color:var(--accent)}
-    .tag.value{background:rgba(124,183,255,.14);border:1px solid rgba(124,183,255,.35);color:var(--accent2)}
-    .tag.note{background:rgba(255,255,255,.06);border:1px solid var(--border);color:var(--muted)}
-    .pick h3{margin:10px 0 4px;font-size:15px}
-    .line{color:var(--muted);font-size:12px}
-    </style>
+:root {
+  --bg:#0b0f17; --card:#111827; --muted:#9ca3af; --text:#f9fafb;
+  --line:rgba(255,255,255,.10); --good:#34d399; --warn:#fbbf24;
+}
+*{box-sizing:border-box}
+body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial; background:radial-gradient(1200px 800px at 20% -10%, rgba(96,165,250,.18), transparent 60%), var(--bg); color:var(--text);}
+.wrap{max-width:1100px;margin:0 auto;padding:18px 14px 40px}
+.topbar{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:14px 14px;border:1px solid var(--line);border-radius:16px;background:rgba(17,24,39,.85);backdrop-filter: blur(10px);}
+.brand{display:flex;flex-direction:column;gap:4px}
+.brand h1{margin:0;font-size:20px;letter-spacing:.2px}
+.brand .sub{font-size:12px;color:var(--muted)}
+.pills{display:flex;flex-wrap:wrap;gap:8px;justify-content:flex-end}
+.pill{font-size:12px;color:var(--muted);border:1px solid var(--line);padding:6px 10px;border-radius:999px;background:rgba(255,255,255,.03)}
+.section{margin-top:16px}
+.section h2{margin:16px 0 10px;font-size:18px}
+.grid{display:grid;grid-template-columns:repeat(12,1fr);gap:12px}
+.card{grid-column:span 12;border:1px solid var(--line);border-radius:16px;background:rgba(17,24,39,.85);padding:14px}
+@media(min-width:860px){ .card{grid-column:span 6} }
+.trackHeader{display:flex;align-items:flex-start;justify-content:space-between;gap:10px;margin-bottom:10px}
+.trackHeader h3{margin:0;font-size:16px}
+.meta{color:var(--muted);font-size:12px;line-height:1.4}
+table{width:100%;border-collapse:collapse;margin-top:10px}
+th,td{padding:10px 8px;border-top:1px solid var(--line);vertical-align:top}
+th{text-align:left;font-size:12px;color:var(--muted);font-weight:600}
+td{font-size:13px}
+.raceNo{font-weight:800}
+.horse{font-weight:800}
+.small{color:var(--muted);font-size:12px}
+.reason{color:#e5e7eb;font-size:12.5px;line-height:1.35;margin-top:6px}
+.badge{display:inline-block;font-size:11px;padding:3px 8px;border-radius:999px;border:1px solid var(--line);color:var(--muted)}
+.conf{font-weight:900;color:var(--good)}
+.stake{font-weight:900}
+.note{margin-top:12px;padding:10px 12px;border:1px solid var(--line);border-radius:14px;background:rgba(255,255,255,.03);color:var(--muted);font-size:12px;line-height:1.4}
+.warn{color:var(--warn);font-weight:700}
+.footer{margin-top:18px;color:var(--muted);font-size:11px;line-height:1.4}
+</style>
 </head>
 <body>
 <div class="wrap">
-  <header>
+  <div class="topbar">
     <div class="brand">
-      <div class="logo">FF</div>
-      <div>
-        <h1>FormFactor Racing — Best + Value</h1>
-        <div class="sub">Saturday 17 January 2026 • Best Bets + Value Bets</div>
-      </div>
+      <h1>Best Bets + Value Bets</h1>
+      <div class="sub">FormFactor Tips • 2026-01-24</div>
     </div>
-  </header>
-
+    <div class="pills">
+      <div class="pill">Final Fields + Latest Scratchings</div>
+      <div class="pill">Win bets only</div>
+      <div class="pill">Units-based staking</div>
+    </div>
+  </div>
+  <div class="note">
+    <div><strong>Betting suggestions:</strong> stake is shown in <strong>units</strong> (you choose your $ per unit).</div>
+    <div>Units are calculated from confidence (5.0–5.99=1u, 6.0–6.99=2u, 7.0–7.99=3u, 8.0–8.99=4u, 9.0+=5u). <span class="warn">Prices are optional; if missing, we still show base units.</span></div>
+  </div>
+  <div class="section">
+  <h2>Best Bets + Value Bets</h2>
   <div class="grid">
-
-        <div class="card">
-          <h2 style="margin:0 0 10px;font-size:16px">Rosehill</h2>
-          <div class="bbgrid">
-            <div class="pick">
-              <div class="meta">
-                <span class="tag best">BEST BET</span>
-                <span class="tag note">Confidence 8</span>
-              </div>
-              <h3>R2 • CONSIDERED</h3>
-              <div class="line">Track: Rosehill</div>
+    
+        <div class="card" style="grid-column:span 12">
+          <div class="trackHeader">
+            <div>
+              <h3>RANDWICK — BEST BET</h3>
+              <div class="small">R4 • #1 • Barrier 1 • Wt 59.0 • Speed 70 • L600 —</div>
             </div>
-
-            <div class="pick">
-              <div class="meta">
-                <span class="tag value">VALUE BET</span>
-                <span class="tag note">Confidence 7</span>
-              </div>
-              <h3>R1 • THYME TO GO</h3>
-              <div class="line">Track: Rosehill</div>
+            <div class="meta">Confidence<br/><span class="conf" style="font-size:18px">7.46</span><br/>
+              <span class="stake">3u Win</span>
             </div>
           </div>
+          <div class="horse" style="font-size:18px">PRETTY POWERFUL</div>
+          <div class="reason" style="font-size:13px;margin-top:10px">PRETTY POWERFUL (1) brings one of the stronger handicap ratings in the field (70), recent form-line 611x043x13 suggests it’s holding its level, maps to land a soft run from barrier 1, carries 59kg, with Chris Waller training and Ms Siena Grima (a3/52kg) booked, and should get its chance on a Soft surface; on the available figures it profiles as the most reliable winning chance in this race.</div>
         </div>
         
-
-        <div class="card">
-          <h2 style="margin:0 0 10px;font-size:16px">Flemington</h2>
-          <div class="bbgrid">
-            <div class="pick">
-              <div class="meta">
-                <span class="tag best">BEST BET</span>
-                <span class="tag note">Confidence 8</span>
-              </div>
-              <h3>R4 • DARTBOARD</h3>
-              <div class="line">Track: Flemington</div>
+        <div class="card" style="grid-column:span 12">
+          <div class="trackHeader">
+            <div>
+              <h3>RANDWICK — VALUE BET</h3>
+              <div class="small">R8 • #2 • Barrier 1 • Wt 57.5 • Speed 99 • L600 —</div>
             </div>
-
-            <div class="pick">
-              <div class="meta">
-                <span class="tag value">VALUE BET</span>
-                <span class="tag note">Confidence 7</span>
-              </div>
-              <h3>R10 • BUCCLEUCH</h3>
-              <div class="line">Track: Flemington</div>
+            <div class="meta">Confidence<br/><span class="conf" style="font-size:18px">7.32</span><br/>
+              <span class="stake">3u Win</span>
             </div>
           </div>
+          <div class="horse" style="font-size:18px">NELLIE LEYLAX (IRE)</div>
+          <div class="reason" style="font-size:13px;margin-top:10px">NELLIE LEYLAX (IRE) (2) brings one of the stronger handicap ratings in the field (99), recent form-line 1x3944215x suggests it’s holding its level, maps to land a soft run from barrier 1, carries 57.5kg, with Annabel &amp; Rob Archibald training and James McDonald booked, and should get its chance on a Soft surface; on the available figures it profiles as the most reliable winning chance in this race.</div>
         </div>
         
-
-        <div class="card">
-          <h2 style="margin:0 0 10px;font-size:16px">Gold Coast</h2>
-          <div class="bbgrid">
-            <div class="pick">
-              <div class="meta">
-                <span class="tag best">BEST BET</span>
-                <span class="tag note">Confidence 8</span>
-              </div>
-              <h3>R6 • THE INSTRUCTOR</h3>
-              <div class="line">Track: Gold Coast</div>
+        <div class="card" style="grid-column:span 12">
+          <div class="trackHeader">
+            <div>
+              <h3>CAULFIELD — BEST BET</h3>
+              <div class="small">R2 • #1 • Barrier 3 • Wt 58.0 • Speed 72 • L600 —</div>
             </div>
-
-            <div class="pick">
-              <div class="meta">
-                <span class="tag value">VALUE BET</span>
-                <span class="tag note">Confidence 7</span>
-              </div>
-              <h3>R8 • O’ OLE</h3>
-              <div class="line">Track: Gold Coast</div>
+            <div class="meta">Confidence<br/><span class="conf" style="font-size:18px">7.71</span><br/>
+              <span class="stake">3u Win</span>
             </div>
           </div>
+          <div class="horse" style="font-size:18px">EUROCANTO</div>
+          <div class="reason" style="font-size:13px;margin-top:10px">EUROCANTO (1) brings one of the stronger handicap ratings in the field (72), recent form-line 1x suggests it’s holding its level, maps to land a soft run from barrier 3, carries 58kg, with Ben, Will &amp; JD Hayes training and Ms Jamie Melham booked, and should get its chance on a Good surface; on the available figures it profiles as the most reliable winning chance in this race.</div>
         </div>
         
+        <div class="card" style="grid-column:span 12">
+          <div class="trackHeader">
+            <div>
+              <h3>CAULFIELD — VALUE BET</h3>
+              <div class="small">R8 • #6 • Barrier 3 • Wt 56.5 • Speed 86 • L600 —</div>
+            </div>
+            <div class="meta">Confidence<br/><span class="conf" style="font-size:18px">7.32</span><br/>
+              <span class="stake">3u Win</span>
+            </div>
+          </div>
+          <div class="horse" style="font-size:18px">SALTY PEARL</div>
+          <div class="reason" style="font-size:13px;margin-top:10px">SALTY PEARL (6) brings one of the stronger handicap ratings in the field (86), recent form-line x231x3341x suggests it’s holding its level, maps to land a soft run from barrier 3, carries 56.5kg, with Ciaron Maher training and Ben Allen booked, and should get its chance on a Good surface; on the available figures it profiles as the most reliable winning chance in this race.</div>
+        </div>
+        
+        <div class="card" style="grid-column:span 12">
+          <div class="trackHeader">
+            <div>
+              <h3>SUNSHINE_COAST — BEST BET</h3>
+              <div class="small">R6 • #5 • Barrier 1 • Wt 56.5 • Speed 66 • L600 —</div>
+            </div>
+            <div class="meta">Confidence<br/><span class="conf" style="font-size:18px">7.77</span><br/>
+              <span class="stake">3u Win</span>
+            </div>
+          </div>
+          <div class="horse" style="font-size:18px">CARBONARA</div>
+          <div class="reason" style="font-size:13px;margin-top:10px">CARBONARA (5) brings one of the stronger handicap ratings in the field (66), recent form-line 0x52822211 suggests it’s holding its level, maps to land a soft run from barrier 1, carries 56.5kg, with Robert Heathcote training and Vlad Duric booked, and should get its chance on a Soft surface; on the available figures it profiles as the most reliable winning chance in this race.</div>
+        </div>
+        
+        <div class="card" style="grid-column:span 12">
+          <div class="trackHeader">
+            <div>
+              <h3>SUNSHINE_COAST — VALUE BET</h3>
+              <div class="small">R1 • #6 • Barrier 1 • Wt 57.0 • Speed — • L600 —</div>
+            </div>
+            <div class="meta">Confidence<br/><span class="conf" style="font-size:18px">7.41</span><br/>
+              <span class="stake">3u Win</span>
+            </div>
+          </div>
+          <div class="horse" style="font-size:18px">CAUSE SHE CAN</div>
+          <div class="reason" style="font-size:13px;margin-top:10px">CAUSE SHE CAN (6) recent form-line 1 suggests it’s holding its level, maps to land a soft run from barrier 1, carries 57kg, with Kevin Kemp training and Ms Olivia Webb (a3/51kg) booked, and should get its chance on a Soft surface; on the available figures it profiles as the most reliable winning chance in this race.</div>
+        </div>
+        
+  </div>
+</div>
+  <div class="footer">
+    Note: Some fields (e.g., last-600m sectionals) may be unavailable in free official feeds for certain races; these are shown as “—” when not published.
   </div>
 </div>
 </body>
