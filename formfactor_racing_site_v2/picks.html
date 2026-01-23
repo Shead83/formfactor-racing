@@ -1,559 +1,439 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title>FormFactor Tips — Full Pack | Saturday 17 January 2026</title>
-  <meta name="description" content="FormFactor Tips Full Pack — Best Bets, Value Bets, and Full Card selections."/>
-  <style>
-  :root{
-    --bg:#0b0f19; --panel:#111827; --card:#0f172a; --muted:#94a3b8; --text:#e5e7eb;
-    --accent:#38bdf8; --accent2:#a78bfa; --good:#22c55e; --warn:#f59e0b; --bad:#ef4444;
-    --line:rgba(148,163,184,.18);
-    --shadow: 0 10px 25px rgba(0,0,0,.35);
-  }
-  *{box-sizing:border-box}
-  body{
-    margin:0; font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
-    background: radial-gradient(1200px 800px at 15% 10%, rgba(56,189,248,.18), transparent 60%),
-                radial-gradient(900px 700px at 85% 0%, rgba(167,139,250,.18), transparent 55%),
-                radial-gradient(1100px 800px at 50% 100%, rgba(34,197,94,.10), transparent 55%),
-                var(--bg);
-    color: var(--text);
-  }
-  a{color:inherit}
-  .wrap{max-width:1100px; margin:0 auto; padding:28px 18px 60px;}
-  .hero{
-    background: linear-gradient(135deg, rgba(56,189,248,.14), rgba(167,139,250,.10));
-    border:1px solid var(--line); border-radius:22px; padding:26px 22px; box-shadow: var(--shadow);
-    position:relative; overflow:hidden;
-  }
-  .hero:after{
-    content:""; position:absolute; inset:-2px; background:
-      radial-gradient(420px 180px at 20% 10%, rgba(56,189,248,.30), transparent 70%),
-      radial-gradient(420px 180px at 80% 25%, rgba(167,139,250,.28), transparent 70%);
-    pointer-events:none;
-    mix-blend-mode: screen;
-    opacity:.8;
-  }
-  .hero .top{display:flex; flex-wrap:wrap; gap:14px; justify-content:space-between; align-items:flex-start; position:relative; z-index:1;}
-  .brand{display:flex; gap:12px; align-items:center;}
-  .logo{
-    width:44px; height:44px; border-radius:14px;
-    background: linear-gradient(135deg, rgba(56,189,248,.9), rgba(167,139,250,.85));
-    box-shadow: 0 10px 20px rgba(0,0,0,.25);
-  }
-  .brand h1{margin:0; font-size:18px; letter-spacing:.2px;}
-  .brand p{margin:2px 0 0; font-size:13px; color:var(--muted);}
-  .meta{display:flex; flex-direction:column; align-items:flex-end; gap:8px;}
-  .pillrow{display:flex; gap:8px; flex-wrap:wrap; justify-content:flex-end;}
-  .pill{
-    font-size:12px; color:rgba(229,231,235,.95);
-    border:1px solid rgba(229,231,235,.16);
-    background: rgba(15,23,42,.55);
-    padding:6px 10px; border-radius:999px;
-    backdrop-filter: blur(10px);
-  }
-  .pill.accent{border-color: rgba(56,189,248,.45); background: rgba(56,189,248,.10)}
-  .pill.purple{border-color: rgba(167,139,250,.45); background: rgba(167,139,250,.10)}
-  .pill.good{border-color: rgba(34,197,94,.45); background: rgba(34,197,94,.10)}
-  .hero h2{
-    margin:14px 0 0; font-size:28px; line-height:1.2; position:relative; z-index:1;
-  }
-  .hero .sub{margin:8px 0 0; color:var(--muted); font-size:14px; position:relative; z-index:1;}
-  .grid{display:grid; gap:14px; grid-template-columns: repeat(12, 1fr); margin-top:18px; position:relative; z-index:1;}
-  .card{
-    background: rgba(15,23,42,.68);
-    border:1px solid var(--line);
-    border-radius:18px;
-    padding:14px 14px;
-    box-shadow: 0 12px 30px rgba(0,0,0,.25);
-    backdrop-filter: blur(10px);
-  }
-  .card h3{margin:0 0 8px; font-size:13px; color:rgba(229,231,235,.85); letter-spacing:.4px; text-transform:uppercase;}
-  .stat{display:flex; gap:10px; align-items:baseline;}
-  .big{font-size:22px; font-weight:700;}
-  .small{font-size:12px; color:var(--muted);}
-  .span4{grid-column: span 4;}
-  .span6{grid-column: span 6;}
-  .span12{grid-column: span 12;}
-  @media (max-width: 860px){
-    .span4,.span6{grid-column: span 12;}
-    .meta{align-items:flex-start}
-    .hero .top{justify-content:flex-start}
-  }
-  .sectionTitle{margin:26px 0 12px; font-size:16px; letter-spacing:.3px; color:rgba(229,231,235,.9);}
-  .trackCard{margin-top:14px;}
-  .trackHeader{
-    display:flex; flex-wrap:wrap; gap:10px; justify-content:space-between; align-items:center;
-    margin-bottom:10px;
-  }
-  .trackName{font-size:18px; font-weight:800; letter-spacing:.2px;}
-  .trackBadges{display:flex; gap:8px; flex-wrap:wrap;}
-  .badge{
-    font-size:12px; padding:6px 10px; border-radius:999px; border:1px solid var(--line);
-    background: rgba(17,24,39,.55);
-    color:rgba(229,231,235,.9);
-  }
-  .badge.best{border-color: rgba(34,197,94,.45); background: rgba(34,197,94,.10);}
-  .badge.value{border-color: rgba(245,158,11,.55); background: rgba(245,158,11,.10);}
-  .badge.cond{border-color: rgba(56,189,248,.40); background: rgba(56,189,248,.10);}
-  .rows{display:grid; grid-template-columns: repeat(12, 1fr); gap:12px;}
-  .pickBox{grid-column: span 6;}
-  @media (max-width: 860px){ .pickBox{grid-column: span 12;} }
-  .pickLine{display:flex; justify-content:space-between; gap:10px; align-items:center;}
-  .pickHorse{font-weight:800; letter-spacing:.2px;}
-  .conf{
-    font-weight:800; font-size:12px;
-    padding:5px 8px; border-radius:999px;
-    border:1px solid rgba(229,231,235,.14);
-    background: rgba(15,23,42,.55);
-  }
-  .conf.good{border-color: rgba(34,197,94,.45); background: rgba(34,197,94,.12);}
-  .conf.mid{border-color: rgba(56,189,248,.45); background: rgba(56,189,248,.10);}
-  .conf.low{border-color: rgba(245,158,11,.55); background: rgba(245,158,11,.10);}
-  .reason{margin-top:8px; color:var(--muted); font-size:12.5px; line-height:1.45}
-  table{width:100%; border-collapse: collapse; margin-top:10px; overflow:hidden; border-radius:14px;}
-  thead th{
-    text-align:left; font-size:12px; color:rgba(229,231,235,.8);
-    border-bottom:1px solid var(--line);
-    padding:10px 10px;
-    background: rgba(15,23,42,.55);
-  }
-  tbody td{
-    padding:10px 10px; border-bottom:1px solid rgba(148,163,184,.12);
-    vertical-align:top; font-size:13px;
-  }
-  tbody tr:hover td{background: rgba(56,189,248,.06);}
-  .tdRace{width:64px; color:rgba(229,231,235,.9); font-weight:700;}
-  .tdHorse{font-weight:800;}
-  details{margin-top:6px;}
-  details summary{cursor:pointer; color:rgba(56,189,248,.95); font-size:12px; user-select:none;}
-  details .detailText{margin-top:6px; color:var(--muted); font-size:12.5px; line-height:1.45;}
-  .footer{
-    margin-top:26px; color:rgba(148,163,184,.85); font-size:12px; line-height:1.5;
-    border-top:1px solid rgba(148,163,184,.18);
-    padding-top:16px;
-  }
-  </style>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Picks — Full Pack</title>
+<style>
+:root {
+  --bg:#0b0f17; --card:#111827; --muted:#9ca3af; --text:#f9fafb;
+  --line:rgba(255,255,255,.10); --good:#34d399; --warn:#fbbf24;
+}
+*{box-sizing:border-box}
+body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial; background:radial-gradient(1200px 800px at 20% -10%, rgba(96,165,250,.18), transparent 60%), var(--bg); color:var(--text);}
+.wrap{max-width:1100px;margin:0 auto;padding:18px 14px 40px}
+.topbar{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:14px 14px;border:1px solid var(--line);border-radius:16px;background:rgba(17,24,39,.85);backdrop-filter: blur(10px);}
+.brand{display:flex;flex-direction:column;gap:4px}
+.brand h1{margin:0;font-size:20px;letter-spacing:.2px}
+.brand .sub{font-size:12px;color:var(--muted)}
+.pills{display:flex;flex-wrap:wrap;gap:8px;justify-content:flex-end}
+.pill{font-size:12px;color:var(--muted);border:1px solid var(--line);padding:6px 10px;border-radius:999px;background:rgba(255,255,255,.03)}
+.section{margin-top:16px}
+.section h2{margin:16px 0 10px;font-size:18px}
+.grid{display:grid;grid-template-columns:repeat(12,1fr);gap:12px}
+.card{grid-column:span 12;border:1px solid var(--line);border-radius:16px;background:rgba(17,24,39,.85);padding:14px}
+@media(min-width:860px){ .card{grid-column:span 6} }
+.trackHeader{display:flex;align-items:flex-start;justify-content:space-between;gap:10px;margin-bottom:10px}
+.trackHeader h3{margin:0;font-size:16px}
+.meta{color:var(--muted);font-size:12px;line-height:1.4}
+table{width:100%;border-collapse:collapse;margin-top:10px}
+th,td{padding:10px 8px;border-top:1px solid var(--line);vertical-align:top}
+th{text-align:left;font-size:12px;color:var(--muted);font-weight:600}
+td{font-size:13px}
+.raceNo{font-weight:800}
+.horse{font-weight:800}
+.small{color:var(--muted);font-size:12px}
+.reason{color:#e5e7eb;font-size:12.5px;line-height:1.35;margin-top:6px}
+.badge{display:inline-block;font-size:11px;padding:3px 8px;border-radius:999px;border:1px solid var(--line);color:var(--muted)}
+.conf{font-weight:900;color:var(--good)}
+.stake{font-weight:900}
+.note{margin-top:12px;padding:10px 12px;border:1px solid var(--line);border-radius:14px;background:rgba(255,255,255,.03);color:var(--muted);font-size:12px;line-height:1.4}
+.warn{color:var(--warn);font-weight:700}
+.footer{margin-top:18px;color:var(--muted);font-size:11px;line-height:1.4}
+</style>
 </head>
 <body>
-  <div class="wrap">
-    <div class="hero">
-      <div class="top">
-        <div class="brand">
-          <div class="logo" aria-hidden="true"></div>
-          <div>
-            <h1>FormFactor Tips</h1>
-            <p>Premium selections — Best Bets, Value Bets & Full Card</p>
-          </div>
-        </div>
-        <div class="meta">
-          <div class="pillrow">
-            <div class="pill accent">Full Pack</div>
-            <div class="pill purple">Pro Layout</div>
-            <div class="pill good">Updated: Saturday 17 January 2026</div>
-          </div>
-          <div class="pillrow">
-            <div class="pill">ROSEHILL</div><div class="pill">FLEMINGTON</div><div class="pill">GOLD COAST</div>
-          </div>
-        </div>
-      </div>
-      <h2>Saturday 17 January 2026 — Full Pack</h2>
-      <p class="sub">Best Bets + Value Bets + Full Card. Built for mobile, fast scanning, and premium presentation.</p>
-
-      <div class="grid">
-        <div class="card span4">
-          <h3>Meetings</h3>
-          <div class="stat"><div class="big">3</div><div class="small">tracks covered</div></div>
-        </div>
-        <div class="card span4">
-          <h3>Selections</h3>
-          <div class="stat"><div class="big">30</div><div class="small">races total</div></div>
-        </div>
-        <div class="card span4">
-          <h3>Format</h3>
-          <div class="stat"><div class="big">PRO</div><div class="small">clean + premium</div></div>
-        </div>
-      </div>
+<div class="wrap">
+  <div class="topbar">
+    <div class="brand">
+      <h1>Picks — Full Pack</h1>
+      <div class="sub">FormFactor Tips • 2026-01-24</div>
     </div>
-
-    <div class="sectionTitle">Best Bets & Value Bets (by track)</div>
-
-    
-    <div class="card trackCard">
-      <div class="trackHeader">
-        <div class="trackName">ROSEHILL</div>
-        <div class="trackBadges">
-          <span class="badge cond">Track: Soft 5</span>
-          <span class="badge best">Best Bet: R2 — CONSIDERED (8)</span>
-          <span class="badge value">Value Bet: R1 — THYME TO GO (7)</span>
-        </div>
-      </div>
-      <div class="rows">
-        <div class="card pickBox">
-          <div class="pickLine">
-            <div class="pickHorse">Best Bet — R2: CONSIDERED</div>
-            <div class="conf good">CONF 8</div>
-          </div>
-        </div>
-        <div class="card pickBox">
-          <div class="pickLine">
-            <div class="pickHorse">Value Bet — R1: THYME TO GO</div>
-            <div class="conf mid">CONF 7</div>
-          </div>
-        </div>
-      </div>
-
-      <table>
-        <thead>
-          <tr>
-            <th class="tdRace">Race</th>
-            <th>Selection</th>
-            <th>Barrier</th>
-            <th>Weight</th>
-            <th>Last 600</th>
-            <th>Speed</th>
-            <th>Conf</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td class="tdRace">R1</td>
-            <td class="tdHorse">THYME TO GO<details><summary>View notes</summary><div class="detailText">Drawn barrier 3. Recent form (last 10): 2. Last 600m: 32.94s (most recent). Weight: 57.0kg. Trainer/Jockey: Annabel &amp; Rob Archibald / Dylan Gibbons. Trials/jump-outs: not published in data.</div></details></td>
-            <td>3</td>
-            <td>57kg</td>
-            <td>32.94</td>
-            <td>—</td>
-            <td><span class="conf mid">7</span></td>
-          </tr><tr>
-            <td class="tdRace">R2</td>
-            <td class="tdHorse">CONSIDERED<details><summary>View notes</summary><div class="detailText">Drawn barrier 1. Projected settling position at 800m: 2. Most recent rating: 68. Recent form (last 10): 3x2311x1. Last 600m: 35.94s (most recent). Weight: 56.0kg. Trainer/Jockey: Matthew Dunn / Ms Jett Newman (a3/50kg). Trials/jump-outs: not published in data.</div></details></td>
-            <td>1</td>
-            <td>56kg</td>
-            <td>35.94</td>
-            <td>68</td>
-            <td><span class="conf good">8</span></td>
-          </tr><tr>
-            <td class="tdRace">R3</td>
-            <td class="tdHorse">TEQUILA BABY<details><summary>View notes</summary><div class="detailText">Drawn barrier 2. Projected settling position at 800m: 2. Most recent rating: 73. Recent form (last 10): 251x1x2191. Last 600m: 32.94s (most recent). Weight: 58.5kg. Trainer/Jockey: Brad Widdup / Braith Nock (a1.5/53kg). Trials/jump-outs: not published in data.</div></details></td>
-            <td>2</td>
-            <td>58.5kg</td>
-            <td>32.94</td>
-            <td>73</td>
-            <td><span class="conf good">8</span></td>
-          </tr><tr>
-            <td class="tdRace">R4</td>
-            <td class="tdHorse">SHAGGY<details><summary>View notes</summary><div class="detailText">Drawn barrier 1. Projected settling position at 800m: 2. Most recent rating: 72. Recent form (last 10): 1115x770x0. Last 600m: 33.57s (most recent). Weight: 60.0kg. Trainer/Jockey: Allan Kehoe / Ms Mollie Fitzgerald (a3/52kg). Trials/jump-outs: not published in data.</div></details></td>
-            <td>1</td>
-            <td>60kg</td>
-            <td>33.57</td>
-            <td>72</td>
-            <td><span class="conf mid">7</span></td>
-          </tr><tr>
-            <td class="tdRace">R5</td>
-            <td class="tdHorse">IMPERIALIST (NZ)<details><summary>View notes</summary><div class="detailText">Drawn barrier 2. Projected settling position at 800m: 2. Most recent rating: 95. Recent form (last 10): 915x971204. Last 600m: 34.51s (most recent). Weight: 55.5kg. Trainer/Jockey: Chris Waller / Sam Clipperton. Trials/jump-outs: not published in data.</div></details></td>
-            <td>2</td>
-            <td>55.5kg</td>
-            <td>34.51</td>
-            <td>95</td>
-            <td><span class="conf mid">7</span></td>
-          </tr><tr>
-            <td class="tdRace">R6</td>
-            <td class="tdHorse">ISLAND DREAM<details><summary>View notes</summary><div class="detailText">Drawn barrier 1. Projected settling position at 800m: 3. Most recent rating: 75. Recent form (last 10): x41319x866. Last 600m: 35.21s (most recent). Weight: 58.5kg. Trainer/Jockey: Chris Waller / Sam Clipperton. Trials/jump-outs: not published in data.</div></details></td>
-            <td>1</td>
-            <td>58.5kg</td>
-            <td>35.21</td>
-            <td>75</td>
-            <td><span class="conf mid">7</span></td>
-          </tr><tr>
-            <td class="tdRace">R7</td>
-            <td class="tdHorse">RATTLE AND HUM (IRE)<details><summary>View notes</summary><div class="detailText">Drawn barrier 4. Projected settling position at 800m: 3. Most recent rating: 76. Recent form (last 10): 58423x4521. Last 600m: 35.94s (most recent). Weight: 59.0kg. Trainer/Jockey: Michael Freedman / Jace McMurray (a2/53kg). Trials/jump-outs: not published in data.</div></details></td>
-            <td>4</td>
-            <td>59kg</td>
-            <td>35.94</td>
-            <td>76</td>
-            <td><span class="conf mid">7</span></td>
-          </tr><tr>
-            <td class="tdRace">R8</td>
-            <td class="tdHorse">BAND OF BROTHERS<details><summary>View notes</summary><div class="detailText">Drawn barrier 1. Projected settling position at 800m: 3. Most recent rating: 86. Recent form (last 10): 7440x23123. Last 600m: 34.37s (most recent). Weight: 59.0kg. Trainer/Jockey: Matthew Dunn / Ms Jett Newman (a3/50kg). Trials/jump-outs: not published in data.</div></details></td>
-            <td>1</td>
-            <td>59kg</td>
-            <td>34.37</td>
-            <td>86</td>
-            <td><span class="conf good">8</span></td>
-          </tr><tr>
-            <td class="tdRace">R9</td>
-            <td class="tdHorse">EYE OF THE FIRE<details><summary>View notes</summary><div class="detailText">Drawn barrier 4. Projected settling position at 800m: 2. Most recent rating: 82. Recent form (last 10): 23x04455x1. Last 600m: 33.66s (most recent). Weight: 62.0kg. Trainer/Jockey: Annabel &amp; Rob Archibald / Ms Mollie Fitzgerald (a3/52kg). Trials/jump-outs: not published in data.</div></details></td>
-            <td>4</td>
-            <td>62kg</td>
-            <td>33.66</td>
-            <td>82</td>
-            <td><span class="conf good">8</span></td>
-          </tr><tr>
-            <td class="tdRace">R10</td>
-            <td class="tdHorse">CROSS TASMAN (NZ)<details><summary>View notes</summary><div class="detailText">Drawn barrier 4. Projected settling position at 800m: 4. Most recent rating: 74. Recent form (last 10): 4123x11. Last 600m: 35.01s (most recent). Weight: 58.0kg. Trainer/Jockey: John O&#x27;Shea &amp; Tom Charlton / Dylan Gibbons. Trials/jump-outs: not published in data.</div></details></td>
-            <td>4</td>
-            <td>58kg</td>
-            <td>35.01</td>
-            <td>74</td>
-            <td><span class="conf mid">7</span></td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-    
-
-    <div class="card trackCard">
-      <div class="trackHeader">
-        <div class="trackName">FLEMINGTON</div>
-        <div class="trackBadges">
-          <span class="badge cond">Track: Good 4</span>
-          <span class="badge best">Best Bet: R4 — DARTBOARD (8)</span>
-          <span class="badge value">Value Bet: R10 — BUCCLEUCH (7)</span>
-        </div>
-      </div>
-      <div class="rows">
-        <div class="card pickBox">
-          <div class="pickLine">
-            <div class="pickHorse">Best Bet — R4: DARTBOARD</div>
-            <div class="conf good">CONF 8</div>
-          </div>
-        </div>
-        <div class="card pickBox">
-          <div class="pickLine">
-            <div class="pickHorse">Value Bet — R10: BUCCLEUCH</div>
-            <div class="conf mid">CONF 7</div>
-          </div>
-        </div>
-      </div>
-
-      <table>
-        <thead>
-          <tr>
-            <th class="tdRace">Race</th>
-            <th>Selection</th>
-            <th>Barrier</th>
-            <th>Weight</th>
-            <th>Last 600</th>
-            <th>Speed</th>
-            <th>Conf</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td class="tdRace">R1</td>
-            <td class="tdHorse">LADY PUISSANCE<details><summary>View notes</summary><div class="detailText">Drawn barrier 2. Weight: 57.0kg. Trainer/Jockey: Andrea Leek / Logan Bates (a2/52kg). Trials/jump-outs: not published in data.</div></details></td>
-            <td>2</td>
-            <td>57kg</td>
-            <td>—</td>
-            <td>—</td>
-            <td><span class="conf mid">6</span></td>
-          </tr><tr>
-            <td class="tdRace">R2</td>
-            <td class="tdHorse">ZWEIG (IRE)<details><summary>View notes</summary><div class="detailText">Drawn barrier 6. Projected settling position at 800m: 4. Most recent rating: 80. Recent form (last 10): 32111x8x7. Last 600m: 35.18s (most recent). Weight: 61.0kg. Trainer/Jockey: Shane Jackson / Ms Emily Pozman (a3/54kg). Trials/jump-outs: not published in data.</div></details></td>
-            <td>6</td>
-            <td>61kg</td>
-            <td>35.18</td>
-            <td>80</td>
-            <td><span class="conf mid">7</span></td>
-          </tr><tr>
-            <td class="tdRace">R3</td>
-            <td class="tdHorse">OUR CHIEF<details><summary>View notes</summary><div class="detailText">Drawn barrier 3. Projected settling position at 800m: 5. Most recent rating: 63. Recent form (last 10): 215x32. Last 600m: 35.34s (most recent). Weight: 58.5kg. Trainer/Jockey: Danny O&#x27;Brien / Michael Dee (late alt). Trials/jump-outs: not published in data.</div></details></td>
-            <td>3</td>
-            <td>58.5kg</td>
-            <td>35.34</td>
-            <td>63</td>
-            <td><span class="conf mid">7</span></td>
-          </tr><tr>
-            <td class="tdRace">R4</td>
-            <td class="tdHorse">DARTBOARD<details><summary>View notes</summary><div class="detailText">Drawn barrier 3. Projected settling position at 800m: 2. Most recent rating: 71. Recent form (last 10): 1932141x93. Last 600m: 35.2s (most recent). Weight: 60.5kg. Trainer/Jockey: Brady Cross / John Allen. Trials/jump-outs: not published in data.</div></details></td>
-            <td>3</td>
-            <td>60.5kg</td>
-            <td>35.2</td>
-            <td>71</td>
-            <td><span class="conf good">8</span></td>
-          </tr><tr>
-            <td class="tdRace">R5</td>
-            <td class="tdHorse">EGERTON<details><summary>View notes</summary><div class="detailText">Drawn barrier 9. Projected settling position at 800m: 3. Most recent rating: 71. Recent form (last 10): 22x114x421. Last 600m: 33.01s (most recent). Weight: 56.5kg. Trainer/Jockey: Cliff Brown / Harry Coffey. Trials/jump-outs: not published in data.</div></details></td>
-            <td>9</td>
-            <td>56.5kg</td>
-            <td>33.01</td>
-            <td>71</td>
-            <td><span class="conf mid">7</span></td>
-          </tr><tr>
-            <td class="tdRace">R6</td>
-            <td class="tdHorse">JIMMY THE BEAR<details><summary>View notes</summary><div class="detailText">Drawn barrier 1. Projected settling position at 800m: 7. Most recent rating: 106. Recent form (last 10): 2121112x88. Last 600m: 34.46s (most recent). Weight: 61.0kg. Trainer/Jockey: Patrick &amp; Michelle Payne / Luke Nolen (late alt). Trials/jump-outs: not published in data.</div></details></td>
-            <td>1</td>
-            <td>61kg</td>
-            <td>34.46</td>
-            <td>106</td>
-            <td><span class="conf mid">7</span></td>
-          </tr><tr>
-            <td class="tdRace">R7</td>
-            <td class="tdHorse">RED GALAXY<details><summary>View notes</summary><div class="detailText">Drawn barrier 8. Projected settling position at 800m: 2. Most recent rating: 80. Recent form (last 10): 3x1x1200x3. Last 600m: 34.8s (most recent). Weight: 58.0kg. Trainer/Jockey: Greg Eurell / Luke Cartwright (a2/51kg). Trials/jump-outs: not published in data.</div></details></td>
-            <td>8</td>
-            <td>58kg</td>
-            <td>34.8</td>
-            <td>80</td>
-            <td><span class="conf mid">7</span></td>
-          </tr><tr>
-            <td class="tdRace">R8</td>
-            <td class="tdHorse">BERKELEY SQUARE<details><summary>View notes</summary><div class="detailText">Drawn barrier 5. Projected settling position at 800m: 4. Most recent rating: 105. Recent form (last 10): x084664351. Last 600m: 34.76s (most recent). Weight: 62.0kg. Trainer/Jockey: Dan O&#x27;Sullivan / Luke Nolen. Trials/jump-outs: not published in data.</div></details></td>
-            <td>5</td>
-            <td>62kg</td>
-            <td>34.76</td>
-            <td>105</td>
-            <td><span class="conf mid">7</span></td>
-          </tr><tr>
-            <td class="tdRace">R9</td>
-            <td class="tdHorse">PRANCING SPIRIT<details><summary>View notes</summary><div class="detailText">Drawn barrier 3. Projected settling position at 800m: 3. Most recent rating: 79. Recent form (last 10): 7382218x06. Last 600m: 34.0s (most recent). Weight: 57.5kg. Trainer/Jockey: Phillip Stokes / Harry Coffey. Trials/jump-outs: not published in data.</div></details></td>
-            <td>3</td>
-            <td>57.5kg</td>
-            <td>34</td>
-            <td>79</td>
-            <td><span class="conf mid">7</span></td>
-          </tr><tr>
-            <td class="tdRace">R10</td>
-            <td class="tdHorse">BUCCLEUCH<details><summary>View notes</summary><div class="detailText">Drawn barrier 8. Projected settling position at 800m: 8. Most recent rating: 75. Recent form (last 10): 62111x. Last 600m: 32.8s (most recent). Weight: 62.5kg. Trainer/Jockey: Patrick &amp; Michelle Payne / Ms Holly Durnan (a3/52kg). Trials/jump-outs: not published in data.</div></details></td>
-            <td>8</td>
-            <td>62.5kg</td>
-            <td>32.8</td>
-            <td>75</td>
-            <td><span class="conf mid">7</span></td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-    
-
-    <div class="card trackCard">
-      <div class="trackHeader">
-        <div class="trackName">GOLD COAST</div>
-        <div class="trackBadges">
-          <span class="badge cond">Track: Soft 5</span>
-          <span class="badge best">Best Bet: R6 — THE INSTRUCTOR (8)</span>
-          <span class="badge value">Value Bet: R8 — O’ OLE (7)</span>
-        </div>
-      </div>
-      <div class="rows">
-        <div class="card pickBox">
-          <div class="pickLine">
-            <div class="pickHorse">Best Bet — R6: THE INSTRUCTOR</div>
-            <div class="conf good">CONF 8</div>
-          </div>
-        </div>
-        <div class="card pickBox">
-          <div class="pickLine">
-            <div class="pickHorse">Value Bet — R8: O’ OLE</div>
-            <div class="conf mid">CONF 7</div>
-          </div>
-        </div>
-      </div>
-
-      <table>
-        <thead>
-          <tr>
-            <th class="tdRace">Race</th>
-            <th>Selection</th>
-            <th>Barrier</th>
-            <th>Weight</th>
-            <th>Last 600</th>
-            <th>Speed</th>
-            <th>Conf</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td class="tdRace">R1</td>
-            <td class="tdHorse">CIPHERTEXT<details><summary>View notes</summary><div class="detailText">Drawn barrier 2. Projected settling position at 800m: 1. Recent form (last 10): 272227223x. Last 600m: 34.85s (most recent). Weight: 56.5kg. Trainer/Jockey: Helen Page / Ms Cejay Graham. Trials/jump-outs: not published in data.</div></details></td>
-            <td>2</td>
-            <td>56.5kg</td>
-            <td>34.85</td>
-            <td>—</td>
-            <td><span class="conf mid">7</span></td>
-          </tr><tr>
-            <td class="tdRace">R2</td>
-            <td class="tdHorse">ARCTIC LEGEND<details><summary>View notes</summary><div class="detailText">Drawn barrier 1. Projected settling position at 800m: 1. Most recent rating: 71. Recent form (last 10): x27x5711x6. Last 600m: 35.02s (most recent). Weight: 55.5kg. Trainer/Jockey: Matthew Dunn / Andrew Mallyon. Trials/jump-outs: not published in data.</div></details></td>
-            <td>1</td>
-            <td>55.5kg</td>
-            <td>35.02</td>
-            <td>71</td>
-            <td><span class="conf mid">7</span></td>
-          </tr><tr>
-            <td class="tdRace">R3</td>
-            <td class="tdHorse">DOLLY BOOM<details><summary>View notes</summary><div class="detailText">Drawn barrier 7. Last 600m: 33.24s (most recent). Weight: 55.0kg. Trainer/Jockey: Tony Gollan / Tommy Berry. Trials/jump-outs: not published in data.</div></details></td>
-            <td>7</td>
-            <td>55kg</td>
-            <td>33.24</td>
-            <td>—</td>
-            <td><span class="conf mid">6</span></td>
-          </tr><tr>
-            <td class="tdRace">R4</td>
-            <td class="tdHorse">MAJOR BEEL (NZ)<details><summary>View notes</summary><div class="detailText">Drawn barrier 1. Projected settling position at 800m: 1. Most recent rating: 102. Recent form (last 10): 0x852x9916. Last 600m: 36.21s (most recent). Weight: 59.5kg. Trainer/Jockey: Gai Waterhouse &amp; Adrian Bott / Tim Clark. Trials/jump-outs: not published in data.</div></details></td>
-            <td>1</td>
-            <td>59.5kg</td>
-            <td>36.21</td>
-            <td>102</td>
-            <td><span class="conf mid">7</span></td>
-          </tr><tr>
-            <td class="tdRace">R5</td>
-            <td class="tdHorse">JUST IN TIME<details><summary>View notes</summary><div class="detailText">Drawn barrier 11. Projected settling position at 800m: 3. Recent form (last 10): x534x116x1. Last 600m: 33.54s (most recent). Weight: 55.5kg. Trainer/Jockey: Jason Deamer / Tim Clark. Trials/jump-outs: not published in data.</div></details></td>
-            <td>11</td>
-            <td>55.5kg</td>
-            <td>33.54</td>
-            <td>—</td>
-            <td><span class="conf mid">7</span></td>
-          </tr><tr>
-            <td class="tdRace">R6</td>
-            <td class="tdHorse">THE INSTRUCTOR<details><summary>View notes</summary><div class="detailText">Drawn barrier 5. Projected settling position at 800m: 1. Most recent rating: 105. Recent form (last 10): 20x11316x2. Last 600m: 33.54s (most recent). Weight: 57.5kg. Trainer/Jockey: Gai Waterhouse &amp; Adrian Bott / Adam Hyeronimus. Trials/jump-outs: not published in data.</div></details></td>
-            <td>5</td>
-            <td>57.5kg</td>
-            <td>33.54</td>
-            <td>105</td>
-            <td><span class="conf good">8</span></td>
-          </tr><tr>
-            <td class="tdRace">R7</td>
-            <td class="tdHorse">WARWOVEN<details><summary>View notes</summary><div class="detailText">Drawn barrier 6. Recent form (last 10): 11. Last 600m: 33.31s (most recent). Weight: 57.0kg. Trainer/Jockey: Bjorn Baker / Ms Rachel King. Trials/jump-outs: not published in data.</div></details></td>
-            <td>6</td>
-            <td>57kg</td>
-            <td>33.31</td>
-            <td>—</td>
-            <td><span class="conf good">8</span></td>
-          </tr><tr>
-            <td class="tdRace">R8</td>
-            <td class="tdHorse">O’ OLE<details><summary>View notes</summary><div class="detailText">Drawn barrier 10. Projected settling position at 800m: 2. Most recent rating: 86. Recent form (last 10): 25151x044. Last 600m: 34.05s (most recent). Weight: 56.0kg. Trainer/Jockey: Bjorn Baker / Jason Collett. Trials/jump-outs: not published in data.</div></details></td>
-            <td>10</td>
-            <td>56kg</td>
-            <td>34.05</td>
-            <td>86</td>
-            <td><span class="conf mid">7</span></td>
-          </tr><tr>
-            <td class="tdRace">R9</td>
-            <td class="tdHorse">AXIUS<details><summary>View notes</summary><div class="detailText">Drawn barrier 4. Projected settling position at 800m: 4. Recent form (last 10): 219x141x13. Last 600m: 34.45s (most recent). Weight: 53.0kg. Trainer/Jockey: Ciaron Maher / (late alt). Trials/jump-outs: not published in data.</div></details></td>
-            <td>4</td>
-            <td>53kg</td>
-            <td>34.45</td>
-            <td>—</td>
-            <td><span class="conf mid">7</span></td>
-          </tr><tr>
-            <td class="tdRace">R10</td>
-            <td class="tdHorse">HAWKER HALL<details><summary>View notes</summary><div class="detailText">Drawn barrier 13. Projected settling position at 800m: 1. Most recent rating: 80. Recent form (last 10): 151713x214. Last 600m: 33.71s (most recent). Weight: 57.0kg. Trainer/Jockey: Kris Lees / Jason Collett. Trials/jump-outs: not published in data.</div></details></td>
-            <td>13</td>
-            <td>57kg</td>
-            <td>33.71</td>
-            <td>80</td>
-            <td><span class="conf mid">7</span></td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-    
-
-    <div class="footer">
-      <strong>Disclaimer:</strong> Information is general only and for entertainment purposes. Gambling involves risk. Bet responsibly.
-      <br/>© FormFactor Tips
+    <div class="pills">
+      <div class="pill">Final Fields + Latest Scratchings</div>
+      <div class="pill">Win bets only</div>
+      <div class="pill">Units-based staking</div>
     </div>
   </div>
+  <div class="note">
+    <div><strong>Betting suggestions:</strong> stake is shown in <strong>units</strong> (you choose your $ per unit).</div>
+    <div>Units are calculated from confidence (5.0–5.99=1u, 6.0–6.99=2u, 7.0–7.99=3u, 8.0–8.99=4u, 9.0+=5u). <span class="warn">Prices are optional; if missing, we still show base units.</span></div>
+  </div>
+  <div class="section">
+  <h2>Full Selections</h2>
+  <div class="grid">
+    
+    <div class="card">
+      
+    <div class="trackHeader">
+      <div>
+        <h3>RANDWICK</h3>
+        <div class="meta">Best Bet and Value Bet are different runners.</div>
+      </div>
+      <div style="display:flex;gap:14px;align-items:flex-start">
+        <div class="meta"><span class="badge">BEST BET</span><br/>
+      <span class="raceNo">R4</span> <span class="horse">PRETTY POWERFUL</span><br/>
+      <span class="small">Conf <span class="conf">7.46</span> • <span class="stake">3u Win</span></span>
+    </div>
+        <div class="meta"><span class="badge">VALUE BET</span><br/>
+      <span class="raceNo">R8</span> <span class="horse">NELLIE LEYLAX (IRE)</span><br/>
+      <span class="small">Conf <span class="conf">7.32</span> • <span class="stake">3u Win</span></span>
+    </div>
+      </div>
+    </div>
+      <table>
+        <thead>
+          <tr>
+            <th style="width:70px">Race</th>
+            <th>Selection</th>
+            <th style="width:150px">Bet Suggestion</th>
+          </tr>
+        </thead>
+        <tbody>
+          
+        <tr>
+          <td class="raceNo">R1</td>
+          <td>
+            <div class="horse">ZAMBALES</div>
+            <div class="small">#2 • Barrier 1 • Wt 58.0 • Speed — • L600 — • Conf <span class="conf">6.3</span></div>
+            <div class="reason">ZAMBALES (2) stays in the final field after scratchings, draws barrier 1 to control the run in a set‑weights juvenile, carries 58kg (with 1.5kg claim to 56.5kg), and maps for an economical position from the inside; on the available objective inputs (gate/weight/jockey booking) it profiles as the safest runner left in the race.</div>
+          </td>
+          <td class="stake">2u Win</td>
+        </tr>
+        <tr>
+          <td class="raceNo">R2</td>
+          <td>
+            <div class="horse">WALKING PAINTING</div>
+            <div class="small">#10 • Barrier 10 • Wt 62.0 • Speed 76 • L600 — • Conf <span class="conf">6.6</span></div>
+            <div class="reason">WALKING PAINTING (10) brings the highest benchmark in the race (B&#x27;mark 76), stays in after scratchings, and has a consistent late‑prep profile (last‑10 includes multiple top‑3s) with a 3kg claim engaged; despite barrier 10, the class edge on the ratings and suitable mile set‑up keeps it the best remaining on raw numbers.</div>
+          </td>
+          <td class="stake">2u Win</td>
+        </tr>
+        <tr>
+          <td class="raceNo">R3</td>
+          <td>
+            <div class="horse">JOISELLE</div>
+            <div class="small">#5 • Barrier 10 • Wt 59.0 • Speed 74 • L600 — • Conf <span class="conf">6.78</span></div>
+            <div class="reason">JOISELLE (5) brings one of the stronger handicap ratings in the field (74), recent form-line 43737x2332 suggests it’s holding its level, maps to land a soft run from barrier 10, carries 59kg, with Brett &amp; Georgie Cavanough training and Ms Siena Grima (a3/52kg) booked, and should get its chance on a Soft surface; on the available figures it profiles as the most reliable winning chance in this race.</div>
+          </td>
+          <td class="stake">2u Win</td>
+        </tr>
+        <tr>
+          <td class="raceNo">R4</td>
+          <td>
+            <div class="horse">PRETTY POWERFUL</div>
+            <div class="small">#1 • Barrier 1 • Wt 59.0 • Speed 70 • L600 — • Conf <span class="conf">7.46</span></div>
+            <div class="reason">PRETTY POWERFUL (1) brings one of the stronger handicap ratings in the field (70), recent form-line 611x043x13 suggests it’s holding its level, maps to land a soft run from barrier 1, carries 59kg, with Chris Waller training and Ms Siena Grima (a3/52kg) booked, and should get its chance on a Soft surface; on the available figures it profiles as the most reliable winning chance in this race.</div>
+          </td>
+          <td class="stake">3u Win</td>
+        </tr>
+        <tr>
+          <td class="raceNo">R5</td>
+          <td>
+            <div class="horse">TOWNSEND</div>
+            <div class="small">#1 • Barrier 1 • Wt 61.0 • Speed 90 • L600 — • Conf <span class="conf">6.02</span></div>
+            <div class="reason">TOWNSEND (1) brings one of the stronger handicap ratings in the field (90), recent form-line 133x0708x7 suggests it’s holding its level, maps to land a soft run from barrier 1, carries 61kg, with Gai Waterhouse &amp; Adrian Bott training and Adam Hyeronimus booked, and should get its chance on a Soft surface; on the available figures it profiles as the most reliable winning chance in this race.</div>
+          </td>
+          <td class="stake">2u Win</td>
+        </tr>
+        <tr>
+          <td class="raceNo">R6</td>
+          <td>
+            <div class="horse">UZZIAH</div>
+            <div class="small">#2 • Barrier 1 • Wt 60.0 • Speed 78 • L600 — • Conf <span class="conf">7.05</span></div>
+            <div class="reason">UZZIAH (2) brings one of the stronger handicap ratings in the field (78), recent form-line 4x0880537x suggests it’s holding its level, maps to land a soft run from barrier 1, carries 60kg, with Scott Aspery training and Braith Nock (a1.5/54kg) booked, and should get its chance on a Soft surface; on the available figures it profiles as the most reliable winning chance in this race.</div>
+          </td>
+          <td class="stake">3u Win</td>
+        </tr>
+        <tr>
+          <td class="raceNo">R7</td>
+          <td>
+            <div class="horse">SUN GOD (GB)</div>
+            <div class="small">#3 • Barrier 11 • Wt 59.5 • Speed 87 • L600 — • Conf <span class="conf">7.1</span></div>
+            <div class="reason">SUN GOD (3) remains in the final field, carries a strong benchmark figure (B&#x27;mark 87) in this grade, has an elite rider engagement (J. McDonald), and is weighted to compete (59.5kg) despite a wider gate; on ratings + rider/trainer profile it becomes the most reliable replacement after the scratching.</div>
+          </td>
+          <td class="stake">3u Win</td>
+        </tr>
+        <tr>
+          <td class="raceNo">R8</td>
+          <td>
+            <div class="horse">NELLIE LEYLAX (IRE)</div>
+            <div class="small">#2 • Barrier 1 • Wt 57.5 • Speed 99 • L600 — • Conf <span class="conf">7.32</span></div>
+            <div class="reason">NELLIE LEYLAX (IRE) (2) brings one of the stronger handicap ratings in the field (99), recent form-line 1x3944215x suggests it’s holding its level, maps to land a soft run from barrier 1, carries 57.5kg, with Annabel &amp; Rob Archibald training and James McDonald booked, and should get its chance on a Soft surface; on the available figures it profiles as the most reliable winning chance in this race.</div>
+          </td>
+          <td class="stake">3u Win</td>
+        </tr>
+        <tr>
+          <td class="raceNo">R9</td>
+          <td>
+            <div class="horse">CANDLEWICK</div>
+            <div class="small">#3 • Barrier 2 • Wt 58.5 • Speed 75 • L600 — • Conf <span class="conf">6.76</span></div>
+            <div class="reason">CANDLEWICK (3) brings one of the stronger handicap ratings in the field (75), recent form-line 121x160x3 suggests it’s holding its level, maps to land a soft run from barrier 2, carries 58.5kg, with Joseph Pride training and Zac Lloyd booked, and should get its chance on a Soft surface; on the available figures it profiles as the most reliable winning chance in this race.</div>
+          </td>
+          <td class="stake">2u Win</td>
+        </tr>
+        <tr>
+          <td class="raceNo">R10</td>
+          <td>
+            <div class="horse">ALTHOFF</div>
+            <div class="small">#2 • Barrier 3 • Wt 60.0 • Speed 78 • L600 — • Conf <span class="conf">6.51</span></div>
+            <div class="reason">ALTHOFF (2) brings one of the stronger handicap ratings in the field (78), recent form-line 9565x6x341 suggests it’s holding its level, maps to land a soft run from barrier 3, carries 60kg, with Chris Waller training and Ms Siena Grima (a3/52kg) booked, and should get its chance on a Soft surface; on the available figures it profiles as the most reliable winning chance in this race.</div>
+          </td>
+          <td class="stake">2u Win</td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+    
+    <div class="card">
+      
+    <div class="trackHeader">
+      <div>
+        <h3>CAULFIELD</h3>
+        <div class="meta">Best Bet and Value Bet are different runners.</div>
+      </div>
+      <div style="display:flex;gap:14px;align-items:flex-start">
+        <div class="meta"><span class="badge">BEST BET</span><br/>
+      <span class="raceNo">R2</span> <span class="horse">EUROCANTO</span><br/>
+      <span class="small">Conf <span class="conf">7.71</span> • <span class="stake">3u Win</span></span>
+    </div>
+        <div class="meta"><span class="badge">VALUE BET</span><br/>
+      <span class="raceNo">R8</span> <span class="horse">SALTY PEARL</span><br/>
+      <span class="small">Conf <span class="conf">7.32</span> • <span class="stake">3u Win</span></span>
+    </div>
+      </div>
+    </div>
+      <table>
+        <thead>
+          <tr>
+            <th style="width:70px">Race</th>
+            <th>Selection</th>
+            <th style="width:150px">Bet Suggestion</th>
+          </tr>
+        </thead>
+        <tbody>
+          
+        <tr>
+          <td class="raceNo">R1</td>
+          <td>
+            <div class="horse">TAKEN (NZ)</div>
+            <div class="small">#5 • Barrier 5 • Wt 55.0 • Speed 86 • L600 — • Conf <span class="conf">6.45</span></div>
+            <div class="reason">TAKEN (NZ) (5) brings one of the stronger handicap ratings in the field (86), recent form-line 2x21111x10 suggests it’s holding its level, maps to land a soft run from barrier 5, carries 55kg, with Mick Price &amp; Michael Kent (Jnr) training and Ms Jamie Melham booked, and should get its chance on a Good surface; on the available figures it profiles as the most reliable winning chance in this race.</div>
+          </td>
+          <td class="stake">2u Win</td>
+        </tr>
+        <tr>
+          <td class="raceNo">R2</td>
+          <td>
+            <div class="horse">EUROCANTO</div>
+            <div class="small">#1 • Barrier 3 • Wt 58.0 • Speed 72 • L600 — • Conf <span class="conf">7.71</span></div>
+            <div class="reason">EUROCANTO (1) brings one of the stronger handicap ratings in the field (72), recent form-line 1x suggests it’s holding its level, maps to land a soft run from barrier 3, carries 58kg, with Ben, Will &amp; JD Hayes training and Ms Jamie Melham booked, and should get its chance on a Good surface; on the available figures it profiles as the most reliable winning chance in this race.</div>
+          </td>
+          <td class="stake">3u Win</td>
+        </tr>
+        <tr>
+          <td class="raceNo">R3</td>
+          <td>
+            <div class="horse">LADY OF FIVE</div>
+            <div class="small">#2 • Barrier 9 • Wt 56.0 • Speed 67 • L600 — • Conf <span class="conf">6.9</span></div>
+            <div class="reason">LADY OF FIVE (2) brings one of the stronger handicap ratings in the field (67), recent form-line 12x suggests it’s holding its level, maps to land a soft run from barrier 9, carries 56kg, with Peter &amp; Will Hulbert training and Adin Thompson booked, and should get its chance on a Good surface; on the available figures it profiles as the most reliable winning chance in this race.</div>
+          </td>
+          <td class="stake">2u Win</td>
+        </tr>
+        <tr>
+          <td class="raceNo">R4</td>
+          <td>
+            <div class="horse">DELIVERING</div>
+            <div class="small">#2 • Barrier 3 • Wt 62.5 • Speed 75 • L600 — • Conf <span class="conf">6.92</span></div>
+            <div class="reason">DELIVERING (2) brings one of the stronger handicap ratings in the field (75), recent form-line 24611112x6 suggests it’s holding its level, maps to land a soft run from barrier 3, carries 62.5kg, with Ciaron Maher training and Luke Cartwright (a2/51kg) booked, and should get its chance on a Good surface; on the available figures it profiles as the most reliable winning chance in this race.</div>
+          </td>
+          <td class="stake">2u Win</td>
+        </tr>
+        <tr>
+          <td class="raceNo">R5</td>
+          <td>
+            <div class="horse">SALSA FELLOW</div>
+            <div class="small">#1 • Barrier 2 • Wt 60.0 • Speed 74 • L600 — • Conf <span class="conf">7.0</span></div>
+            <div class="reason">SALSA FELLOW (1) is confirmed to run after scratchings and rates as one of the top handicapped runners in the race (Hcp Rating 74), draws barrier 2 for a soft run, and carries 60kg; with the scratched top‑rated runner removed, the ratings + gate profile makes it the best remaining selection.</div>
+          </td>
+          <td class="stake">3u Win</td>
+        </tr>
+        <tr>
+          <td class="raceNo">R6</td>
+          <td>
+            <div class="horse">PARADISE STORM (FR)</div>
+            <div class="small">#3 • Barrier 4 • Wt 62.5 • Speed 83 • L600 — • Conf <span class="conf">7.3</span></div>
+            <div class="reason">PARADISE STORM (FR) (3) brings one of the stronger handicap ratings in the field (83), recent form-line 0x320411x4 suggests it’s holding its level, maps to land a soft run from barrier 4, carries 62.5kg, with Henry Dwyer training and Michael Dee booked, and should get its chance on a Good surface; on the available figures it profiles as the most reliable winning chance in this race.</div>
+          </td>
+          <td class="stake">3u Win</td>
+        </tr>
+        <tr>
+          <td class="raceNo">R7</td>
+          <td>
+            <div class="horse">MIDWEST</div>
+            <div class="small">#3 • Barrier 4 • Wt 58.5 • Speed 98 • L600 — • Conf <span class="conf">6.91</span></div>
+            <div class="reason">MIDWEST (3) brings one of the stronger handicap ratings in the field (98), recent form-line 613193220x suggests it’s holding its level, maps to land a soft run from barrier 4, carries 58.5kg, with Anthony &amp; Sam Freedman training and Harry Coffey booked, and should get its chance on a Good surface; on the available figures it profiles as the most reliable winning chance in this race.</div>
+          </td>
+          <td class="stake">2u Win</td>
+        </tr>
+        <tr>
+          <td class="raceNo">R8</td>
+          <td>
+            <div class="horse">SALTY PEARL</div>
+            <div class="small">#6 • Barrier 3 • Wt 56.5 • Speed 86 • L600 — • Conf <span class="conf">7.32</span></div>
+            <div class="reason">SALTY PEARL (6) brings one of the stronger handicap ratings in the field (86), recent form-line x231x3341x suggests it’s holding its level, maps to land a soft run from barrier 3, carries 56.5kg, with Ciaron Maher training and Ben Allen booked, and should get its chance on a Good surface; on the available figures it profiles as the most reliable winning chance in this race.</div>
+          </td>
+          <td class="stake">3u Win</td>
+        </tr>
+        <tr>
+          <td class="raceNo">R9</td>
+          <td>
+            <div class="horse">REGAL ZEUS</div>
+            <div class="small">#3 • Barrier 1 • Wt 58.5 • Speed 104 • L600 — • Conf <span class="conf">7.22</span></div>
+            <div class="reason">REGAL ZEUS (3) brings one of the stronger handicap ratings in the field (104), recent form-line 5428x50101 suggests it’s holding its level, maps to land a soft run from barrier 1, carries 58.5kg, with John McArdle training and Jamie Mott booked, and should get its chance on a Good surface; on the available figures it profiles as the most reliable winning chance in this race.</div>
+          </td>
+          <td class="stake">3u Win</td>
+        </tr>
+        <tr>
+          <td class="raceNo">R10</td>
+          <td>
+            <div class="horse">BLACK STORM</div>
+            <div class="small">#1 • Barrier 5 • Wt 61.5 • Speed 81 • L600 — • Conf <span class="conf">7.1</span></div>
+            <div class="reason">BLACK STORM (1) stays in the final field and holds a leading handicap rating (Hcp Rating 81), draws barrier 5 to land a midfield run with cover, and carries 61.5kg; with the previous selection scratched, it becomes the top remaining on raw rating strength and map.</div>
+          </td>
+          <td class="stake">3u Win</td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+    
+    <div class="card">
+      
+    <div class="trackHeader">
+      <div>
+        <h3>SUNSHINE_COAST</h3>
+        <div class="meta">Best Bet and Value Bet are different runners.</div>
+      </div>
+      <div style="display:flex;gap:14px;align-items:flex-start">
+        <div class="meta"><span class="badge">BEST BET</span><br/>
+      <span class="raceNo">R6</span> <span class="horse">CARBONARA</span><br/>
+      <span class="small">Conf <span class="conf">7.77</span> • <span class="stake">3u Win</span></span>
+    </div>
+        <div class="meta"><span class="badge">VALUE BET</span><br/>
+      <span class="raceNo">R1</span> <span class="horse">CAUSE SHE CAN</span><br/>
+      <span class="small">Conf <span class="conf">7.41</span> • <span class="stake">3u Win</span></span>
+    </div>
+      </div>
+    </div>
+      <table>
+        <thead>
+          <tr>
+            <th style="width:70px">Race</th>
+            <th>Selection</th>
+            <th style="width:150px">Bet Suggestion</th>
+          </tr>
+        </thead>
+        <tbody>
+          
+        <tr>
+          <td class="raceNo">R1</td>
+          <td>
+            <div class="horse">CAUSE SHE CAN</div>
+            <div class="small">#6 • Barrier 1 • Wt 57.0 • Speed — • L600 — • Conf <span class="conf">7.41</span></div>
+            <div class="reason">CAUSE SHE CAN (6) recent form-line 1 suggests it’s holding its level, maps to land a soft run from barrier 1, carries 57kg, with Kevin Kemp training and Ms Olivia Webb (a3/51kg) booked, and should get its chance on a Soft surface; on the available figures it profiles as the most reliable winning chance in this race.</div>
+          </td>
+          <td class="stake">3u Win</td>
+        </tr>
+        <tr>
+          <td class="raceNo">R2</td>
+          <td>
+            <div class="horse">ARCHER’S GAME</div>
+            <div class="small">#1 • Barrier 2 • Wt 60.0 • Speed 77 • L600 — • Conf <span class="conf">6.88</span></div>
+            <div class="reason">ARCHER’S GAME (1) brings one of the stronger handicap ratings in the field (77), recent form-line 13516x9643 suggests it’s holding its level, maps to land a soft run from barrier 2, carries 60kg, with Mark Currie training and Jai Williams (a3/55kg) booked, and should get its chance on a Soft surface; on the available figures it profiles as the most reliable winning chance in this race.</div>
+          </td>
+          <td class="stake">2u Win</td>
+        </tr>
+        <tr>
+          <td class="raceNo">R3</td>
+          <td>
+            <div class="horse">DIAMOND EPIC</div>
+            <div class="small">#5 • Barrier 3 • Wt 59.5 • Speed 73 • L600 — • Conf <span class="conf">7.19</span></div>
+            <div class="reason">DIAMOND EPIC (5) brings one of the stronger handicap ratings in the field (73), recent form-line 212x523215 suggests it’s holding its level, maps to land a soft run from barrier 3, carries 59.5kg, with Renita Beaton training and Jai Williams (a3/55kg) booked, and should get its chance on a Soft surface; on the available figures it profiles as the most reliable winning chance in this race.</div>
+          </td>
+          <td class="stake">3u Win</td>
+        </tr>
+        <tr>
+          <td class="raceNo">R4</td>
+          <td>
+            <div class="horse">STREAK OF WINNING</div>
+            <div class="small">#6 • Barrier 2 • Wt 60.5 • Speed 71 • L600 — • Conf <span class="conf">6.8</span></div>
+            <div class="reason">STREAK OF WINNING (6) brings one of the stronger handicap ratings in the field (71.5), recent form-line 3x548152x1 suggests it’s holding its level, maps to land a soft run from barrier 2, carries 60.5kg, with Mark Currie training and Cody Collis booked, and should get its chance on a Soft surface; on the available figures it profiles as the most reliable winning chance in this race.</div>
+          </td>
+          <td class="stake">2u Win</td>
+        </tr>
+        <tr>
+          <td class="raceNo">R5</td>
+          <td>
+            <div class="horse">NAILS MURPHY (IRE)</div>
+            <div class="small">#7 • Barrier 7 • Wt 56.5 • Speed 78 • L600 — • Conf <span class="conf">6.18</span></div>
+            <div class="reason">NAILS MURPHY (IRE) (7) brings one of the stronger handicap ratings in the field (78), recent form-line 90x8262321 suggests it’s holding its level, maps to land a soft run from barrier 7, carries 56.5kg, with Ciaron Maher training and Jai Williams (a3/55kg) booked, and should get its chance on a Soft surface; on the available figures it profiles as the most reliable winning chance in this race.</div>
+          </td>
+          <td class="stake">2u Win</td>
+        </tr>
+        <tr>
+          <td class="raceNo">R6</td>
+          <td>
+            <div class="horse">CARBONARA</div>
+            <div class="small">#5 • Barrier 1 • Wt 56.5 • Speed 66 • L600 — • Conf <span class="conf">7.77</span></div>
+            <div class="reason">CARBONARA (5) brings one of the stronger handicap ratings in the field (66), recent form-line 0x52822211 suggests it’s holding its level, maps to land a soft run from barrier 1, carries 56.5kg, with Robert Heathcote training and Vlad Duric booked, and should get its chance on a Soft surface; on the available figures it profiles as the most reliable winning chance in this race.</div>
+          </td>
+          <td class="stake">3u Win</td>
+        </tr>
+        <tr>
+          <td class="raceNo">R7</td>
+          <td>
+            <div class="horse">FRENCH ENDEAVOUR</div>
+            <div class="small">#5 • Barrier 11 • Wt 58.5 • Speed 79 • L600 — • Conf <span class="conf">6.9</span></div>
+            <div class="reason">FRENCH ENDEAVOUR (5) is confirmed to run after scratchings and brings one of the higher handicap ratings in the BM78 (Hcp Rating 79) with 58.5kg; although drawn wider (barrier 11), its rating edge relative to the remaining field makes it the best replacement on objective numbers.</div>
+          </td>
+          <td class="stake">2u Win</td>
+        </tr>
+        <tr>
+          <td class="raceNo">R8</td>
+          <td>
+            <div class="horse">ROCKRIBBED</div>
+            <div class="small">#1 • Barrier 8 • Wt 60.5 • Speed 105 • L600 — • Conf <span class="conf">7.02</span></div>
+            <div class="reason">ROCKRIBBED (1) brings one of the stronger handicap ratings in the field (105), recent form-line 61100x9114 suggests it’s holding its level, maps to land a soft run from barrier 8, carries 60.5kg, with Tony Gollan training and Ryan Maloney booked, and should get its chance on a Soft surface; on the available figures it profiles as the most reliable winning chance in this race.</div>
+          </td>
+          <td class="stake">3u Win</td>
+        </tr>
+        <tr>
+          <td class="raceNo">R9</td>
+          <td>
+            <div class="horse">ZOUPERB</div>
+            <div class="small">#12 • Barrier 6 • Wt 57.0 • Speed 88 • L600 — • Conf <span class="conf">6.42</span></div>
+            <div class="reason">ZOUPERB (12) brings one of the stronger handicap ratings in the field (88), recent form-line 21323x2034 suggests it’s holding its level, maps to land a soft run from barrier 6, carries 57kg, with Adam Campton training and Martin Harley booked, and should get its chance on a Soft surface; on the available figures it profiles as the most reliable winning chance in this race.</div>
+          </td>
+          <td class="stake">2u Win</td>
+        </tr>
+        <tr>
+          <td class="raceNo">R10</td>
+          <td>
+            <div class="horse">POWER OF THE BRAVE</div>
+            <div class="small">#3 • Barrier 6 • Wt 60.5 • Speed 79.5 • L600 — • Conf <span class="conf">7.0</span></div>
+            <div class="reason">POWER OF THE BRAVE (3) is still in the final field and arrives off a last‑start win (last‑10 ends in 1), carries a competitive handicap rating (79.5) with 60.5kg, and draws barrier 6 for a clean run; with the scratched topweights removed, it profiles as the strongest remaining on form‑line + rating.</div>
+          </td>
+          <td class="stake">3u Win</td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+    
+  </div>
+</div>
+  <div class="footer">
+    Note: Some fields (e.g., last-600m sectionals) may be unavailable in free official feeds for certain races; these are shown as “—” when not published.
+  </div>
+</div>
 </body>
 </html>
