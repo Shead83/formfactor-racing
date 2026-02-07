@@ -1,439 +1,638 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Picks — Full Pack</title>
-<style>
-:root {
-  --bg:#0b0f17; --card:#111827; --muted:#9ca3af; --text:#f9fafb;
-  --line:rgba(255,255,255,.10); --good:#34d399; --warn:#fbbf24;
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>FormFactor Racing • Full Pack • 7 Feb 2026</title>
+<style>/* Premium dark editorial UI */
+:root{
+  --bg0:#05060a; --bg1:#070816;
+  --stroke:rgba(255,255,255,.08); --stroke2:rgba(255,255,255,.14);
+  --text:#f4f6ff; --muted:rgba(244,246,255,.70); --muted2:rgba(244,246,255,.55);
+  --gold:#f5c542; --teal:#35d0c0; --shadow:0 20px 60px rgba(0,0,0,.60); --shadow2:0 10px 30px rgba(0,0,0,.55);
+  --radius:18px;
 }
 *{box-sizing:border-box}
-body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial; background:radial-gradient(1200px 800px at 20% -10%, rgba(96,165,250,.18), transparent 60%), var(--bg); color:var(--text);}
-.wrap{max-width:1100px;margin:0 auto;padding:18px 14px 40px}
-.topbar{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:14px 14px;border:1px solid var(--line);border-radius:16px;background:rgba(17,24,39,.85);backdrop-filter: blur(10px);}
-.brand{display:flex;flex-direction:column;gap:4px}
-.brand h1{margin:0;font-size:20px;letter-spacing:.2px}
-.brand .sub{font-size:12px;color:var(--muted)}
-.pills{display:flex;flex-wrap:wrap;gap:8px;justify-content:flex-end}
-.pill{font-size:12px;color:var(--muted);border:1px solid var(--line);padding:6px 10px;border-radius:999px;background:rgba(255,255,255,.03)}
-.section{margin-top:16px}
-.section h2{margin:16px 0 10px;font-size:18px}
-.grid{display:grid;grid-template-columns:repeat(12,1fr);gap:12px}
-.card{grid-column:span 12;border:1px solid var(--line);border-radius:16px;background:rgba(17,24,39,.85);padding:14px}
-@media(min-width:860px){ .card{grid-column:span 6} }
-.trackHeader{display:flex;align-items:flex-start;justify-content:space-between;gap:10px;margin-bottom:10px}
-.trackHeader h3{margin:0;font-size:16px}
-.meta{color:var(--muted);font-size:12px;line-height:1.4}
-table{width:100%;border-collapse:collapse;margin-top:10px}
-th,td{padding:10px 8px;border-top:1px solid var(--line);vertical-align:top}
-th{text-align:left;font-size:12px;color:var(--muted);font-weight:600}
-td{font-size:13px}
-.raceNo{font-weight:800}
-.horse{font-weight:800}
-.small{color:var(--muted);font-size:12px}
-.reason{color:#e5e7eb;font-size:12.5px;line-height:1.35;margin-top:6px}
-.badge{display:inline-block;font-size:11px;padding:3px 8px;border-radius:999px;border:1px solid var(--line);color:var(--muted)}
-.conf{font-weight:900;color:var(--good)}
-.stake{font-weight:900}
-.note{margin-top:12px;padding:10px 12px;border:1px solid var(--line);border-radius:14px;background:rgba(255,255,255,.03);color:var(--muted);font-size:12px;line-height:1.4}
-.warn{color:var(--warn);font-weight:700}
-.footer{margin-top:18px;color:var(--muted);font-size:11px;line-height:1.4}
+body{
+  margin:0;
+  background:
+    radial-gradient(1200px 600px at 15% 10%, rgba(53,208,192,.16), transparent 60%),
+    radial-gradient(900px 500px at 85% 15%, rgba(245,197,66,.16), transparent 60%),
+    radial-gradient(900px 700px at 40% 100%, rgba(255,77,141,.12), transparent 60%),
+    linear-gradient(180deg, var(--bg1), var(--bg0));
+  color:var(--text);
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+  letter-spacing:.2px;
+}
+a{color:inherit; text-decoration:none}
+.container{max-width:1080px; margin:0 auto; padding:24px 16px 48px}
+.hero{
+  border:1px solid var(--stroke);
+  background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
+  box-shadow: var(--shadow);
+  border-radius: calc(var(--radius) + 6px);
+  padding:18px;
+  position:relative;
+  overflow:hidden;
+}
+.hero:before{
+  content:""; position:absolute; inset:-2px;
+  background: radial-gradient(500px 200px at 20% 0%, rgba(53,208,192,.25), transparent 70%),
+              radial-gradient(500px 200px at 80% 0%, rgba(245,197,66,.22), transparent 70%);
+  filter: blur(6px);
+  opacity:.9;
+  pointer-events:none;
+}
+.brand-row{display:flex; align-items:center; gap:14px; position:relative; z-index:1;}
+.logo{
+  width:48px; height:48px; border-radius:16px; display:grid; place-items:center;
+  background: linear-gradient(135deg, rgba(245,197,66,.25), rgba(53,208,192,.18));
+  border:1px solid var(--stroke2);
+  box-shadow: var(--shadow2);
+  font-weight:900; letter-spacing:.08em;
+}
+.brand-title{font-size:14px; letter-spacing:.24em; text-transform:uppercase; font-weight:900;}
+.brand-sub{margin-top:4px; color:var(--muted); font-size:12.5px;}
+.hero-actions{margin-left:auto; display:flex; gap:8px; flex-wrap:wrap; justify-content:flex-end;}
+.track-chip{
+  padding:8px 10px; border-radius:999px;
+  border:1px solid var(--stroke);
+  background: rgba(255,255,255,.03);
+  font-size:12px; color:var(--muted);
+}
+.track-chip:hover{border-color:rgba(255,255,255,.18); color:var(--text)}
+.section{margin-top:22px;}
+.section-head{display:flex; align-items:flex-end; justify-content:space-between; gap:10px; margin:16px 4px 10px;}
+.h2{font-size:13px; letter-spacing:.22em; text-transform:uppercase; font-weight:900;}
+.p{font-size:12.5px; color:var(--muted); margin:0;}
+.grid{display:grid; grid-template-columns: repeat(12, 1fr); gap:12px;}
+.feature{grid-column: span 4;}
+@media (max-width:900px){.feature{grid-column: span 6;}}
+@media (max-width:640px){.feature{grid-column: span 12;} .brand-row{flex-wrap:wrap} .hero-actions{margin-left:0}}
+.card{
+  border:1px solid var(--stroke);
+  background: linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.015));
+  border-radius: var(--radius);
+  padding:14px 14px 12px;
+  box-shadow: var(--shadow2);
+  position:relative; overflow:hidden;
+}
+.card:after{
+  content:""; position:absolute; inset:0;
+  background: radial-gradient(300px 120px at 15% 0%, rgba(255,255,255,.06), transparent 60%);
+  pointer-events:none;
+}
+.card-top{display:flex; align-items:center; gap:10px; position:relative; z-index:1;}
+.race-chip{
+  font-size:12px; font-weight:900; letter-spacing:.18em; text-transform:uppercase;
+  padding:6px 10px; border-radius:999px;
+  border:1px solid var(--stroke); background: rgba(255,255,255,.03); color:var(--muted);
+}
+.horse{font-size:16px; font-weight:900; letter-spacing:.02em;}
+.card-right{margin-left:auto}
+.tag{
+  font-size:11px; font-weight:900; letter-spacing:.18em; text-transform:uppercase;
+  padding:6px 10px; border-radius:999px;
+  border:1px solid var(--stroke2); background: rgba(255,255,255,.04);
+}
+.tag-best{border-color: rgba(245,197,66,.55); background: rgba(245,197,66,.12); color: var(--gold);}
+.tag-value{border-color: rgba(53,208,192,.55); background: rgba(53,208,192,.12); color: var(--teal);}
+.tag-scratch{border-color: rgba(255,255,255,.22); background: rgba(255,255,255,.06); color: var(--muted);}
+.pills{display:flex; flex-wrap:wrap; gap:8px; margin-top:10px; position:relative; z-index:1;}
+.pill{
+  display:inline-flex; gap:6px; align-items:baseline;
+  padding:6px 10px; border-radius:999px;
+  border:1px solid var(--stroke); background: rgba(0,0,0,.18);
+  font-size:12px;
+}
+.pill-label{color:var(--muted2)}
+.pill-value{font-weight:800; color:var(--text)}
+.pill-scratch{border-color: rgba(255,255,255,.25); background: rgba(255,255,255,.06)}
+.reason{margin-top:10px; font-size:12.5px; color:var(--muted); line-height:1.5; position:relative; z-index:1;}
+.is-scratched{opacity:.62; filter:saturate(.6);}
+.track-block{
+  margin-top:18px;
+  border:1px solid var(--stroke);
+  background: linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.01));
+  border-radius: calc(var(--radius) + 6px);
+  box-shadow: var(--shadow);
+  overflow:hidden;
+}
+.track-head{
+  padding:16px 16px 12px;
+  display:flex; align-items:flex-end; justify-content:space-between; gap:10px;
+  background: radial-gradient(800px 200px at 20% 0%, rgba(53,208,192,.10), transparent 70%),
+              radial-gradient(800px 200px at 80% 0%, rgba(245,197,66,.10), transparent 70%);
+  border-bottom:1px solid var(--stroke);
+}
+.track-name{font-size:14px; letter-spacing:.22em; text-transform:uppercase; font-weight:900;}
+.track-sub{font-size:12px; color:var(--muted);}
+.track-body{padding:14px 14px 18px}
+.track-sep{height:1px; background: var(--stroke); margin:14px 0;}
+.small-head{
+  display:flex; align-items:center; justify-content:space-between;
+  font-size:12px; letter-spacing:.22em; text-transform:uppercase; font-weight:900;
+  margin:0 2px 10px; color:var(--muted);
+}
+.footer{margin-top:18px; text-align:center; color:var(--muted2); font-size:12px; line-height:1.5;}
 </style>
-</head>
-<body>
-<div class="wrap">
-  <div class="topbar">
-    <div class="brand">
-      <h1>Picks — Full Pack</h1>
-      <div class="sub">FormFactor Tips • 2026-01-24</div>
+</head><body>
+<div class="container">
+<header class="hero">
+  <div class="brand-row">
+    <div class="logo">FF</div>
+    <div>
+      <div class="brand-title">FORMFACTOR TIPS</div>
+      <div class="brand-sub">FULL PACK • Saturday 7 February 2026 • Best Bets • Value Bets • Full Card</div>
     </div>
-    <div class="pills">
-      <div class="pill">Final Fields + Latest Scratchings</div>
-      <div class="pill">Win bets only</div>
-      <div class="pill">Units-based staking</div>
+    <div class="hero-actions"><a class="track-chip" href="#randwick">Randwick</a><a class="track-chip" href="#caulfield">Caulfield</a><a class="track-chip" href="#doomben">Doomben</a></div>
+  </div>
+</header>
+
+<section class="section" id="best-bets">
+  <div class="section-head">
+    <div>
+      <div class="h2">Best Bets</div>
+      <p class="p">Highest confidence runners across the three meetings.</p>
     </div>
+    <div class="p">Saturday 7 February 2026</div>
   </div>
-  <div class="note">
-    <div><strong>Betting suggestions:</strong> stake is shown in <strong>units</strong> (you choose your $ per unit).</div>
-    <div>Units are calculated from confidence (5.0–5.99=1u, 6.0–6.99=2u, 7.0–7.99=3u, 8.0–8.99=4u, 9.0+=5u). <span class="warn">Prices are optional; if missing, we still show base units.</span></div>
-  </div>
-  <div class="section">
-  <h2>Full Selections</h2>
   <div class="grid">
-    
-    <div class="card">
-      
-    <div class="trackHeader">
-      <div>
-        <h3>RANDWICK</h3>
-        <div class="meta">Best Bet and Value Bet are different runners.</div>
+    <div class="feature">
+    <article class="card">
+      <div class="card-top">
+        <div class="race-chip">R8</div>
+        <div class="horse">TEMPTED</div>
+        <div class="card-right"><span class="tag tag-best">Randwick • Best Bet</span></div>
       </div>
-      <div style="display:flex;gap:14px;align-items:flex-start">
-        <div class="meta"><span class="badge">BEST BET</span><br/>
-      <span class="raceNo">R4</span> <span class="horse">PRETTY POWERFUL</span><br/>
-      <span class="small">Conf <span class="conf">7.46</span> • <span class="stake">3u Win</span></span>
-    </div>
-        <div class="meta"><span class="badge">VALUE BET</span><br/>
-      <span class="raceNo">R8</span> <span class="horse">NELLIE LEYLAX (IRE)</span><br/>
-      <span class="small">Conf <span class="conf">7.32</span> • <span class="stake">3u Win</span></span>
-    </div>
-      </div>
-    </div>
-      <table>
-        <thead>
-          <tr>
-            <th style="width:70px">Race</th>
-            <th>Selection</th>
-            <th style="width:150px">Bet Suggestion</th>
-          </tr>
-        </thead>
-        <tbody>
-          
-        <tr>
-          <td class="raceNo">R1</td>
-          <td>
-            <div class="horse">ZAMBALES</div>
-            <div class="small">#2 • Barrier 1 • Wt 58.0 • Speed — • L600 — • Conf <span class="conf">6.3</span></div>
-            <div class="reason">ZAMBALES (2) stays in the final field after scratchings, draws barrier 1 to control the run in a set‑weights juvenile, carries 58kg (with 1.5kg claim to 56.5kg), and maps for an economical position from the inside; on the available objective inputs (gate/weight/jockey booking) it profiles as the safest runner left in the race.</div>
-          </td>
-          <td class="stake">2u Win</td>
-        </tr>
-        <tr>
-          <td class="raceNo">R2</td>
-          <td>
-            <div class="horse">WALKING PAINTING</div>
-            <div class="small">#10 • Barrier 10 • Wt 62.0 • Speed 76 • L600 — • Conf <span class="conf">6.6</span></div>
-            <div class="reason">WALKING PAINTING (10) brings the highest benchmark in the race (B&#x27;mark 76), stays in after scratchings, and has a consistent late‑prep profile (last‑10 includes multiple top‑3s) with a 3kg claim engaged; despite barrier 10, the class edge on the ratings and suitable mile set‑up keeps it the best remaining on raw numbers.</div>
-          </td>
-          <td class="stake">2u Win</td>
-        </tr>
-        <tr>
-          <td class="raceNo">R3</td>
-          <td>
-            <div class="horse">JOISELLE</div>
-            <div class="small">#5 • Barrier 10 • Wt 59.0 • Speed 74 • L600 — • Conf <span class="conf">6.78</span></div>
-            <div class="reason">JOISELLE (5) brings one of the stronger handicap ratings in the field (74), recent form-line 43737x2332 suggests it’s holding its level, maps to land a soft run from barrier 10, carries 59kg, with Brett &amp; Georgie Cavanough training and Ms Siena Grima (a3/52kg) booked, and should get its chance on a Soft surface; on the available figures it profiles as the most reliable winning chance in this race.</div>
-          </td>
-          <td class="stake">2u Win</td>
-        </tr>
-        <tr>
-          <td class="raceNo">R4</td>
-          <td>
-            <div class="horse">PRETTY POWERFUL</div>
-            <div class="small">#1 • Barrier 1 • Wt 59.0 • Speed 70 • L600 — • Conf <span class="conf">7.46</span></div>
-            <div class="reason">PRETTY POWERFUL (1) brings one of the stronger handicap ratings in the field (70), recent form-line 611x043x13 suggests it’s holding its level, maps to land a soft run from barrier 1, carries 59kg, with Chris Waller training and Ms Siena Grima (a3/52kg) booked, and should get its chance on a Soft surface; on the available figures it profiles as the most reliable winning chance in this race.</div>
-          </td>
-          <td class="stake">3u Win</td>
-        </tr>
-        <tr>
-          <td class="raceNo">R5</td>
-          <td>
-            <div class="horse">TOWNSEND</div>
-            <div class="small">#1 • Barrier 1 • Wt 61.0 • Speed 90 • L600 — • Conf <span class="conf">6.02</span></div>
-            <div class="reason">TOWNSEND (1) brings one of the stronger handicap ratings in the field (90), recent form-line 133x0708x7 suggests it’s holding its level, maps to land a soft run from barrier 1, carries 61kg, with Gai Waterhouse &amp; Adrian Bott training and Adam Hyeronimus booked, and should get its chance on a Soft surface; on the available figures it profiles as the most reliable winning chance in this race.</div>
-          </td>
-          <td class="stake">2u Win</td>
-        </tr>
-        <tr>
-          <td class="raceNo">R6</td>
-          <td>
-            <div class="horse">UZZIAH</div>
-            <div class="small">#2 • Barrier 1 • Wt 60.0 • Speed 78 • L600 — • Conf <span class="conf">7.05</span></div>
-            <div class="reason">UZZIAH (2) brings one of the stronger handicap ratings in the field (78), recent form-line 4x0880537x suggests it’s holding its level, maps to land a soft run from barrier 1, carries 60kg, with Scott Aspery training and Braith Nock (a1.5/54kg) booked, and should get its chance on a Soft surface; on the available figures it profiles as the most reliable winning chance in this race.</div>
-          </td>
-          <td class="stake">3u Win</td>
-        </tr>
-        <tr>
-          <td class="raceNo">R7</td>
-          <td>
-            <div class="horse">SUN GOD (GB)</div>
-            <div class="small">#3 • Barrier 11 • Wt 59.5 • Speed 87 • L600 — • Conf <span class="conf">7.1</span></div>
-            <div class="reason">SUN GOD (3) remains in the final field, carries a strong benchmark figure (B&#x27;mark 87) in this grade, has an elite rider engagement (J. McDonald), and is weighted to compete (59.5kg) despite a wider gate; on ratings + rider/trainer profile it becomes the most reliable replacement after the scratching.</div>
-          </td>
-          <td class="stake">3u Win</td>
-        </tr>
-        <tr>
-          <td class="raceNo">R8</td>
-          <td>
-            <div class="horse">NELLIE LEYLAX (IRE)</div>
-            <div class="small">#2 • Barrier 1 • Wt 57.5 • Speed 99 • L600 — • Conf <span class="conf">7.32</span></div>
-            <div class="reason">NELLIE LEYLAX (IRE) (2) brings one of the stronger handicap ratings in the field (99), recent form-line 1x3944215x suggests it’s holding its level, maps to land a soft run from barrier 1, carries 57.5kg, with Annabel &amp; Rob Archibald training and James McDonald booked, and should get its chance on a Soft surface; on the available figures it profiles as the most reliable winning chance in this race.</div>
-          </td>
-          <td class="stake">3u Win</td>
-        </tr>
-        <tr>
-          <td class="raceNo">R9</td>
-          <td>
-            <div class="horse">CANDLEWICK</div>
-            <div class="small">#3 • Barrier 2 • Wt 58.5 • Speed 75 • L600 — • Conf <span class="conf">6.76</span></div>
-            <div class="reason">CANDLEWICK (3) brings one of the stronger handicap ratings in the field (75), recent form-line 121x160x3 suggests it’s holding its level, maps to land a soft run from barrier 2, carries 58.5kg, with Joseph Pride training and Zac Lloyd booked, and should get its chance on a Soft surface; on the available figures it profiles as the most reliable winning chance in this race.</div>
-          </td>
-          <td class="stake">2u Win</td>
-        </tr>
-        <tr>
-          <td class="raceNo">R10</td>
-          <td>
-            <div class="horse">ALTHOFF</div>
-            <div class="small">#2 • Barrier 3 • Wt 60.0 • Speed 78 • L600 — • Conf <span class="conf">6.51</span></div>
-            <div class="reason">ALTHOFF (2) brings one of the stronger handicap ratings in the field (78), recent form-line 9565x6x341 suggests it’s holding its level, maps to land a soft run from barrier 3, carries 60kg, with Chris Waller training and Ms Siena Grima (a3/52kg) booked, and should get its chance on a Soft surface; on the available figures it profiles as the most reliable winning chance in this race.</div>
-          </td>
-          <td class="stake">2u Win</td>
-        </tr>
-        </tbody>
-      </table>
-    </div>
-    
-    <div class="card">
-      
-    <div class="trackHeader">
-      <div>
-        <h3>CAULFIELD</h3>
-        <div class="meta">Best Bet and Value Bet are different runners.</div>
-      </div>
-      <div style="display:flex;gap:14px;align-items:flex-start">
-        <div class="meta"><span class="badge">BEST BET</span><br/>
-      <span class="raceNo">R2</span> <span class="horse">EUROCANTO</span><br/>
-      <span class="small">Conf <span class="conf">7.71</span> • <span class="stake">3u Win</span></span>
-    </div>
-        <div class="meta"><span class="badge">VALUE BET</span><br/>
-      <span class="raceNo">R8</span> <span class="horse">SALTY PEARL</span><br/>
-      <span class="small">Conf <span class="conf">7.32</span> • <span class="stake">3u Win</span></span>
-    </div>
-      </div>
-    </div>
-      <table>
-        <thead>
-          <tr>
-            <th style="width:70px">Race</th>
-            <th>Selection</th>
-            <th style="width:150px">Bet Suggestion</th>
-          </tr>
-        </thead>
-        <tbody>
-          
-        <tr>
-          <td class="raceNo">R1</td>
-          <td>
-            <div class="horse">TAKEN (NZ)</div>
-            <div class="small">#5 • Barrier 5 • Wt 55.0 • Speed 86 • L600 — • Conf <span class="conf">6.45</span></div>
-            <div class="reason">TAKEN (NZ) (5) brings one of the stronger handicap ratings in the field (86), recent form-line 2x21111x10 suggests it’s holding its level, maps to land a soft run from barrier 5, carries 55kg, with Mick Price &amp; Michael Kent (Jnr) training and Ms Jamie Melham booked, and should get its chance on a Good surface; on the available figures it profiles as the most reliable winning chance in this race.</div>
-          </td>
-          <td class="stake">2u Win</td>
-        </tr>
-        <tr>
-          <td class="raceNo">R2</td>
-          <td>
-            <div class="horse">EUROCANTO</div>
-            <div class="small">#1 • Barrier 3 • Wt 58.0 • Speed 72 • L600 — • Conf <span class="conf">7.71</span></div>
-            <div class="reason">EUROCANTO (1) brings one of the stronger handicap ratings in the field (72), recent form-line 1x suggests it’s holding its level, maps to land a soft run from barrier 3, carries 58kg, with Ben, Will &amp; JD Hayes training and Ms Jamie Melham booked, and should get its chance on a Good surface; on the available figures it profiles as the most reliable winning chance in this race.</div>
-          </td>
-          <td class="stake">3u Win</td>
-        </tr>
-        <tr>
-          <td class="raceNo">R3</td>
-          <td>
-            <div class="horse">LADY OF FIVE</div>
-            <div class="small">#2 • Barrier 9 • Wt 56.0 • Speed 67 • L600 — • Conf <span class="conf">6.9</span></div>
-            <div class="reason">LADY OF FIVE (2) brings one of the stronger handicap ratings in the field (67), recent form-line 12x suggests it’s holding its level, maps to land a soft run from barrier 9, carries 56kg, with Peter &amp; Will Hulbert training and Adin Thompson booked, and should get its chance on a Good surface; on the available figures it profiles as the most reliable winning chance in this race.</div>
-          </td>
-          <td class="stake">2u Win</td>
-        </tr>
-        <tr>
-          <td class="raceNo">R4</td>
-          <td>
-            <div class="horse">DELIVERING</div>
-            <div class="small">#2 • Barrier 3 • Wt 62.5 • Speed 75 • L600 — • Conf <span class="conf">6.92</span></div>
-            <div class="reason">DELIVERING (2) brings one of the stronger handicap ratings in the field (75), recent form-line 24611112x6 suggests it’s holding its level, maps to land a soft run from barrier 3, carries 62.5kg, with Ciaron Maher training and Luke Cartwright (a2/51kg) booked, and should get its chance on a Good surface; on the available figures it profiles as the most reliable winning chance in this race.</div>
-          </td>
-          <td class="stake">2u Win</td>
-        </tr>
-        <tr>
-          <td class="raceNo">R5</td>
-          <td>
-            <div class="horse">SALSA FELLOW</div>
-            <div class="small">#1 • Barrier 2 • Wt 60.0 • Speed 74 • L600 — • Conf <span class="conf">7.0</span></div>
-            <div class="reason">SALSA FELLOW (1) is confirmed to run after scratchings and rates as one of the top handicapped runners in the race (Hcp Rating 74), draws barrier 2 for a soft run, and carries 60kg; with the scratched top‑rated runner removed, the ratings + gate profile makes it the best remaining selection.</div>
-          </td>
-          <td class="stake">3u Win</td>
-        </tr>
-        <tr>
-          <td class="raceNo">R6</td>
-          <td>
-            <div class="horse">PARADISE STORM (FR)</div>
-            <div class="small">#3 • Barrier 4 • Wt 62.5 • Speed 83 • L600 — • Conf <span class="conf">7.3</span></div>
-            <div class="reason">PARADISE STORM (FR) (3) brings one of the stronger handicap ratings in the field (83), recent form-line 0x320411x4 suggests it’s holding its level, maps to land a soft run from barrier 4, carries 62.5kg, with Henry Dwyer training and Michael Dee booked, and should get its chance on a Good surface; on the available figures it profiles as the most reliable winning chance in this race.</div>
-          </td>
-          <td class="stake">3u Win</td>
-        </tr>
-        <tr>
-          <td class="raceNo">R7</td>
-          <td>
-            <div class="horse">MIDWEST</div>
-            <div class="small">#3 • Barrier 4 • Wt 58.5 • Speed 98 • L600 — • Conf <span class="conf">6.91</span></div>
-            <div class="reason">MIDWEST (3) brings one of the stronger handicap ratings in the field (98), recent form-line 613193220x suggests it’s holding its level, maps to land a soft run from barrier 4, carries 58.5kg, with Anthony &amp; Sam Freedman training and Harry Coffey booked, and should get its chance on a Good surface; on the available figures it profiles as the most reliable winning chance in this race.</div>
-          </td>
-          <td class="stake">2u Win</td>
-        </tr>
-        <tr>
-          <td class="raceNo">R8</td>
-          <td>
-            <div class="horse">SALTY PEARL</div>
-            <div class="small">#6 • Barrier 3 • Wt 56.5 • Speed 86 • L600 — • Conf <span class="conf">7.32</span></div>
-            <div class="reason">SALTY PEARL (6) brings one of the stronger handicap ratings in the field (86), recent form-line x231x3341x suggests it’s holding its level, maps to land a soft run from barrier 3, carries 56.5kg, with Ciaron Maher training and Ben Allen booked, and should get its chance on a Good surface; on the available figures it profiles as the most reliable winning chance in this race.</div>
-          </td>
-          <td class="stake">3u Win</td>
-        </tr>
-        <tr>
-          <td class="raceNo">R9</td>
-          <td>
-            <div class="horse">REGAL ZEUS</div>
-            <div class="small">#3 • Barrier 1 • Wt 58.5 • Speed 104 • L600 — • Conf <span class="conf">7.22</span></div>
-            <div class="reason">REGAL ZEUS (3) brings one of the stronger handicap ratings in the field (104), recent form-line 5428x50101 suggests it’s holding its level, maps to land a soft run from barrier 1, carries 58.5kg, with John McArdle training and Jamie Mott booked, and should get its chance on a Good surface; on the available figures it profiles as the most reliable winning chance in this race.</div>
-          </td>
-          <td class="stake">3u Win</td>
-        </tr>
-        <tr>
-          <td class="raceNo">R10</td>
-          <td>
-            <div class="horse">BLACK STORM</div>
-            <div class="small">#1 • Barrier 5 • Wt 61.5 • Speed 81 • L600 — • Conf <span class="conf">7.1</span></div>
-            <div class="reason">BLACK STORM (1) stays in the final field and holds a leading handicap rating (Hcp Rating 81), draws barrier 5 to land a midfield run with cover, and carries 61.5kg; with the previous selection scratched, it becomes the top remaining on raw rating strength and map.</div>
-          </td>
-          <td class="stake">3u Win</td>
-        </tr>
-        </tbody>
-      </table>
-    </div>
-    
-    <div class="card">
-      
-    <div class="trackHeader">
-      <div>
-        <h3>SUNSHINE_COAST</h3>
-        <div class="meta">Best Bet and Value Bet are different runners.</div>
-      </div>
-      <div style="display:flex;gap:14px;align-items:flex-start">
-        <div class="meta"><span class="badge">BEST BET</span><br/>
-      <span class="raceNo">R6</span> <span class="horse">CARBONARA</span><br/>
-      <span class="small">Conf <span class="conf">7.77</span> • <span class="stake">3u Win</span></span>
-    </div>
-        <div class="meta"><span class="badge">VALUE BET</span><br/>
-      <span class="raceNo">R1</span> <span class="horse">CAUSE SHE CAN</span><br/>
-      <span class="small">Conf <span class="conf">7.41</span> • <span class="stake">3u Win</span></span>
-    </div>
-      </div>
-    </div>
-      <table>
-        <thead>
-          <tr>
-            <th style="width:70px">Race</th>
-            <th>Selection</th>
-            <th style="width:150px">Bet Suggestion</th>
-          </tr>
-        </thead>
-        <tbody>
-          
-        <tr>
-          <td class="raceNo">R1</td>
-          <td>
-            <div class="horse">CAUSE SHE CAN</div>
-            <div class="small">#6 • Barrier 1 • Wt 57.0 • Speed — • L600 — • Conf <span class="conf">7.41</span></div>
-            <div class="reason">CAUSE SHE CAN (6) recent form-line 1 suggests it’s holding its level, maps to land a soft run from barrier 1, carries 57kg, with Kevin Kemp training and Ms Olivia Webb (a3/51kg) booked, and should get its chance on a Soft surface; on the available figures it profiles as the most reliable winning chance in this race.</div>
-          </td>
-          <td class="stake">3u Win</td>
-        </tr>
-        <tr>
-          <td class="raceNo">R2</td>
-          <td>
-            <div class="horse">ARCHER’S GAME</div>
-            <div class="small">#1 • Barrier 2 • Wt 60.0 • Speed 77 • L600 — • Conf <span class="conf">6.88</span></div>
-            <div class="reason">ARCHER’S GAME (1) brings one of the stronger handicap ratings in the field (77), recent form-line 13516x9643 suggests it’s holding its level, maps to land a soft run from barrier 2, carries 60kg, with Mark Currie training and Jai Williams (a3/55kg) booked, and should get its chance on a Soft surface; on the available figures it profiles as the most reliable winning chance in this race.</div>
-          </td>
-          <td class="stake">2u Win</td>
-        </tr>
-        <tr>
-          <td class="raceNo">R3</td>
-          <td>
-            <div class="horse">DIAMOND EPIC</div>
-            <div class="small">#5 • Barrier 3 • Wt 59.5 • Speed 73 • L600 — • Conf <span class="conf">7.19</span></div>
-            <div class="reason">DIAMOND EPIC (5) brings one of the stronger handicap ratings in the field (73), recent form-line 212x523215 suggests it’s holding its level, maps to land a soft run from barrier 3, carries 59.5kg, with Renita Beaton training and Jai Williams (a3/55kg) booked, and should get its chance on a Soft surface; on the available figures it profiles as the most reliable winning chance in this race.</div>
-          </td>
-          <td class="stake">3u Win</td>
-        </tr>
-        <tr>
-          <td class="raceNo">R4</td>
-          <td>
-            <div class="horse">STREAK OF WINNING</div>
-            <div class="small">#6 • Barrier 2 • Wt 60.5 • Speed 71 • L600 — • Conf <span class="conf">6.8</span></div>
-            <div class="reason">STREAK OF WINNING (6) brings one of the stronger handicap ratings in the field (71.5), recent form-line 3x548152x1 suggests it’s holding its level, maps to land a soft run from barrier 2, carries 60.5kg, with Mark Currie training and Cody Collis booked, and should get its chance on a Soft surface; on the available figures it profiles as the most reliable winning chance in this race.</div>
-          </td>
-          <td class="stake">2u Win</td>
-        </tr>
-        <tr>
-          <td class="raceNo">R5</td>
-          <td>
-            <div class="horse">NAILS MURPHY (IRE)</div>
-            <div class="small">#7 • Barrier 7 • Wt 56.5 • Speed 78 • L600 — • Conf <span class="conf">6.18</span></div>
-            <div class="reason">NAILS MURPHY (IRE) (7) brings one of the stronger handicap ratings in the field (78), recent form-line 90x8262321 suggests it’s holding its level, maps to land a soft run from barrier 7, carries 56.5kg, with Ciaron Maher training and Jai Williams (a3/55kg) booked, and should get its chance on a Soft surface; on the available figures it profiles as the most reliable winning chance in this race.</div>
-          </td>
-          <td class="stake">2u Win</td>
-        </tr>
-        <tr>
-          <td class="raceNo">R6</td>
-          <td>
-            <div class="horse">CARBONARA</div>
-            <div class="small">#5 • Barrier 1 • Wt 56.5 • Speed 66 • L600 — • Conf <span class="conf">7.77</span></div>
-            <div class="reason">CARBONARA (5) brings one of the stronger handicap ratings in the field (66), recent form-line 0x52822211 suggests it’s holding its level, maps to land a soft run from barrier 1, carries 56.5kg, with Robert Heathcote training and Vlad Duric booked, and should get its chance on a Soft surface; on the available figures it profiles as the most reliable winning chance in this race.</div>
-          </td>
-          <td class="stake">3u Win</td>
-        </tr>
-        <tr>
-          <td class="raceNo">R7</td>
-          <td>
-            <div class="horse">FRENCH ENDEAVOUR</div>
-            <div class="small">#5 • Barrier 11 • Wt 58.5 • Speed 79 • L600 — • Conf <span class="conf">6.9</span></div>
-            <div class="reason">FRENCH ENDEAVOUR (5) is confirmed to run after scratchings and brings one of the higher handicap ratings in the BM78 (Hcp Rating 79) with 58.5kg; although drawn wider (barrier 11), its rating edge relative to the remaining field makes it the best replacement on objective numbers.</div>
-          </td>
-          <td class="stake">2u Win</td>
-        </tr>
-        <tr>
-          <td class="raceNo">R8</td>
-          <td>
-            <div class="horse">ROCKRIBBED</div>
-            <div class="small">#1 • Barrier 8 • Wt 60.5 • Speed 105 • L600 — • Conf <span class="conf">7.02</span></div>
-            <div class="reason">ROCKRIBBED (1) brings one of the stronger handicap ratings in the field (105), recent form-line 61100x9114 suggests it’s holding its level, maps to land a soft run from barrier 8, carries 60.5kg, with Tony Gollan training and Ryan Maloney booked, and should get its chance on a Soft surface; on the available figures it profiles as the most reliable winning chance in this race.</div>
-          </td>
-          <td class="stake">3u Win</td>
-        </tr>
-        <tr>
-          <td class="raceNo">R9</td>
-          <td>
-            <div class="horse">ZOUPERB</div>
-            <div class="small">#12 • Barrier 6 • Wt 57.0 • Speed 88 • L600 — • Conf <span class="conf">6.42</span></div>
-            <div class="reason">ZOUPERB (12) brings one of the stronger handicap ratings in the field (88), recent form-line 21323x2034 suggests it’s holding its level, maps to land a soft run from barrier 6, carries 57kg, with Adam Campton training and Martin Harley booked, and should get its chance on a Soft surface; on the available figures it profiles as the most reliable winning chance in this race.</div>
-          </td>
-          <td class="stake">2u Win</td>
-        </tr>
-        <tr>
-          <td class="raceNo">R10</td>
-          <td>
-            <div class="horse">POWER OF THE BRAVE</div>
-            <div class="small">#3 • Barrier 6 • Wt 60.5 • Speed 79.5 • L600 — • Conf <span class="conf">7.0</span></div>
-            <div class="reason">POWER OF THE BRAVE (3) is still in the final field and arrives off a last‑start win (last‑10 ends in 1), carries a competitive handicap rating (79.5) with 60.5kg, and draws barrier 6 for a clean run; with the scratched topweights removed, it profiles as the strongest remaining on form‑line + rating.</div>
-          </td>
-          <td class="stake">3u Win</td>
-        </tr>
-        </tbody>
-      </table>
-    </div>
-    
-  </div>
+      <div class="pills"><span class="pill"><span class="pill-label">Barrier</span><span class="pill-value">4</span></span><span class="pill"><span class="pill-label">Weight</span><span class="pill-value">55.5kg</span></span><span class="pill"><span class="pill-label">Speed</span><span class="pill-value">109</span></span><span class="pill"><span class="pill-label">Last 600</span><span class="pill-value">—</span></span><span class="pill"><span class="pill-label">Confidence</span><span class="pill-value">10 / 10</span></span></div>
+      <div class="reason">Clear top Hcp Rating (109) with a workable draw (4).</div>
+    </article>
 </div>
-  <div class="footer">
-    Note: Some fields (e.g., last-600m sectionals) may be unavailable in free official feeds for certain races; these are shown as “—” when not published.
-  </div>
+<div class="feature">
+    <article class="card">
+      <div class="card-top">
+        <div class="race-chip">R7</div>
+        <div class="horse">TOM KITTEN</div>
+        <div class="card-right"><span class="tag tag-best">Caulfield • Best Bet</span></div>
+      </div>
+      <div class="pills"><span class="pill"><span class="pill-label">Barrier</span><span class="pill-value">8</span></span><span class="pill"><span class="pill-label">Weight</span><span class="pill-value">59kg</span></span><span class="pill"><span class="pill-label">Speed</span><span class="pill-value">114</span></span><span class="pill"><span class="pill-label">Last 600</span><span class="pill-value">—</span></span><span class="pill"><span class="pill-label">Confidence</span><span class="pill-value">9 / 10</span></span></div>
+      <div class="reason">Highest Hcp Rating shown (114) in the meeting extract for Caulfield.</div>
+    </article>
 </div>
-</body>
-</html>
+<div class="feature">
+    <article class="card">
+      <div class="card-top">
+        <div class="race-chip">R8</div>
+        <div class="horse">TALTARNI FIELDS</div>
+        <div class="card-right"><span class="tag tag-best">Doomben • Best Bet</span></div>
+      </div>
+      <div class="pills"><span class="pill"><span class="pill-label">Barrier</span><span class="pill-value">1</span></span><span class="pill"><span class="pill-label">Weight</span><span class="pill-value">61.5kg</span></span><span class="pill"><span class="pill-label">Speed</span><span class="pill-value">86</span></span><span class="pill"><span class="pill-label">Last 600</span><span class="pill-value">—</span></span><span class="pill"><span class="pill-label">Confidence</span><span class="pill-value">9 / 10</span></span></div>
+      <div class="reason">86 rating with barrier 1.</div>
+    </article>
+</div>
+  </div>
+</section>
+
+<section class="section" id="value-bets">
+  <div class="section-head">
+    <div>
+      <div class="h2">Value Bets</div>
+      <p class="p">Best data-to-confidence ratio across the three meetings.</p>
+    </div>
+    <div class="p">Saturday 7 February 2026</div>
+  </div>
+  <div class="grid">
+    <div class="feature">
+    <article class="card">
+      <div class="card-top">
+        <div class="race-chip">R9</div>
+        <div class="horse">TRAVOLTA</div>
+        <div class="card-right"><span class="tag tag-value">Randwick • Value Bet</span></div>
+      </div>
+      <div class="pills"><span class="pill"><span class="pill-label">Barrier</span><span class="pill-value">1</span></span><span class="pill"><span class="pill-label">Weight</span><span class="pill-value">59kg</span></span><span class="pill"><span class="pill-label">Speed</span><span class="pill-value">101</span></span><span class="pill"><span class="pill-label">Last 600</span><span class="pill-value">—</span></span><span class="pill"><span class="pill-label">Confidence</span><span class="pill-value">9 / 10</span></span></div>
+      <div class="reason">High rating (101) plus barrier 1 at 59kg.</div>
+    </article>
+</div>
+<div class="feature">
+    <article class="card">
+      <div class="card-top">
+        <div class="race-chip">R6</div>
+        <div class="horse">HEDGED</div>
+        <div class="card-right"><span class="tag tag-value">Caulfield • Value Bet</span></div>
+      </div>
+      <div class="pills"><span class="pill"><span class="pill-label">Barrier</span><span class="pill-value">1</span></span><span class="pill"><span class="pill-label">Weight</span><span class="pill-value">59kg</span></span><span class="pill"><span class="pill-label">Speed</span><span class="pill-value">105</span></span><span class="pill"><span class="pill-label">Last 600</span><span class="pill-value">—</span></span><span class="pill"><span class="pill-label">Confidence</span><span class="pill-value">9 / 10</span></span></div>
+      <div class="reason">105 rating with barrier 1 at 59kg.</div>
+    </article>
+</div>
+<div class="feature">
+    <article class="card">
+      <div class="card-top">
+        <div class="race-chip">R2</div>
+        <div class="horse">MR BUBBALUSKI</div>
+        <div class="card-right"><span class="tag tag-value">Doomben • Value Bet</span></div>
+      </div>
+      <div class="pills"><span class="pill"><span class="pill-label">Barrier</span><span class="pill-value">6</span></span><span class="pill"><span class="pill-label">Weight</span><span class="pill-value">60.5kg</span></span><span class="pill"><span class="pill-label">Speed</span><span class="pill-value">67</span></span><span class="pill"><span class="pill-label">Last 600</span><span class="pill-value">—</span></span><span class="pill"><span class="pill-label">Confidence</span><span class="pill-value">8 / 10</span></span></div>
+      <div class="reason">Top rating (67) in-race with manageable draw/weight.</div>
+    </article>
+</div>
+  </div>
+</section>
+
+<section class="track-block" id="randwick">
+  <div class="track-head">
+    <div>
+      <div class="track-name">Randwick</div>
+      <div class="track-sub">Good 4 • Saturday 7 February 2026</div>
+    </div>
+    <div class="track-nav">
+      <a href="#randwick-best">Best</a>
+      <a href="#randwick-value">Value</a>
+      <a href="#randwick-full">Full Card</a>
+    </div>
+  </div>
+
+  <div class="track-body">
+    <div class="small-head" id="randwick-best">Best Bet</div>
+    <article class="card">
+  <div class="card-top">
+    <div class="race-chip">R8</div>
+    <div class="horse">TEMPTED</div>
+    <div class="card-right"><span class="tag tag tag-best">BEST BET</span></div>
+  </div>
+  <div class="pills"><span class="pill"><span class="pill-label">Barrier</span><span class="pill-value">4</span></span><span class="pill"><span class="pill-label">Weight</span><span class="pill-value">55.5kg</span></span><span class="pill"><span class="pill-label">Speed</span><span class="pill-value">109</span></span><span class="pill"><span class="pill-label">Last 600</span><span class="pill-value">—</span></span><span class="pill"><span class="pill-label">Confidence</span><span class="pill-value">10 / 10</span></span></div>
+  <div class="reason">Clear top Hcp Rating (109) with a workable draw (4).</div>
+</article>
+    <div class="small-head" id="randwick-value">Value Bet</div>
+    <article class="card">
+  <div class="card-top">
+    <div class="race-chip">R9</div>
+    <div class="horse">TRAVOLTA</div>
+    <div class="card-right"><span class="tag tag tag-value">VALUE BET</span></div>
+  </div>
+  <div class="pills"><span class="pill"><span class="pill-label">Barrier</span><span class="pill-value">1</span></span><span class="pill"><span class="pill-label">Weight</span><span class="pill-value">59kg</span></span><span class="pill"><span class="pill-label">Speed</span><span class="pill-value">101</span></span><span class="pill"><span class="pill-label">Last 600</span><span class="pill-value">—</span></span><span class="pill"><span class="pill-label">Confidence</span><span class="pill-value">9 / 10</span></span></div>
+  <div class="reason">High rating (101) plus barrier 1 at 59kg.</div>
+</article>
+    <div class="small-head" id="randwick-full">Full Card</div>
+    <div class="race-list">
+      <article class="card race-card">
+  <div class="card-top">
+    <div class="race-chip">R1</div>
+    <div class="horse">IMPUNITY</div>
+    <div class="card-right"><span class="tag tag-pick">SELECTION</span></div>
+  </div>
+  <div class="pills"><span class="pill"><span class="pill-label">Barrier</span><span class="pill-value">4</span></span><span class="pill"><span class="pill-label">Weight</span><span class="pill-value">59.5kg</span></span><span class="pill"><span class="pill-label">Speed</span><span class="pill-value">68</span></span><span class="pill"><span class="pill-label">Last 600</span><span class="pill-value">—</span></span><span class="pill"><span class="pill-label">Confidence</span><span class="pill-value">7 / 10</span></span></div>
+  <div class="reason">Benchmark race: Hcp Rating 68 with a low draw (4) and standard handicap weight 59.5kg in final fields.</div>
+</article>
+<article class="card race-card">
+  <div class="card-top">
+    <div class="race-chip">R2</div>
+    <div class="horse">FINGERS HUNTER</div>
+    <div class="card-right"><span class="tag tag-pick">SELECTION</span></div>
+  </div>
+  <div class="pills"><span class="pill"><span class="pill-label">Barrier</span><span class="pill-value">8</span></span><span class="pill"><span class="pill-label">Weight</span><span class="pill-value">59.5kg</span></span><span class="pill"><span class="pill-label">Speed</span><span class="pill-value">74</span></span><span class="pill"><span class="pill-label">Last 600</span><span class="pill-value">—</span></span><span class="pill"><span class="pill-label">Confidence</span><span class="pill-value">8 / 10</span></span></div>
+  <div class="reason">Top-end Hcp Rating 74 in race; barrier 8; set to carry 59.5kg per final fields.</div>
+</article>
+<article class="card race-card">
+  <div class="card-top">
+    <div class="race-chip">R3</div>
+    <div class="horse">CAMPIONE D’ITALIA</div>
+    <div class="card-right"><span class="tag tag-pick">SELECTION</span></div>
+  </div>
+  <div class="pills"><span class="pill"><span class="pill-label">Barrier</span><span class="pill-value">8</span></span><span class="pill"><span class="pill-label">Weight</span><span class="pill-value">58kg</span></span><span class="pill"><span class="pill-label">Speed</span><span class="pill-value">—</span></span><span class="pill"><span class="pill-label">Last 600</span><span class="pill-value">—</span></span><span class="pill"><span class="pill-label">Confidence</span><span class="pill-value">6 / 10</span></span></div>
+  <div class="reason">Set-weights feature: barrier 8 and set weight 58kg confirmed in final fields (ratings not displayed in acceptances extract).</div>
+</article>
+<article class="card race-card">
+  <div class="card-top">
+    <div class="race-chip">R4</div>
+    <div class="horse">NKOSI</div>
+    <div class="card-right"><span class="tag tag-pick">SELECTION</span></div>
+  </div>
+  <div class="pills"><span class="pill"><span class="pill-label">Barrier</span><span class="pill-value">2</span></span><span class="pill"><span class="pill-label">Weight</span><span class="pill-value">60kg</span></span><span class="pill"><span class="pill-label">Speed</span><span class="pill-value">78</span></span><span class="pill"><span class="pill-label">Last 600</span><span class="pill-value">—</span></span><span class="pill"><span class="pill-label">Confidence</span><span class="pill-value">8 / 10</span></span></div>
+  <div class="reason">Highest/near-top Hcp Rating shown (78) with favourable barrier 2; 60kg per final fields.</div>
+</article>
+<article class="card race-card">
+  <div class="card-top">
+    <div class="race-chip">R5</div>
+    <div class="horse">BUNDEENA</div>
+    <div class="card-right"><span class="tag tag-pick">SELECTION</span></div>
+  </div>
+  <div class="pills"><span class="pill"><span class="pill-label">Barrier</span><span class="pill-value">7</span></span><span class="pill"><span class="pill-label">Weight</span><span class="pill-value">60kg</span></span><span class="pill"><span class="pill-label">Speed</span><span class="pill-value">78</span></span><span class="pill"><span class="pill-label">Last 600</span><span class="pill-value">34.73s</span></span><span class="pill"><span class="pill-label">Confidence</span><span class="pill-value">8 / 10</span></span></div>
+  <div class="reason">High Hcp Rating (78) in the race; 60kg; last run line shows (600m 34.73) on form page.</div>
+</article>
+<article class="card race-card">
+  <div class="card-top">
+    <div class="race-chip">R6</div>
+    <div class="horse">CANDLEWICK</div>
+    <div class="card-right"><span class="tag tag-pick">SELECTION</span></div>
+  </div>
+  <div class="pills"><span class="pill"><span class="pill-label">Barrier</span><span class="pill-value">2</span></span><span class="pill"><span class="pill-label">Weight</span><span class="pill-value">59kg</span></span><span class="pill"><span class="pill-label">Speed</span><span class="pill-value">76</span></span><span class="pill"><span class="pill-label">Last 600</span><span class="pill-value">—</span></span><span class="pill"><span class="pill-label">Confidence</span><span class="pill-value">8 / 10</span></span></div>
+  <div class="reason">Competitive Hcp Rating (76) plus advantageous barrier 2; 59kg per final fields.</div>
+</article>
+<article class="card race-card">
+  <div class="card-top">
+    <div class="race-chip">R7</div>
+    <div class="horse">FIREBALL</div>
+    <div class="card-right"><span class="tag tag-pick">SELECTION</span></div>
+  </div>
+  <div class="pills"><span class="pill"><span class="pill-label">Barrier</span><span class="pill-value">3</span></span><span class="pill"><span class="pill-label">Weight</span><span class="pill-value">56.5kg</span></span><span class="pill"><span class="pill-label">Speed</span><span class="pill-value">—</span></span><span class="pill"><span class="pill-label">Last 600</span><span class="pill-value">—</span></span><span class="pill"><span class="pill-label">Confidence</span><span class="pill-value">7 / 10</span></span></div>
+  <div class="reason">Set-weights juvenile: barrier 3 and 56.5kg confirmed in final fields (ratings not displayed in acceptances extract).</div>
+</article>
+<article class="card race-card">
+  <div class="card-top">
+    <div class="race-chip">R8</div>
+    <div class="horse">TEMPTED</div>
+    <div class="card-right"><span class="tag tag-pick">SELECTION</span></div>
+  </div>
+  <div class="pills"><span class="pill"><span class="pill-label">Barrier</span><span class="pill-value">4</span></span><span class="pill"><span class="pill-label">Weight</span><span class="pill-value">55.5kg</span></span><span class="pill"><span class="pill-label">Speed</span><span class="pill-value">109</span></span><span class="pill"><span class="pill-label">Last 600</span><span class="pill-value">—</span></span><span class="pill"><span class="pill-label">Confidence</span><span class="pill-value">10 / 10</span></span></div>
+  <div class="reason">Standout Hcp Rating (109) in the Eskimo Prince; barrier 4; weight 55.5kg per final fields.</div>
+</article>
+<article class="card race-card">
+  <div class="card-top">
+    <div class="race-chip">R9</div>
+    <div class="horse">TRAVOLTA</div>
+    <div class="card-right"><span class="tag tag-pick">SELECTION</span></div>
+  </div>
+  <div class="pills"><span class="pill"><span class="pill-label">Barrier</span><span class="pill-value">1</span></span><span class="pill"><span class="pill-label">Weight</span><span class="pill-value">59kg</span></span><span class="pill"><span class="pill-label">Speed</span><span class="pill-value">101</span></span><span class="pill"><span class="pill-label">Last 600</span><span class="pill-value">—</span></span><span class="pill"><span class="pill-label">Confidence</span><span class="pill-value">9 / 10</span></span></div>
+  <div class="reason">High Hcp Rating (101) and the inside gate (barrier 1); 59kg per final fields.</div>
+</article>
+<article class="card race-card">
+  <div class="card-top">
+    <div class="race-chip">R10</div>
+    <div class="horse">THE BLACK CLOUD</div>
+    <div class="card-right"><span class="tag tag-pick">SELECTION</span></div>
+  </div>
+  <div class="pills"><span class="pill"><span class="pill-label">Barrier</span><span class="pill-value">7</span></span><span class="pill"><span class="pill-label">Weight</span><span class="pill-value">60kg</span></span><span class="pill"><span class="pill-label">Speed</span><span class="pill-value">98</span></span><span class="pill"><span class="pill-label">Last 600</span><span class="pill-value">33.25s</span></span><span class="pill"><span class="pill-label">Confidence</span><span class="pill-value">8 / 10</span></span></div>
+  <div class="reason">Strong Hcp Rating (98); barrier 7; 60kg per final fields; form page shows a prior run with (600m 33.25).</div>
+</article>
+    </div>
+  </div>
+</section>
+
+<section class="track-block" id="caulfield">
+  <div class="track-head">
+    <div>
+      <div class="track-name">Caulfield</div>
+      <div class="track-sub">Good 4 • Saturday 7 February 2026</div>
+    </div>
+    <div class="track-nav">
+      <a href="#caulfield-best">Best</a>
+      <a href="#caulfield-value">Value</a>
+      <a href="#caulfield-full">Full Card</a>
+    </div>
+  </div>
+
+  <div class="track-body">
+    <div class="small-head" id="caulfield-best">Best Bet</div>
+    <article class="card">
+  <div class="card-top">
+    <div class="race-chip">R7</div>
+    <div class="horse">TOM KITTEN</div>
+    <div class="card-right"><span class="tag tag tag-best">BEST BET</span></div>
+  </div>
+  <div class="pills"><span class="pill"><span class="pill-label">Barrier</span><span class="pill-value">8</span></span><span class="pill"><span class="pill-label">Weight</span><span class="pill-value">59kg</span></span><span class="pill"><span class="pill-label">Speed</span><span class="pill-value">114</span></span><span class="pill"><span class="pill-label">Last 600</span><span class="pill-value">—</span></span><span class="pill"><span class="pill-label">Confidence</span><span class="pill-value">9 / 10</span></span></div>
+  <div class="reason">Highest Hcp Rating shown (114) in the meeting extract for Caulfield.</div>
+</article>
+    <div class="small-head" id="caulfield-value">Value Bet</div>
+    <article class="card">
+  <div class="card-top">
+    <div class="race-chip">R6</div>
+    <div class="horse">HEDGED</div>
+    <div class="card-right"><span class="tag tag tag-value">VALUE BET</span></div>
+  </div>
+  <div class="pills"><span class="pill"><span class="pill-label">Barrier</span><span class="pill-value">1</span></span><span class="pill"><span class="pill-label">Weight</span><span class="pill-value">59kg</span></span><span class="pill"><span class="pill-label">Speed</span><span class="pill-value">105</span></span><span class="pill"><span class="pill-label">Last 600</span><span class="pill-value">—</span></span><span class="pill"><span class="pill-label">Confidence</span><span class="pill-value">9 / 10</span></span></div>
+  <div class="reason">105 rating with barrier 1 at 59kg.</div>
+</article>
+    <div class="small-head" id="caulfield-full">Full Card</div>
+    <div class="race-list">
+      <article class="card race-card">
+  <div class="card-top">
+    <div class="race-chip">R1</div>
+    <div class="horse">I ONLY WISH</div>
+    <div class="card-right"><span class="tag tag-pick">SELECTION</span></div>
+  </div>
+  <div class="pills"><span class="pill"><span class="pill-label">Barrier</span><span class="pill-value">1</span></span><span class="pill"><span class="pill-label">Weight</span><span class="pill-value">60kg</span></span><span class="pill"><span class="pill-label">Speed</span><span class="pill-value">74</span></span><span class="pill"><span class="pill-label">Last 600</span><span class="pill-value">—</span></span><span class="pill"><span class="pill-label">Confidence</span><span class="pill-value">8 / 10</span></span></div>
+  <div class="reason">Top Hcp Rating shown (74) and barrier 1; 60kg per final fields.</div>
+</article>
+<article class="card race-card">
+  <div class="card-top">
+    <div class="race-chip">R2</div>
+    <div class="horse">BERKELEY SQUARE</div>
+    <div class="card-right"><span class="tag tag-pick">SELECTION</span></div>
+  </div>
+  <div class="pills"><span class="pill"><span class="pill-label">Barrier</span><span class="pill-value">7</span></span><span class="pill"><span class="pill-label">Weight</span><span class="pill-value">61kg</span></span><span class="pill"><span class="pill-label">Speed</span><span class="pill-value">105</span></span><span class="pill"><span class="pill-label">Last 600</span><span class="pill-value">—</span></span><span class="pill"><span class="pill-label">Confidence</span><span class="pill-value">9 / 10</span></span></div>
+  <div class="reason">Highest Hcp Rating shown (105) in the race; carries 61kg from barrier 7 per final fields.</div>
+</article>
+<article class="card race-card">
+  <div class="card-top">
+    <div class="race-chip">R3</div>
+    <div class="horse">EUROCANTO</div>
+    <div class="card-right"><span class="tag tag-pick">SELECTION</span></div>
+  </div>
+  <div class="pills"><span class="pill"><span class="pill-label">Barrier</span><span class="pill-value">2</span></span><span class="pill"><span class="pill-label">Weight</span><span class="pill-value">57kg</span></span><span class="pill"><span class="pill-label">Speed</span><span class="pill-value">72</span></span><span class="pill"><span class="pill-label">Last 600</span><span class="pill-value">—</span></span><span class="pill"><span class="pill-label">Confidence</span><span class="pill-value">7 / 10</span></span></div>
+  <div class="reason">2YO SW: joint-top rating shown (72) and barrier 2 at set 57kg.</div>
+</article>
+<article class="card race-card">
+  <div class="card-top">
+    <div class="race-chip">R4</div>
+    <div class="horse">RUBI’S CHOICE</div>
+    <div class="card-right"><span class="tag tag-pick">SELECTION</span></div>
+  </div>
+  <div class="pills"><span class="pill"><span class="pill-label">Barrier</span><span class="pill-value">12</span></span><span class="pill"><span class="pill-label">Weight</span><span class="pill-value">56kg</span></span><span class="pill"><span class="pill-label">Speed</span><span class="pill-value">72</span></span><span class="pill"><span class="pill-label">Last 600</span><span class="pill-value">—</span></span><span class="pill"><span class="pill-label">Confidence</span><span class="pill-value">7 / 10</span></span></div>
+  <div class="reason">Top rating line shown (72); set 56kg; wide barrier 12 noted in final fields.</div>
+</article>
+<article class="card race-card">
+  <div class="card-top">
+    <div class="race-chip">R5</div>
+    <div class="horse">OBSERVER</div>
+    <div class="card-right"><span class="tag tag-pick">SELECTION</span></div>
+  </div>
+  <div class="pills"><span class="pill"><span class="pill-label">Barrier</span><span class="pill-value">7</span></span><span class="pill"><span class="pill-label">Weight</span><span class="pill-value">59.5kg</span></span><span class="pill"><span class="pill-label">Speed</span><span class="pill-value">107</span></span><span class="pill"><span class="pill-label">Last 600</span><span class="pill-value">—</span></span><span class="pill"><span class="pill-label">Confidence</span><span class="pill-value">9 / 10</span></span></div>
+  <div class="reason">Highest Hcp Rating shown (107) in Autumn Stakes field; 59.5kg barrier 7.</div>
+</article>
+<article class="card race-card">
+  <div class="card-top">
+    <div class="race-chip">R6</div>
+    <div class="horse">HEDGED</div>
+    <div class="card-right"><span class="tag tag-pick">SELECTION</span></div>
+  </div>
+  <div class="pills"><span class="pill"><span class="pill-label">Barrier</span><span class="pill-value">1</span></span><span class="pill"><span class="pill-label">Weight</span><span class="pill-value">59kg</span></span><span class="pill"><span class="pill-label">Speed</span><span class="pill-value">105</span></span><span class="pill"><span class="pill-label">Last 600</span><span class="pill-value">—</span></span><span class="pill"><span class="pill-label">Confidence</span><span class="pill-value">9 / 10</span></span></div>
+  <div class="reason">Top rating line shown (105) plus barrier 1; 59kg.</div>
+</article>
+<article class="card race-card">
+  <div class="card-top">
+    <div class="race-chip">R7</div>
+    <div class="horse">TOM KITTEN</div>
+    <div class="card-right"><span class="tag tag-pick">SELECTION</span></div>
+  </div>
+  <div class="pills"><span class="pill"><span class="pill-label">Barrier</span><span class="pill-value">8</span></span><span class="pill"><span class="pill-label">Weight</span><span class="pill-value">59kg</span></span><span class="pill"><span class="pill-label">Speed</span><span class="pill-value">114</span></span><span class="pill"><span class="pill-label">Last 600</span><span class="pill-value">—</span></span><span class="pill"><span class="pill-label">Confidence</span><span class="pill-value">9 / 10</span></span></div>
+  <div class="reason">Highest Hcp Rating shown (114) in the Kevin Heffernan; WFA 59kg.</div>
+</article>
+<article class="card race-card">
+  <div class="card-top">
+    <div class="race-chip">R8</div>
+    <div class="horse">ALPHA SOFIE</div>
+    <div class="card-right"><span class="tag tag-pick">SELECTION</span></div>
+  </div>
+  <div class="pills"><span class="pill"><span class="pill-label">Barrier</span><span class="pill-value">4</span></span><span class="pill"><span class="pill-label">Weight</span><span class="pill-value">57.5kg</span></span><span class="pill"><span class="pill-label">Speed</span><span class="pill-value">78</span></span><span class="pill"><span class="pill-label">Last 600</span><span class="pill-value">—</span></span><span class="pill"><span class="pill-label">Confidence</span><span class="pill-value">8 / 10</span></span></div>
+  <div class="reason">Top Hcp Rating shown (78) among listed runners; barrier 4; 57.5kg.</div>
+</article>
+<article class="card race-card">
+  <div class="card-top">
+    <div class="race-chip">R9</div>
+    <div class="horse">LIGHT INFANTRY MAN (FR)</div>
+    <div class="card-right"><span class="tag tag-pick">SELECTION</span></div>
+  </div>
+  <div class="pills"><span class="pill"><span class="pill-label">Barrier</span><span class="pill-value">10</span></span><span class="pill"><span class="pill-label">Weight</span><span class="pill-value">60kg</span></span><span class="pill"><span class="pill-label">Speed</span><span class="pill-value">111</span></span><span class="pill"><span class="pill-label">Last 600</span><span class="pill-value">—</span></span><span class="pill"><span class="pill-label">Confidence</span><span class="pill-value">9 / 10</span></span></div>
+  <div class="reason">Highest Hcp Rating shown (111) in the Foundation Cup; 60kg; barrier 10.</div>
+</article>
+<article class="card race-card">
+  <div class="card-top">
+    <div class="race-chip">R10</div>
+    <div class="horse">VERDAD</div>
+    <div class="card-right"><span class="tag tag-pick">SELECTION</span></div>
+  </div>
+  <div class="pills"><span class="pill"><span class="pill-label">Barrier</span><span class="pill-value">11</span></span><span class="pill"><span class="pill-label">Weight</span><span class="pill-value">63kg</span></span><span class="pill"><span class="pill-label">Speed</span><span class="pill-value">90</span></span><span class="pill"><span class="pill-label">Last 600</span><span class="pill-value">—</span></span><span class="pill"><span class="pill-label">Confidence</span><span class="pill-value">8 / 10</span></span></div>
+  <div class="reason">Top Hcp Rating shown (90) in listed runners; 63kg; barrier 11 (claiming rider noted in fields).</div>
+</article>
+    </div>
+  </div>
+</section>
+
+<section class="track-block" id="doomben">
+  <div class="track-head">
+    <div>
+      <div class="track-name">Doomben</div>
+      <div class="track-sub">As per final fields (Doomben meeting extract) • Saturday 7 February 2026</div>
+    </div>
+    <div class="track-nav">
+      <a href="#doomben-best">Best</a>
+      <a href="#doomben-value">Value</a>
+      <a href="#doomben-full">Full Card</a>
+    </div>
+  </div>
+
+  <div class="track-body">
+    <div class="small-head" id="doomben-best">Best Bet</div>
+    <article class="card">
+  <div class="card-top">
+    <div class="race-chip">R8</div>
+    <div class="horse">TALTARNI FIELDS</div>
+    <div class="card-right"><span class="tag tag tag-best">BEST BET</span></div>
+  </div>
+  <div class="pills"><span class="pill"><span class="pill-label">Barrier</span><span class="pill-value">1</span></span><span class="pill"><span class="pill-label">Weight</span><span class="pill-value">61.5kg</span></span><span class="pill"><span class="pill-label">Speed</span><span class="pill-value">86</span></span><span class="pill"><span class="pill-label">Last 600</span><span class="pill-value">—</span></span><span class="pill"><span class="pill-label">Confidence</span><span class="pill-value">9 / 10</span></span></div>
+  <div class="reason">86 rating with barrier 1.</div>
+</article>
+    <div class="small-head" id="doomben-value">Value Bet</div>
+    <article class="card">
+  <div class="card-top">
+    <div class="race-chip">R2</div>
+    <div class="horse">MR BUBBALUSKI</div>
+    <div class="card-right"><span class="tag tag tag-value">VALUE BET</span></div>
+  </div>
+  <div class="pills"><span class="pill"><span class="pill-label">Barrier</span><span class="pill-value">6</span></span><span class="pill"><span class="pill-label">Weight</span><span class="pill-value">60.5kg</span></span><span class="pill"><span class="pill-label">Speed</span><span class="pill-value">67</span></span><span class="pill"><span class="pill-label">Last 600</span><span class="pill-value">—</span></span><span class="pill"><span class="pill-label">Confidence</span><span class="pill-value">8 / 10</span></span></div>
+  <div class="reason">Top rating (67) in-race with manageable draw/weight.</div>
+</article>
+    <div class="small-head" id="doomben-full">Full Card</div>
+    <div class="race-list">
+      <article class="card race-card">
+  <div class="card-top">
+    <div class="race-chip">R1</div>
+    <div class="horse">ON THE CLOCK</div>
+    <div class="card-right"><span class="tag tag-pick">SELECTION</span></div>
+  </div>
+  <div class="pills"><span class="pill"><span class="pill-label">Barrier</span><span class="pill-value">3</span></span><span class="pill"><span class="pill-label">Weight</span><span class="pill-value">58.5kg</span></span><span class="pill"><span class="pill-label">Speed</span><span class="pill-value">—</span></span><span class="pill"><span class="pill-label">Last 600</span><span class="pill-value">—</span></span><span class="pill"><span class="pill-label">Confidence</span><span class="pill-value">6 / 10</span></span></div>
+  <div class="reason">2YO handicap: acceptances excerpt shows no Hcp Ratings; selected off favourable barrier 3 with 58.5kg in final fields.</div>
+</article>
+<article class="card race-card">
+  <div class="card-top">
+    <div class="race-chip">R2</div>
+    <div class="horse">MR BUBBALUSKI</div>
+    <div class="card-right"><span class="tag tag-pick">SELECTION</span></div>
+  </div>
+  <div class="pills"><span class="pill"><span class="pill-label">Barrier</span><span class="pill-value">6</span></span><span class="pill"><span class="pill-label">Weight</span><span class="pill-value">60.5kg</span></span><span class="pill"><span class="pill-label">Speed</span><span class="pill-value">67</span></span><span class="pill"><span class="pill-label">Last 600</span><span class="pill-value">—</span></span><span class="pill"><span class="pill-label">Confidence</span><span class="pill-value">8 / 10</span></span></div>
+  <div class="reason">Top Hcp Rating shown (67) in Class 1 field; 60.5kg barrier 6.</div>
+</article>
+<article class="card race-card">
+  <div class="card-top">
+    <div class="race-chip">R3</div>
+    <div class="horse">HADOUKEN</div>
+    <div class="card-right"><span class="tag tag-pick">SELECTION</span></div>
+  </div>
+  <div class="pills"><span class="pill"><span class="pill-label">Barrier</span><span class="pill-value">10</span></span><span class="pill"><span class="pill-label">Weight</span><span class="pill-value">64.5kg</span></span><span class="pill"><span class="pill-label">Speed</span><span class="pill-value">87</span></span><span class="pill"><span class="pill-label">Last 600</span><span class="pill-value">—</span></span><span class="pill"><span class="pill-label">Confidence</span><span class="pill-value">8 / 10</span></span></div>
+  <div class="reason">Highest Hcp Rating shown (87) in BM78; 64.5kg with apprentice claim noted; barrier 10.</div>
+</article>
+<article class="card race-card">
+  <div class="card-top">
+    <div class="race-chip">R4</div>
+    <div class="horse">ACAPPELLA SUN</div>
+    <div class="card-right"><span class="tag tag-pick">SELECTION</span></div>
+  </div>
+  <div class="pills"><span class="pill"><span class="pill-label">Barrier</span><span class="pill-value">6</span></span><span class="pill"><span class="pill-label">Weight</span><span class="pill-value">62kg</span></span><span class="pill"><span class="pill-label">Speed</span><span class="pill-value">74</span></span><span class="pill"><span class="pill-label">Last 600</span><span class="pill-value">—</span></span><span class="pill"><span class="pill-label">Confidence</span><span class="pill-value">8 / 10</span></span></div>
+  <div class="reason">Top Hcp Rating shown (74) in BM70 mares; 62kg barrier 6.</div>
+</article>
+<article class="card race-card">
+  <div class="card-top">
+    <div class="race-chip">R5</div>
+    <div class="horse">MOONHAVEN</div>
+    <div class="card-right"><span class="tag tag-pick">SELECTION</span></div>
+  </div>
+  <div class="pills"><span class="pill"><span class="pill-label">Barrier</span><span class="pill-value">9</span></span><span class="pill"><span class="pill-label">Weight</span><span class="pill-value">60kg</span></span><span class="pill"><span class="pill-label">Speed</span><span class="pill-value">71</span></span><span class="pill"><span class="pill-label">Last 600</span><span class="pill-value">—</span></span><span class="pill"><span class="pill-label">Confidence</span><span class="pill-value">7 / 10</span></span></div>
+  <div class="reason">Highest Hcp Rating shown (71) in the Class 3 plate excerpt; 60kg barrier 9.</div>
+</article>
+<article class="card race-card">
+  <div class="card-top">
+    <div class="race-chip">R6</div>
+    <div class="horse">EARL OF BANTRY</div>
+    <div class="card-right"><span class="tag tag-pick">SELECTION</span></div>
+  </div>
+  <div class="pills"><span class="pill"><span class="pill-label">Barrier</span><span class="pill-value">7</span></span><span class="pill"><span class="pill-label">Weight</span><span class="pill-value">62.5kg</span></span><span class="pill"><span class="pill-label">Speed</span><span class="pill-value">75</span></span><span class="pill"><span class="pill-label">Last 600</span><span class="pill-value">—</span></span><span class="pill"><span class="pill-label">Confidence</span><span class="pill-value">8 / 10</span></span></div>
+  <div class="reason">Top Hcp Rating shown (75) in BM70; 62.5kg barrier 7.</div>
+</article>
+<article class="card race-card">
+  <div class="card-top">
+    <div class="race-chip">R7</div>
+    <div class="horse">FABULANTES</div>
+    <div class="card-right"><span class="tag tag-pick">SELECTION</span></div>
+  </div>
+  <div class="pills"><span class="pill"><span class="pill-label">Barrier</span><span class="pill-value">5</span></span><span class="pill"><span class="pill-label">Weight</span><span class="pill-value">60kg</span></span><span class="pill"><span class="pill-label">Speed</span><span class="pill-value">69</span></span><span class="pill"><span class="pill-label">Last 600</span><span class="pill-value">—</span></span><span class="pill"><span class="pill-label">Confidence</span><span class="pill-value">7 / 10</span></span></div>
+  <div class="reason">Highest Hcp Rating shown (69) in QTIS 3YO; 60kg barrier 5.</div>
+</article>
+<article class="card race-card">
+  <div class="card-top">
+    <div class="race-chip">R8</div>
+    <div class="horse">TALTARNI FIELDS</div>
+    <div class="card-right"><span class="tag tag-pick">SELECTION</span></div>
+  </div>
+  <div class="pills"><span class="pill"><span class="pill-label">Barrier</span><span class="pill-value">1</span></span><span class="pill"><span class="pill-label">Weight</span><span class="pill-value">61.5kg</span></span><span class="pill"><span class="pill-label">Speed</span><span class="pill-value">86</span></span><span class="pill"><span class="pill-label">Last 600</span><span class="pill-value">—</span></span><span class="pill"><span class="pill-label">Confidence</span><span class="pill-value">9 / 10</span></span></div>
+  <div class="reason">Top Hcp Rating shown (86) and barrier 1 in No Metro Wins; 61.5kg.</div>
+</article>
+<article class="card race-card">
+  <div class="card-top">
+    <div class="race-chip">R9</div>
+    <div class="horse">CLOUDLAND (NZ)</div>
+    <div class="card-right"><span class="tag tag-pick">SELECTION</span></div>
+  </div>
+  <div class="pills"><span class="pill"><span class="pill-label">Barrier</span><span class="pill-value">9</span></span><span class="pill"><span class="pill-label">Weight</span><span class="pill-value">60kg</span></span><span class="pill"><span class="pill-label">Speed</span><span class="pill-value">93</span></span><span class="pill"><span class="pill-label">Last 600</span><span class="pill-value">—</span></span><span class="pill"><span class="pill-label">Confidence</span><span class="pill-value">9 / 10</span></span></div>
+  <div class="reason">Highest Hcp Rating shown (93) in Open Hcp; 60kg barrier 9.</div>
+</article>
+<article class="card race-card">
+  <div class="card-top">
+    <div class="race-chip">R10</div>
+    <div class="horse">NAILS MURPHY (IRE)</div>
+    <div class="card-right"><span class="tag tag-pick">SELECTION</span></div>
+  </div>
+  <div class="pills"><span class="pill"><span class="pill-label">Barrier</span><span class="pill-value">10</span></span><span class="pill"><span class="pill-label">Weight</span><span class="pill-value">62.5kg</span></span><span class="pill"><span class="pill-label">Speed</span><span class="pill-value">83</span></span><span class="pill"><span class="pill-label">Last 600</span><span class="pill-value">—</span></span><span class="pill"><span class="pill-label">Confidence</span><span class="pill-value">8 / 10</span></span></div>
+  <div class="reason">Top Hcp Rating shown (83) in BM78 excerpt; 62.5kg barrier 10.</div>
+</article>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div><strong>FORMFACTORTIPS.COM</strong></div>
+  <div>Gamble responsibly • 18+</div>
+</footer>
+</div>
+
+</body></html>
