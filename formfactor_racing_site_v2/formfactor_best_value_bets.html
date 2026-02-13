@@ -1,157 +1,76 @@
-<!doctype html>
-<html lang="en">
-<head>
-<meta charset="utf-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Best Bets + Value Bets</title>
-<style>
-:root {
-  --bg:#0b0f17; --card:#111827; --muted:#9ca3af; --text:#f9fafb;
-  --line:rgba(255,255,255,.10); --good:#34d399; --warn:#fbbf24;
+<!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/><title>FORMFACTORTIPS — Best + Value — Saturday 14 February 2026</title><style>
+:root{
+  --bg0:#05060a;--bg1:#070816;--stroke:rgba(255,255,255,.08);--stroke2:rgba(255,255,255,.14);
+  --text:#f4f6ff;--muted:rgba(244,246,255,.70);--muted2:rgba(244,246,255,.55);
+  --gold:#f5c542;--teal:#35d0c0;--shadow:0 20px 60px rgba(0,0,0,.60);--shadow2:0 10px 30px rgba(0,0,0,.55);--radius:18px;
 }
 *{box-sizing:border-box}
-body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial; background:radial-gradient(1200px 800px at 20% -10%, rgba(96,165,250,.18), transparent 60%), var(--bg); color:var(--text);}
-.wrap{max-width:1100px;margin:0 auto;padding:18px 14px 40px}
-.topbar{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:14px 14px;border:1px solid var(--line);border-radius:16px;background:rgba(17,24,39,.85);backdrop-filter: blur(10px);}
-.brand{display:flex;flex-direction:column;gap:4px}
-.brand h1{margin:0;font-size:20px;letter-spacing:.2px}
-.brand .sub{font-size:12px;color:var(--muted)}
-.pills{display:flex;flex-wrap:wrap;gap:8px;justify-content:flex-end}
-.pill{font-size:12px;color:var(--muted);border:1px solid var(--line);padding:6px 10px;border-radius:999px;background:rgba(255,255,255,.03)}
-.section{margin-top:16px}
-.section h2{margin:16px 0 10px;font-size:18px}
+body{
+  margin:0;
+  background:
+    radial-gradient(1200px 600px at 15% 10%, rgba(53,208,192,.16), transparent 60%),
+    radial-gradient(900px 500px at 85% 15%, rgba(245,197,66,.16), transparent 60%),
+    linear-gradient(180deg, var(--bg1), var(--bg0));
+  color:var(--text);
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+  letter-spacing:.2px;
+}
+a{color:inherit;text-decoration:none}
+.container{max-width:1080px;margin:0 auto;padding:24px 16px 48px}
+.hero{border:1px solid var(--stroke);background:linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
+  box-shadow:var(--shadow);border-radius:calc(var(--radius) + 6px);padding:18px;position:relative;overflow:hidden}
+.hero:before{content:"";position:absolute;inset:-2px;background:
+  radial-gradient(500px 200px at 20% 0%, rgba(53,208,192,.25), transparent 70%),
+  radial-gradient(500px 200px at 80% 0%, rgba(245,197,66,.22), transparent 70%);
+  filter:blur(6px);opacity:.9;pointer-events:none}
+.brand-row{display:flex;align-items:center;gap:14px;flex-wrap:wrap;position:relative;z-index:1}
+.logo{width:48px;height:48px;border-radius:16px;display:grid;place-items:center;background:linear-gradient(135deg, rgba(245,197,66,.25), rgba(53,208,192,.18));
+  border:1px solid var(--stroke2);box-shadow:var(--shadow2);font-weight:900;letter-spacing:.08em}
+.brand-title{font-size:14px;letter-spacing:.24em;text-transform:uppercase;font-weight:900}
+.brand-sub{margin-top:4px;color:var(--muted);font-size:12.5px}
+.hero-actions{margin-left:auto;display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end}
+.track-chip{padding:8px 10px;border-radius:999px;border:1px solid var(--stroke);background:rgba(255,255,255,.03);font-size:12px;color:var(--muted)}
+.track-chip:hover{border-color:rgba(255,255,255,.18);color:var(--text)}
+.section{margin-top:22px}
+.section-head{display:flex;align-items:flex-end;justify-content:space-between;gap:10px;margin:16px 4px 10px;flex-wrap:wrap}
+.h2{font-size:13px;letter-spacing:.22em;text-transform:uppercase;font-weight:900}
+.p{font-size:12.5px;color:var(--muted);margin:0}
 .grid{display:grid;grid-template-columns:repeat(12,1fr);gap:12px}
-.card{grid-column:span 12;border:1px solid var(--line);border-radius:16px;background:rgba(17,24,39,.85);padding:14px}
-@media(min-width:860px){ .card{grid-column:span 6} }
-.trackHeader{display:flex;align-items:flex-start;justify-content:space-between;gap:10px;margin-bottom:10px}
-.trackHeader h3{margin:0;font-size:16px}
-.meta{color:var(--muted);font-size:12px;line-height:1.4}
-table{width:100%;border-collapse:collapse;margin-top:10px}
-th,td{padding:10px 8px;border-top:1px solid var(--line);vertical-align:top}
-th{text-align:left;font-size:12px;color:var(--muted);font-weight:600}
-td{font-size:13px}
-.raceNo{font-weight:800}
-.horse{font-weight:800}
-.small{color:var(--muted);font-size:12px}
-.reason{color:#e5e7eb;font-size:12.5px;line-height:1.35;margin-top:6px}
-.badge{display:inline-block;font-size:11px;padding:3px 8px;border-radius:999px;border:1px solid var(--line);color:var(--muted)}
-.conf{font-weight:900;color:var(--good)}
-.stake{font-weight:900}
-.note{margin-top:12px;padding:10px 12px;border:1px solid var(--line);border-radius:14px;background:rgba(255,255,255,.03);color:var(--muted);font-size:12px;line-height:1.4}
-.warn{color:var(--warn);font-weight:700}
-.footer{margin-top:18px;color:var(--muted);font-size:11px;line-height:1.4}
-</style>
-</head>
-<body>
-<div class="wrap">
-  <div class="topbar">
-    <div class="brand">
-      <h1>Best Bets + Value Bets</h1>
-      <div class="sub">FormFactor Tips • 2026-01-24</div>
-    </div>
-    <div class="pills">
-      <div class="pill">Final Fields + Latest Scratchings</div>
-      <div class="pill">Win bets only</div>
-      <div class="pill">Units-based staking</div>
-    </div>
-  </div>
-  <div class="note">
-    <div><strong>Betting suggestions:</strong> stake is shown in <strong>units</strong> (you choose your $ per unit).</div>
-    <div>Units are calculated from confidence (5.0–5.99=1u, 6.0–6.99=2u, 7.0–7.99=3u, 8.0–8.99=4u, 9.0+=5u). <span class="warn">Prices are optional; if missing, we still show base units.</span></div>
-  </div>
-  <div class="section">
-  <h2>Best Bets + Value Bets</h2>
-  <div class="grid">
-    
-        <div class="card" style="grid-column:span 12">
-          <div class="trackHeader">
-            <div>
-              <h3>RANDWICK — BEST BET</h3>
-              <div class="small">R4 • #1 • Barrier 1 • Wt 59.0 • Speed 70 • L600 —</div>
-            </div>
-            <div class="meta">Confidence<br/><span class="conf" style="font-size:18px">7.46</span><br/>
-              <span class="stake">3u Win</span>
-            </div>
-          </div>
-          <div class="horse" style="font-size:18px">PRETTY POWERFUL</div>
-          <div class="reason" style="font-size:13px;margin-top:10px">PRETTY POWERFUL (1) brings one of the stronger handicap ratings in the field (70), recent form-line 611x043x13 suggests it’s holding its level, maps to land a soft run from barrier 1, carries 59kg, with Chris Waller training and Ms Siena Grima (a3/52kg) booked, and should get its chance on a Soft surface; on the available figures it profiles as the most reliable winning chance in this race.</div>
-        </div>
-        
-        <div class="card" style="grid-column:span 12">
-          <div class="trackHeader">
-            <div>
-              <h3>RANDWICK — VALUE BET</h3>
-              <div class="small">R8 • #2 • Barrier 1 • Wt 57.5 • Speed 99 • L600 —</div>
-            </div>
-            <div class="meta">Confidence<br/><span class="conf" style="font-size:18px">7.32</span><br/>
-              <span class="stake">3u Win</span>
-            </div>
-          </div>
-          <div class="horse" style="font-size:18px">NELLIE LEYLAX (IRE)</div>
-          <div class="reason" style="font-size:13px;margin-top:10px">NELLIE LEYLAX (IRE) (2) brings one of the stronger handicap ratings in the field (99), recent form-line 1x3944215x suggests it’s holding its level, maps to land a soft run from barrier 1, carries 57.5kg, with Annabel &amp; Rob Archibald training and James McDonald booked, and should get its chance on a Soft surface; on the available figures it profiles as the most reliable winning chance in this race.</div>
-        </div>
-        
-        <div class="card" style="grid-column:span 12">
-          <div class="trackHeader">
-            <div>
-              <h3>CAULFIELD — BEST BET</h3>
-              <div class="small">R2 • #1 • Barrier 3 • Wt 58.0 • Speed 72 • L600 —</div>
-            </div>
-            <div class="meta">Confidence<br/><span class="conf" style="font-size:18px">7.71</span><br/>
-              <span class="stake">3u Win</span>
-            </div>
-          </div>
-          <div class="horse" style="font-size:18px">EUROCANTO</div>
-          <div class="reason" style="font-size:13px;margin-top:10px">EUROCANTO (1) brings one of the stronger handicap ratings in the field (72), recent form-line 1x suggests it’s holding its level, maps to land a soft run from barrier 3, carries 58kg, with Ben, Will &amp; JD Hayes training and Ms Jamie Melham booked, and should get its chance on a Good surface; on the available figures it profiles as the most reliable winning chance in this race.</div>
-        </div>
-        
-        <div class="card" style="grid-column:span 12">
-          <div class="trackHeader">
-            <div>
-              <h3>CAULFIELD — VALUE BET</h3>
-              <div class="small">R8 • #6 • Barrier 3 • Wt 56.5 • Speed 86 • L600 —</div>
-            </div>
-            <div class="meta">Confidence<br/><span class="conf" style="font-size:18px">7.32</span><br/>
-              <span class="stake">3u Win</span>
-            </div>
-          </div>
-          <div class="horse" style="font-size:18px">SALTY PEARL</div>
-          <div class="reason" style="font-size:13px;margin-top:10px">SALTY PEARL (6) brings one of the stronger handicap ratings in the field (86), recent form-line x231x3341x suggests it’s holding its level, maps to land a soft run from barrier 3, carries 56.5kg, with Ciaron Maher training and Ben Allen booked, and should get its chance on a Good surface; on the available figures it profiles as the most reliable winning chance in this race.</div>
-        </div>
-        
-        <div class="card" style="grid-column:span 12">
-          <div class="trackHeader">
-            <div>
-              <h3>SUNSHINE_COAST — BEST BET</h3>
-              <div class="small">R6 • #5 • Barrier 1 • Wt 56.5 • Speed 66 • L600 —</div>
-            </div>
-            <div class="meta">Confidence<br/><span class="conf" style="font-size:18px">7.77</span><br/>
-              <span class="stake">3u Win</span>
-            </div>
-          </div>
-          <div class="horse" style="font-size:18px">CARBONARA</div>
-          <div class="reason" style="font-size:13px;margin-top:10px">CARBONARA (5) brings one of the stronger handicap ratings in the field (66), recent form-line 0x52822211 suggests it’s holding its level, maps to land a soft run from barrier 1, carries 56.5kg, with Robert Heathcote training and Vlad Duric booked, and should get its chance on a Soft surface; on the available figures it profiles as the most reliable winning chance in this race.</div>
-        </div>
-        
-        <div class="card" style="grid-column:span 12">
-          <div class="trackHeader">
-            <div>
-              <h3>SUNSHINE_COAST — VALUE BET</h3>
-              <div class="small">R1 • #6 • Barrier 1 • Wt 57.0 • Speed — • L600 —</div>
-            </div>
-            <div class="meta">Confidence<br/><span class="conf" style="font-size:18px">7.41</span><br/>
-              <span class="stake">3u Win</span>
-            </div>
-          </div>
-          <div class="horse" style="font-size:18px">CAUSE SHE CAN</div>
-          <div class="reason" style="font-size:13px;margin-top:10px">CAUSE SHE CAN (6) recent form-line 1 suggests it’s holding its level, maps to land a soft run from barrier 1, carries 57kg, with Kevin Kemp training and Ms Olivia Webb (a3/51kg) booked, and should get its chance on a Soft surface; on the available figures it profiles as the most reliable winning chance in this race.</div>
-        </div>
-        
-  </div>
-</div>
-  <div class="footer">
-    Note: Some fields (e.g., last-600m sectionals) may be unavailable in free official feeds for certain races; these are shown as “—” when not published.
-  </div>
-</div>
-</body>
-</html>
+.feature{grid-column:span 4}
+@media(max-width:900px){.feature{grid-column:span 6}}
+@media(max-width:640px){.feature{grid-column:span 12}.hero-actions{margin-left:0}}
+.card{border:1px solid var(--stroke);background:linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.015));
+  border-radius:var(--radius);padding:14px 14px 12px;box-shadow:var(--shadow2);position:relative;overflow:hidden}
+.card:after{content:"";position:absolute;inset:0;background:radial-gradient(300px 120px at 15% 0%, rgba(255,255,255,.06), transparent 60%);pointer-events:none}
+.card-top{display:flex;align-items:center;gap:10px;position:relative;z-index:1}
+.race-chip{font-size:12px;font-weight:900;letter-spacing:.18em;text-transform:uppercase;padding:6px 10px;border-radius:999px;border:1px solid var(--stroke);background:rgba(255,255,255,.03);color:var(--muted)}
+.horse{font-size:16px;font-weight:900;letter-spacing:.02em}
+.card-right{margin-left:auto}
+.tag{font-size:11px;font-weight:900;letter-spacing:.18em;text-transform:uppercase;padding:6px 10px;border-radius:999px;border:1px solid var(--stroke2);background:rgba(255,255,255,.04)}
+.tag-best{border-color:rgba(245,197,66,.55);background:rgba(245,197,66,.12);color:var(--gold)}
+.tag-value{border-color:rgba(53,208,192,.55);background:rgba(53,208,192,.12);color:var(--teal)}
+.tag-scratch{border-color:rgba(255,255,255,.22);background:rgba(255,255,255,.06);color:var(--muted)}
+.pills{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px;position:relative;z-index:1}
+.pill{display:inline-flex;gap:6px;align-items:baseline;padding:6px 10px;border-radius:999px;border:1px solid var(--stroke);background:rgba(0,0,0,.18);font-size:12px}
+.pill-label{color:var(--muted2)} .pill-value{font-weight:800;color:var(--text)}
+.pill-scratch{border-color:rgba(255,255,255,.25);background:rgba(255,255,255,.06)}
+.reason{margin-top:10px;font-size:12.5px;color:var(--muted);line-height:1.5;position:relative;z-index:1}
+.is-scratched{opacity:.62;filter:saturate(.6)}
+.track-block{margin-top:18px;border:1px solid var(--stroke);background:linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.01));
+  border-radius:calc(var(--radius) + 6px);box-shadow:var(--shadow);overflow:hidden}
+.track-head{padding:16px 16px 12px;display:flex;align-items:flex-end;justify-content:space-between;gap:10px;flex-wrap:wrap;
+  background:radial-gradient(800px 200px at 20% 0%, rgba(53,208,192,.10), transparent 70%),radial-gradient(800px 200px at 80% 0%, rgba(245,197,66,.10), transparent 70%);
+  border-bottom:1px solid var(--stroke)}
+.track-name{font-size:14px;letter-spacing:.22em;text-transform:uppercase;font-weight:900}
+.track-sub{font-size:12px;color:var(--muted)}
+.track-body{padding:14px 14px 18px}
+.track-sep{height:1px;background:var(--stroke);margin:14px 0}
+.small-head{display:flex;align-items:center;justify-content:space-between;font-size:12px;letter-spacing:.22em;text-transform:uppercase;font-weight:900;margin:0 2px 10px;color:var(--muted)}
+.footer{text-align:center;color:var(--muted2);font-size:12px;line-height:1.5;margin-top:18px}
+</style></head><body><div class="container">
+<header class="hero"><div class="brand-row"><div class="logo">FF</div><div><div class="brand-title">FORMFACTOR TIPS</div><div class="brand-sub">BEST + VALUE • Saturday 14 February 2026 • Confidence rounded up</div></div><div class="hero-actions"><a class="track-chip" href="#randwick">Randwick</a><a class="track-chip" href="#flemington">Flemington</a><a class="track-chip" href="#eagle_farm">Eagle Farm</a></div></div></header>
+<section class="section" id="best-bets"><div class="section-head"><div><div class="h2">Best Bets</div><p class="p">One per meeting.</p></div><div class="p">Saturday 14 February 2026</div></div><div class="grid"><div class="feature"><article class="card"><div class="card-top"><div class="race-chip">R4</div><div class="horse">SOVEREIGN HILL</div><div class="card-right"><span class="tag tag-best">Randwick • BEST</span></div></div><div class="pills"><span class="pill"><span class="pill-label">Barrier</span><span class="pill-value">8</span></span><span class="pill"><span class="pill-label">Weight</span><span class="pill-value">59.5kg</span></span><span class="pill"><span class="pill-label">L600</span><span class="pill-value">34.55</span></span><span class="pill"><span class="pill-label">Confidence</span><span class="pill-value">10 / 10</span></span></div><div class="reason">Recent form (last 3): 1/11 | RHIL 31Jan26 | 1350m | Good4 | won by 1.78L | L600 34.55s | @800 1, @400 1; 1/5 | CANT 16Jan26 | 1250m | Good4 | won by 4.81L | L600 34.68s | @800 1, @400 1; 8/8 | CANT 09Jul25 | 1250m | Heavy8 | beaten 26.14L | L600 35.68s | @800 2, @400 3 Distance suitability: today 1400m; Dist record 2:1-0-1; wins at 1000, 1250, 1350m (if listed). Track condition suitability: Good 4 → good record 4:3-0-0. Map/pace: Predicted tempo slow (leaders≈1 based on last-start @800 positions). Run style estimate: leader. Barrier/Weight: gate 8 | 59.5kg.</div></article></div><div class="feature"><article class="card"><div class="card-top"><div class="race-chip">R3</div><div class="horse">SASS APPEAL</div><div class="card-right"><span class="tag tag-best">Flemington • BEST</span></div></div><div class="pills"><span class="pill"><span class="pill-label">Barrier</span><span class="pill-value">1</span></span><span class="pill"><span class="pill-label">Weight</span><span class="pill-value">56kg</span></span><span class="pill"><span class="pill-label">L600</span><span class="pill-value">32.85</span></span><span class="pill"><span class="pill-label">Confidence</span><span class="pill-value">10 / 10</span></span></div><div class="reason">Recent form (last 3): 1/10 | FLEM 17Jan26 | 1400m | Good3 | won by 1.75L | L600 32.85s | @800 2, @400 2; 1/10 | SEYM 28Dec25 | 1400m | Good4 | won by 1.25L | L600 35.31s | @800 1, @400 1; 2/13 | SANL 10Dec25 | 1200m | Good4 | beaten 0.50L | L600 34.60s | @800 4, @400 4 Distance suitability: today 1400m; Dist record 2:2-0-0; wins at 1400m (if listed). Track condition suitability: Good 4 → good record 3:2-1-0. Map/pace: Predicted tempo moderate (leaders≈3 based on last-start @800 positions). Run style estimate: leader. Barrier/Weight: gate 1 | 56kg.</div></article></div><div class="feature"><article class="card"><div class="card-top"><div class="race-chip">R1</div><div class="horse">SWIFT DRAGON</div><div class="card-right"><span class="tag tag-best">Eagle Farm • BEST</span></div></div><div class="pills"><span class="pill"><span class="pill-label">Barrier</span><span class="pill-value">1</span></span><span class="pill"><span class="pill-label">Weight</span><span class="pill-value">59kg</span></span><span class="pill"><span class="pill-label">L600</span><span class="pill-value">32.99</span></span><span class="pill"><span class="pill-label">Confidence</span><span class="pill-value">10 / 10</span></span></div><div class="reason">Recent form (last 3): 1/10 | ROCK 09Dec25 | 1050m | Soft5 | won by 1.84L | L600 32.99s | @800 2, @400 2 Distance suitability: today 1000m; Dist record 1:1-0-0; wins at 1050m (if listed). Track condition suitability: Soft 6 → soft record 1:1-0-0. Map/pace: Predicted tempo slow (leaders≈1 based on last-start @800 positions). Run style estimate: leader. Barrier/Weight: gate 1 | 59kg.</div></article></div></div></section>
+<section class="section" id="value-bets"><div class="section-head"><div><div class="h2">Value Bets</div><p class="p">One per meeting.</p></div><div class="p">Pure data notes only</div></div><div class="grid"><div class="feature"><article class="card"><div class="card-top"><div class="race-chip">R10</div><div class="horse">ALTHOFF (Blks)</div><div class="card-right"><span class="tag tag-value">Randwick • VALUE</span></div></div><div class="pills"><span class="pill"><span class="pill-label">Barrier</span><span class="pill-value">8</span></span><span class="pill"><span class="pill-label">Weight</span><span class="pill-value">58kg</span></span><span class="pill"><span class="pill-label">L600</span><span class="pill-value">35.4</span></span><span class="pill"><span class="pill-label">Confidence</span><span class="pill-value">7 / 10</span></span></div><div class="reason">Recent form (last 3): 1/11 | RAND 24Jan26 | 1400m | Good4 | won by 0.90L | L600 35.40s | @800 5, @400 3; 1/8 | WYNG 10Jan26 | 1350m | Good4 | won by 0.33L | L600 34.19s | @800 7, @400 7; 4/9 | RAND 27Dec25 | 1200m | Good4 | beaten 1.15L | L600 34.63s | @800 9, @400 8 Distance suitability: today 1300m; Dist record 1:1-0-0; wins at 1200, 1350, 1400m (if listed). Track condition suitability: Good 4 → good record 9:2-1-1. Map/pace: Predicted tempo moderate (leaders≈3 based on last-start @800 positions). Run style estimate: midfield. Barrier/Weight: gate 8 | 58kg.</div></article></div><div class="feature"><article class="card"><div class="card-top"><div class="race-chip">R8</div><div class="horse">MARHOONA</div><div class="card-right"><span class="tag tag-value">Flemington • VALUE</span></div></div><div class="pills"><span class="pill"><span class="pill-label">Barrier</span><span class="pill-value">4</span></span><span class="pill"><span class="pill-label">Weight</span><span class="pill-value">53.5kg</span></span><span class="pill"><span class="pill-label">L600</span><span class="pill-value">33.77</span></span><span class="pill"><span class="pill-label">Confidence</span><span class="pill-value">7 / 10</span></span></div><div class="reason">Recent form (last 3): 3/8 | RHIL 11Oct25 | 1200m | Good4 | beaten 0.79L | L600 33.77s | @800 2, @400 2; 1/10 | RHIL 27Sep25 | 1100m | Good4 | won by 0.67L | L600 33.71s | @800 3, @400 3; 1/16 | RHIL 22Mar25 | 1200m | Good4 | won by 0.14L | L600 34.74s | @800 5, @400 6 Distance suitability: today 1000m; Dist record 0:0-0-0; wins at 1100, 1200m (if listed). Track condition suitability: Good 4 → good record 5:3-1-1. Map/pace: Predicted tempo moderate (leaders≈3 based on last-start @800 positions). Run style estimate: leader. Barrier/Weight: gate 4 | 53.5kg.</div></article></div><div class="feature"><article class="card"><div class="card-top"><div class="race-chip">R5</div><div class="horse">MRS GOLDBERG</div><div class="card-right"><span class="tag tag-value">Eagle Farm • VALUE</span></div></div><div class="pills"><span class="pill"><span class="pill-label">Barrier</span><span class="pill-value">7</span></span><span class="pill"><span class="pill-label">Weight</span><span class="pill-value">52kg</span></span><span class="pill"><span class="pill-label">L600</span><span class="pill-value">34.82</span></span><span class="pill"><span class="pill-label">Confidence</span><span class="pill-value">6 / 10</span></span></div><div class="reason">Recent form (last 3): 1/12 | SCST 24Jan26 | 1200m | Good4 | won by 0.54L | L600 34.82s | @800 1, @400 1; 4/9 | LISM 04Jan26 | 1120m | Good4 | beaten 1.48L | L600 35.31s | @800 1, @400 2; 1/14 | COFF 01Aug25 | 1000m | Soft6 | won by 0.73L | L600 35.94s | @800 1, @400 1 Distance suitability: today 1200m; Dist record 1:1-0-0; wins at 1000, 1200m (if listed). Track condition suitability: Soft 6 → soft record 1:1-0-0. Map/pace: Predicted tempo fast (leaders≈4 based on last-start @800 positions). Run style estimate: leader. Barrier/Weight: gate 7 | 52kg.</div></article></div></div></section>
+<section class="track-block" id="randwick"><div class="track-head"><div><div class="track-name">Randwick</div><div class="track-sub">Best + Value</div></div><div class="track-sub">Good 4</div></div><div class="track-body"><div class="small-head">Best Bet</div><article class="card"><div class="card-top"><div class="race-chip">R4</div><div class="horse">SOVEREIGN HILL</div><div class="card-right"><span class="tag tag-best">BEST BET</span></div></div><div class="pills"><span class="pill"><span class="pill-label">Barrier</span><span class="pill-value">8</span></span><span class="pill"><span class="pill-label">Weight</span><span class="pill-value">59.5kg</span></span><span class="pill"><span class="pill-label">L600</span><span class="pill-value">34.55</span></span><span class="pill"><span class="pill-label">Confidence</span><span class="pill-value">10 / 10</span></span></div><div class="reason">Recent form (last 3): 1/11 | RHIL 31Jan26 | 1350m | Good4 | won by 1.78L | L600 34.55s | @800 1, @400 1; 1/5 | CANT 16Jan26 | 1250m | Good4 | won by 4.81L | L600 34.68s | @800 1, @400 1; 8/8 | CANT 09Jul25 | 1250m | Heavy8 | beaten 26.14L | L600 35.68s | @800 2, @400 3 Distance suitability: today 1400m; Dist record 2:1-0-1; wins at 1000, 1250, 1350m (if listed). Track condition suitability: Good 4 → good record 4:3-0-0. Map/pace: Predicted tempo slow (leaders≈1 based on last-start @800 positions). Run style estimate: leader. Barrier/Weight: gate 8 | 59.5kg.</div></article><div class="track-sep"></div><div class="small-head">Value Bet</div><article class="card"><div class="card-top"><div class="race-chip">R10</div><div class="horse">ALTHOFF (Blks)</div><div class="card-right"><span class="tag tag-value">VALUE BET</span></div></div><div class="pills"><span class="pill"><span class="pill-label">Barrier</span><span class="pill-value">8</span></span><span class="pill"><span class="pill-label">Weight</span><span class="pill-value">58kg</span></span><span class="pill"><span class="pill-label">L600</span><span class="pill-value">35.4</span></span><span class="pill"><span class="pill-label">Confidence</span><span class="pill-value">7 / 10</span></span></div><div class="reason">Recent form (last 3): 1/11 | RAND 24Jan26 | 1400m | Good4 | won by 0.90L | L600 35.40s | @800 5, @400 3; 1/8 | WYNG 10Jan26 | 1350m | Good4 | won by 0.33L | L600 34.19s | @800 7, @400 7; 4/9 | RAND 27Dec25 | 1200m | Good4 | beaten 1.15L | L600 34.63s | @800 9, @400 8 Distance suitability: today 1300m; Dist record 1:1-0-0; wins at 1200, 1350, 1400m (if listed). Track condition suitability: Good 4 → good record 9:2-1-1. Map/pace: Predicted tempo moderate (leaders≈3 based on last-start @800 positions). Run style estimate: midfield. Barrier/Weight: gate 8 | 58kg.</div></article></div></section><section class="track-block" id="flemington"><div class="track-head"><div><div class="track-name">Flemington</div><div class="track-sub">Best + Value</div></div><div class="track-sub">Good 4</div></div><div class="track-body"><div class="small-head">Best Bet</div><article class="card"><div class="card-top"><div class="race-chip">R3</div><div class="horse">SASS APPEAL</div><div class="card-right"><span class="tag tag-best">BEST BET</span></div></div><div class="pills"><span class="pill"><span class="pill-label">Barrier</span><span class="pill-value">1</span></span><span class="pill"><span class="pill-label">Weight</span><span class="pill-value">56kg</span></span><span class="pill"><span class="pill-label">L600</span><span class="pill-value">32.85</span></span><span class="pill"><span class="pill-label">Confidence</span><span class="pill-value">10 / 10</span></span></div><div class="reason">Recent form (last 3): 1/10 | FLEM 17Jan26 | 1400m | Good3 | won by 1.75L | L600 32.85s | @800 2, @400 2; 1/10 | SEYM 28Dec25 | 1400m | Good4 | won by 1.25L | L600 35.31s | @800 1, @400 1; 2/13 | SANL 10Dec25 | 1200m | Good4 | beaten 0.50L | L600 34.60s | @800 4, @400 4 Distance suitability: today 1400m; Dist record 2:2-0-0; wins at 1400m (if listed). Track condition suitability: Good 4 → good record 3:2-1-0. Map/pace: Predicted tempo moderate (leaders≈3 based on last-start @800 positions). Run style estimate: leader. Barrier/Weight: gate 1 | 56kg.</div></article><div class="track-sep"></div><div class="small-head">Value Bet</div><article class="card"><div class="card-top"><div class="race-chip">R8</div><div class="horse">MARHOONA</div><div class="card-right"><span class="tag tag-value">VALUE BET</span></div></div><div class="pills"><span class="pill"><span class="pill-label">Barrier</span><span class="pill-value">4</span></span><span class="pill"><span class="pill-label">Weight</span><span class="pill-value">53.5kg</span></span><span class="pill"><span class="pill-label">L600</span><span class="pill-value">33.77</span></span><span class="pill"><span class="pill-label">Confidence</span><span class="pill-value">7 / 10</span></span></div><div class="reason">Recent form (last 3): 3/8 | RHIL 11Oct25 | 1200m | Good4 | beaten 0.79L | L600 33.77s | @800 2, @400 2; 1/10 | RHIL 27Sep25 | 1100m | Good4 | won by 0.67L | L600 33.71s | @800 3, @400 3; 1/16 | RHIL 22Mar25 | 1200m | Good4 | won by 0.14L | L600 34.74s | @800 5, @400 6 Distance suitability: today 1000m; Dist record 0:0-0-0; wins at 1100, 1200m (if listed). Track condition suitability: Good 4 → good record 5:3-1-1. Map/pace: Predicted tempo moderate (leaders≈3 based on last-start @800 positions). Run style estimate: leader. Barrier/Weight: gate 4 | 53.5kg.</div></article></div></section><section class="track-block" id="eagle_farm"><div class="track-head"><div><div class="track-name">Eagle Farm</div><div class="track-sub">Best + Value</div></div><div class="track-sub">Soft 6</div></div><div class="track-body"><div class="small-head">Best Bet</div><article class="card"><div class="card-top"><div class="race-chip">R1</div><div class="horse">SWIFT DRAGON</div><div class="card-right"><span class="tag tag-best">BEST BET</span></div></div><div class="pills"><span class="pill"><span class="pill-label">Barrier</span><span class="pill-value">1</span></span><span class="pill"><span class="pill-label">Weight</span><span class="pill-value">59kg</span></span><span class="pill"><span class="pill-label">L600</span><span class="pill-value">32.99</span></span><span class="pill"><span class="pill-label">Confidence</span><span class="pill-value">10 / 10</span></span></div><div class="reason">Recent form (last 3): 1/10 | ROCK 09Dec25 | 1050m | Soft5 | won by 1.84L | L600 32.99s | @800 2, @400 2 Distance suitability: today 1000m; Dist record 1:1-0-0; wins at 1050m (if listed). Track condition suitability: Soft 6 → soft record 1:1-0-0. Map/pace: Predicted tempo slow (leaders≈1 based on last-start @800 positions). Run style estimate: leader. Barrier/Weight: gate 1 | 59kg.</div></article><div class="track-sep"></div><div class="small-head">Value Bet</div><article class="card"><div class="card-top"><div class="race-chip">R5</div><div class="horse">MRS GOLDBERG</div><div class="card-right"><span class="tag tag-value">VALUE BET</span></div></div><div class="pills"><span class="pill"><span class="pill-label">Barrier</span><span class="pill-value">7</span></span><span class="pill"><span class="pill-label">Weight</span><span class="pill-value">52kg</span></span><span class="pill"><span class="pill-label">L600</span><span class="pill-value">34.82</span></span><span class="pill"><span class="pill-label">Confidence</span><span class="pill-value">6 / 10</span></span></div><div class="reason">Recent form (last 3): 1/12 | SCST 24Jan26 | 1200m | Good4 | won by 0.54L | L600 34.82s | @800 1, @400 1; 4/9 | LISM 04Jan26 | 1120m | Good4 | beaten 1.48L | L600 35.31s | @800 1, @400 2; 1/14 | COFF 01Aug25 | 1000m | Soft6 | won by 0.73L | L600 35.94s | @800 1, @400 1 Distance suitability: today 1200m; Dist record 1:1-0-0; wins at 1000, 1200m (if listed). Track condition suitability: Soft 6 → soft record 1:1-0-0. Map/pace: Predicted tempo fast (leaders≈4 based on last-start @800 positions). Run style estimate: leader. Barrier/Weight: gate 7 | 52kg.</div></article></div></section>
+<footer class="footer"><div><strong>FORMFACTORTIPS.COM</strong></div><div>Gamble responsibly • 18+</div></footer>
+</div></body></html>
