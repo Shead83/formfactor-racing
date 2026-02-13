@@ -233,6 +233,16 @@
     }
     .nav a:hover { color: var(--text); border-color: rgba(148,163,184,0.22); background: rgba(255,255,255,0.04); }
 
+.nav a[data-locked="true"] {
+      opacity: 0.6;
+      cursor: not-allowed;
+    }
+    .nav a[data-locked="true"]:hover {
+      border-color: rgba(148,163,184,0.22);
+      background: rgba(255,255,255,0.02);
+      color: var(--muted);
+    }
+
     .grid {
       display: grid;
       grid-template-columns: 1.1fr 0.9fr;
@@ -579,8 +589,8 @@
       </a>
       <div class="nav">
         <a href="/">Home</a>
-        <a href="/picks.html" target="_blank" rel="noopener">Raw Data</a>
-        <a href="/formfactor_best_value_bets.html" target="_blank" rel="noopener">Best Bets</a>
+        <a href="#unlock" data-locked="true" aria-disabled="true">Raw Data</a>
+        <a href="#unlock" data-locked="true" aria-disabled="true">Best Bets</a>
         <a href="mailto:support@formfactortips.com">Support</a>
       </div>
     </div>
@@ -609,7 +619,7 @@
     </div>
 
     <div class="grid">
-      <div class="card">
+      <div class="card" id="unlock">
         <h1>Unlock your pack</h1>
         <p>Enter your access code to unlock the member links. Your device will stay unlocked until expiry.</p>
 
@@ -904,5 +914,32 @@
     // On load: auto-unlock if valid stored access exists
     renderAccess(getAccess());
   </script>
+
+  <script>
+    // Prevent access via top nav until a valid code is unlocked on this device
+    document.querySelectorAll('.nav a[data-locked="true"]').forEach(a => {
+      a.addEventListener('click', (e) => {
+        e.preventDefault();
+        // If already unlocked, allow navigation by re-writing hrefs dynamically
+        const access = (typeof getAccess === "function") ? getAccess() : null;
+        if (access && access.level) {
+          // redirect based on label
+          const label = (a.textContent || "").trim().toLowerCase();
+          if (label.includes("raw")) window.open("/picks.html", "_blank", "noopener");
+          if (label.includes("best")) window.open("/formfactor_best_value_bets.html", "_blank", "noopener");
+          return;
+        }
+        // Not unlocked
+        const el = document.getElementById("unlock");
+        if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+        if (typeof setStatus === "function") {
+          setStatus("Enter your code to unlock member packs.", false);
+        } else {
+          alert("Enter your code to unlock member packs.");
+        }
+      });
+    });
+  </script>
+
 </body>
 </html>
