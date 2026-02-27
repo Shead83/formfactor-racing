@@ -1,17 +1,386 @@
-<!DOCTYPE html><html><head><meta name="viewport" content="width=device-width,initial-scale=1"><title>FormFactor – Best + Value</title><style>
-body{margin:0;font-family:Segoe UI,Arial;background:#070b14;color:#f1f5f9}
-.wrap{max-width:1100px;margin:0 auto;padding:28px}
-header{background:linear-gradient(135deg,#0f172a,#1e293b);padding:24px;border-radius:18px;
-box-shadow:0 20px 60px rgba(0,0,0,.5);margin-bottom:25px}
-h1{margin:0;font-size:28px;letter-spacing:.5px}
-.sub{color:#94a3b8;margin-top:6px}
-.section{background:#111827;padding:22px;border-radius:16px;margin-bottom:22px;
-box-shadow:0 15px 40px rgba(0,0,0,.35)}
-h2{color:#38bdf8;margin-top:0;letter-spacing:.4px}
-.card{background:#1d2747;padding:14px;border-radius:10px;margin-bottom:10px;
-border:1px solid rgba(255,255,255,.08)}
-.best{color:#22c55e;font-weight:700}
-.value{color:#f59e0b;font-weight:700}
-.meta{color:#94a3b8;font-size:13px;margin-top:4px}
-.footer{text-align:center;color:#64748b;font-size:12px;margin-top:30px}
-</style></head><body><div class="wrap"><header><h1>FORMFACTOR TIPS – BEST + VALUE</h1><div class="sub">Saturday 21 February 2026</div></header><div class="section"><h2>ROSEHILL</h2><div class="best">BEST BET: R10 – TONKIN (9/10)</div><div class="value">VALUE BET: R3 – BEV’S NINE (4/10)</div></div><div class="section"><h2>CAULFIELD</h2><div class="best">BEST BET: R3 – SUN GIFT (NZ) (10/10)</div><div class="value">VALUE BET: R8 – UNIT FIVE (3/10)</div></div><div class="section"><h2>DOOMBEN</h2><div class="best">BEST BET: R1 – DOUBTWILLY (10/10)</div><div class="value">VALUE BET: R6 – CREATIVITY MISS (4/10)</div></div><div class="footer">FormFactor Racing • Premium Data Analysis • Members Only</div></div></body></html>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>FormFactor Racing — Best + Value</title>
+  <style>
+    :root {
+      --bg:#0b0f17;
+      --panel:#101827;
+      --panel2:#0e1523;
+      --text:#e8eefc;
+      --muted:#a6b3d1;
+      --line:rgba(255,255,255,.08);
+      --accent:#4cc9ff;
+      --good:#42f5a1;
+      --warn:#ffcc66;
+      --bad:#ff6b6b;
+      --shadow:0 10px 30px rgba(0,0,0,.35);
+      --radius:18px;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+      background: radial-gradient(1200px 800px at 30% -10%, rgba(76,201,255,.18), transparent 60%),
+                  radial-gradient(1000px 700px at 90% 0%, rgba(66,245,161,.12), transparent 55%),
+                  var(--bg);
+      color:var(--text);
+    }
+    a{color:inherit}
+    .wrap{max-width:1100px;margin:0 auto;padding:18px 14px 60px}
+    header{position:sticky;top:0;z-index:10;background:rgba(11,15,23,.75);backdrop-filter: blur(10px);border-bottom:1px solid var(--line)}
+    .topbar{max-width:1100px;margin:0 auto;padding:14px 14px;display:flex;gap:12px;align-items:center;justify-content:space-between}
+    .brand{display:flex;flex-direction:column;gap:2px}
+    .brand .h{font-weight:800;letter-spacing:.2px}
+    .brand .s{font-size:12px;color:var(--muted)}
+    .tabs{display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end}
+    .tab{
+      border:1px solid var(--line);
+      background:rgba(16,24,39,.55);
+      color:var(--text);
+      padding:10px 12px;border-radius:999px;
+      font-weight:700;font-size:12px;cursor:pointer;
+    }
+    .tab.active{border-color:rgba(76,201,255,.55);box-shadow:0 0 0 3px rgba(76,201,255,.12) inset}
+    .meta-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:10px}
+    .pill{border:1px solid var(--line);background:rgba(16,24,39,.55);padding:8px 10px;border-radius:999px;font-size:12px;color:var(--muted)}
+    .track-section{display:none;margin-top:18px}
+    .track-section.active{display:block}
+    .track-head{display:flex;gap:14px;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;margin:10px 0 14px}
+    h2{margin:0 0 6px;font-size:20px}
+    .meeting-meta{display:flex;gap:8px;flex-wrap:wrap}
+    .meta-chip{display:flex;gap:8px;align-items:center;padding:8px 10px;border-radius:999px;border:1px solid var(--line);background:rgba(16,24,39,.55);font-size:12px}
+    .meta-chip .k{color:var(--muted);font-weight:700}
+    .meta-chip .v{font-weight:800}
+    .note{margin-top:10px;color:var(--muted);font-size:12px}
+    .bv{display:flex;gap:10px;flex-wrap:wrap}
+    .bv-item{padding:10px 12px;border-radius:14px;border:1px solid var(--line);background:rgba(16,24,39,.55);min-width:260px}
+    .bv-label{font-size:12px;color:var(--muted);font-weight:700}
+    .bv-val{margin-top:6px;font-weight:800}
+    .bv-conf{margin-left:8px;padding:3px 8px;border-radius:999px;background:rgba(76,201,255,.14);border:1px solid rgba(76,201,255,.22);font-size:12px}
+    .grid{display:grid;grid-template-columns:repeat(12,1fr);gap:12px}
+    .card{grid-column:span 12;background:linear-gradient(180deg, rgba(16,24,39,.8), rgba(14,21,35,.8));
+      border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);padding:14px}
+    @media (min-width:760px){.card{grid-column:span 6}}
+    @media (min-width:1020px){.card{grid-column:span 4}}
+    .card-head{display:flex;align-items:flex-start;justify-content:space-between;gap:10px}
+    .race-title{display:flex;gap:10px;align-items:flex-start}
+    .race-num{width:42px;height:42px;border-radius:14px;display:grid;place-items:center;
+      background:rgba(76,201,255,.12);border:1px solid rgba(76,201,255,.22);font-weight:900}
+    .horse-name{font-weight:900;font-size:15px;line-height:1.2}
+    .horse-sub{margin-top:4px;font-size:12px;color:var(--muted)}
+    .tags{display:flex;gap:6px;flex-wrap:wrap;justify-content:flex-end}
+    .tag{font-size:11px;font-weight:900;letter-spacing:.4px;padding:6px 10px;border-radius:999px;border:1px solid var(--line);background:rgba(255,255,255,.04)}
+    .tag.best{border-color:rgba(66,245,161,.35);background:rgba(66,245,161,.12)}
+    .tag.value{border-color:rgba(255,204,102,.35);background:rgba(255,204,102,.12)}
+    .tag.neutral{border-color:rgba(255,255,255,.10)}
+    .conf{margin-top:12px}
+    .conf-top{display:flex;justify-content:space-between;align-items:center}
+    .conf-label{font-size:12px;color:var(--muted);font-weight:700}
+    .conf-val{font-weight:900}
+    .bar{height:10px;border-radius:999px;border:1px solid var(--line);background:rgba(255,255,255,.04);overflow:hidden;margin-top:8px}
+    .fill{height:100%;background:linear-gradient(90deg, rgba(76,201,255,.9), rgba(66,245,161,.85));}
+    .reason{margin-top:12px;padding-top:12px;border-top:1px dashed var(--line)}
+    .reason-label{font-size:12px;color:var(--muted);font-weight:800;margin-bottom:6px}
+    .reason-text{font-size:12px;line-height:1.45;color:#d6def4;white-space:pre-wrap}
+    footer{margin-top:22px;color:var(--muted);font-size:12px;text-align:center}
+    .small{opacity:.9}
+  </style>
+</head>
+<body>
+<header>
+  <div class="topbar">
+    <div class="brand">
+      <div class="h">FormFactor Racing</div>
+      <div class="s">Best + Value Only • 2026-02-28 • Australia/Sydney</div>
+      <div class="meta-row">
+        <div class="pill">No odds • No tips • Data-only selection notes</div>
+      </div>
+    </div>
+    <div class="tabs" role="tablist" aria-label="Tracks">
+      <button class="tab active" data-target="track-0">RANDWICK</button><button class="tab" data-target="track-1">FLEMINGTON</button><button class="tab" data-target="track-2">EAGLE FARM</button>
+    </div>
+  </div>
+</header>
+
+<div class="wrap">
+  
+        <section id="track-0" class="track-section active">
+          <div class="track-head">
+            <div>
+              <h2>RANDWICK</h2>
+              
+        <div class="meeting-meta">
+          <div class="meta-chip"><span class="k">Rail</span><span class="v">True</span></div>
+          <div class="meta-chip"><span class="k">Track</span><span class="v">Soft 7</span></div>
+          <div class="meta-chip"><span class="k">Meeting</span><span class="v">Metro (TAB)</span></div>
+        </div>
+        
+              <div class='note'>Showing Best Bet and Value Bet only.</div>
+            </div>
+            <div class="bv">
+              <div class="bv-item">
+                <div class="bv-label">Best Bet</div>
+                <div class="bv-val">R8 #8 AUTUMN GLOW
+                  <span class="bv-conf">9.67</span>
+                </div>
+              </div>
+              <div class="bv-item">
+                <div class="bv-label">Value Bet</div>
+                <div class="bv-val">R10 #6 ROSELYN’S STAR
+                  <span class="bv-conf">4.99</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="grid">
+            
+    <article class="card">
+      <div class="card-head">
+        <div class="race-title">
+          <div class="race-num">R8</div>
+          <div class="horse">
+            <div class="horse-name">AUTUMN GLOW</div>
+            <div class="horse-sub">#8 • Barrier 3 • 57.0kg</div>
+          </div>
+        </div>
+        <div class="tags"><span class="tag best">BEST</span></div>
+      </div>
+      
+    <div class="conf">
+      <div class="conf-top">
+        <span class="conf-label">Confidence</span>
+        <span class="conf-val">9.67</span>
+      </div>
+      <div class="bar"><div class="fill" style="width:96.7%"></div></div>
+    </div>
+    
+      <div class="reason">
+        <div class="reason-label">Objective notes</div>
+        <div class="reason-text">Barrier 3; 57.0kg. Going record: Soft 3:3-0-0. Distance record: 1:1-0-0. Track record: 5:5-0-0. Recent runs (last 3): 1/16 (1.25L), 1/12 (1.44L), 2/10 (0.20L). Trial: 5/6 (RAND 850m Good4, 15Jan26). Pace proxy: slow (0 leader-types noted); position profile: midfield.</div>
+      </div>
+    </article>
+    
+    <article class="card">
+      <div class="card-head">
+        <div class="race-title">
+          <div class="race-num">R10</div>
+          <div class="horse">
+            <div class="horse-name">ROSELYN’S STAR</div>
+            <div class="horse-sub">#6 • Barrier 10 • 58.5kg</div>
+          </div>
+        </div>
+        <div class="tags"><span class="tag value">VALUE</span></div>
+      </div>
+      
+    <div class="conf">
+      <div class="conf-top">
+        <span class="conf-label">Confidence</span>
+        <span class="conf-val">4.99</span>
+      </div>
+      <div class="bar"><div class="fill" style="width:49.9%"></div></div>
+    </div>
+    
+      <div class="reason">
+        <div class="reason-label">Objective notes</div>
+        <div class="reason-text">Barrier 10; 58.5kg. Going record: Soft 2:0-1-0. Distance record: 2:0-2-0. Track record: 1:0-1-0. Recent runs (last 3): 10/14 (5.44L), 2/15 (1.94L), 1/12 (0.42L). Trial: 6/7 (RAND 850m Soft6, 20Feb26). Pace proxy: moderate (2 leader-types noted); position profile: backmarker.</div>
+      </div>
+    </article>
+    
+          </div>
+        </section>
+        
+        <section id="track-1" class="track-section">
+          <div class="track-head">
+            <div>
+              <h2>FLEMINGTON</h2>
+              
+        <div class="meeting-meta">
+          <div class="meta-chip"><span class="k">Rail</span><span class="v">Out 2m Entire Circuit</span></div>
+          <div class="meta-chip"><span class="k">Track</span><span class="v">Good 4</span></div>
+          <div class="meta-chip"><span class="k">Meeting</span><span class="v">Metro (TAB)</span></div>
+        </div>
+        
+              <div class='note'>Showing Best Bet and Value Bet only.</div>
+            </div>
+            <div class="bv">
+              <div class="bv-item">
+                <div class="bv-label">Best Bet</div>
+                <div class="bv-val">R3 #5 BONS TO RICHES
+                  <span class="bv-conf">8.69</span>
+                </div>
+              </div>
+              <div class="bv-item">
+                <div class="bv-label">Value Bet</div>
+                <div class="bv-val">R6 #10 HEADBANGER
+                  <span class="bv-conf">6.06</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="grid">
+            
+    <article class="card">
+      <div class="card-head">
+        <div class="race-title">
+          <div class="race-num">R3</div>
+          <div class="horse">
+            <div class="horse-name">BONS TO RICHES</div>
+            <div class="horse-sub">#5 • Barrier 7 • 58.0kg</div>
+          </div>
+        </div>
+        <div class="tags"><span class="tag best">BEST</span></div>
+      </div>
+      
+    <div class="conf">
+      <div class="conf-top">
+        <span class="conf-label">Confidence</span>
+        <span class="conf-val">8.69</span>
+      </div>
+      <div class="bar"><div class="fill" style="width:86.9%"></div></div>
+    </div>
+    
+      <div class="reason">
+        <div class="reason-label">Objective notes</div>
+        <div class="reason-text">Barrier 7; 58.0kg. Going record: Good 11:3-1-2. Distance record: 2:1-1-0. Recent runs (last 3): 1/11 (0.10L), 1/10 (0.70L), 2/13 (0.12L). Jump-out: 2/7 (CRAN 800m JumpOut, 19Jan26). Pace proxy: moderate (2 leader-types noted); position profile: midfield.</div>
+      </div>
+    </article>
+    
+    <article class="card">
+      <div class="card-head">
+        <div class="race-title">
+          <div class="race-num">R6</div>
+          <div class="horse">
+            <div class="horse-name">HEADBANGER</div>
+            <div class="horse-sub">#10 • Barrier 4 • 54.0kg</div>
+          </div>
+        </div>
+        <div class="tags"><span class="tag value">VALUE</span></div>
+      </div>
+      
+    <div class="conf">
+      <div class="conf-top">
+        <span class="conf-label">Confidence</span>
+        <span class="conf-val">6.06</span>
+      </div>
+      <div class="bar"><div class="fill" style="width:60.6%"></div></div>
+    </div>
+    
+      <div class="reason">
+        <div class="reason-label">Objective notes</div>
+        <div class="reason-text">Barrier 4; 54.0kg. Distance record: 2:1-0-0. Recent runs (last 3): 2/9 (0.20L), 1/13 (0.10L), 5/12 (2.30L). Jump-out: 3/6 (CAUL 800m JumpOut, 12Feb26). Pace proxy: moderate (2 leader-types noted); position profile: midfield.</div>
+      </div>
+    </article>
+    
+          </div>
+        </section>
+        
+        <section id="track-2" class="track-section">
+          <div class="track-head">
+            <div>
+              <h2>EAGLE FARM</h2>
+              
+        <div class="meeting-meta">
+          <div class="meta-chip"><span class="k">Rail</span><span class="v">+0.5m Entire</span></div>
+          <div class="meta-chip"><span class="k">Track</span><span class="v">Soft 7</span></div>
+          <div class="meta-chip"><span class="k">Meeting</span><span class="v">Metro (TAB)</span></div>
+        </div>
+        
+              <div class='note'>Showing Best Bet and Value Bet only.</div>
+            </div>
+            <div class="bv">
+              <div class="bv-item">
+                <div class="bv-label">Best Bet</div>
+                <div class="bv-val">R6 #6 NAILS MURPHY
+                  <span class="bv-conf">7.27</span>
+                </div>
+              </div>
+              <div class="bv-item">
+                <div class="bv-label">Value Bet</div>
+                <div class="bv-val">R3 #6 TOSEN SABI
+                  <span class="bv-conf">3.28</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="grid">
+            
+    <article class="card">
+      <div class="card-head">
+        <div class="race-title">
+          <div class="race-num">R3</div>
+          <div class="horse">
+            <div class="horse-name">TOSEN SABI</div>
+            <div class="horse-sub">#6 • Barrier 1 • 57.5kg</div>
+          </div>
+        </div>
+        <div class="tags"><span class="tag value">VALUE</span></div>
+      </div>
+      
+    <div class="conf">
+      <div class="conf-top">
+        <span class="conf-label">Confidence</span>
+        <span class="conf-val">3.28</span>
+      </div>
+      <div class="bar"><div class="fill" style="width:32.8%"></div></div>
+    </div>
+    
+      <div class="reason">
+        <div class="reason-label">Objective notes</div>
+        <div class="reason-text">Barrier 1; 57.5kg. Distance record: 2:1-0-0. Track record: 1:0-0-0. Recent runs (last 3): 1/11 (0.10L), 5/6 (2.95L), 1/6 (2.95L). Trial: 5/6 (DALB 800m Good4, 05Nov25). Pace proxy: moderate (2 leader-types noted); position profile: on-pace.</div>
+      </div>
+    </article>
+    
+    <article class="card">
+      <div class="card-head">
+        <div class="race-title">
+          <div class="race-num">R6</div>
+          <div class="horse">
+            <div class="horse-name">NAILS MURPHY</div>
+            <div class="horse-sub">#6 • Barrier 11 • 52.5kg</div>
+          </div>
+        </div>
+        <div class="tags"><span class="tag best">BEST</span></div>
+      </div>
+      
+    <div class="conf">
+      <div class="conf-top">
+        <span class="conf-label">Confidence</span>
+        <span class="conf-val">7.27</span>
+      </div>
+      <div class="bar"><div class="fill" style="width:72.7%"></div></div>
+    </div>
+    
+      <div class="reason">
+        <div class="reason-label">Objective notes</div>
+        <div class="reason-text">Barrier 11; 52.5kg. Distance record: 13:3-5-3. Recent runs (last 3): 1/9 (0.10L), 2/10 (0.20L), 1/9 (0.10L). Trial: 1/9 (E FM 600m Good4, 17Feb26). Pace proxy: moderate (2 leader-types noted); position profile: midfield.</div>
+      </div>
+    </article>
+    
+          </div>
+        </section>
+        
+  <footer>
+    <div class="small">Generated from attached race selections file.</div>
+  </footer>
+</div>
+
+<script>
+  const tabs = document.querySelectorAll('.tab');
+  const sections = document.querySelectorAll('.track-section');
+  tabs.forEach(btn => {
+    btn.addEventListener('click', () => {
+      tabs.forEach(t => t.classList.remove('active'));
+      btn.classList.add('active');
+      const target = btn.getAttribute('data-target');
+      sections.forEach(s => s.classList.remove('active'));
+      const el = document.getElementById(target);
+      if (el) el.classList.add('active');
+      window.scrollTo({top:0, behavior:'smooth'});
+    });
+  });
+</script>
+</body>
+</html>
