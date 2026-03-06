@@ -1,1010 +1,561 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>FormFactor Racing — Full Picks</title>
-  <style>
-    :root {
-      --bg:#0b0f17;
-      --panel:#101827;
-      --panel2:#0e1523;
-      --text:#e8eefc;
-      --muted:#a6b3d1;
-      --line:rgba(255,255,255,.08);
-      --accent:#4cc9ff;
-      --good:#42f5a1;
-      --warn:#ffcc66;
-      --bad:#ff6b6b;
-      --shadow:0 10px 30px rgba(0,0,0,.35);
-      --radius:18px;
-    }
-    *{box-sizing:border-box}
-    body{
-      margin:0;
-      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
-      background: radial-gradient(1200px 800px at 30% -10%, rgba(76,201,255,.18), transparent 60%),
-                  radial-gradient(1000px 700px at 90% 0%, rgba(66,245,161,.12), transparent 55%),
-                  var(--bg);
-      color:var(--text);
-    }
-    a{color:inherit}
-    .wrap{max-width:1100px;margin:0 auto;padding:18px 14px 60px}
-    header{position:sticky;top:0;z-index:10;background:rgba(11,15,23,.75);backdrop-filter: blur(10px);border-bottom:1px solid var(--line)}
-    .topbar{max-width:1100px;margin:0 auto;padding:14px 14px;display:flex;gap:12px;align-items:center;justify-content:space-between}
-    .brand{display:flex;flex-direction:column;gap:2px}
-    .brand .h{font-weight:800;letter-spacing:.2px}
-    .brand .s{font-size:12px;color:var(--muted)}
-    .tabs{display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end}
-    .tab{
-      border:1px solid var(--line);
-      background:rgba(16,24,39,.55);
-      color:var(--text);
-      padding:10px 12px;border-radius:999px;
-      font-weight:700;font-size:12px;cursor:pointer;
-    }
-    .tab.active{border-color:rgba(76,201,255,.55);box-shadow:0 0 0 3px rgba(76,201,255,.12) inset}
-    .meta-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:10px}
-    .pill{border:1px solid var(--line);background:rgba(16,24,39,.55);padding:8px 10px;border-radius:999px;font-size:12px;color:var(--muted)}
-    .track-section{display:none;margin-top:18px}
-    .track-section.active{display:block}
-    .track-head{display:flex;gap:14px;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;margin:10px 0 14px}
-    h2{margin:0 0 6px;font-size:20px}
-    .meeting-meta{display:flex;gap:8px;flex-wrap:wrap}
-    .meta-chip{display:flex;gap:8px;align-items:center;padding:8px 10px;border-radius:999px;border:1px solid var(--line);background:rgba(16,24,39,.55);font-size:12px}
-    .meta-chip .k{color:var(--muted);font-weight:700}
-    .meta-chip .v{font-weight:800}
-    .note{margin-top:10px;color:var(--muted);font-size:12px}
-    .bv{display:flex;gap:10px;flex-wrap:wrap}
-    .bv-item{padding:10px 12px;border-radius:14px;border:1px solid var(--line);background:rgba(16,24,39,.55);min-width:260px}
-    .bv-label{font-size:12px;color:var(--muted);font-weight:700}
-    .bv-val{margin-top:6px;font-weight:800}
-    .bv-conf{margin-left:8px;padding:3px 8px;border-radius:999px;background:rgba(76,201,255,.14);border:1px solid rgba(76,201,255,.22);font-size:12px}
-    .grid{display:grid;grid-template-columns:repeat(12,1fr);gap:12px}
-    .card{grid-column:span 12;background:linear-gradient(180deg, rgba(16,24,39,.8), rgba(14,21,35,.8));
-      border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);padding:14px}
-    @media (min-width:760px){.card{grid-column:span 6}}
-    @media (min-width:1020px){.card{grid-column:span 4}}
-    .card-head{display:flex;align-items:flex-start;justify-content:space-between;gap:10px}
-    .race-title{display:flex;gap:10px;align-items:flex-start}
-    .race-num{width:42px;height:42px;border-radius:14px;display:grid;place-items:center;
-      background:rgba(76,201,255,.12);border:1px solid rgba(76,201,255,.22);font-weight:900}
-    .horse-name{font-weight:900;font-size:15px;line-height:1.2}
-    .horse-sub{margin-top:4px;font-size:12px;color:var(--muted)}
-    .tags{display:flex;gap:6px;flex-wrap:wrap;justify-content:flex-end}
-    .tag{font-size:11px;font-weight:900;letter-spacing:.4px;padding:6px 10px;border-radius:999px;border:1px solid var(--line);background:rgba(255,255,255,.04)}
-    .tag.best{border-color:rgba(66,245,161,.35);background:rgba(66,245,161,.12)}
-    .tag.value{border-color:rgba(255,204,102,.35);background:rgba(255,204,102,.12)}
-    .tag.neutral{border-color:rgba(255,255,255,.10)}
-    .conf{margin-top:12px}
-    .conf-top{display:flex;justify-content:space-between;align-items:center}
-    .conf-label{font-size:12px;color:var(--muted);font-weight:700}
-    .conf-val{font-weight:900}
-    .bar{height:10px;border-radius:999px;border:1px solid var(--line);background:rgba(255,255,255,.04);overflow:hidden;margin-top:8px}
-    .fill{height:100%;background:linear-gradient(90deg, rgba(76,201,255,.9), rgba(66,245,161,.85));}
-    .reason{margin-top:12px;padding-top:12px;border-top:1px dashed var(--line)}
-    .reason-label{font-size:12px;color:var(--muted);font-weight:800;margin-bottom:6px}
-    .reason-text{font-size:12px;line-height:1.45;color:#d6def4;white-space:pre-wrap}
-    footer{margin-top:22px;color:var(--muted);font-size:12px;text-align:center}
-    .small{opacity:.9}
-  </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>FormFactor Racing Pro Picks — 7 March 2026</title>
+<style>
+:root {
+  --bg:#0b1220;
+  --line:rgba(255,255,255,.08);
+  --text:#eef4ff;
+  --muted:#aab7d1;
+  --accent:#55c2ff;
+  --accent2:#71f0b0;
+  --gold:#f3c969;
+  --shadow:0 18px 40px rgba(0,0,0,.35);
+}
+*{box-sizing:border-box}
+body{
+  margin:0;
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  color:var(--text);
+  background:
+    radial-gradient(1000px 600px at 10% -10%, rgba(85,194,255,.18), transparent 55%),
+    radial-gradient(900px 700px at 100% 0%, rgba(113,240,176,.10), transparent 50%),
+    var(--bg);
+}
+.wrap{max-width:1240px;margin:0 auto;padding:20px 16px 48px}
+.hero{
+  background:linear-gradient(180deg, rgba(17,26,43,.94), rgba(15,23,38,.94));
+  border:1px solid var(--line);
+  border-radius:28px;
+  box-shadow:var(--shadow);
+  padding:24px;
+}
+.brand{font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);font-weight:800}
+h1{margin:10px 0 8px;font-size:34px;line-height:1.05}
+.sub{color:var(--muted);font-size:15px;max-width:980px}
+.meta{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}
+.pill{padding:9px 12px;border:1px solid var(--line);border-radius:999px;background:rgba(255,255,255,.03);color:var(--muted);font-size:12px}
+.track{margin-top:18px;background:linear-gradient(180deg, rgba(17,26,43,.92), rgba(15,23,38,.92));border:1px solid var(--line);border-radius:24px;box-shadow:var(--shadow);overflow:hidden}
+.track-head{padding:20px 20px 14px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.track-title h2{margin:0 0 8px;font-size:28px}
+.track-meta{display:flex;gap:8px;flex-wrap:wrap}
+.track-meta .pill{background:rgba(255,255,255,.025)}
+.bv{display:flex;gap:10px;flex-wrap:wrap}
+.bv-card{min-width:260px;padding:12px 14px;border:1px solid var(--line);border-radius:18px;background:rgba(255,255,255,.03)}
+.bv-lbl{font-size:11px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.bv-val{margin-top:6px;font-weight:800;font-size:16px}
+.bv-conf{display:inline-block;margin-left:8px;padding:4px 8px;border-radius:999px;border:1px solid rgba(85,194,255,.22);background:rgba(85,194,255,.12);font-size:12px}
+.table-wrap{overflow:auto}
+table{width:100%;border-collapse:collapse;min-width:1020px}
+thead th{text-align:left;font-size:12px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);padding:14px 16px;border-bottom:1px solid var(--line);background:rgba(255,255,255,.02)}
+tbody td{padding:14px 16px;vertical-align:top;border-bottom:1px solid rgba(255,255,255,.05);font-size:14px}
+tbody tr:hover{background:rgba(255,255,255,.025)}
+.race{font-weight:800}
+.horse{font-weight:800;font-size:15px}
+.small{display:block;color:var(--muted);font-size:12px;margin-top:5px}
+.bar{width:150px;height:10px;border-radius:999px;border:1px solid var(--line);background:rgba(255,255,255,.04);overflow:hidden;margin-top:6px}
+.fill{height:100%;background:linear-gradient(90deg,var(--accent),var(--accent2))}
+.reason{color:#dfe9ff;line-height:1.45;min-width:340px}
+.badge{display:inline-block;padding:4px 8px;border-radius:999px;font-size:11px;font-weight:800;letter-spacing:.08em;text-transform:uppercase}
+.best{background:rgba(113,240,176,.14);border:1px solid rgba(113,240,176,.22)}
+.value{background:rgba(243,201,105,.14);border:1px solid rgba(243,201,105,.22)}
+.note{margin-top:10px;color:var(--muted);font-size:12px}
+.footer{margin-top:18px;color:var(--muted);font-size:12px;text-align:center}
+@media (max-width:700px){
+  h1{font-size:28px}
+  .track-title h2{font-size:24px}
+}
+</style>
 </head>
 <body>
-<header>
-  <div class="topbar">
-    <div class="brand">
-      <div class="h">FormFactor Racing</div>
-      <div class="s">Best + Value + Full Card • 2026-02-28 • Australia/Sydney</div>
-      <div class="meta-row">
-        <div class="pill">No odds • No tips • Data-only selection notes</div>
-      </div>
-    </div>
-    <div class="tabs" role="tablist" aria-label="Tracks">
-      <button class="tab active" data-target="track-0">RANDWICK</button><button class="tab" data-target="track-1">FLEMINGTON</button><button class="tab" data-target="track-2">EAGLE FARM</button>
-    </div>
-  </div>
-</header>
-
 <div class="wrap">
-  
-        <section id="track-0" class="track-section active">
-          <div class="track-head">
-            <div>
-              <h2>RANDWICK</h2>
-              
-        <div class="meeting-meta">
-          <div class="meta-chip"><span class="k">Rail</span><span class="v">True</span></div>
-          <div class="meta-chip"><span class="k">Track</span><span class="v">Soft 7</span></div>
-          <div class="meta-chip"><span class="k">Meeting</span><span class="v">Metro (TAB)</span></div>
-        </div>
-        
-              <div class='note'>Full card selections (one per race) + Best/Value highlighted.</div>
-            </div>
-            <div class="bv">
-              <div class="bv-item">
-                <div class="bv-label">Best Bet</div>
-                <div class="bv-val">R8 #8 AUTUMN GLOW
-                  <span class="bv-conf">9.67</span>
-                </div>
-              </div>
-              <div class="bv-item">
-                <div class="bv-label">Value Bet</div>
-                <div class="bv-val">R10 #6 ROSELYN’S STAR
-                  <span class="bv-conf">4.99</span>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="grid">
-            
-    <article class="card">
-      <div class="card-head">
-        <div class="race-title">
-          <div class="race-num">R1</div>
-          <div class="horse">
-            <div class="horse-name">ALL TOO WILD</div>
-            <div class="horse-sub">#13 • Barrier 1 • 52.5kg</div>
-          </div>
-        </div>
-        <div class="tags"><span class="tag neutral">SELECTION</span></div>
-      </div>
-      
-    <div class="conf">
-      <div class="conf-top">
-        <span class="conf-label">Confidence</span>
-        <span class="conf-val">3.73</span>
-      </div>
-      <div class="bar"><div class="fill" style="width:37.3%"></div></div>
+  <section class="hero">
+    <div class="brand">FormFactor Racing • Pro Version</div>
+    <h1>Pro Picks — Randwick, Flemington & Eagle Farm</h1>
+    <div class="sub">Updated 7 March 2026 file with all three metropolitan meetings. Flemington and Eagle Farm remain from the corrected confirmed-runner version. Randwick has been added from the selections you supplied directly in chat.</div>
+    <div class="meta">
+      <div class="pill">Meetings: Randwick • Flemington • Eagle Farm</div>
+      <div class="pill">Format: picks.htm</div>
+      <div class="pill">Selections: Most likely winner per race</div>
+      <div class="pill">Confidence scale: 1–10</div>
     </div>
-    
-      <div class="reason">
-        <div class="reason-label">Objective notes</div>
-        <div class="reason-text">Barrier 1; 52.5kg. Going record: Soft 4:1-1-0. Distance record: 3:0-2-0. Recent runs (last 3): 6/12 (4.54L), 2/5 (2.42L), 2/8 (1.18L). Trial: 2/5 (WYNG 845m Good4, 28Jan26). Pace proxy: fast (2 leader-types noted); position profile: midfield.</div>
-      </div>
-    </article>
-    
-    <article class="card">
-      <div class="card-head">
-        <div class="race-title">
-          <div class="race-num">R2</div>
-          <div class="horse">
-            <div class="horse-name">BRAVE XENA</div>
-            <div class="horse-sub">#17 • Barrier 6 • 54.0kg</div>
-          </div>
-        </div>
-        <div class="tags"><span class="tag neutral">SELECTION</span></div>
-      </div>
-      
-    <div class="conf">
-      <div class="conf-top">
-        <span class="conf-label">Confidence</span>
-        <span class="conf-val">5.92</span>
-      </div>
-      <div class="bar"><div class="fill" style="width:59.2%"></div></div>
-    </div>
-    
-      <div class="reason">
-        <div class="reason-label">Objective notes</div>
-        <div class="reason-text">Barrier 6; 54.0kg. Going record: Soft 1:1-0-0. Recent runs (last 3): 8/11 (7.24L), 7/10 (2.95L), 1/9 (1.30L). Trial: 7/10 (MRYA 900m Good4, 23Jan26). Pace proxy: fast (3 leader-types noted); position profile: on-pace.</div>
-      </div>
-    </article>
-    
-    <article class="card">
-      <div class="card-head">
-        <div class="race-title">
-          <div class="race-num">R3</div>
-          <div class="horse">
-            <div class="horse-name">FURIOUS</div>
-            <div class="horse-sub">#11 • Barrier 10 • 55.5kg</div>
-          </div>
-        </div>
-        <div class="tags"><span class="tag neutral">SELECTION</span></div>
-      </div>
-      
-    <div class="conf">
-      <div class="conf-top">
-        <span class="conf-label">Confidence</span>
-        <span class="conf-val">5.60</span>
-      </div>
-      <div class="bar"><div class="fill" style="width:56.0%"></div></div>
-    </div>
-    
-      <div class="reason">
-        <div class="reason-label">Objective notes</div>
-        <div class="reason-text">Barrier 10; 55.5kg. Going record: Soft 4:1-1-0. Distance record: 1:1-0-0. Track record: 4:1-0-0. Recent runs (last 3): 1/7 (1.19L), 6/15 (4.19L), 9/10 (5.30L). Trial: 2/6 (FLEM 800m JumpOut, 28Nov25). Pace proxy: moderate (2 leader-types noted); position profile: midfield.</div>
-      </div>
-    </article>
-    
-    <article class="card">
-      <div class="card-head">
-        <div class="race-title">
-          <div class="race-num">R4</div>
-          <div class="horse">
-            <div class="horse-name">CIARON’S STAR</div>
-            <div class="horse-sub">#4 • Barrier 7 • 56.5kg</div>
-          </div>
-        </div>
-        <div class="tags"><span class="tag neutral">SELECTION</span></div>
-      </div>
-      
-    <div class="conf">
-      <div class="conf-top">
-        <span class="conf-label">Confidence</span>
-        <span class="conf-val">4.31</span>
-      </div>
-      <div class="bar"><div class="fill" style="width:43.1%"></div></div>
-    </div>
-    
-      <div class="reason">
-        <div class="reason-label">Objective notes</div>
-        <div class="reason-text">Barrier 7; 56.5kg. Track record: 2:1-0-1. Recent runs (last 3): 1/10 (0.10L), 4/6 (1.49L), 3/9 (2.14L). Trial: 2/6 (RAND 740m Good4, 10Feb26). Pace proxy: slow (1 leader-type noted); position profile: leader/on-speed.</div>
-      </div>
-    </article>
-    
-    <article class="card">
-      <div class="card-head">
-        <div class="race-title">
-          <div class="race-num">R5</div>
-          <div class="horse">
-            <div class="horse-name">FIREBALL</div>
-            <div class="horse-sub">#1 • Barrier 12 • 56.5kg</div>
-          </div>
-        </div>
-        <div class="tags"><span class="tag neutral">SELECTION</span></div>
-      </div>
-      
-    <div class="conf">
-      <div class="conf-top">
-        <span class="conf-label">Confidence</span>
-        <span class="conf-val">4.43</span>
-      </div>
-      <div class="bar"><div class="fill" style="width:44.3%"></div></div>
-    </div>
-    
-      <div class="reason">
-        <div class="reason-label">Objective notes</div>
-        <div class="reason-text">Barrier 12; 56.5kg. Track record: 1:1-0-0. Recent runs (last 3): 2/7 (0.10L), 2/7 (1.04L), 1/6 (1.14L). Jump-out: 1/5 (WARW 800m, 11Feb26). Pace proxy: slow (1 leader-type noted); position profile: on-pace.</div>
-      </div>
-    </article>
-    
-    <article class="card">
-      <div class="card-head">
-        <div class="race-title">
-          <div class="race-num">R6</div>
-          <div class="horse">
-            <div class="horse-name">VERONA ROSE</div>
-            <div class="horse-sub">#4 • Barrier 6 • 56.0kg</div>
-          </div>
-        </div>
-        <div class="tags"><span class="tag neutral">SELECTION</span></div>
-      </div>
-      
-    <div class="conf">
-      <div class="conf-top">
-        <span class="conf-label">Confidence</span>
-        <span class="conf-val">4.77</span>
-      </div>
-      <div class="bar"><div class="fill" style="width:47.7%"></div></div>
-    </div>
-    
-      <div class="reason">
-        <div class="reason-label">Objective notes</div>
-        <div class="reason-text">Barrier 6; 56.0kg. Going record: Soft 3:2-0-0. Distance record: 3:1-1-0. Track record: 4:0-0-1. Recent runs (last 3): 2/9 (0.35L), 1/9 (0.75L), 4/13 (4.39L). Trial: 6/7 (RAND 850m Soft6, 20Feb26). Pace proxy: moderate (2 leader-types noted); position profile: midfield.</div>
-      </div>
-    </article>
-    
-    <article class="card">
-      <div class="card-head">
-        <div class="race-title">
-          <div class="race-num">R7</div>
-          <div class="horse">
-            <div class="horse-name">APOCALYPTIC</div>
-            <div class="horse-sub">#2 • Barrier 4 • 56.0kg</div>
-          </div>
-        </div>
-        <div class="tags"><span class="tag neutral">SELECTION</span></div>
-      </div>
-      
-    <div class="conf">
-      <div class="conf-top">
-        <span class="conf-label">Confidence</span>
-        <span class="conf-val">7.60</span>
-      </div>
-      <div class="bar"><div class="fill" style="width:76.0%"></div></div>
-    </div>
-    
-      <div class="reason">
-        <div class="reason-label">Objective notes</div>
-        <div class="reason-text">Barrier 4; 56.0kg. Going record: Soft 1:0-1-0. Distance record: 1:1-0-0. Track record: 5:3-2-0. Recent runs (last 3): 3/13 (1.15L), 3/11 (1.34L), 1/9 (1.50L). Trial: 1/4 (RAND 1050m Good4, 30Dec25). Pace proxy: moderate (2 leader-types noted); position profile: on-pace.</div>
-      </div>
-    </article>
-    
-    <article class="card">
-      <div class="card-head">
-        <div class="race-title">
-          <div class="race-num">R8</div>
-          <div class="horse">
-            <div class="horse-name">AUTUMN GLOW</div>
-            <div class="horse-sub">#8 • Barrier 3 • 57.0kg</div>
-          </div>
-        </div>
-        <div class="tags"><span class="tag best">BEST</span></div>
-      </div>
-      
-    <div class="conf">
-      <div class="conf-top">
-        <span class="conf-label">Confidence</span>
-        <span class="conf-val">9.67</span>
-      </div>
-      <div class="bar"><div class="fill" style="width:96.7%"></div></div>
-    </div>
-    
-      <div class="reason">
-        <div class="reason-label">Objective notes</div>
-        <div class="reason-text">Barrier 3; 57.0kg. Going record: Soft 3:3-0-0. Distance record: 1:1-0-0. Track record: 5:5-0-0. Recent runs (last 3): 1/16 (1.25L), 1/12 (1.44L), 2/10 (0.20L). Trial: 5/6 (RAND 850m Good4, 15Jan26). Pace proxy: slow (0 leader-types noted); position profile: midfield.</div>
-      </div>
-    </article>
-    
-    <article class="card">
-      <div class="card-head">
-        <div class="race-title">
-          <div class="race-num">R9</div>
-          <div class="horse">
-            <div class="horse-name">KING OF ROSEAU</div>
-            <div class="horse-sub">#7 • Barrier 9 • 54.0kg</div>
-          </div>
-        </div>
-        <div class="tags"><span class="tag neutral">SELECTION</span></div>
-      </div>
-      
-    <div class="conf">
-      <div class="conf-top">
-        <span class="conf-label">Confidence</span>
-        <span class="conf-val">6.15</span>
-      </div>
-      <div class="bar"><div class="fill" style="width:61.5%"></div></div>
-    </div>
-    
-      <div class="reason">
-        <div class="reason-label">Objective notes</div>
-        <div class="reason-text">Barrier 9; 54.0kg. Going record: Soft 10:3-4-1. Distance record: 2:2-0-0. Track record: 3:0-1-1. Recent runs (last 3): 4/8 (2.24L), 2/7 (0.19L), 3/9 (0.50L). Trial: 2/6 (RAND 850m Soft6, 20Feb26). Pace proxy: fast (4 leader-types noted); position profile: midfield.</div>
-      </div>
-    </article>
-    
-    <article class="card">
-      <div class="card-head">
-        <div class="race-title">
-          <div class="race-num">R10</div>
-          <div class="horse">
-            <div class="horse-name">ROSELYN’S STAR</div>
-            <div class="horse-sub">#6 • Barrier 10 • 58.5kg</div>
-          </div>
-        </div>
-        <div class="tags"><span class="tag value">VALUE</span></div>
-      </div>
-      
-    <div class="conf">
-      <div class="conf-top">
-        <span class="conf-label">Confidence</span>
-        <span class="conf-val">4.99</span>
-      </div>
-      <div class="bar"><div class="fill" style="width:49.9%"></div></div>
-    </div>
-    
-      <div class="reason">
-        <div class="reason-label">Objective notes</div>
-        <div class="reason-text">Barrier 10; 58.5kg. Going record: Soft 2:0-1-0. Distance record: 2:0-2-0. Track record: 1:0-1-0. Recent runs (last 3): 10/14 (5.44L), 2/15 (1.94L), 1/12 (0.42L). Trial: 6/7 (RAND 850m Soft6, 20Feb26). Pace proxy: moderate (2 leader-types noted); position profile: backmarker.</div>
-      </div>
-    </article>
-    
-          </div>
-        </section>
-        
-        <section id="track-1" class="track-section">
-          <div class="track-head">
-            <div>
-              <h2>FLEMINGTON</h2>
-              
-        <div class="meeting-meta">
-          <div class="meta-chip"><span class="k">Rail</span><span class="v">Out 2m Entire Circuit</span></div>
-          <div class="meta-chip"><span class="k">Track</span><span class="v">Good 4</span></div>
-          <div class="meta-chip"><span class="k">Meeting</span><span class="v">Metro (TAB)</span></div>
-        </div>
-        
-              <div class='note'>Full card selections (one per race) + Best/Value highlighted.</div>
-            </div>
-            <div class="bv">
-              <div class="bv-item">
-                <div class="bv-label">Best Bet</div>
-                <div class="bv-val">R3 #5 BONS TO RICHES
-                  <span class="bv-conf">8.69</span>
-                </div>
-              </div>
-              <div class="bv-item">
-                <div class="bv-label">Value Bet</div>
-                <div class="bv-val">R6 #10 HEADBANGER
-                  <span class="bv-conf">6.06</span>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="grid">
-            
-    <article class="card">
-      <div class="card-head">
-        <div class="race-title">
-          <div class="race-num">R1</div>
-          <div class="horse">
-            <div class="horse-name">JACARANDA</div>
-            <div class="horse-sub">#5 • Barrier 2 • 55.0kg</div>
-          </div>
-        </div>
-        <div class="tags"><span class="tag neutral">SELECTION</span></div>
-      </div>
-      
-    <div class="conf">
-      <div class="conf-top">
-        <span class="conf-label">Confidence</span>
-        <span class="conf-val">4.95</span>
-      </div>
-      <div class="bar"><div class="fill" style="width:49.5%"></div></div>
-    </div>
-    
-      <div class="reason">
-        <div class="reason-label">Objective notes</div>
-        <div class="reason-text">Barrier 2; 55.0kg. Going record: Good 2:1-0-0. Recent runs (last 3): 4/8 (1.48L), 2/7 (0.20L), 1/9 (0.30L). Jump-out: 1/7 (FLEM 800m JumpOut, 20Feb26). Pace proxy: moderate (2 leader-types noted); position profile: midfield.</div>
-      </div>
-    </article>
-    
-    <article class="card">
-      <div class="card-head">
-        <div class="race-title">
-          <div class="race-num">R2</div>
-          <div class="horse">
-            <div class="horse-name">REGAL TYCOON</div>
-            <div class="horse-sub">#5 • Barrier 1 • 58.0kg</div>
-          </div>
-        </div>
-        <div class="tags"><span class="tag neutral">SELECTION</span></div>
-      </div>
-      
-    <div class="conf">
-      <div class="conf-top">
-        <span class="conf-label">Confidence</span>
-        <span class="conf-val">6.25</span>
-      </div>
-      <div class="bar"><div class="fill" style="width:62.5%"></div></div>
-    </div>
-    
-      <div class="reason">
-        <div class="reason-label">Objective notes</div>
-        <div class="reason-text">Barrier 1; 58.0kg. Going record: Good 12:5-3-3. Distance record: 5:0-3-1. Recent runs (last 3): 2/10 (0.10L), 3/11 (0.80L), 4/9 (2.10L). Jump-out: 2/5 (FLEM 800m JumpOut, 20Feb26). Pace proxy: moderate (2 leader-types noted); position profile: on-pace.</div>
-      </div>
-    </article>
-    
-    <article class="card">
-      <div class="card-head">
-        <div class="race-title">
-          <div class="race-num">R3</div>
-          <div class="horse">
-            <div class="horse-name">BONS TO RICHES</div>
-            <div class="horse-sub">#5 • Barrier 7 • 58.0kg</div>
-          </div>
-        </div>
-        <div class="tags"><span class="tag best">BEST</span></div>
-      </div>
-      
-    <div class="conf">
-      <div class="conf-top">
-        <span class="conf-label">Confidence</span>
-        <span class="conf-val">8.69</span>
-      </div>
-      <div class="bar"><div class="fill" style="width:86.9%"></div></div>
-    </div>
-    
-      <div class="reason">
-        <div class="reason-label">Objective notes</div>
-        <div class="reason-text">Barrier 7; 58.0kg. Going record: Good 11:3-1-2. Distance record: 2:1-1-0. Recent runs (last 3): 1/11 (0.10L), 1/10 (0.70L), 2/13 (0.12L). Jump-out: 2/7 (CRAN 800m JumpOut, 19Jan26). Pace proxy: moderate (2 leader-types noted); position profile: midfield.</div>
-      </div>
-    </article>
-    
-    <article class="card">
-      <div class="card-head">
-        <div class="race-title">
-          <div class="race-num">R4</div>
-          <div class="horse">
-            <div class="horse-name">MOMETZ</div>
-            <div class="horse-sub">#5 • Barrier 9 • 55.5kg</div>
-          </div>
-        </div>
-        <div class="tags"><span class="tag neutral">SELECTION</span></div>
-      </div>
-      
-    <div class="conf">
-      <div class="conf-top">
-        <span class="conf-label">Confidence</span>
-        <span class="conf-val">6.90</span>
-      </div>
-      <div class="bar"><div class="fill" style="width:69.0%"></div></div>
-    </div>
-    
-      <div class="reason">
-        <div class="reason-label">Objective notes</div>
-        <div class="reason-text">Barrier 9; 55.5kg. Going record: Good 6:1-1-1. Distance record: 1:1-0-0. Recent runs (last 3): 2/9 (0.20L), 1/9 (0.10L), 3/11 (0.70L). Jump-out: 2/6 (CAUL 800m JumpOut, 12Feb26). Pace proxy: moderate (2 leader-types noted); position profile: midfield.</div>
-      </div>
-    </article>
-    
-    <article class="card">
-      <div class="card-head">
-        <div class="race-title">
-          <div class="race-num">R5</div>
-          <div class="horse">
-            <div class="horse-name">PERILOUS FIGHTER</div>
-            <div class="horse-sub">#10 • Barrier 2 • 53.0kg</div>
-          </div>
-        </div>
-        <div class="tags"><span class="tag neutral">SELECTION</span></div>
-      </div>
-      
-    <div class="conf">
-      <div class="conf-top">
-        <span class="conf-label">Confidence</span>
-        <span class="conf-val">5.54</span>
-      </div>
-      <div class="bar"><div class="fill" style="width:55.4%"></div></div>
-    </div>
-    
-      <div class="reason">
-        <div class="reason-label">Objective notes</div>
-        <div class="reason-text">Barrier 2; 53.0kg. Going record: Good 2:0-1-0. Recent runs (last 3): 1/8 (0.06L), 2/10 (0.50L), 1/9 (0.95L). Jump-out: 4/6 (FLEM 800m JumpOut, 20Feb26). Pace proxy: fast (3 leader-types noted); position profile: on-pace.</div>
-      </div>
-    </article>
-    
-    <article class="card">
-      <div class="card-head">
-        <div class="race-title">
-          <div class="race-num">R6</div>
-          <div class="horse">
-            <div class="horse-name">HEADBANGER</div>
-            <div class="horse-sub">#10 • Barrier 4 • 54.0kg</div>
-          </div>
-        </div>
-        <div class="tags"><span class="tag value">VALUE</span></div>
-      </div>
-      
-    <div class="conf">
-      <div class="conf-top">
-        <span class="conf-label">Confidence</span>
-        <span class="conf-val">6.06</span>
-      </div>
-      <div class="bar"><div class="fill" style="width:60.6%"></div></div>
-    </div>
-    
-      <div class="reason">
-        <div class="reason-label">Objective notes</div>
-        <div class="reason-text">Barrier 4; 54.0kg. Distance record: 2:1-0-0. Recent runs (last 3): 2/9 (0.20L), 1/13 (0.10L), 5/12 (2.30L). Jump-out: 3/6 (CAUL 800m JumpOut, 12Feb26). Pace proxy: moderate (2 leader-types noted); position profile: midfield.</div>
-      </div>
-    </article>
-    
-    <article class="card">
-      <div class="card-head">
-        <div class="race-title">
-          <div class="race-num">R7</div>
-          <div class="horse">
-            <div class="horse-name">APULIA</div>
-            <div class="horse-sub">#2 • Barrier 2 • 58.0kg</div>
-          </div>
-        </div>
-        <div class="tags"><span class="tag neutral">SELECTION</span></div>
-      </div>
-      
-    <div class="conf">
-      <div class="conf-top">
-        <span class="conf-label">Confidence</span>
-        <span class="conf-val">5.61</span>
-      </div>
-      <div class="bar"><div class="fill" style="width:56.1%"></div></div>
-    </div>
-    
-      <div class="reason">
-        <div class="reason-label">Objective notes</div>
-        <div class="reason-text">Barrier 2; 58.0kg. Going record: Good 5:1-1-1. Distance record: 2:0-1-0. Recent runs (last 3): 2/9 (0.10L), 4/10 (1.00L), 1/14 (0.70L). Trial: 1/6 (CAUH 800m Good4, 29Jan26). Pace proxy: fast (3 leader-types noted); position profile: on-pace.</div>
-      </div>
-    </article>
-    
-    <article class="card">
-      <div class="card-head">
-        <div class="race-title">
-          <div class="race-num">R8</div>
-          <div class="horse">
-            <div class="horse-name">SIXTIES</div>
-            <div class="horse-sub">#4 • Barrier 10 • 57.0kg</div>
-          </div>
-        </div>
-        <div class="tags"><span class="tag neutral">SELECTION</span></div>
-      </div>
-      
-    <div class="conf">
-      <div class="conf-top">
-        <span class="conf-label">Confidence</span>
-        <span class="conf-val">7.10</span>
-      </div>
-      <div class="bar"><div class="fill" style="width:71.0%"></div></div>
-    </div>
-    
-      <div class="reason">
-        <div class="reason-label">Objective notes</div>
-        <div class="reason-text">Barrier 10; 57.0kg. Going record: Good 5:2-1-0. Distance record: 2:1-0-0. Recent runs (last 3): 2/8 (0.15L), 1/9 (0.10L), 2/10 (0.50L). Jump-out: 1/8 (FLEM 800m JumpOut, 20Feb26). Pace proxy: moderate (2 leader-types noted); position profile: midfield.</div>
-      </div>
-    </article>
-    
-    <article class="card">
-      <div class="card-head">
-        <div class="race-title">
-          <div class="race-num">R9</div>
-          <div class="horse">
-            <div class="horse-name">FUNDAMENTAL NATURE</div>
-            <div class="horse-sub">#13 • Barrier 14 • 55.0kg</div>
-          </div>
-        </div>
-        <div class="tags"><span class="tag neutral">SELECTION</span></div>
-      </div>
-      
-    <div class="conf">
-      <div class="conf-top">
-        <span class="conf-label">Confidence</span>
-        <span class="conf-val">7.86</span>
-      </div>
-      <div class="bar"><div class="fill" style="width:78.6%"></div></div>
-    </div>
-    
-      <div class="reason">
-        <div class="reason-label">Objective notes</div>
-        <div class="reason-text">Barrier 14; 55.0kg. Going record: Good 2:2-0-0. Distance record: 1:1-0-0. Recent runs (last 3): 1/10 (0.20L), 1/10 (0.10L), 1/9 (0.15L). Jump-out: 2/5 (FLEM 800m JumpOut, 20Feb26). Pace proxy: fast (3 leader-types noted); position profile: midfield.</div>
-      </div>
-    </article>
-    
-    <article class="card">
-      <div class="card-head">
-        <div class="race-title">
-          <div class="race-num">R10</div>
-          <div class="horse">
-            <div class="horse-name">FIORENOT</div>
-            <div class="horse-sub">#7 • Barrier 13 • 57.0kg</div>
-          </div>
-        </div>
-        <div class="tags"><span class="tag neutral">SELECTION</span></div>
-      </div>
-      
-    <div class="conf">
-      <div class="conf-top">
-        <span class="conf-label">Confidence</span>
-        <span class="conf-val">7.62</span>
-      </div>
-      <div class="bar"><div class="fill" style="width:76.2%"></div></div>
-    </div>
-    
-      <div class="reason">
-        <div class="reason-label">Objective notes</div>
-        <div class="reason-text">Barrier 13; 57.0kg. Going record: Good 9:4-4-0. Distance record: 2:0-1-0. Track record: 3:2-1-0. Recent runs (last 3): 1/10 (0.20L), 2/9 (0.20L), 1/12 (0.06L). Jump-out: 1/6 (FLEM 800m JumpOut, 20Feb26). Pace proxy: moderate (2 leader-types noted); position profile: midfield.</div>
-      </div>
-    </article>
-    
-          </div>
-        </section>
-        
-        <section id="track-2" class="track-section">
-          <div class="track-head">
-            <div>
-              <h2>EAGLE FARM</h2>
-              
-        <div class="meeting-meta">
-          <div class="meta-chip"><span class="k">Rail</span><span class="v">+0.5m Entire</span></div>
-          <div class="meta-chip"><span class="k">Track</span><span class="v">Soft 7</span></div>
-          <div class="meta-chip"><span class="k">Meeting</span><span class="v">Metro (TAB)</span></div>
-        </div>
-        
-              <div class='note'>Full card selections (one per race) + Best/Value highlighted.</div>
-            </div>
-            <div class="bv">
-              <div class="bv-item">
-                <div class="bv-label">Best Bet</div>
-                <div class="bv-val">R6 #6 NAILS MURPHY
-                  <span class="bv-conf">7.27</span>
-                </div>
-              </div>
-              <div class="bv-item">
-                <div class="bv-label">Value Bet</div>
-                <div class="bv-val">R3 #6 TOSEN SABI
-                  <span class="bv-conf">3.28</span>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="grid">
-            
-    <article class="card">
-      <div class="card-head">
-        <div class="race-title">
-          <div class="race-num">R1</div>
-          <div class="horse">
-            <div class="horse-name">HEY DAISY</div>
-            <div class="horse-sub">#5 • Barrier 3 • 55.5kg</div>
-          </div>
-        </div>
-        <div class="tags"><span class="tag neutral">SELECTION</span></div>
-      </div>
-      
-    <div class="conf">
-      <div class="conf-top">
-        <span class="conf-label">Confidence</span>
-        <span class="conf-val">5.53</span>
-      </div>
-      <div class="bar"><div class="fill" style="width:55.3%"></div></div>
-    </div>
-    
-      <div class="reason">
-        <div class="reason-label">Objective notes</div>
-        <div class="reason-text">Barrier 3; 55.5kg. Going record: Soft 5:2-1-0. Distance record: 2:1-1-0. Recent runs (last 3): 1/9 (2.86L), 2/8 (1.30L), 1/10 (3.13L). Trial: 5/6 (DEAG 1050m Soft5, 20Jan26). Pace proxy: fast (3 leader-types noted); position profile: on-pace.</div>
-      </div>
-    </article>
-    
-    <article class="card">
-      <div class="card-head">
-        <div class="race-title">
-          <div class="race-num">R2</div>
-          <div class="horse">
-            <div class="horse-name">FULMEN FILOU</div>
-            <div class="horse-sub">#6 • Barrier 13 • 58.0kg</div>
-          </div>
-        </div>
-        <div class="tags"><span class="tag neutral">SELECTION</span></div>
-      </div>
-      
-    <div class="conf">
-      <div class="conf-top">
-        <span class="conf-label">Confidence</span>
-        <span class="conf-val">7.14</span>
-      </div>
-      <div class="bar"><div class="fill" style="width:71.4%"></div></div>
-    </div>
-    
-      <div class="reason">
-        <div class="reason-label">Objective notes</div>
-        <div class="reason-text">Barrier 13; 58.0kg. Distance record: 5:1-3-0. Recent runs (last 3): 2/9 (0.10L), 1/12 (0.06L), 4/9 (3.69L). Trial: 1/7 (DEAG 1000m Heavy9, 09Feb26). Pace proxy: moderate (2 leader-types noted); position profile: midfield.</div>
-      </div>
-    </article>
-    
-    <article class="card">
-      <div class="card-head">
-        <div class="race-title">
-          <div class="race-num">R3</div>
-          <div class="horse">
-            <div class="horse-name">TOSEN SABI</div>
-            <div class="horse-sub">#6 • Barrier 1 • 57.5kg</div>
-          </div>
-        </div>
-        <div class="tags"><span class="tag value">VALUE</span></div>
-      </div>
-      
-    <div class="conf">
-      <div class="conf-top">
-        <span class="conf-label">Confidence</span>
-        <span class="conf-val">3.28</span>
-      </div>
-      <div class="bar"><div class="fill" style="width:32.8%"></div></div>
-    </div>
-    
-      <div class="reason">
-        <div class="reason-label">Objective notes</div>
-        <div class="reason-text">Barrier 1; 57.5kg. Distance record: 2:1-0-0. Track record: 1:0-0-0. Recent runs (last 3): 1/11 (0.10L), 5/6 (2.95L), 1/6 (2.95L). Trial: 5/6 (DALB 800m Good4, 05Nov25). Pace proxy: moderate (2 leader-types noted); position profile: on-pace.</div>
-      </div>
-    </article>
-    
-    <article class="card">
-      <div class="card-head">
-        <div class="race-title">
-          <div class="race-num">R4</div>
-          <div class="horse">
-            <div class="horse-name">SUN SISTER</div>
-            <div class="horse-sub">#5 • Barrier 5 • 57.0kg</div>
-          </div>
-        </div>
-        <div class="tags"><span class="tag neutral">SELECTION</span></div>
-      </div>
-      
-    <div class="conf">
-      <div class="conf-top">
-        <span class="conf-label">Confidence</span>
-        <span class="conf-val">3.70</span>
-      </div>
-      <div class="bar"><div class="fill" style="width:37.0%"></div></div>
-    </div>
-    
-      <div class="reason">
-        <div class="reason-label">Objective notes</div>
-        <div class="reason-text">Barrier 5; 57.0kg. Recent runs (last 3): 1/6 (2.11L), 6/7 (6.07L), 6/7 (1.45L). Trial: 2/5 (DEAG 1050m Soft5, 20Jan26). Pace proxy: fast (3 leader-types noted); position profile: leader/on-speed.</div>
-      </div>
-    </article>
-    
-    <article class="card">
-      <div class="card-head">
-        <div class="race-title">
-          <div class="race-num">R5</div>
-          <div class="horse">
-            <div class="horse-name">SO LONG FAREWELL (NZ)</div>
-            <div class="horse-sub">#8 • Barrier 3 • 57.0kg</div>
-          </div>
-        </div>
-        <div class="tags"><span class="tag neutral">SELECTION</span></div>
-      </div>
-      
-    <div class="conf">
-      <div class="conf-top">
-        <span class="conf-label">Confidence</span>
-        <span class="conf-val">4.80</span>
-      </div>
-      <div class="bar"><div class="fill" style="width:48.0%"></div></div>
-    </div>
-    
-      <div class="reason">
-        <div class="reason-label">Objective notes</div>
-        <div class="reason-text">Barrier 3; 57.0kg. Distance record: 2:1-0-0. Track record: 1:1-0-0. Recent runs (last 3): 2/8 (0.10L), 1/12 (0.20L), 5/10 (1.50L). Trial: 2/6 (E FM 1000m Good4, 11Feb26). Pace proxy: moderate (2 leader-types noted); position profile: midfield.</div>
-      </div>
-    </article>
-    
-    <article class="card">
-      <div class="card-head">
-        <div class="race-title">
-          <div class="race-num">R6</div>
-          <div class="horse">
-            <div class="horse-name">NAILS MURPHY</div>
-            <div class="horse-sub">#6 • Barrier 11 • 52.5kg</div>
-          </div>
-        </div>
-        <div class="tags"><span class="tag best">BEST</span></div>
-      </div>
-      
-    <div class="conf">
-      <div class="conf-top">
-        <span class="conf-label">Confidence</span>
-        <span class="conf-val">7.27</span>
-      </div>
-      <div class="bar"><div class="fill" style="width:72.7%"></div></div>
-    </div>
-    
-      <div class="reason">
-        <div class="reason-label">Objective notes</div>
-        <div class="reason-text">Barrier 11; 52.5kg. Distance record: 13:3-5-3. Recent runs (last 3): 1/9 (0.10L), 2/10 (0.20L), 1/9 (0.10L). Trial: 1/9 (E FM 600m Good4, 17Feb26). Pace proxy: moderate (2 leader-types noted); position profile: midfield.</div>
-      </div>
-    </article>
-    
-    <article class="card">
-      <div class="card-head">
-        <div class="race-title">
-          <div class="race-num">R7</div>
-          <div class="horse">
-            <div class="horse-name">BREAK FREE</div>
-            <div class="horse-sub">#13 • Barrier 4 • 55.0kg</div>
-          </div>
-        </div>
-        <div class="tags"><span class="tag neutral">SELECTION</span></div>
-      </div>
-      
-    <div class="conf">
-      <div class="conf-top">
-        <span class="conf-label">Confidence</span>
-        <span class="conf-val">5.17</span>
-      </div>
-      <div class="bar"><div class="fill" style="width:51.7%"></div></div>
-    </div>
-    
-      <div class="reason">
-        <div class="reason-label">Objective notes</div>
-        <div class="reason-text">Barrier 4; 55.0kg. Distance record: 2:0-1-1. Track record: 3:0-1-0. Recent runs (last 3): 2/10 (0.10L), 1/11 (0.06L), 3/14 (0.20L). Trial: 1/6 (DEAG 900m Good4, 13Jan26). Pace proxy: fast (3 leader-types noted); position profile: midfield.</div>
-      </div>
-    </article>
-    
-    <article class="card">
-      <div class="card-head">
-        <div class="race-title">
-          <div class="race-num">R8</div>
-          <div class="horse">
-            <div class="horse-name">CASINO BAY</div>
-            <div class="horse-sub">#7 • Barrier 6 • 54.0kg</div>
-          </div>
-        </div>
-        <div class="tags"><span class="tag neutral">SELECTION</span></div>
-      </div>
-      
-    <div class="conf">
-      <div class="conf-top">
-        <span class="conf-label">Confidence</span>
-        <span class="conf-val">7.11</span>
-      </div>
-      <div class="bar"><div class="fill" style="width:71.1%"></div></div>
-    </div>
-    
-      <div class="reason">
-        <div class="reason-label">Objective notes</div>
-        <div class="reason-text">Barrier 6; 54.0kg. Distance record: 2:1-1-0. Recent runs (last 3): 1/7 (0.10L), 3/9 (0.20L), 2/10 (0.06L). Trial: 2/8 (DEAG 900m Heavy8, 09Feb26). Pace proxy: moderate (2 leader-types noted); position profile: midfield.</div>
-      </div>
-    </article>
-    
-    <article class="card">
-      <div class="card-head">
-        <div class="race-title">
-          <div class="race-num">R9</div>
-          <div class="horse">
-            <div class="horse-name">HATCHET</div>
-            <div class="horse-sub">#1 • Barrier 9 • 59.0kg</div>
-          </div>
-        </div>
-        <div class="tags"><span class="tag neutral">SELECTION</span></div>
-      </div>
-      
-    <div class="conf">
-      <div class="conf-top">
-        <span class="conf-label">Confidence</span>
-        <span class="conf-val">5.81</span>
-      </div>
-      <div class="bar"><div class="fill" style="width:58.1%"></div></div>
-    </div>
-    
-      <div class="reason">
-        <div class="reason-label">Objective notes</div>
-        <div class="reason-text">Barrier 9; 59.0kg. Distance record: 26:6-6-4. Recent runs (last 3): 2/10 (0.10L), 5/12 (1.50L), 4/8 (0.15L). Trial: 2/7 (DEAG 1050m Heavy8, 09Feb26). Pace proxy: fast (3 leader-types noted); position profile: midfield.</div>
-      </div>
-    </article>
-    
-    <article class="card">
-      <div class="card-head">
-        <div class="race-title">
-          <div class="race-num">R10</div>
-          <div class="horse">
-            <div class="horse-name">HERMANITA</div>
-            <div class="horse-sub">#9 • Barrier 9 • 57.5kg</div>
-          </div>
-        </div>
-        <div class="tags"><span class="tag neutral">SELECTION</span></div>
-      </div>
-      
-    <div class="conf">
-      <div class="conf-top">
-        <span class="conf-label">Confidence</span>
-        <span class="conf-val">7.15</span>
-      </div>
-      <div class="bar"><div class="fill" style="width:71.5%"></div></div>
-    </div>
-    
-      <div class="reason">
-        <div class="reason-label">Objective notes</div>
-        <div class="reason-text">Barrier 9; 57.5kg. Distance record: 2:1-1-0. Track record: 6:1-0-0. Recent runs (last 3): 1/10 (0.06L), 2/11 (0.10L), 1/9 (0.10L). Trial: 1/7 (DEAG 900m Soft5, 10Feb26). Pace proxy: moderate (2 leader-types noted); position profile: midfield.</div>
-      </div>
-    </article>
-    
-          </div>
-        </section>
-        
-  <footer>
-    <div class="small">Generated from attached race selections file.</div>
-  </footer>
-</div>
+  </section>
 
-<script>
-  const tabs = document.querySelectorAll('.tab');
-  const sections = document.querySelectorAll('.track-section');
-  tabs.forEach(btn => {
-    btn.addEventListener('click', () => {
-      tabs.forEach(t => t.classList.remove('active'));
-      btn.classList.add('active');
-      const target = btn.getAttribute('data-target');
-      sections.forEach(s => s.classList.remove('active'));
-      const el = document.getElementById(target);
-      if (el) el.classList.add('active');
-      window.scrollTo({top:0, behavior:'smooth'});
-    });
-  });
-</script>
+    <section class="track">
+      <div class="track-head">
+        <div class="track-title">
+          <h2>Randwick</h2>
+          <div class="track-meta">
+            <div class="pill">Rail: As provided in user selections</div>
+            <div class="pill">Track: As per official meeting data</div>
+            <div class="pill">Weather: —</div>
+          </div>
+          <div class='note'>Randwick entries were inserted from your supplied selections in chat.</div>
+        </div>
+        <div class="bv">
+          <div class="bv-card">
+            <div class="bv-lbl">Best Bet</div>
+            <div class="bv-val">R9 #1 YORKSHIRE<span class="bv-conf">8.53</span></div>
+          </div>
+          <div class="bv-card">
+            <div class="bv-lbl">Value Bet</div>
+            <div class="bv-val">R4 #8 WOLF GAP<span class="bv-conf">5.26</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Race</th>
+              <th>Selection</th>
+              <th>Barrier</th>
+              <th>Weight</th>
+              <th>Confidence</th>
+              <th>Reason</th>
+            </tr>
+          </thead>
+          <tbody>
+    
+            <tr>
+              <td class="race">R1</td>
+              <td><span class="horse">#4 ICEMAN</span></td>
+              <td>2</td>
+              <td>58.5kg</td>
+              <td>
+                <div><strong>4.32</strong></div>
+                <div class="bar"><div class="fill" style="width:43.2%"></div></div>
+              </td>
+              <td class="reason">User-supplied Randwick selection. Barrier 2, 58.5kg, confidence 4.32.</td>
+            </tr>
+        
+            <tr>
+              <td class="race">R2</td>
+              <td><span class="horse">#12 JUJA KIBO (IRE)</span></td>
+              <td>9</td>
+              <td>53.5kg</td>
+              <td>
+                <div><strong>4.15</strong></div>
+                <div class="bar"><div class="fill" style="width:41.5%"></div></div>
+              </td>
+              <td class="reason">User-supplied Randwick selection. Barrier 9, 53.5kg, confidence 4.15.</td>
+            </tr>
+        
+            <tr>
+              <td class="race">R3</td>
+              <td><span class="horse">#8 NAADRA</span></td>
+              <td>2</td>
+              <td>56.5kg</td>
+              <td>
+                <div><strong>5.86</strong></div>
+                <div class="bar"><div class="fill" style="width:58.6%"></div></div>
+              </td>
+              <td class="reason">User-supplied Randwick selection. Barrier 2, 56.5kg, confidence 5.86.</td>
+            </tr>
+        
+            <tr>
+              <td class="race">R4</td>
+              <td><span class="horse">#8 WOLF GAP</span><span class="small"><span class="badge value">Value Bet</span></span></td>
+              <td>8</td>
+              <td>54.0kg</td>
+              <td>
+                <div><strong>5.26</strong></div>
+                <div class="bar"><div class="fill" style="width:52.599999999999994%"></div></div>
+              </td>
+              <td class="reason">User-supplied Randwick value bet. Barrier 8, 54.0kg, confidence 5.26.</td>
+            </tr>
+        
+            <tr>
+              <td class="race">R5</td>
+              <td><span class="horse">#18 BEADMAN</span></td>
+              <td>4</td>
+              <td>59.0kg</td>
+              <td>
+                <div><strong>5.37</strong></div>
+                <div class="bar"><div class="fill" style="width:53.7%"></div></div>
+              </td>
+              <td class="reason">User-supplied Randwick selection. Barrier 4, 59.0kg, confidence 5.37.</td>
+            </tr>
+        
+            <tr>
+              <td class="race">R6</td>
+              <td><span class="horse">#7 MOVIN OUT (NZ)</span></td>
+              <td>5</td>
+              <td>57.5kg</td>
+              <td>
+                <div><strong>6.41</strong></div>
+                <div class="bar"><div class="fill" style="width:64.1%"></div></div>
+              </td>
+              <td class="reason">User-supplied Randwick selection. Barrier 5, 57.5kg, confidence 6.41.</td>
+            </tr>
+        
+            <tr>
+              <td class="race">R7</td>
+              <td><span class="horse">#3 GIGA KICK</span></td>
+              <td>7</td>
+              <td>58.5kg</td>
+              <td>
+                <div><strong>7.12</strong></div>
+                <div class="bar"><div class="fill" style="width:71.2%"></div></div>
+              </td>
+              <td class="reason">User-supplied Randwick selection. Barrier 7, 58.5kg, confidence 7.12.</td>
+            </tr>
+        
+            <tr>
+              <td class="race">R8</td>
+              <td><span class="horse">#4 ATTICA</span></td>
+              <td>8</td>
+              <td>59.0kg</td>
+              <td>
+                <div><strong>7.56</strong></div>
+                <div class="bar"><div class="fill" style="width:75.6%"></div></div>
+              </td>
+              <td class="reason">User-supplied Randwick selection. Barrier 8, 59.0kg, confidence 7.56.</td>
+            </tr>
+        
+            <tr>
+              <td class="race">R9</td>
+              <td><span class="horse">#1 YORKSHIRE</span><span class="small"><span class="badge best">Best Bet</span></span></td>
+              <td>5</td>
+              <td>58.0kg</td>
+              <td>
+                <div><strong>8.53</strong></div>
+                <div class="bar"><div class="fill" style="width:85.3%"></div></div>
+              </td>
+              <td class="reason">User-supplied Randwick best bet. Barrier 5, 58.0kg, confidence 8.53.</td>
+            </tr>
+        
+            <tr>
+              <td class="race">R10</td>
+              <td><span class="horse">#13 GANGSTA GRANNY</span></td>
+              <td>8</td>
+              <td>56.5kg</td>
+              <td>
+                <div><strong>5.79</strong></div>
+                <div class="bar"><div class="fill" style="width:57.9%"></div></div>
+              </td>
+              <td class="reason">User-supplied Randwick selection. Barrier 8, 56.5kg, confidence 5.79.</td>
+            </tr>
+        
+          </tbody>
+        </table>
+      </div>
+    </section>
+    
+    <section class="track">
+      <div class="track-head">
+        <div class="track-title">
+          <h2>Flemington</h2>
+          <div class="track-meta">
+            <div class="pill">Rail: Out 6m Entire Circuit</div>
+            <div class="pill">Track: Good 4</div>
+            <div class="pill">Weather: Fine</div>
+          </div>
+          
+        </div>
+        <div class="bv">
+          <div class="bv-card">
+            <div class="bv-lbl">Best Bet</div>
+            <div class="bv-val">R1 #5 GO LEFT<span class="bv-conf">8.58</span></div>
+          </div>
+          <div class="bv-card">
+            <div class="bv-lbl">Value Bet</div>
+            <div class="bv-val">R6 #7 LEOPARD SHARK<span class="bv-conf">5.58</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Race</th>
+              <th>Selection</th>
+              <th>Barrier</th>
+              <th>Weight</th>
+              <th>Confidence</th>
+              <th>Reason</th>
+            </tr>
+          </thead>
+          <tbody>
+    
+            <tr>
+              <td class="race">R1</td>
+              <td><span class="horse">#5 GO LEFT</span><span class="small"><span class="badge best">Best Bet</span></span></td>
+              <td>5</td>
+              <td>54.0kg</td>
+              <td>
+                <div><strong>8.58</strong></div>
+                <div class="bar"><div class="fill" style="width:85.8%"></div></div>
+              </td>
+              <td class="reason">Barrier 5 with 54.0kg. Undefeated in two wins on Good ground and already a winner at 1100m. Light weight against higher-rated rivals and progressive profile off recent jump-outs.</td>
+            </tr>
+        
+            <tr>
+              <td class="race">R2</td>
+              <td><span class="horse">#3 SHE&#x27;S AN ARTIST</span></td>
+              <td>9</td>
+              <td>57.5kg</td>
+              <td>
+                <div><strong>6.55</strong></div>
+                <div class="bar"><div class="fill" style="width:65.5%"></div></div>
+              </td>
+              <td class="reason">Barrier 9 with 57.5kg. Three wins from four starts at 1100m and strong Flemington profile. Recent Caulfield win at 1100m on Good 4 confirms current form.</td>
+            </tr>
+        
+            <tr>
+              <td class="race">R3</td>
+              <td><span class="horse">#4 SCINTILLATION</span></td>
+              <td>3</td>
+              <td>56.0kg</td>
+              <td>
+                <div><strong>8.31</strong></div>
+                <div class="bar"><div class="fill" style="width:83.10000000000001%"></div></div>
+              </td>
+              <td class="reason">Barrier 3 at set weights. Won on debut over 1000m on Good 4 after leading throughout; earlier trials were strong. Inside draw and proven race fitness are positives against several debutantes.</td>
+            </tr>
+        
+            <tr>
+              <td class="race">R4</td>
+              <td><span class="horse">#7 WELCOMETOTHESHOW</span></td>
+              <td>1</td>
+              <td>54.0kg</td>
+              <td>
+                <div><strong>5.20</strong></div>
+                <div class="bar"><div class="fill" style="width:52.0%"></div></div>
+              </td>
+              <td class="reason">Barrier 1 with 54.0kg. Drawn to secure the run of the race and comes off a strong winning sequence prior to latest defeat. Light weight and economical map suit at 1400m.</td>
+            </tr>
+        
+            <tr>
+              <td class="race">R5</td>
+              <td><span class="horse">#2 SASS APPEAL</span></td>
+              <td>9</td>
+              <td>56.0kg</td>
+              <td>
+                <div><strong>8.26</strong></div>
+                <div class="bar"><div class="fill" style="width:82.6%"></div></div>
+              </td>
+              <td class="reason">Barrier 9 with 56.0kg. Strong recent form and figures through comparable grade, with proven ability at the distance and on firm ground. Recent pattern indicates sustained consistency.</td>
+            </tr>
+        
+            <tr>
+              <td class="race">R6</td>
+              <td><span class="horse">#7 LEOPARD SHARK</span><span class="small"><span class="badge value">Value Bet</span></span></td>
+              <td>12</td>
+              <td>55.0kg</td>
+              <td>
+                <div><strong>5.58</strong></div>
+                <div class="bar"><div class="fill" style="width:55.8%"></div></div>
+              </td>
+              <td class="reason">Barrier 12 with 55.0kg. Current form and ratings stack up favourably for the grade, and the weight is workable. Wide draw reduces confidence, but objective profile remains competitive.</td>
+            </tr>
+        
+            <tr>
+              <td class="race">R7</td>
+              <td><span class="horse">#6 WATCH ME ROCK</span></td>
+              <td>5</td>
+              <td>59.0kg</td>
+              <td>
+                <div><strong>5.57</strong></div>
+                <div class="bar"><div class="fill" style="width:55.7%"></div></div>
+              </td>
+              <td class="reason">Barrier 5 with 59.0kg. Recent form lines hold up in similar company and barrier gives tactical options. Carries more weight but has figures that keep him prominent.</td>
+            </tr>
+        
+            <tr>
+              <td class="race">R8</td>
+              <td><span class="horse">#8 SEA WHAT I SEE (IRE)</span></td>
+              <td>2</td>
+              <td>55.0kg</td>
+              <td>
+                <div><strong>6.38</strong></div>
+                <div class="bar"><div class="fill" style="width:63.8%"></div></div>
+              </td>
+              <td class="reason">Barrier 2 with 55.0kg. Drawn to save ground and has strong staying profile at the trip. Recent results and sectional pattern indicate suitability for the likely tempo.</td>
+            </tr>
+        
+            <tr>
+              <td class="race">R9</td>
+              <td><span class="horse">#2 TENTYRIS</span></td>
+              <td>12</td>
+              <td>57.0kg</td>
+              <td>
+                <div><strong>6.21</strong></div>
+                <div class="bar"><div class="fill" style="width:62.1%"></div></div>
+              </td>
+              <td class="reason">Barrier 12 with 57.0kg. Top-level sprint form and proven performance at this class. Wide gate is a negative, but objective ratings and recent figures still place him on top.</td>
+            </tr>
+        
+            <tr>
+              <td class="race">R10</td>
+              <td><span class="horse">#1 AUGUSTUS (GER)</span></td>
+              <td>3</td>
+              <td>58.5kg</td>
+              <td>
+                <div><strong>5.08</strong></div>
+                <div class="bar"><div class="fill" style="width:50.8%"></div></div>
+              </td>
+              <td class="reason">Barrier 3 with 58.5kg. Drawn well and holds a solid profile through distance racing. Carries weight but maps efficiently and has consistent data at staying trips.</td>
+            </tr>
+        
+          </tbody>
+        </table>
+      </div>
+    </section>
+    
+    <section class="track">
+      <div class="track-head">
+        <div class="track-title">
+          <h2>Eagle Farm</h2>
+          <div class="track-meta">
+            <div class="pill">Rail: +2.5m Entire</div>
+            <div class="pill">Track: Soft 5</div>
+            <div class="pill">Weather: Fine</div>
+          </div>
+          
+        </div>
+        <div class="bv">
+          <div class="bv-card">
+            <div class="bv-lbl">Best Bet</div>
+            <div class="bv-val">R7 #3 BE BOB ALOOLA<span class="bv-conf">7.25</span></div>
+          </div>
+          <div class="bv-card">
+            <div class="bv-lbl">Value Bet</div>
+            <div class="bv-val">R9 #8 KINGDOM UNDERSIEGE<span class="bv-conf">4.75</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Race</th>
+              <th>Selection</th>
+              <th>Barrier</th>
+              <th>Weight</th>
+              <th>Confidence</th>
+              <th>Reason</th>
+            </tr>
+          </thead>
+          <tbody>
+    
+            <tr>
+              <td class="race">R1</td>
+              <td><span class="horse">#3 GOLD CZECH</span></td>
+              <td>4</td>
+              <td>57.5kg</td>
+              <td>
+                <div><strong>5.98</strong></div>
+                <div class="bar"><div class="fill" style="width:59.800000000000004%"></div></div>
+              </td>
+              <td class="reason">Barrier 4 with 57.5kg. Won latest start at 1200m on Soft 7 and had trial support before that. Soft-ground win is directly relevant to today&#x27;s Soft 5 and the draw is favourable.</td>
+            </tr>
+        
+            <tr>
+              <td class="race">R2</td>
+              <td><span class="horse">#7 WHATJEUDOIN&#x27;</span></td>
+              <td>6</td>
+              <td>52.0kg</td>
+              <td>
+                <div><strong>4.46</strong></div>
+                <div class="bar"><div class="fill" style="width:44.6%"></div></div>
+              </td>
+              <td class="reason">Barrier 6 with the minimum 52.0kg. Multiple wins from staying distances and recent form includes a BM58 win over 2180m two starts back. Light weight is a key objective edge at 2412m.</td>
+            </tr>
+        
+            <tr>
+              <td class="race">R3</td>
+              <td><span class="horse">#11 BONFIRE SPARK</span></td>
+              <td>4</td>
+              <td>54.5kg</td>
+              <td>
+                <div><strong>5.63</strong></div>
+                <div class="bar"><div class="fill" style="width:56.3%"></div></div>
+              </td>
+              <td class="reason">Barrier 4 with 54.5kg. Last-start winner over 1000m and maps well from an inside-middle draw. Carries the minimum for the grade and recent sprint figures are strong enough for this field.</td>
+            </tr>
+        
+            <tr>
+              <td class="race">R4</td>
+              <td><span class="horse">#11 PULVERISER</span></td>
+              <td>14</td>
+              <td>56.5kg</td>
+              <td>
+                <div><strong>5.78</strong></div>
+                <div class="bar"><div class="fill" style="width:57.800000000000004%"></div></div>
+              </td>
+              <td class="reason">Barrier 14 with 56.5kg. Data profile through recent runs and distance ratings places him on top despite the gate. Needs to offset wide draw, but current figures remain competitive.</td>
+            </tr>
+        
+            <tr>
+              <td class="race">R5</td>
+              <td><span class="horse">#9 SEXY TIME (NZ)</span></td>
+              <td>12</td>
+              <td>58.5kg</td>
+              <td>
+                <div><strong>5.55</strong></div>
+                <div class="bar"><div class="fill" style="width:55.5%"></div></div>
+              </td>
+              <td class="reason">Barrier 12 with 58.5kg. Staying profile and recent form lines fit the race well. Wide draw tempers confidence, though objective distance credentials are solid.</td>
+            </tr>
+        
+            <tr>
+              <td class="race">R6</td>
+              <td><span class="horse">#6 REZONE</span></td>
+              <td>7</td>
+              <td>54.5kg</td>
+              <td>
+                <div><strong>5.64</strong></div>
+                <div class="bar"><div class="fill" style="width:56.4%"></div></div>
+              </td>
+              <td class="reason">Barrier 7 with 54.5kg. Carries a light weight for the class and recent form suggests competitive figures at the trip. Mid draw supports a workable run pattern.</td>
+            </tr>
+        
+            <tr>
+              <td class="race">R7</td>
+              <td><span class="horse">#3 BE BOB ALOOLA</span><span class="small"><span class="badge best">Best Bet</span></span></td>
+              <td>9</td>
+              <td>54.0kg</td>
+              <td>
+                <div><strong>7.25</strong></div>
+                <div class="bar"><div class="fill" style="width:72.5%"></div></div>
+              </td>
+              <td class="reason">Barrier 9 with 54.0kg. Strong current profile, favourable weight, and objective ratings that stand above rivals for this race. Recent performances indicate sustained form in comparable company.</td>
+            </tr>
+        
+            <tr>
+              <td class="race">R8</td>
+              <td><span class="horse">#12 AMBERINGER</span></td>
+              <td>12</td>
+              <td>52.0kg</td>
+              <td>
+                <div><strong>6.41</strong></div>
+                <div class="bar"><div class="fill" style="width:64.1%"></div></div>
+              </td>
+              <td class="reason">Barrier 12 with the minimum 52.0kg. Light weight gives a clear handicap advantage and recent staying data supports competitiveness. Wide draw is offset by weight relief.</td>
+            </tr>
+        
+            <tr>
+              <td class="race">R9</td>
+              <td><span class="horse">#8 KINGDOM UNDERSIEGE</span><span class="small"><span class="badge value">Value Bet</span></span></td>
+              <td>4</td>
+              <td>54.0kg</td>
+              <td>
+                <div><strong>4.75</strong></div>
+                <div class="bar"><div class="fill" style="width:47.5%"></div></div>
+              </td>
+              <td class="reason">Barrier 4 with 54.0kg. Maps well, gets a manageable weight, and has objective figures that make him a live chance relative to confidence. Draw and setup improve his data-to-confidence value.</td>
+            </tr>
+        
+          </tbody>
+        </table>
+      </div>
+    </section>
+    
+  <div class="footer">Generated for 7 March 2026 metropolitan meetings. Randwick section added from user-supplied selections.</div>
+</div>
 </body>
 </html>
