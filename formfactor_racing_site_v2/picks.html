@@ -82,6 +82,38 @@ body{
   font-size:16px;
   font-weight:800;
 }
+.highlight{
+  background:#fff;
+  border-radius:26px;
+  box-shadow:var(--shadow);
+  margin-bottom:18px;
+  overflow:hidden;
+}
+.highlight-head{
+  background:linear-gradient(135deg,#f59e0b 0%,#b45309 100%);
+  color:#fff;
+  padding:16px 18px;
+}
+.highlight-body{
+  padding:18px;
+}
+.highlight .eyebrow{
+  display:inline-block;
+  background:rgba(255,255,255,.16);
+  border:1px solid rgba(255,255,255,.18);
+  color:#fff;
+  padding:6px 10px;
+  border-radius:999px;
+  font-size:11px;
+  text-transform:uppercase;
+  letter-spacing:.08em;
+  font-weight:800;
+}
+.highlight .horse{
+  margin-top:8px;
+  font-size:30px;
+  font-weight:900;
+}
 .section{
   background:#fff;
   border-radius:26px;
@@ -280,7 +312,7 @@ body{
   <section class="hero">
     <p class="kicker">FormFactor Raw Data Engine</p>
     <h1>Metropolitan Picks<br>04 April 2026</h1>
-    <p>Professional picks page generated from the supplied all-tracks JSON. Includes Randwick, Caulfield and Eagle Farm, with one selection per race plus each track’s Best Bet and Value Bet.</p>
+    <p>Professional picks page generated from the corrected all-tracks JSON. Includes Randwick, Caulfield and Eagle Farm, with Randwick confidence re-rated to your practical 1–10 win-confidence rule.</p>
     <div class="hero-grid">
       <div class="hero-stat"><div class="label">Meetings</div><div class="value">3</div></div>
       <div class="hero-stat"><div class="label">Tracks</div><div class="value">Randwick / Caulfield / Eagle Farm</div></div>
@@ -289,6 +321,15 @@ body{
     </div>
   </section>
 
+    <section class="highlight">
+      <div class="highlight-head"><span class="eyebrow">Best Bet of the Day</span></div>
+      <div class="highlight-body">
+        <div class="bet-track">Eagle Farm</div>
+        <div class="horse">NAUGHTY NEIL</div>
+        <div class="bet-meta">Race 1 · 9/10 confidence</div>
+      </div>
+    </section>
+    
   <section class="section">
     <div class="section-pad">
       <div class="section-title">
@@ -300,15 +341,15 @@ body{
         <div class="bet-card">
           <div class="bet-type">Best Bet</div>
           <div class="bet-track">Randwick</div>
-          <div class="bet-horse">AM I DREAMING</div>
-          <div class="bet-meta">Race 6 · 4/10 confidence</div>
+          <div class="bet-horse">CONSIDERED</div>
+          <div class="bet-meta">Race 5 · 8/10 confidence</div>
         </div>
     
         <div class="bet-card">
           <div class="bet-type">Value Bet</div>
           <div class="bet-track">Randwick</div>
-          <div class="bet-horse">UNDER FOCUS</div>
-          <div class="bet-meta">Race 1 · 4/10 confidence</div>
+          <div class="bet-horse">TRAVOLTA (GB)</div>
+          <div class="bet-meta">Race 3 · 6/10 confidence</div>
         </div>
     
         <div class="bet-card">
@@ -353,7 +394,7 @@ body{
         <article class="pick">
           <div class="pick-top">
             <div><span class="race-chip">RACE 1</span></div>
-            <div class="conf low">4/10</div>
+            <div class="conf mid">7/10</div>
           </div>
           <div class="horse">UNDER FOCUS</div>
           <div class="meta-grid">
@@ -371,7 +412,7 @@ body{
         <article class="pick">
           <div class="pick-top">
             <div><span class="race-chip">RACE 2</span></div>
-            <div class="conf low">2/10</div>
+            <div class="conf low">5/10</div>
           </div>
           <div class="horse">SOVERATO (NZ)</div>
           <div class="meta-grid">
@@ -389,7 +430,7 @@ body{
         <article class="pick">
           <div class="pick-top">
             <div><span class="race-chip">RACE 3</span></div>
-            <div class="conf low">3/10</div>
+            <div class="conf mid">6/10</div>
           </div>
           <div class="horse">TRAVOLTA (GB)</div>
           <div class="meta-grid">
@@ -407,7 +448,7 @@ body{
         <article class="pick">
           <div class="pick-top">
             <div><span class="race-chip">RACE 4</span></div>
-            <div class="conf low">3/10</div>
+            <div class="conf mid">6/10</div>
           </div>
           <div class="horse">OLYMPIAN</div>
           <div class="meta-grid">
@@ -425,7 +466,7 @@ body{
         <article class="pick">
           <div class="pick-top">
             <div><span class="race-chip">RACE 5</span></div>
-            <div class="conf low">4/10</div>
+            <div class="conf high">8/10</div>
           </div>
           <div class="horse">CONSIDERED</div>
           <div class="meta-grid">
@@ -443,7 +484,7 @@ body{
         <article class="pick">
           <div class="pick-top">
             <div><span class="race-chip">RACE 6</span></div>
-            <div class="conf low">4/10</div>
+            <div class="conf mid">7/10</div>
           </div>
           <div class="horse">AM I DREAMING</div>
           <div class="meta-grid">
@@ -461,7 +502,7 @@ body{
         <article class="pick">
           <div class="pick-top">
             <div><span class="race-chip">RACE 7</span></div>
-            <div class="conf low">4/10</div>
+            <div class="conf mid">7/10</div>
           </div>
           <div class="horse">TENTYRIS</div>
           <div class="meta-grid">
@@ -479,7 +520,7 @@ body{
         <article class="pick">
           <div class="pick-top">
             <div><span class="race-chip">RACE 8</span></div>
-            <div class="conf low">3/10</div>
+            <div class="conf high">8/10</div>
           </div>
           <div class="horse">SHEZA ALIBI</div>
           <div class="meta-grid">
@@ -497,7 +538,7 @@ body{
         <article class="pick">
           <div class="pick-top">
             <div><span class="race-chip">RACE 9</span></div>
-            <div class="conf low">4/10</div>
+            <div class="conf mid">7/10</div>
           </div>
           <div class="horse">OBSERVER</div>
           <div class="meta-grid">
@@ -515,7 +556,7 @@ body{
         <article class="pick">
           <div class="pick-top">
             <div><span class="race-chip">RACE 10</span></div>
-            <div class="conf low">3/10</div>
+            <div class="conf mid">7/10</div>
           </div>
           <div class="horse">PLAINTIFF</div>
           <div class="meta-grid">
@@ -895,7 +936,7 @@ body{
       </div>
     </section>
     
-  <div class="footer-note">Generated for website upload from the supplied JSON selection file.</div>
+  <div class="footer-note">Generated for website upload from the corrected all-tracks JSON selection file.</div>
 </div>
 </body>
 </html>
