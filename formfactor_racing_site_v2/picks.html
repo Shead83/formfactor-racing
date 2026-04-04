@@ -1,732 +1,901 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>FormFactor Picks | 28 March 2026</title>
+<title>FormFactor Picks | 04 April 2026</title>
 <style>
 :root{
-  --bg:#f4f6f8;
+  --bg:#0b1220;
+  --panel:#111827;
+  --panel-2:#0f172a;
   --card:#ffffff;
-  --ink:#101828;
-  --muted:#667085;
-  --line:#e4e7ec;
-  --shadow:0 12px 36px rgba(16,24,40,.08);
-  --radius:18px;
+  --ink:#0f172a;
+  --muted:#64748b;
+  --line:#e5e7eb;
+  --shadow:0 20px 45px rgba(2,6,23,.18);
+  --radius:22px;
 }
 *{box-sizing:border-box}
 body{
   margin:0;
   font-family:Inter,Segoe UI,Arial,sans-serif;
-  background:linear-gradient(180deg,#eef2f6 0%,#f8fafc 100%);
   color:var(--ink);
+  background:
+    radial-gradient(circle at top left, rgba(99,102,241,.18), transparent 22%),
+    radial-gradient(circle at top right, rgba(16,185,129,.15), transparent 20%),
+    linear-gradient(180deg, #0b1220 0%, #111827 100%);
 }
-.wrapper{
-  max-width:1280px;
+.container{
+  max-width:1180px;
   margin:0 auto;
-  padding:28px 20px 60px;
+  padding:20px 14px 48px;
 }
 .hero{
-  background:linear-gradient(135deg,#111827 0%,#1f2937 60%,#374151 100%);
+  background:linear-gradient(135deg, rgba(15,23,42,.96), rgba(30,41,59,.92));
   color:#fff;
-  padding:32px;
-  border-radius:24px;
+  border:1px solid rgba(255,255,255,.08);
   box-shadow:var(--shadow);
-  margin-bottom:24px;
+  border-radius:28px;
+  padding:26px 22px;
+  margin-bottom:18px;
 }
 .kicker{
+  margin:0 0 10px;
   text-transform:uppercase;
-  letter-spacing:.12em;
-  font-size:12px;
-  opacity:.8;
-  margin:0 0 10px;
+  letter-spacing:.16em;
+  font-size:11px;
+  opacity:.75;
 }
-h1{
-  margin:0 0 10px;
-  font-size:38px;
-  line-height:1.05;
-}
-.sub{
+.hero h1{
   margin:0;
-  color:rgba(255,255,255,.8);
-  font-size:15px;
+  font-size:38px;
+  line-height:1.02;
 }
-.grid{
+.hero p{
+  margin:10px 0 0;
+  color:rgba(255,255,255,.82);
+  font-size:15px;
+  line-height:1.5;
+  max-width:840px;
+}
+.hero-grid{
   display:grid;
   grid-template-columns:repeat(4,1fr);
-  gap:14px;
-  margin-top:22px;
+  gap:12px;
+  margin-top:18px;
 }
-.stat{
-  background:rgba(255,255,255,.08);
-  border:1px solid rgba(255,255,255,.12);
-  border-radius:16px;
-  padding:14px 16px;
+.hero-stat{
+  background:rgba(255,255,255,.06);
+  border:1px solid rgba(255,255,255,.08);
+  border-radius:18px;
+  padding:12px 14px;
 }
-.stat .label{
-  font-size:12px;
+.hero-stat .label{
+  font-size:11px;
+  text-transform:uppercase;
+  letter-spacing:.08em;
   opacity:.75;
-  margin-bottom:6px;
+  margin-bottom:4px;
 }
-.stat .value{
-  font-size:20px;
-  font-weight:700;
+.hero-stat .value{
+  font-size:16px;
+  font-weight:800;
 }
-.bestbets{
-  background:var(--card);
-  border:1px solid var(--line);
-  border-radius:24px;
-  padding:22px;
+.section{
+  background:#fff;
+  border-radius:26px;
   box-shadow:var(--shadow);
-  margin-bottom:24px;
+  margin-bottom:18px;
+  overflow:hidden;
+}
+.section-pad{
+  padding:18px;
 }
 .section-title{
   display:flex;
-  justify-content:space-between;
   align-items:end;
+  justify-content:space-between;
   gap:12px;
-  margin-bottom:16px;
+  margin-bottom:14px;
 }
 .section-title h2{
   margin:0;
-  font-size:24px;
+  font-size:26px;
 }
 .section-title p{
   margin:0;
   color:var(--muted);
   font-size:14px;
 }
-.bestbet-grid{
+.bet-grid{
   display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:14px;
+  grid-template-columns:repeat(3,1fr);
+  gap:12px;
 }
-.bestbet-card{
+.bet-card{
   border:1px solid var(--line);
   border-radius:18px;
-  padding:16px;
-  background:#fff;
+  padding:14px;
+  background:linear-gradient(180deg,#fff,#fbfdff);
 }
-.bestbet-card .track{
-  font-size:12px;
-  color:var(--muted);
+.bet-type{
+  display:inline-block;
+  font-size:11px;
   text-transform:uppercase;
   letter-spacing:.08em;
-}
-.bestbet-card .horse{
-  margin:8px 0 6px;
-  font-weight:800;
-  font-size:20px;
-}
-.bestbet-card .race{
-  color:var(--muted);
-  font-size:14px;
-}
-.badge{
-  display:inline-block;
-  margin-top:10px;
-  padding:5px 10px;
-  border-radius:999px;
-  font-size:12px;
-  font-weight:700;
-}
-.badge.elite{background:#dcfce7;color:#166534}
-.badge.strong{background:#dbeafe;color:#1d4ed8}
-.badge.solid{background:#fef3c7;color:#b45309}
-.badge.spec{background:#f3f4f6;color:#374151}
-.track-card{
-  background:var(--card);
-  border:1px solid var(--line);
-  border-radius:24px;
-  box-shadow:var(--shadow);
-  margin-bottom:24px;
-  overflow:hidden;
-}
-.track-header{
-  padding:18px 22px;
   color:#fff;
-}
-.track-header h2{
-  margin:0;
-  font-size:28px;
-}
-.track-header p{
-  margin:6px 0 0;
-  opacity:.92;
-}
-.table-wrap{padding:0 10px 14px}
-table{
-  width:100%;
-  border-collapse:separate;
-  border-spacing:0;
-}
-th,td{
-  text-align:left;
-  vertical-align:top;
-  padding:14px 12px;
-  border-bottom:1px solid var(--line);
-  font-size:14px;
-}
-th{
-  font-size:12px;
-  text-transform:uppercase;
-  letter-spacing:.08em;
-  color:var(--muted);
-  font-weight:700;
-  position:sticky;
-  top:0;
-  background:#fff;
-}
-tr:last-child td{border-bottom:none}
-.race-chip{
-  display:inline-block;
-  min-width:46px;
-  text-align:center;
   padding:6px 10px;
   border-radius:999px;
   background:#111827;
-  color:#fff;
-  font-weight:700;
-  font-size:12px;
 }
-.horse{
+.bet-track{
+  margin-top:10px;
+  font-size:12px;
+  color:var(--muted);
+  text-transform:uppercase;
+  letter-spacing:.08em;
+}
+.bet-horse{
+  font-size:21px;
   font-weight:800;
-  font-size:15px;
+  margin-top:6px;
 }
-.meta{
+.bet-meta{
+  margin-top:6px;
   color:var(--muted);
+  font-size:14px;
+}
+.track-header{
+  color:#fff;
+  padding:18px 18px 16px;
+}
+.track-header h2{
+  margin:0;
+  font-size:30px;
+}
+.track-header p{
+  margin:8px 0 0;
+  color:rgba(255,255,255,.88);
+  font-size:14px;
+}
+.track-grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:14px;
+  padding:18px;
+}
+.pick{
+  border:1px solid var(--line);
+  border-radius:18px;
+  padding:14px;
+  background:#fff;
+}
+.pick-top{
+  display:flex;
+  align-items:flex-start;
+  justify-content:space-between;
+  gap:12px;
+}
+.race-chip{
+  display:inline-block;
+  background:#0f172a;
+  color:#fff;
+  padding:6px 10px;
+  font-size:11px;
+  font-weight:800;
+  border-radius:999px;
+  letter-spacing:.08em;
+}
+.conf{
+  padding:6px 10px;
   font-size:12px;
-  margin-top:4px;
+  font-weight:800;
+  border-radius:999px;
 }
-.reason{
-  color:#344054;
-  line-height:1.45;
+.conf.high{background:#dcfce7;color:#166534}
+.conf.mid{background:#dbeafe;color:#1d4ed8}
+.conf.low{background:#fee2e2;color:#b91c1c}
+.horse{
+  margin-top:10px;
+  font-size:24px;
+  font-weight:800;
+  line-height:1.08;
 }
-.footer-note{
+.meta-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:8px;
+  margin-top:12px;
+}
+.meta-box{
+  background:#f8fafc;
+  border:1px solid var(--line);
+  border-radius:14px;
+  padding:10px;
+}
+.meta-box .label{
+  font-size:10px;
   color:var(--muted);
-  font-size:13px;
+  text-transform:uppercase;
+  letter-spacing:.08em;
+}
+.meta-box .value{
+  margin-top:4px;
+  font-size:14px;
+  font-weight:800;
+}
+.submeta{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:8px;
   margin-top:8px;
 }
-@media (max-width:1100px){
-  .grid,.bestbet-grid{grid-template-columns:repeat(2,1fr)}
+.sub-box{
+  background:#fcfcfd;
+  border:1px solid var(--line);
+  border-radius:14px;
+  padding:10px;
 }
-@media (max-width:720px){
-  .grid,.bestbet-grid{grid-template-columns:1fr}
-  h1{font-size:30px}
-  .wrapper{padding:16px 12px 40px}
-  .hero{padding:24px}
-  th:nth-child(6), td:nth-child(6){min-width:260px}
+.sub-box .label{
+  font-size:10px;
+  color:var(--muted);
+  text-transform:uppercase;
+  letter-spacing:.08em;
+}
+.sub-box .value{
+  margin-top:4px;
+  font-size:13px;
+  font-weight:700;
+}
+.reason{
+  margin-top:12px;
+  color:#334155;
+  font-size:14px;
+  line-height:1.55;
+}
+.footer-note{
+  color:#94a3b8;
+  font-size:12px;
+  margin-top:16px;
+  text-align:center;
+}
+@media (max-width:980px){
+  .hero-grid,.bet-grid,.track-grid{grid-template-columns:repeat(2,1fr)}
+}
+@media (max-width:640px){
+  .container{padding:12px 10px 30px}
+  .hero{padding:20px 16px;border-radius:22px}
+  .hero h1{font-size:29px}
+  .hero-grid,.bet-grid,.track-grid,.meta-grid,.submeta{grid-template-columns:1fr}
+  .section-title{display:block}
+  .section-title p{margin-top:6px}
+  .track-header h2{font-size:24px}
+  .horse{font-size:20px}
 }
 </style>
 </head>
 <body>
-<div class="wrapper">
+<div class="container">
   <section class="hero">
-    <p class="kicker">FormFactor Raw Data Selections</p>
-    <h1>Metropolitan Picks<br>28 March 2026</h1>
-    <p class="sub">Professional members-page layout for Doomben, Flemington and Rosehill. Confidence reflects true 1–10 win confidence for the selected runner.</p>
-    <div class="grid">
-      <div class="stat"><div class="label">Meetings</div><div class="value">3</div></div>
-      <div class="stat"><div class="label">Total Selections</div><div class="value">29</div></div>
-      <div class="stat"><div class="label">Top Confidence</div><div class="value">10/10</div></div>
-      <div class="stat"><div class="label">Feature Best Bet</div><div class="value">AELIANA (NZ)</div></div>
+    <p class="kicker">FormFactor Raw Data Engine</p>
+    <h1>Metropolitan Picks<br>04 April 2026</h1>
+    <p>Professional picks page generated from the supplied all-tracks JSON. Includes Randwick, Caulfield and Eagle Farm, with one selection per race plus each track’s Best Bet and Value Bet.</p>
+    <div class="hero-grid">
+      <div class="hero-stat"><div class="label">Meetings</div><div class="value">3</div></div>
+      <div class="hero-stat"><div class="label">Tracks</div><div class="value">Randwick / Caulfield / Eagle Farm</div></div>
+      <div class="hero-stat"><div class="label">Format</div><div class="value">One pick per race</div></div>
+      <div class="hero-stat"><div class="label">Date</div><div class="value">Saturday 04 April 2026</div></div>
     </div>
   </section>
 
-  <section class="bestbets">
-    <div class="section-title">
-      <h2>Best Bets</h2>
-      <p>Highest-rated runners from the three metropolitan meetings</p>
-    </div>
-    <div class="bestbet-grid">
+  <section class="section">
+    <div class="section-pad">
+      <div class="section-title">
+        <h2>Best Bets & Value Bets</h2>
+        <p>Top-rated feature plays from each meeting</p>
+      </div>
+      <div class="bet-grid">
 
-      <div class="bestbet-card">
-        <div class="track">Rosehill</div>
-        <div class="horse">AELIANA (NZ)</div>
-        <div class="race">Race 8</div>
-        <div class="badge elite">10/10 Confidence</div>
-        <div class="footer-note" style="margin-top:12px;">Strongest profile of the day with dominant recent winning form and ideal distance/track data.</div>
-      </div>
+        <div class="bet-card">
+          <div class="bet-type">Best Bet</div>
+          <div class="bet-track">Randwick</div>
+          <div class="bet-horse">AM I DREAMING</div>
+          <div class="bet-meta">Race 6 · 4/10 confidence</div>
+        </div>
     
-      <div class="bestbet-card">
-        <div class="track">Rosehill</div>
-        <div class="horse">BARNAVARA (IRE)</div>
-        <div class="race">Race 2</div>
-        <div class="badge elite">9/10 Confidence</div>
-        <div class="footer-note" style="margin-top:12px;">Perfect 2000m record and elite form profile.</div>
-      </div>
+        <div class="bet-card">
+          <div class="bet-type">Value Bet</div>
+          <div class="bet-track">Randwick</div>
+          <div class="bet-horse">UNDER FOCUS</div>
+          <div class="bet-meta">Race 1 · 4/10 confidence</div>
+        </div>
     
-      <div class="bestbet-card">
-        <div class="track">Flemington</div>
-        <div class="horse">GENTLE STEEL</div>
-        <div class="race">Race 1</div>
-        <div class="badge elite">9/10 Confidence</div>
-        <div class="footer-note" style="margin-top:12px;">Three straight wins, soft-track record and 1100m record make this the standout.</div>
-      </div>
+        <div class="bet-card">
+          <div class="bet-type">Best Bet</div>
+          <div class="bet-track">Caulfield</div>
+          <div class="bet-horse">HALLOWED HALLS (NZ)</div>
+          <div class="bet-meta">Race 1 · 8/10 confidence</div>
+        </div>
     
-      <div class="bestbet-card">
-        <div class="track">Doomben</div>
-        <div class="horse">THINKHARDANDFAST</div>
-        <div class="race">Race 8</div>
-        <div class="badge elite">9/10 Confidence</div>
-        <div class="footer-note" style="margin-top:12px;">Strong recent winning profile with solid distance and soft-track data.</div>
-      </div>
+        <div class="bet-card">
+          <div class="bet-type">Value Bet</div>
+          <div class="bet-track">Caulfield</div>
+          <div class="bet-horse">VINO NOVELLO</div>
+          <div class="bet-meta">Race 4 · 7/10 confidence</div>
+        </div>
     
+        <div class="bet-card">
+          <div class="bet-type">Best Bet</div>
+          <div class="bet-track">Eagle Farm</div>
+          <div class="bet-horse">NAUGHTY NEIL</div>
+          <div class="bet-meta">Race 1 · 9/10 confidence</div>
+        </div>
+    
+        <div class="bet-card">
+          <div class="bet-type">Value Bet</div>
+          <div class="bet-track">Eagle Farm</div>
+          <div class="bet-horse">SILK SONIC</div>
+          <div class="bet-meta">Race 2 · 7/10 confidence</div>
+        </div>
+    
+      </div>
     </div>
   </section>
 
-    <section class="track-card">
-      <div class="track-header" style="background:linear-gradient(135deg,#6c4ab6 0%, #111827 100%);">
-        <h2>Doomben</h2>
-        <p>Track condition: Soft 5</p>
+    <section class="section">
+      <div class="track-header" style="background:linear-gradient(135deg,#0f766e 0%, #0b3b36 100%);">
+        <h2>Randwick</h2>
+        <p>Track condition: Good 4 · Timestamp: Wed 01-Apr-26 4:38PM AEDT</p>
       </div>
-      <div class="table-wrap">
-        <table>
-          <thead>
-            <tr>
-              <th>Race</th>
-              <th>Horse</th>
-              <th>No.</th>
-              <th>Barrier</th>
-              <th>Weight</th>
-              <th>Confidence</th>
-              <th>Reason</th>
-            </tr>
-          </thead>
-          <tbody>
+      <div class="track-grid">
     
-          <tr>
-            <td><span class="race-chip">R1</span></td>
-            <td>
-              <div class="horse">RAMP IT UP</div>
-              <div class="meta">Doomben selection</div>
-            </td>
-            <td>5</td>
-            <td>7</td>
-            <td>58kg</td>
-            <td><span class="badge solid">7/10</span></td>
-            <td class="reason">Distance profile is strong at 1600m, track/distance stats are solid, recent form includes a win two starts back, and the weight is workable relative to the field.</td>
-          </tr>
+        <article class="pick">
+          <div class="pick-top">
+            <div><span class="race-chip">RACE 1</span></div>
+            <div class="conf low">4/10</div>
+          </div>
+          <div class="horse">UNDER FOCUS</div>
+          <div class="meta-grid">
+            <div class="meta-box"><div class="label">Horse No.</div><div class="value">2</div></div>
+            <div class="meta-box"><div class="label">Barrier</div><div class="value">7</div></div>
+            <div class="meta-box"><div class="label">Weight</div><div class="value">56.5kg</div></div>
+          </div>
+          <div class="submeta">
+            <div class="sub-box"><div class="label">Tempo</div><div class="value">Moderate</div></div>
+            <div class="sub-box"><div class="label">Expected Leader(s)</div><div class="value">UNDER FOCUS, ARTANEOUS</div></div>
+          </div>
+          <div class="reason">track rating Good 4; timestamp Wed 01-Apr-26 4:38PM AEDT; barrier 7; map category on-pace; weight vs field average +0.8kg; last 3 starts 2/8,0.91L; 1/10,1.50L; trend mixed; distance-band record 1/1/1; track-rating record Good band 0/0/0; low-sample true; official trials T3/6 850m Good4 2.33L; T1/4 900m Soft5 data unavailable; speed figures data unavailable; 15% speed weight redistributed across remaining scored factors; trainer strike rate data unavailable; jockey strike rate data unavailable; tempo Moderate; expected leaders UNDER FOCUS, ARTANEOUS; tempo advantage on-pace/midfield; runner map category on-pace</div>
+        </article>
         
-          <tr>
-            <td><span class="race-chip">R2</span></td>
-            <td>
-              <div class="horse">DEMON DARB</div>
-              <div class="meta">Doomben selection</div>
-            </td>
-            <td>4</td>
-            <td>6</td>
-            <td>54.5kg</td>
-            <td><span class="badge strong">8/10</span></td>
-            <td class="reason">Strong 1600m record, proven soft-track form, low weight relative to the field and recent form includes a win and a close fourth in similar company.</td>
-          </tr>
+        <article class="pick">
+          <div class="pick-top">
+            <div><span class="race-chip">RACE 2</span></div>
+            <div class="conf low">2/10</div>
+          </div>
+          <div class="horse">SOVERATO (NZ)</div>
+          <div class="meta-grid">
+            <div class="meta-box"><div class="label">Horse No.</div><div class="value">3</div></div>
+            <div class="meta-box"><div class="label">Barrier</div><div class="value">8</div></div>
+            <div class="meta-box"><div class="label">Weight</div><div class="value">57.5kg</div></div>
+          </div>
+          <div class="submeta">
+            <div class="sub-box"><div class="label">Tempo</div><div class="value">Fast</div></div>
+            <div class="sub-box"><div class="label">Expected Leader(s)</div><div class="value">SPICY LU, WASHINGTON LILAC</div></div>
+          </div>
+          <div class="reason">track rating Good 4; timestamp Wed 01-Apr-26 4:38PM AEDT; barrier 8; map category backmarker; weight vs field average +2.6kg; last 3 starts 1/6,1.18L; 2/7,0.79L; 4/11,1.38L; trend declining; distance-band record data unavailable; track-rating record Good band 4/2/3; low-sample false; official trials T7/8 801m Soft7 6.71L; T2/9 1207m Soft6 0.60L; speed figures data unavailable; 15% speed weight redistributed across remaining scored factors; trainer strike rate data unavailable; jockey strike rate data unavailable; tempo Fast; expected leaders SPICY LU, WASHINGTON LILAC; tempo advantage midfield/backmarker; runner map category backmarker</div>
+        </article>
         
-          <tr>
-            <td><span class="race-chip">R3</span></td>
-            <td>
-              <div class="horse">SPACEBALLS</div>
-              <div class="meta">Doomben selection</div>
-            </td>
-            <td>15</td>
-            <td>11</td>
-            <td>56.5kg</td>
-            <td><span class="badge solid">7/10</span></td>
-            <td class="reason">Recent form trend is positive, distance record is strong, and the horse arrives off a win and a narrow second with consistent recent margins.</td>
-          </tr>
+        <article class="pick">
+          <div class="pick-top">
+            <div><span class="race-chip">RACE 3</span></div>
+            <div class="conf low">3/10</div>
+          </div>
+          <div class="horse">TRAVOLTA (GB)</div>
+          <div class="meta-grid">
+            <div class="meta-box"><div class="label">Horse No.</div><div class="value">3</div></div>
+            <div class="meta-box"><div class="label">Barrier</div><div class="value">14</div></div>
+            <div class="meta-box"><div class="label">Weight</div><div class="value">57kg</div></div>
+          </div>
+          <div class="submeta">
+            <div class="sub-box"><div class="label">Tempo</div><div class="value">Moderate</div></div>
+            <div class="sub-box"><div class="label">Expected Leader(s)</div><div class="value">CHANGINGOFTHEGUARD (IRE)</div></div>
+          </div>
+          <div class="reason">track rating Good 4; timestamp Wed 01-Apr-26 4:38PM AEDT; barrier 14; map category midfield; weight vs field average +1.9kg; last 3 starts 3/14,0.85L; 3/12,1.49L; 4/14,0.95L; trend mixed; distance-band record 1/1/1; track-rating record Good band 12/2/6; low-sample false; official trials T4/7 1000m Good4 13.44L; speed figures data unavailable; 15% speed weight redistributed across remaining scored factors; trainer strike rate data unavailable; jockey strike rate data unavailable; tempo Moderate; expected leaders CHANGINGOFTHEGUARD (IRE); tempo advantage on-pace/midfield; runner map category midfield</div>
+        </article>
         
-          <tr>
-            <td><span class="race-chip">R4</span></td>
-            <td>
-              <div class="horse">BUNDELLA</div>
-              <div class="meta">Doomben selection</div>
-            </td>
-            <td>4</td>
-            <td>10</td>
-            <td>58.5kg</td>
-            <td><span class="badge strong">8/10</span></td>
-            <td class="reason">Back-to-back wins in recent starts, good 1200m profile, and recent form pattern is clearly trending upward despite the wider draw.</td>
-          </tr>
+        <article class="pick">
+          <div class="pick-top">
+            <div><span class="race-chip">RACE 4</span></div>
+            <div class="conf low">3/10</div>
+          </div>
+          <div class="horse">OLYMPIAN</div>
+          <div class="meta-grid">
+            <div class="meta-box"><div class="label">Horse No.</div><div class="value">14</div></div>
+            <div class="meta-box"><div class="label">Barrier</div><div class="value">10</div></div>
+            <div class="meta-box"><div class="label">Weight</div><div class="value">56kg</div></div>
+          </div>
+          <div class="submeta">
+            <div class="sub-box"><div class="label">Tempo</div><div class="value">Moderate</div></div>
+            <div class="sub-box"><div class="label">Expected Leader(s)</div><div class="value">WEST OF SWINDON, AGENT ZERO</div></div>
+          </div>
+          <div class="reason">track rating Good 4; timestamp Wed 01-Apr-26 4:38PM AEDT; barrier 10; map category backmarker; weight vs field average -0.7kg; last 3 starts 2/7,4.36L; 1/10,1.81L; 1/10,1.63L; trend improving; distance-band record data unavailable; track-rating record Good band 1/1/1; low-sample true; official trials T2/5 900m Good4 0.03L; T1/6 900m Heavy10 0.22L; speed figures data unavailable; 15% speed weight redistributed across remaining scored factors; trainer strike rate data unavailable; jockey strike rate data unavailable; tempo Moderate; expected leaders WEST OF SWINDON, AGENT ZERO; tempo advantage on-pace/midfield; runner map category backmarker</div>
+        </article>
         
-          <tr>
-            <td><span class="race-chip">R5</span></td>
-            <td>
-              <div class="horse">BRINDAVAN (IRE)</div>
-              <div class="meta">Doomben selection</div>
-            </td>
-            <td>8</td>
-            <td>3</td>
-            <td>53kg</td>
-            <td><span class="badge solid">7/10</span></td>
-            <td class="reason">Light weight, inside draw, solid distance record and competitive recent form make this a strong profile in the race.</td>
-          </tr>
+        <article class="pick">
+          <div class="pick-top">
+            <div><span class="race-chip">RACE 5</span></div>
+            <div class="conf low">4/10</div>
+          </div>
+          <div class="horse">CONSIDERED</div>
+          <div class="meta-grid">
+            <div class="meta-box"><div class="label">Horse No.</div><div class="value">3</div></div>
+            <div class="meta-box"><div class="label">Barrier</div><div class="value">4</div></div>
+            <div class="meta-box"><div class="label">Weight</div><div class="value">57kg</div></div>
+          </div>
+          <div class="submeta">
+            <div class="sub-box"><div class="label">Tempo</div><div class="value">Fast</div></div>
+            <div class="sub-box"><div class="label">Expected Leader(s)</div><div class="value">TURNED DOWN (NZ), CANADIAN RULER (NZ)</div></div>
+          </div>
+          <div class="reason">track rating Good 4; timestamp Wed 01-Apr-26 4:38PM AEDT; barrier 4; map category midfield; weight vs field average +1.0kg; last 3 starts 1/18,0.78L; 1/10,0.81L; 1/11,0.60L; trend mixed; distance-band record 4/4/4; track-rating record Good band 2/1/2; low-sample false; official trials T1/7 1010m Good4 1.17L; T1/5 1000m Firm2 0.83L; speed figures data unavailable; 15% speed weight redistributed across remaining scored factors; trainer strike rate data unavailable; jockey strike rate data unavailable; tempo Fast; expected leaders TURNED DOWN (NZ), CANADIAN RULER (NZ); tempo advantage midfield/backmarker; runner map category midfield</div>
+        </article>
         
-          <tr>
-            <td><span class="race-chip">R6</span></td>
-            <td>
-              <div class="horse">LOVEY DOVEY</div>
-              <div class="meta">Doomben selection</div>
-            </td>
-            <td>9</td>
-            <td>3</td>
-            <td>56kg</td>
-            <td><span class="badge solid">6/10</span></td>
-            <td class="reason">Good draw, suitable weight and a last-start win give the horse a positive profile, though the recent form line is less dominant than some stronger picks on the card.</td>
-          </tr>
+        <article class="pick">
+          <div class="pick-top">
+            <div><span class="race-chip">RACE 6</span></div>
+            <div class="conf low">4/10</div>
+          </div>
+          <div class="horse">AM I DREAMING</div>
+          <div class="meta-grid">
+            <div class="meta-box"><div class="label">Horse No.</div><div class="value">10</div></div>
+            <div class="meta-box"><div class="label">Barrier</div><div class="value">7</div></div>
+            <div class="meta-box"><div class="label">Weight</div><div class="value">56.5kg</div></div>
+          </div>
+          <div class="submeta">
+            <div class="sub-box"><div class="label">Tempo</div><div class="value">Moderate</div></div>
+            <div class="sub-box"><div class="label">Expected Leader(s)</div><div class="value">RACHINI</div></div>
+          </div>
+          <div class="reason">track rating Good 4; timestamp Wed 01-Apr-26 4:38PM AEDT; barrier 7; map category midfield; weight vs field average +0.5kg; last 3 starts 1/11,0.49L; trend mixed; distance-band record 1/1/1; approximated from available runs; track-rating record Good band 1/1/1; low-sample true; official trials T7/10 1050m Good4 4.41L; speed figures data unavailable; 15% speed weight redistributed across remaining scored factors; trainer strike rate data unavailable; jockey strike rate data unavailable; tempo Moderate; expected leaders RACHINI; tempo advantage on-pace/midfield; runner map category midfield</div>
+        </article>
         
-          <tr>
-            <td><span class="race-chip">R7</span></td>
-            <td>
-              <div class="horse">SPECIAL ARTIST</div>
-              <div class="meta">Doomben selection</div>
-            </td>
-            <td>10</td>
-            <td>4</td>
-            <td>54kg</td>
-            <td><span class="badge solid">7/10</span></td>
-            <td class="reason">Low weight, favourable draw and multiple recent wins support the selection, with the last three runs still rating well overall.</td>
-          </tr>
+        <article class="pick">
+          <div class="pick-top">
+            <div><span class="race-chip">RACE 7</span></div>
+            <div class="conf low">4/10</div>
+          </div>
+          <div class="horse">TENTYRIS</div>
+          <div class="meta-grid">
+            <div class="meta-box"><div class="label">Horse No.</div><div class="value">7</div></div>
+            <div class="meta-box"><div class="label">Barrier</div><div class="value">1</div></div>
+            <div class="meta-box"><div class="label">Weight</div><div class="value">56.5kg</div></div>
+          </div>
+          <div class="submeta">
+            <div class="sub-box"><div class="label">Tempo</div><div class="value">Moderate</div></div>
+            <div class="sub-box"><div class="label">Expected Leader(s)</div><div class="value">OVERPASS</div></div>
+          </div>
+          <div class="reason">track rating Good 4; timestamp Wed 01-Apr-26 4:38PM AEDT; barrier 1; map category backmarker; weight vs field average -1.1kg; last 3 starts 1/12,2.25L; 1/8,0.75L; 5/14,1.52L; trend declining; distance-band record 5/3/4; track-rating record Good band 9/5/7; low-sample false; official trials T6/9 1050m Soft7 4.21L; speed figures data unavailable; 15% speed weight redistributed across remaining scored factors; trainer strike rate data unavailable; jockey strike rate data unavailable; tempo Moderate; expected leaders OVERPASS; tempo advantage on-pace/midfield; runner map category backmarker</div>
+        </article>
         
-          <tr>
-            <td><span class="race-chip">R8</span></td>
-            <td>
-              <div class="horse">THINKHARDANDFAST</div>
-              <div class="meta">Doomben selection</div>
-            </td>
-            <td>9</td>
-            <td>5</td>
-            <td>57kg</td>
-            <td><span class="badge elite">9/10</span></td>
-            <td class="reason">Recent form is very strong, distance and soft-track profile are both positive, and the horse has produced consecutive wins before a narrow second.</td>
-          </tr>
+        <article class="pick">
+          <div class="pick-top">
+            <div><span class="race-chip">RACE 8</span></div>
+            <div class="conf low">3/10</div>
+          </div>
+          <div class="horse">SHEZA ALIBI</div>
+          <div class="meta-grid">
+            <div class="meta-box"><div class="label">Horse No.</div><div class="value">15</div></div>
+            <div class="meta-box"><div class="label">Barrier</div><div class="value">13</div></div>
+            <div class="meta-box"><div class="label">Weight</div><div class="value">49kg</div></div>
+          </div>
+          <div class="submeta">
+            <div class="sub-box"><div class="label">Tempo</div><div class="value">Fast</div></div>
+            <div class="sub-box"><div class="label">Expected Leader(s)</div><div class="value">CRISTAL CLEAR</div></div>
+          </div>
+          <div class="reason">track rating Good 4; timestamp Wed 01-Apr-26 4:38PM AEDT; barrier 13; map category backmarker; weight vs field average -3.1kg; last 3 starts 1/10,5.75L; 1/9,2.25L; 1/9,3.20L; trend mixed; distance-band record 2/2/2; track-rating record Good band 6/4/6; low-sample false; official trials data unavailable; speed figures data unavailable; 15% speed weight redistributed across remaining scored factors; trainer strike rate data unavailable; jockey strike rate data unavailable; tempo Fast; expected leaders CRISTAL CLEAR; tempo advantage midfield/backmarker; runner map category backmarker</div>
+        </article>
         
-          <tr>
-            <td><span class="race-chip">R9</span></td>
-            <td>
-              <div class="horse">DOMINANT DARCY</div>
-              <div class="meta">Doomben selection</div>
-            </td>
-            <td>3</td>
-            <td>1</td>
-            <td>58kg</td>
-            <td><span class="badge strong">8/10</span></td>
-            <td class="reason">Inside draw, recent winning form and a consistent distance profile give this runner one of the stronger objective setups on the meeting.</td>
-          </tr>
+        <article class="pick">
+          <div class="pick-top">
+            <div><span class="race-chip">RACE 9</span></div>
+            <div class="conf low">4/10</div>
+          </div>
+          <div class="horse">OBSERVER</div>
+          <div class="meta-grid">
+            <div class="meta-box"><div class="label">Horse No.</div><div class="value">1</div></div>
+            <div class="meta-box"><div class="label">Barrier</div><div class="value">12</div></div>
+            <div class="meta-box"><div class="label">Weight</div><div class="value">56.5kg</div></div>
+          </div>
+          <div class="submeta">
+            <div class="sub-box"><div class="label">Tempo</div><div class="value">Moderate</div></div>
+            <div class="sub-box"><div class="label">Expected Leader(s)</div><div class="value">OBSERVER</div></div>
+          </div>
+          <div class="reason">track rating Good 4; timestamp Wed 01-Apr-26 4:38PM AEDT; barrier 12; map category on-pace; weight vs field average +0.0kg; last 3 starts 1/12,1.25L; 1/10,0.50L; 3/8,2.74L; trend declining; distance-band record 1/1/1; approximated from available runs; track-rating record Good band 9/5/8; low-sample false; official trials data unavailable; speed figures data unavailable; 15% speed weight redistributed across remaining scored factors; trainer strike rate data unavailable; jockey strike rate data unavailable; tempo Moderate; expected leaders OBSERVER; tempo advantage on-pace/midfield; runner map category on-pace</div>
+        </article>
         
-          </tbody>
-        </table>
-      </div>
-    </section>
-    
-    <section class="track-card">
-      <div class="track-header" style="background:linear-gradient(135deg,#1f5fbf 0%, #111827 100%);">
-        <h2>Flemington</h2>
-        <p>Track condition: Soft 6</p>
-      </div>
-      <div class="table-wrap">
-        <table>
-          <thead>
-            <tr>
-              <th>Race</th>
-              <th>Horse</th>
-              <th>No.</th>
-              <th>Barrier</th>
-              <th>Weight</th>
-              <th>Confidence</th>
-              <th>Reason</th>
-            </tr>
-          </thead>
-          <tbody>
-    
-          <tr>
-            <td><span class="race-chip">R1</span></td>
-            <td>
-              <div class="horse">GENTLE STEEL</div>
-              <div class="meta">Flemington selection</div>
-            </td>
-            <td>3</td>
-            <td>7</td>
-            <td>55kg</td>
-            <td><span class="badge elite">9/10</span></td>
-            <td class="reason">Three straight wins, unbeaten at 1100m, proven on soft ground and carries a light weight for the race.</td>
-          </tr>
+        <article class="pick">
+          <div class="pick-top">
+            <div><span class="race-chip">RACE 10</span></div>
+            <div class="conf low">3/10</div>
+          </div>
+          <div class="horse">PLAINTIFF</div>
+          <div class="meta-grid">
+            <div class="meta-box"><div class="label">Horse No.</div><div class="value">9</div></div>
+            <div class="meta-box"><div class="label">Barrier</div><div class="value">20</div></div>
+            <div class="meta-box"><div class="label">Weight</div><div class="value">55kg</div></div>
+          </div>
+          <div class="submeta">
+            <div class="sub-box"><div class="label">Tempo</div><div class="value">Moderate</div></div>
+            <div class="sub-box"><div class="label">Expected Leader(s)</div><div class="value">BELLAZAINE, TOMATO TOASTIE, WOOTTON LASS, AGARWOOD, STARDOM</div></div>
+          </div>
+          <div class="reason">track rating Good 4; timestamp Wed 01-Apr-26 4:38PM AEDT; barrier 20; map category midfield; weight vs field average -0.3kg; last 3 starts 1/7,1.15L; 1/6,0.11L; 1/8,0.37L; trend mixed; distance-band record 2/2/2; track-rating record Good band 3/3/3; low-sample false; official trials T6/8 740m Good4 2.44L; T1/10 1030m Heavy8 0.09L; speed figures data unavailable; 15% speed weight redistributed across remaining scored factors; trainer strike rate data unavailable; jockey strike rate data unavailable; tempo Moderate; expected leaders BELLAZAINE, TOMATO TOASTIE, WOOTTON LASS, AGARWOOD, STARDOM; tempo advantage on-pace/midfield; runner map category midfield</div>
+        </article>
         
-          <tr>
-            <td><span class="race-chip">R2</span></td>
-            <td>
-              <div class="horse">CAFE AU LAIT</div>
-              <div class="meta">Flemington selection</div>
-            </td>
-            <td>9</td>
-            <td>3</td>
-            <td>54kg</td>
-            <td><span class="badge strong">8/10</span></td>
-            <td class="reason">Progressive profile, ideal draw, low weight and a last-start 1400m win give the horse a strong winning setup.</td>
-          </tr>
-        
-          <tr>
-            <td><span class="race-chip">R3</span></td>
-            <td>
-              <div class="horse">LAGUNANINI</div>
-              <div class="meta">Flemington selection</div>
-            </td>
-            <td>2</td>
-            <td>5</td>
-            <td>56kg</td>
-            <td><span class="badge solid">6/10</span></td>
-            <td class="reason">Limited exposed form but an early win profile and positive starter data keep the horse on top in an open race.</td>
-          </tr>
-        
-          <tr>
-            <td><span class="race-chip">R4</span></td>
-            <td>
-              <div class="horse">MOOR MUMM</div>
-              <div class="meta">Flemington selection</div>
-            </td>
-            <td>14</td>
-            <td>12</td>
-            <td>54kg</td>
-            <td><span class="badge spec">5/10</span></td>
-            <td class="reason">Low weight helps, but the confidence is moderate only because the race profile is less clear and the draw is wide.</td>
-          </tr>
-        
-          <tr>
-            <td><span class="race-chip">R5</span></td>
-            <td>
-              <div class="horse">ZAKOUMA</div>
-              <div class="meta">Flemington selection</div>
-            </td>
-            <td>14</td>
-            <td>12</td>
-            <td>54kg</td>
-            <td><span class="badge solid">7/10</span></td>
-            <td class="reason">Back-to-back wins, light weight and an improving pattern support the pick despite the wide gate.</td>
-          </tr>
-        
-          <tr>
-            <td><span class="race-chip">R6</span></td>
-            <td>
-              <div class="horse">EDUCATED</div>
-              <div class="meta">Flemington selection</div>
-            </td>
-            <td>10</td>
-            <td>1</td>
-            <td>55kg</td>
-            <td><span class="badge strong">8/10</span></td>
-            <td class="reason">Inside draw and three straight wins create a strong confidence profile.</td>
-          </tr>
-        
-          <tr>
-            <td><span class="race-chip">R7</span></td>
-            <td>
-              <div class="horse">HIGHLAND BLAZE</div>
-              <div class="meta">Flemington selection</div>
-            </td>
-            <td>7</td>
-            <td>5</td>
-            <td>55kg</td>
-            <td><span class="badge solid">6/10</span></td>
-            <td class="reason">Mixed recent form but the horse retains enough positives at the trip and weight to rate on top in a competitive event.</td>
-          </tr>
-        
-          <tr>
-            <td><span class="race-chip">R8</span></td>
-            <td>
-              <div class="horse">LEICA LUCY (NZ)</div>
-              <div class="meta">Flemington selection</div>
-            </td>
-            <td>10</td>
-            <td>8</td>
-            <td>57kg</td>
-            <td><span class="badge solid">7/10</span></td>
-            <td class="reason">Strong recent form and excellent distance profile make the horse a credible top selection.</td>
-          </tr>
-        
-          <tr>
-            <td><span class="race-chip">R9</span></td>
-            <td>
-              <div class="horse">CELERITY</div>
-              <div class="meta">Flemington selection</div>
-            </td>
-            <td>8</td>
-            <td>7</td>
-            <td>54.5kg</td>
-            <td><span class="badge solid">7/10</span></td>
-            <td class="reason">Recent figures are consistent, weight is favourable and the horse holds a positive late-form pattern.</td>
-          </tr>
-        
-          <tr>
-            <td><span class="race-chip">R10</span></td>
-            <td>
-              <div class="horse">MERRIGOLD</div>
-              <div class="meta">Flemington selection</div>
-            </td>
-            <td>18</td>
-            <td>14</td>
-            <td>53kg</td>
-            <td><span class="badge solid">7/10</span></td>
-            <td class="reason">Very light weight and strong recent form support the selection, though the draw keeps confidence below the top tier.</td>
-          </tr>
-        
-          </tbody>
-        </table>
       </div>
     </section>
     
-    <section class="track-card">
-      <div class="track-header" style="background:linear-gradient(135deg,#0f766e 0%, #111827 100%);">
-        <h2>Rosehill</h2>
-        <p>Track condition: Soft 7</p>
+    <section class="section">
+      <div class="track-header" style="background:linear-gradient(135deg,#1d4ed8 0%, #132a63 100%);">
+        <h2>Caulfield</h2>
+        <p>Track condition: Good 4 · Timestamp: data unavailable</p>
       </div>
-      <div class="table-wrap">
-        <table>
-          <thead>
-            <tr>
-              <th>Race</th>
-              <th>Horse</th>
-              <th>No.</th>
-              <th>Barrier</th>
-              <th>Weight</th>
-              <th>Confidence</th>
-              <th>Reason</th>
-            </tr>
-          </thead>
-          <tbody>
+      <div class="track-grid">
     
-          <tr>
-            <td><span class="race-chip">R1</span></td>
-            <td>
-              <div class="horse">AUDREY’S LANE</div>
-              <div class="meta">Rosehill selection</div>
-            </td>
-            <td>4</td>
-            <td>11</td>
-            <td>58.5kg</td>
-            <td><span class="badge strong">8/10</span></td>
-            <td class="reason">Comes off a win at Rosehill, has a strong 1300m profile and proven soft-track performance.</td>
-          </tr>
+        <article class="pick">
+          <div class="pick-top">
+            <div><span class="race-chip">RACE 1</span></div>
+            <div class="conf high">8/10</div>
+          </div>
+          <div class="horse">HALLOWED HALLS (NZ)</div>
+          <div class="meta-grid">
+            <div class="meta-box"><div class="label">Horse No.</div><div class="value">11</div></div>
+            <div class="meta-box"><div class="label">Barrier</div><div class="value">1</div></div>
+            <div class="meta-box"><div class="label">Weight</div><div class="value">55kg</div></div>
+          </div>
+          <div class="submeta">
+            <div class="sub-box"><div class="label">Tempo</div><div class="value">Moderate</div></div>
+            <div class="sub-box"><div class="label">Expected Leader(s)</div><div class="value">FIGLIO D&#x27;ARGENTO, TAKA SPEED (NZ)</div></div>
+          </div>
+          <div class="reason">HALLOWED HALLS (NZ) draws barrier 1 and profiles as a midfield runner from the supplied speed map in a moderate tempo with expected leaders FIGLIO D&#x27;ARGENTO, TAKA SPEED (NZ). It carries 55kg (-3.2kg versus the field average). The last three starts read 1/9 (1.75L); 4/9 (1.70L); 1/8 (0.40L); the trend is mixed. The supplied distance record is 1 start, 1 win, 0 places. Track condition is Good 4 with Inspection 6AM 4/4; the supplied track-rating record is 4 starts, 2 wins, 0 places on the Good band. official trial data unavailable. Trainer strike rate is 12.3% and jockey strike rate is data unavailable from the uploaded metro premiership tables; this was treated as the least important factor.</div>
+        </article>
         
-          <tr>
-            <td><span class="race-chip">R2</span></td>
-            <td>
-              <div class="horse">BARNAVARA (IRE)</div>
-              <div class="meta">Rosehill selection</div>
-            </td>
-            <td>2</td>
-            <td>8</td>
-            <td>57kg</td>
-            <td><span class="badge elite">9/10</span></td>
-            <td class="reason">Perfect 2000m record, elite imported form and strong soft-track profile support a very high confidence rating.</td>
-          </tr>
+        <article class="pick">
+          <div class="pick-top">
+            <div><span class="race-chip">RACE 2</span></div>
+            <div class="conf mid">7/10</div>
+          </div>
+          <div class="horse">A DIVA</div>
+          <div class="meta-grid">
+            <div class="meta-box"><div class="label">Horse No.</div><div class="value">4</div></div>
+            <div class="meta-box"><div class="label">Barrier</div><div class="value">5</div></div>
+            <div class="meta-box"><div class="label">Weight</div><div class="value">57.5kg</div></div>
+          </div>
+          <div class="submeta">
+            <div class="sub-box"><div class="label">Tempo</div><div class="value">Moderate</div></div>
+            <div class="sub-box"><div class="label">Expected Leader(s)</div><div class="value">A DIVA, MISS TARZY (NZ), UNTIL VALHALLA</div></div>
+          </div>
+          <div class="reason">A DIVA draws barrier 5 and profiles as an on-pace runner from the supplied speed map in a moderate tempo with expected leaders A DIVA, MISS TARZY (NZ), UNTIL VALHALLA. It carries 57.5kg (-0.6kg versus the field average). The last three starts read 2/12 (0.20L); 1/9 (2.50L); 1/8 (0.75L); the trend is improving. The supplied distance record is 3 starts, 0 wins, 2 places. Track condition is Good 4 with Inspection 6AM 4/4; the supplied track-rating record is 5 starts, 3 wins, 1 place on the Good band. official trial data unavailable. Trainer strike rate is data unavailable and jockey strike rate is data unavailable from the uploaded metro premiership tables; this was treated as the least important factor.</div>
+        </article>
         
-          <tr>
-            <td><span class="race-chip">R3</span></td>
-            <td>
-              <div class="horse">TIGER TURF</div>
-              <div class="meta">Rosehill selection</div>
-            </td>
-            <td>16</td>
-            <td>13</td>
-            <td>55kg</td>
-            <td><span class="badge spec">5/10</span></td>
-            <td class="reason">Selection rates on recent soft-track placing, but confidence is only moderate because the exposed profile is still limited.</td>
-          </tr>
+        <article class="pick">
+          <div class="pick-top">
+            <div><span class="race-chip">RACE 3</span></div>
+            <div class="conf mid">6/10</div>
+          </div>
+          <div class="horse">HOT DIGITY BOOM</div>
+          <div class="meta-grid">
+            <div class="meta-box"><div class="label">Horse No.</div><div class="value">3</div></div>
+            <div class="meta-box"><div class="label">Barrier</div><div class="value">3</div></div>
+            <div class="meta-box"><div class="label">Weight</div><div class="value">62kg</div></div>
+          </div>
+          <div class="submeta">
+            <div class="sub-box"><div class="label">Tempo</div><div class="value">Moderate</div></div>
+            <div class="sub-box"><div class="label">Expected Leader(s)</div><div class="value">ALERO</div></div>
+          </div>
+          <div class="reason">HOT DIGITY BOOM draws barrier 3 and profiles as a midfield runner from the supplied speed map in a moderate tempo with expected leaders ALERO. It carries 62kg (+1.0kg versus the field average). The last three starts read 1/9 (0.20L); 5/8 (5.11L); 2/9 (0.22L); the trend is mixed. The supplied distance record is 6 starts, 1 win, 3 places. Track condition is Good 4 with Inspection 6AM 4/4; the supplied track-rating record is 12 starts, 2 wins, 4 places on the Good band. official trial data unavailable. Trainer strike rate is 14.6% and jockey strike rate is data unavailable from the uploaded metro premiership tables; this was treated as the least important factor.</div>
+        </article>
         
-          <tr>
-            <td><span class="race-chip">R4</span></td>
-            <td>
-              <div class="horse">OUR QUEEN (IRE)</div>
-              <div class="meta">Rosehill selection</div>
-            </td>
-            <td>13</td>
-            <td>4</td>
-            <td>53.5kg</td>
-            <td><span class="badge solid">7/10</span></td>
-            <td class="reason">Low weight and last-start winning profile make the horse a strong chance in this race.</td>
-          </tr>
+        <article class="pick">
+          <div class="pick-top">
+            <div><span class="race-chip">RACE 4</span></div>
+            <div class="conf mid">7/10</div>
+          </div>
+          <div class="horse">VINO NOVELLO</div>
+          <div class="meta-grid">
+            <div class="meta-box"><div class="label">Horse No.</div><div class="value">3</div></div>
+            <div class="meta-box"><div class="label">Barrier</div><div class="value">10</div></div>
+            <div class="meta-box"><div class="label">Weight</div><div class="value">59kg</div></div>
+          </div>
+          <div class="submeta">
+            <div class="sub-box"><div class="label">Tempo</div><div class="value">Moderate</div></div>
+            <div class="sub-box"><div class="label">Expected Leader(s)</div><div class="value">BERGASUN</div></div>
+          </div>
+          <div class="reason">VINO NOVELLO draws barrier 10 and profiles as a midfield runner from the supplied speed map in a moderate tempo with expected leaders BERGASUN. It carries 59kg (+1.8kg versus the field average). The last three starts read 7/8 (4.45L); 1/13 (1.25L); 1/10 (1.00L); the trend is improving. The supplied distance record is 1 start, 1 win, 0 places. Track condition is Good 4 with Inspection 6AM 4/4; the supplied track-rating record is 3 starts, 2 wins, 0 places on the Good band. official trial data unavailable. Trainer strike rate is 10.1% and jockey strike rate is data unavailable from the uploaded metro premiership tables; this was treated as the least important factor.</div>
+        </article>
         
-          <tr>
-            <td><span class="race-chip">R5</span></td>
-            <td>
-              <div class="horse">EUREKA REBEL</div>
-              <div class="meta">Rosehill selection</div>
-            </td>
-            <td>9</td>
-            <td>2</td>
-            <td>57kg</td>
-            <td><span class="badge strong">8/10</span></td>
-            <td class="reason">Inside draw, strong recent sequence and reliable soft-track profile create a solid winning setup.</td>
-          </tr>
+        <article class="pick">
+          <div class="pick-top">
+            <div><span class="race-chip">RACE 5</span></div>
+            <div class="conf low">5/10</div>
+          </div>
+          <div class="horse">PALTROW MISS (NZ)</div>
+          <div class="meta-grid">
+            <div class="meta-box"><div class="label">Horse No.</div><div class="value">5</div></div>
+            <div class="meta-box"><div class="label">Barrier</div><div class="value">2</div></div>
+            <div class="meta-box"><div class="label">Weight</div><div class="value">57.5kg</div></div>
+          </div>
+          <div class="submeta">
+            <div class="sub-box"><div class="label">Tempo</div><div class="value">Moderate</div></div>
+            <div class="sub-box"><div class="label">Expected Leader(s)</div><div class="value">MORGANA</div></div>
+          </div>
+          <div class="reason">PALTROW MISS (NZ) draws barrier 2 and profiles as a backmarker runner from the supplied speed map in a moderate tempo with expected leaders MORGANA. It carries 57.5kg (+0.1kg versus the field average). The last three starts read 1/8 (3.00L); 1/7 (0.50L); the trend is mixed. The supplied distance record is data unavailable. Track condition is Good 4 with Inspection 6AM 4/4; the supplied track-rating record is 1 start, 1 win, 0 places on the Good band; low sample. official trial data unavailable. Trainer strike rate is 13.6% and jockey strike rate is data unavailable from the uploaded metro premiership tables; this was treated as the least important factor.</div>
+        </article>
         
-          <tr>
-            <td><span class="race-chip">R6</span></td>
-            <td>
-              <div class="horse">OHOPE WINS (NZ)</div>
-              <div class="meta">Rosehill selection</div>
-            </td>
-            <td>1</td>
-            <td>1</td>
-            <td>61kg</td>
-            <td><span class="badge solid">6/10</span></td>
-            <td class="reason">Barrier 1 and proven soft-track ability help, but the big weight keeps confidence below the higher-rated selections.</td>
-          </tr>
+        <article class="pick">
+          <div class="pick-top">
+            <div><span class="race-chip">RACE 6</span></div>
+            <div class="conf mid">7/10</div>
+          </div>
+          <div class="horse">AZZACOOL</div>
+          <div class="meta-grid">
+            <div class="meta-box"><div class="label">Horse No.</div><div class="value">7</div></div>
+            <div class="meta-box"><div class="label">Barrier</div><div class="value">4</div></div>
+            <div class="meta-box"><div class="label">Weight</div><div class="value">55kg</div></div>
+          </div>
+          <div class="submeta">
+            <div class="sub-box"><div class="label">Tempo</div><div class="value">Moderate</div></div>
+            <div class="sub-box"><div class="label">Expected Leader(s)</div><div class="value">TORSHEEN, TORONADO QUEEN</div></div>
+          </div>
+          <div class="reason">AZZACOOL draws barrier 4 and profiles as a midfield runner from the supplied speed map in a moderate tempo with expected leaders TORSHEEN, TORONADO QUEEN. It carries 55kg (-493.5kg versus the field average). The last three starts read 1/11 (0.75L); 1/8 (0.46L); the trend is mixed. The supplied distance record is 2 starts, 2 wins, 0 places. Track condition is Good 4 with Inspection 6AM 4/4; the supplied track-rating record is 3 starts, 2 wins, 0 places on the Good band. official trial data unavailable. Trainer strike rate is 13.6% and jockey strike rate is data unavailable from the uploaded metro premiership tables; this was treated as the least important factor.</div>
+        </article>
         
-          <tr>
-            <td><span class="race-chip">R7</span></td>
-            <td>
-              <div class="horse">BLINDEDBYTHELIGHT</div>
-              <div class="meta">Rosehill selection</div>
-            </td>
-            <td>12</td>
-            <td>7</td>
-            <td>52kg</td>
-            <td><span class="badge solid">7/10</span></td>
-            <td class="reason">Very light weight and strong recent winning pattern are positives in a competitive race.</td>
-          </tr>
+        <article class="pick">
+          <div class="pick-top">
+            <div><span class="race-chip">RACE 7</span></div>
+            <div class="conf high">8/10</div>
+          </div>
+          <div class="horse">TOP CALIBRE</div>
+          <div class="meta-grid">
+            <div class="meta-box"><div class="label">Horse No.</div><div class="value">13</div></div>
+            <div class="meta-box"><div class="label">Barrier</div><div class="value">4</div></div>
+            <div class="meta-box"><div class="label">Weight</div><div class="value">57kg</div></div>
+          </div>
+          <div class="submeta">
+            <div class="sub-box"><div class="label">Tempo</div><div class="value">Fast</div></div>
+            <div class="sub-box"><div class="label">Expected Leader(s)</div><div class="value">CELSIUS STAR, PRANCING SPIRIT</div></div>
+          </div>
+          <div class="reason">TOP CALIBRE draws barrier 4 and profiles as a midfield runner from the supplied speed map in a fast tempo with expected leaders CELSIUS STAR, PRANCING SPIRIT. It carries 57kg (-1.9kg versus the field average). The last three starts read 1/8 (1.00L); 1/5 (1.96L); 3/15 (0.77L); the trend is mixed. The supplied distance record is 5 starts, 3 wins, 1 place. Track condition is Good 4 with Inspection 6AM 4/4; the supplied track-rating record is 3 starts, 2 wins, 1 place on the Good band. official trial T2 of 6 at 800m on Good4. Trainer strike rate is data unavailable and jockey strike rate is data unavailable from the uploaded metro premiership tables; this was treated as the least important factor.</div>
+        </article>
         
-          <tr>
-            <td><span class="race-chip">R8</span></td>
-            <td>
-              <div class="horse">AELIANA (NZ)</div>
-              <div class="meta">Rosehill selection</div>
-            </td>
-            <td>9</td>
-            <td>5</td>
-            <td>57kg</td>
-            <td><span class="badge elite">10/10</span></td>
-            <td class="reason">Outstanding recent winning streak, perfect distance profile and proven soft-track form make this the strongest profile across the three meetings.</td>
-          </tr>
+        <article class="pick">
+          <div class="pick-top">
+            <div><span class="race-chip">RACE 8</span></div>
+            <div class="conf mid">7/10</div>
+          </div>
+          <div class="horse">AMBASSADORIAL</div>
+          <div class="meta-grid">
+            <div class="meta-box"><div class="label">Horse No.</div><div class="value">17</div></div>
+            <div class="meta-box"><div class="label">Barrier</div><div class="value">5</div></div>
+            <div class="meta-box"><div class="label">Weight</div><div class="value">54kg</div></div>
+          </div>
+          <div class="submeta">
+            <div class="sub-box"><div class="label">Tempo</div><div class="value">Fast</div></div>
+            <div class="sub-box"><div class="label">Expected Leader(s)</div><div class="value">SEA WHAT I SEE (IRE), AMBASSADORIAL</div></div>
+          </div>
+          <div class="reason">AMBASSADORIAL draws barrier 5 and profiles as an on-pace runner from the supplied speed map in a fast tempo with expected leaders SEA WHAT I SEE (IRE), AMBASSADORIAL. It carries 54kg (-1.9kg versus the field average). The last three starts read 2/15 (0.15L); 1/6 (1.75L); 1/11 (0.40L); the trend is improving. The supplied distance record is 4 starts, 2 wins, 1 place. Track condition is Good 4 with Inspection 6AM 4/4; the supplied track-rating record is 15 starts, 4 wins, 6 places on the Good band. official trial data unavailable. Trainer strike rate is data unavailable and jockey strike rate is data unavailable from the uploaded metro premiership tables; this was treated as the least important factor.</div>
+        </article>
         
-          <tr>
-            <td><span class="race-chip">R9</span></td>
-            <td>
-              <div class="horse">SEPALS</div>
-              <div class="meta">Rosehill selection</div>
-            </td>
-            <td>1</td>
-            <td>7</td>
-            <td>58kg</td>
-            <td><span class="badge solid">6/10</span></td>
-            <td class="reason">Recent wins are a positive, but confidence is more moderate in a less clear race shape.</td>
-          </tr>
+        <article class="pick">
+          <div class="pick-top">
+            <div><span class="race-chip">RACE 9</span></div>
+            <div class="conf mid">6/10</div>
+          </div>
+          <div class="horse">SABAN</div>
+          <div class="meta-grid">
+            <div class="meta-box"><div class="label">Horse No.</div><div class="value">16</div></div>
+            <div class="meta-box"><div class="label">Barrier</div><div class="value">6</div></div>
+            <div class="meta-box"><div class="label">Weight</div><div class="value">54kg</div></div>
+          </div>
+          <div class="submeta">
+            <div class="sub-box"><div class="label">Tempo</div><div class="value">Fast</div></div>
+            <div class="sub-box"><div class="label">Expected Leader(s)</div><div class="value">BOSSY BENITA, WROTE TO ARATAKI (NZ)</div></div>
+          </div>
+          <div class="reason">SABAN draws barrier 6 and profiles as a backmarker runner from the supplied speed map in a fast tempo with expected leaders BOSSY BENITA, WROTE TO ARATAKI (NZ). It carries 54kg (-1.2kg versus the field average). The last three starts read 2/12 (0.06L); 1/10 (0.50L); 1/13 (0.46L); the trend is improving. The supplied distance record is 2 starts, 1 win, 0 places. Track condition is Good 4 with Inspection 6AM 4/4; the supplied track-rating record is 12 starts, 4 wins, 3 places on the Good band. official trial data unavailable. Trainer strike rate is data unavailable and jockey strike rate is data unavailable from the uploaded metro premiership tables; this was treated as the least important factor.</div>
+        </article>
         
-          <tr>
-            <td><span class="race-chip">R10</span></td>
-            <td>
-              <div class="horse">MAL COUPE</div>
-              <div class="meta">Rosehill selection</div>
-            </td>
-            <td>5</td>
-            <td>1</td>
-            <td>58.5kg</td>
-            <td><span class="badge strong">8/10</span></td>
-            <td class="reason">Barrier 1, strong recent winning line and proven soft-track record support a strong confidence rating.</td>
-          </tr>
+        <article class="pick">
+          <div class="pick-top">
+            <div><span class="race-chip">RACE 10</span></div>
+            <div class="conf mid">7/10</div>
+          </div>
+          <div class="horse">EVERAIN</div>
+          <div class="meta-grid">
+            <div class="meta-box"><div class="label">Horse No.</div><div class="value">8</div></div>
+            <div class="meta-box"><div class="label">Barrier</div><div class="value">7</div></div>
+            <div class="meta-box"><div class="label">Weight</div><div class="value">57kg</div></div>
+          </div>
+          <div class="submeta">
+            <div class="sub-box"><div class="label">Tempo</div><div class="value">Fast</div></div>
+            <div class="sub-box"><div class="label">Expected Leader(s)</div><div class="value">PORTER, SASSY BOOM</div></div>
+          </div>
+          <div class="reason">EVERAIN draws barrier 7 and profiles as a midfield runner from the supplied speed map in a fast tempo with expected leaders PORTER, SASSY BOOM. It carries 57kg (-440.8kg versus the field average). The last three starts read 1/11 (1.00L); 3/10 (1.02L); 1/7 (0.46L); the trend is mixed. The supplied distance record is 4 starts, 2 wins, 0 places. Track condition is Good 4 with Inspection 6AM 4/4; the supplied track-rating record is 5 starts, 3 wins, 1 place on the Good band. official trial data unavailable. Trainer strike rate is 16.1% and jockey strike rate is 13.4% from the uploaded metro premiership tables; this was treated as the least important factor.</div>
+        </article>
         
-          </tbody>
-        </table>
       </div>
     </section>
     
+    <section class="section">
+      <div class="track-header" style="background:linear-gradient(135deg,#7c3aed 0%, #3b166a 100%);">
+        <h2>Eagle Farm</h2>
+        <p>Track condition: Soft 5 · Timestamp: data unavailable</p>
+      </div>
+      <div class="track-grid">
+    
+        <article class="pick">
+          <div class="pick-top">
+            <div><span class="race-chip">RACE 1</span></div>
+            <div class="conf high">9/10</div>
+          </div>
+          <div class="horse">NAUGHTY NEIL</div>
+          <div class="meta-grid">
+            <div class="meta-box"><div class="label">Horse No.</div><div class="value">2</div></div>
+            <div class="meta-box"><div class="label">Barrier</div><div class="value">4</div></div>
+            <div class="meta-box"><div class="label">Weight</div><div class="value">58.5kg</div></div>
+          </div>
+          <div class="submeta">
+            <div class="sub-box"><div class="label">Tempo</div><div class="value">Moderate</div></div>
+            <div class="sub-box"><div class="label">Expected Leader(s)</div><div class="value">SPIRIT OF TORQUE</div></div>
+          </div>
+          <div class="reason">NAUGHTY NEIL draws barrier 4 and profiles as a midfield runner from the supplied speed map in a moderate tempo with expected leaders SPIRIT OF TORQUE. It carries 58.5kg (+0.9kg versus the field average). The last three starts read 3/8 (3.73L); 1/5 (0.92L); the trend is improving. The supplied distance record is data unavailable. Track condition is Soft 5 with timestamp unavailable in file; the supplied track-rating record is 1 start, 1 win, 0 places on the Soft band; low sample. official trial T1 of 6 at 1050m on Soft6. Trainer strike rate is 19.9% and jockey strike rate is data unavailable from the uploaded metro premiership tables; this was treated as the least important factor.</div>
+        </article>
+        
+        <article class="pick">
+          <div class="pick-top">
+            <div><span class="race-chip">RACE 2</span></div>
+            <div class="conf mid">7/10</div>
+          </div>
+          <div class="horse">SILK SONIC</div>
+          <div class="meta-grid">
+            <div class="meta-box"><div class="label">Horse No.</div><div class="value">9</div></div>
+            <div class="meta-box"><div class="label">Barrier</div><div class="value">8</div></div>
+            <div class="meta-box"><div class="label">Weight</div><div class="value">58kg</div></div>
+          </div>
+          <div class="submeta">
+            <div class="sub-box"><div class="label">Tempo</div><div class="value">Moderate</div></div>
+            <div class="sub-box"><div class="label">Expected Leader(s)</div><div class="value">ANGEL LADDER, SILK SONIC</div></div>
+          </div>
+          <div class="reason">SILK SONIC draws barrier 8 and profiles as an on-pace runner from the supplied speed map in a moderate tempo with expected leaders ANGEL LADDER, SILK SONIC. It carries 58kg (+0.1kg versus the field average). The last three starts read 1/9 (2.18L); 1/8 (0.78L); 1/6 (0.88L); the trend is mixed. The supplied distance record is 6 starts, 3 wins, 3 places. Track condition is Soft 5 with timestamp unavailable in file; the supplied track-rating record is 1 start, 0 wins, 1 place on the Soft band; low sample. official trial T1 of 7 at 1000m on Heavy9. Trainer strike rate is data unavailable and jockey strike rate is data unavailable from the uploaded metro premiership tables; this was treated as the least important factor.</div>
+        </article>
+        
+        <article class="pick">
+          <div class="pick-top">
+            <div><span class="race-chip">RACE 3</span></div>
+            <div class="conf mid">7/10</div>
+          </div>
+          <div class="horse">LOVEY DOVEY</div>
+          <div class="meta-grid">
+            <div class="meta-box"><div class="label">Horse No.</div><div class="value">8</div></div>
+            <div class="meta-box"><div class="label">Barrier</div><div class="value">4</div></div>
+            <div class="meta-box"><div class="label">Weight</div><div class="value">55kg</div></div>
+          </div>
+          <div class="submeta">
+            <div class="sub-box"><div class="label">Tempo</div><div class="value">Moderate</div></div>
+            <div class="sub-box"><div class="label">Expected Leader(s)</div><div class="value">AKKADIAN EMPEROR (IRE), ARTFUL GIRL, CLYDE</div></div>
+          </div>
+          <div class="reason">LOVEY DOVEY draws barrier 4 and profiles as a midfield runner from the supplied speed map in a moderate tempo with expected leaders AKKADIAN EMPEROR (IRE), ARTFUL GIRL, CLYDE. It carries 55kg (-0.5kg versus the field average). The last three starts read 1/8 (1.44L); 2/12 (0.12L); 2/10 (0.46L); the trend is declining. The supplied distance record is 6 starts, 2 wins, 2 places. Track condition is Soft 5 with timestamp unavailable in file; the supplied track-rating record is 7 starts, 2 wins, 3 places on the Soft band. official trial data unavailable. Trainer strike rate is 12.3% and jockey strike rate is data unavailable from the uploaded metro premiership tables; this was treated as the least important factor.</div>
+        </article>
+        
+        <article class="pick">
+          <div class="pick-top">
+            <div><span class="race-chip">RACE 4</span></div>
+            <div class="conf high">8/10</div>
+          </div>
+          <div class="horse">RESTONICA</div>
+          <div class="meta-grid">
+            <div class="meta-box"><div class="label">Horse No.</div><div class="value">3</div></div>
+            <div class="meta-box"><div class="label">Barrier</div><div class="value">1</div></div>
+            <div class="meta-box"><div class="label">Weight</div><div class="value">60kg</div></div>
+          </div>
+          <div class="submeta">
+            <div class="sub-box"><div class="label">Tempo</div><div class="value">Moderate</div></div>
+            <div class="sub-box"><div class="label">Expected Leader(s)</div><div class="value">PARTY SPIRIT</div></div>
+          </div>
+          <div class="reason">RESTONICA draws barrier 1 and profiles as a midfield runner from the supplied speed map in a moderate tempo with expected leaders PARTY SPIRIT. It carries 60kg (+1.6kg versus the field average). The last three starts read 1/16 (0.18L); 2/12 (1.67L); 1/10 (1.71L); the trend is mixed. The supplied distance record is 8 starts, 2 wins, 4 places. Track condition is Soft 5 with timestamp unavailable in file; the supplied track-rating record is 7 starts, 2 wins, 3 places on the Soft band. official trial T1 of 8 at 925m on Good3. Trainer strike rate is data unavailable and jockey strike rate is data unavailable from the uploaded metro premiership tables; this was treated as the least important factor.</div>
+        </article>
+        
+        <article class="pick">
+          <div class="pick-top">
+            <div><span class="race-chip">RACE 5</span></div>
+            <div class="conf low">5/10</div>
+          </div>
+          <div class="horse">MAKE A CALL</div>
+          <div class="meta-grid">
+            <div class="meta-box"><div class="label">Horse No.</div><div class="value">2</div></div>
+            <div class="meta-box"><div class="label">Barrier</div><div class="value">1</div></div>
+            <div class="meta-box"><div class="label">Weight</div><div class="value">62.5kg</div></div>
+          </div>
+          <div class="submeta">
+            <div class="sub-box"><div class="label">Tempo</div><div class="value">Fast</div></div>
+            <div class="sub-box"><div class="label">Expected Leader(s)</div><div class="value">LA ROSETTA, ROCK YA (NZ), RING BEARER, AMAHNI&#x27;S GIRL</div></div>
+          </div>
+          <div class="reason">MAKE A CALL draws barrier 1 and profiles as a midfield runner from the supplied speed map in a fast tempo with expected leaders LA ROSETTA, ROCK YA (NZ), RING BEARER, AMAHNI&#x27;S GIRL. It carries 62.5kg (+3.7kg versus the field average). The last three starts read 7/11 (2.38L); 1/13 (0.73L); 2/11 (1.29L); the trend is mixed. The supplied distance record is 3 starts, 1 win, 1 place. Track condition is Soft 5 with timestamp unavailable in file; the supplied track-rating record is 8 starts, 0 wins, 2 places on the Soft band. official trial T4 of 6 at 1000m on Soft5. Trainer strike rate is 17.3% and jockey strike rate is data unavailable from the uploaded metro premiership tables; this was treated as the least important factor.</div>
+        </article>
+        
+        <article class="pick">
+          <div class="pick-top">
+            <div><span class="race-chip">RACE 6</span></div>
+            <div class="conf high">8/10</div>
+          </div>
+          <div class="horse">SPEED LEGEND</div>
+          <div class="meta-grid">
+            <div class="meta-box"><div class="label">Horse No.</div><div class="value">4</div></div>
+            <div class="meta-box"><div class="label">Barrier</div><div class="value">3</div></div>
+            <div class="meta-box"><div class="label">Weight</div><div class="value">55.5kg</div></div>
+          </div>
+          <div class="submeta">
+            <div class="sub-box"><div class="label">Tempo</div><div class="value">Moderate</div></div>
+            <div class="sub-box"><div class="label">Expected Leader(s)</div><div class="value">EN POINTE</div></div>
+          </div>
+          <div class="reason">SPEED LEGEND draws barrier 3 and profiles as a midfield runner from the supplied speed map in a moderate tempo with expected leaders EN POINTE. It carries 55.5kg (-0.8kg versus the field average). The last three starts read 4/14 (2.79L); 1/15 (0.16L); 1/14 (1.25L); the trend is mixed. The supplied distance record is 2 starts, 1 win, 1 place. Track condition is Soft 5 with timestamp unavailable in file; the supplied track-rating record is 13 starts, 5 wins, 4 places on the Soft band. official trial T2 of 4 at 850m on Heavy8. Trainer strike rate is data unavailable and jockey strike rate is data unavailable from the uploaded metro premiership tables; this was treated as the least important factor.</div>
+        </article>
+        
+        <article class="pick">
+          <div class="pick-top">
+            <div><span class="race-chip">RACE 7</span></div>
+            <div class="conf low">5/10</div>
+          </div>
+          <div class="horse">ECLAIR AWESOME</div>
+          <div class="meta-grid">
+            <div class="meta-box"><div class="label">Horse No.</div><div class="value">7</div></div>
+            <div class="meta-box"><div class="label">Barrier</div><div class="value">6</div></div>
+            <div class="meta-box"><div class="label">Weight</div><div class="value">55.5kg</div></div>
+          </div>
+          <div class="submeta">
+            <div class="sub-box"><div class="label">Tempo</div><div class="value">Fast</div></div>
+            <div class="sub-box"><div class="label">Expected Leader(s)</div><div class="value">ARATIRI, JUST FLYING, FREE CARRY</div></div>
+          </div>
+          <div class="reason">ECLAIR AWESOME draws barrier 6 and profiles as a midfield runner from the supplied speed map in a fast tempo with expected leaders ARATIRI, JUST FLYING, FREE CARRY. It carries 55.5kg (-1.8kg versus the field average). The last three starts read 3/8 (0.54L); 1/7 (0.17L); the trend is improving. The supplied distance record is 4 starts, 1 win, 2 places. Track condition is Soft 5 with timestamp unavailable in file; the supplied track-rating record is 8 starts, 4 wins, 1 place on the Soft band. official trial T4 of 8 at 1050m on Soft5. Trainer strike rate is data unavailable and jockey strike rate is 15.8% from the uploaded metro premiership tables; this was treated as the least important factor.</div>
+        </article>
+        
+        <article class="pick">
+          <div class="pick-top">
+            <div><span class="race-chip">RACE 8</span></div>
+            <div class="conf mid">7/10</div>
+          </div>
+          <div class="horse">TEN DEEP (GB)</div>
+          <div class="meta-grid">
+            <div class="meta-box"><div class="label">Horse No.</div><div class="value">1</div></div>
+            <div class="meta-box"><div class="label">Barrier</div><div class="value">2</div></div>
+            <div class="meta-box"><div class="label">Weight</div><div class="value">61.5kg</div></div>
+          </div>
+          <div class="submeta">
+            <div class="sub-box"><div class="label">Tempo</div><div class="value">Moderate</div></div>
+            <div class="sub-box"><div class="label">Expected Leader(s)</div><div class="value">TEN DEEP (GB)</div></div>
+          </div>
+          <div class="reason">TEN DEEP (GB) draws barrier 2 and profiles as an on-pace runner from the supplied speed map in a moderate tempo with expected leaders TEN DEEP (GB). It carries 61.5kg (+2.9kg versus the field average). The last three starts read 9/13 (3.80L); 1/11 (0.08L); 3/13 (1.54L); the trend is mixed. The supplied distance record is 7 starts, 1 win, 3 places. Track condition is Soft 5 with timestamp unavailable in file; the supplied track-rating record is 6 starts, 2 wins, 3 places on the Soft band. official trial T1 of 6 at 1000m on Soft5. Trainer strike rate is 17.3% and jockey strike rate is data unavailable from the uploaded metro premiership tables; this was treated as the least important factor.</div>
+        </article>
+        
+        <article class="pick">
+          <div class="pick-top">
+            <div><span class="race-chip">RACE 9</span></div>
+            <div class="conf high">8/10</div>
+          </div>
+          <div class="horse">BRAVE MONARCH</div>
+          <div class="meta-grid">
+            <div class="meta-box"><div class="label">Horse No.</div><div class="value">2</div></div>
+            <div class="meta-box"><div class="label">Barrier</div><div class="value">15</div></div>
+            <div class="meta-box"><div class="label">Weight</div><div class="value">57.5kg</div></div>
+          </div>
+          <div class="submeta">
+            <div class="sub-box"><div class="label">Tempo</div><div class="value">Moderate</div></div>
+            <div class="sub-box"><div class="label">Expected Leader(s)</div><div class="value">SPANISH TREASURE, DR FARTHING</div></div>
+          </div>
+          <div class="reason">BRAVE MONARCH draws barrier 15 and profiles as a backmarker runner from the supplied speed map in a moderate tempo with expected leaders SPANISH TREASURE, DR FARTHING. It carries 57.5kg (+2.1kg versus the field average). The last three starts read 1/10 (0.33L); 1/12 (0.55L); the trend is mixed. The supplied distance record is 1 start, 1 win, 0 places. Track condition is Soft 5 with timestamp unavailable in file; the supplied track-rating record is data unavailable on the Soft band. official trial T1 of 7 at 840m on Good4. Trainer strike rate is 19.9% and jockey strike rate is data unavailable from the uploaded metro premiership tables; this was treated as the least important factor.</div>
+        </article>
+        
+      </div>
+    </section>
+    
+  <div class="footer-note">Generated for website upload from the supplied JSON selection file.</div>
 </div>
 </body>
 </html>
