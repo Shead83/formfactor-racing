@@ -1,221 +1,179 @@
 <!DOCTYPE html>
-
 <html data-theme="light" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width,initial-scale=1" name="viewport"/><title>Today's Metro Picks</title><style>
-:root{--bg:#f7f6f2;--surface:#fff;--surface2:#f1efe8;--text:#22201a;--muted:#6f6c66;--primary:#01696f;--danger:#964219;--border:#d8d4cb;--shadow:0 10px 30px rgba(0,0,0,.06);--radius:18px;--radius-sm:12px}
-*{box-sizing:border-box} body{margin:0;font:16px/1.5 Inter,Arial,sans-serif;background:var(--bg);color:var(--text)}
-.wrap{max-width:1240px;margin:0 auto;padding:28px 20px 60px}.top{display:flex;justify-content:space-between;gap:16px;align-items:flex-start;flex-wrap:wrap;margin-bottom:22px}
-h1{margin:0 0 8px;font-size:clamp(2rem,4vw,3.3rem);line-height:1.05}p.lead{margin:0;max-width:70ch;color:var(--muted)}
-.hero{background:linear-gradient(180deg,var(--surface),var(--surface2));border:1px solid var(--border);border-radius:24px;padding:22px;box-shadow:var(--shadow);margin-bottom:26px}
-.hero-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin-top:16px}.stat{background:var(--bg);border:1px solid var(--border);border-radius:16px;padding:14px}.stat strong{display:block;font-size:.82rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin-bottom:6px}
-.track-section{margin-top:26px}.section-head{display:flex;justify-content:space-between;align-items:end;gap:12px;flex-wrap:wrap;margin-bottom:14px}.section-head h2{margin:0;font-size:1.7rem}.best-bet{display:inline-flex;align-items:center;gap:8px;padding:8px 12px;border-radius:999px;background:rgba(1,105,111,.10);border:1px solid rgba(1,105,111,.18);color:var(--primary);font-weight:700}.best-bet strong{font-size:.82rem;text-transform:uppercase;letter-spacing:.08em}
-.race-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px}.race-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:18px;box-shadow:var(--shadow)}.race-head{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:14px}.race-head h3{margin:0;font-size:1.15rem}.race-tag{display:inline-flex;align-items:center;border-radius:999px;padding:6px 10px;background:rgba(1,105,111,.12);color:var(--primary);font-size:.82rem;font-weight:700}
-.pick-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}label{display:block;font-size:.78rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin-bottom:6px}.pill{min-height:44px;display:flex;align-items:center;padding:10px 12px;border-radius:var(--radius-sm);background:rgba(1,105,111,.10);color:var(--primary);font-weight:700;border:1px solid rgba(1,105,111,.18)}.pill.danger{background:rgba(150,66,25,.10);color:var(--danger);border-color:rgba(150,66,25,.18)}.pill.muted{background:var(--surface2);color:var(--text);border-color:var(--border);font-weight:700}.footer{margin-top:34px;color:var(--muted);font-size:.92rem}@media (max-width:640px){.pick-grid{grid-template-columns:1fr}}
-</style></head><body><main class="wrap"><div class="top"><div><h1>Today's Metro Picks</h1><p class="lead">Website-ready picks page with top selection, horse number, danger horse, and one best bet for each track.</p></div></div><section class="hero"><p>Clean display version for posting on your website.</p><div class="hero-grid"><div class="stat"><strong>Meetings</strong>Randwick, Caulfield, Doomben</div><div class="stat"><strong>Race count</strong>25 races</div><div class="stat"><strong>Displayed fields</strong>Horse No., Top Pick, Danger Horse</div><div class="stat"><strong>Format</strong>Website-ready HTML card layout</div></div></section><section class="track-section"><div class="section-head"><h2>Randwick</h2><div class="best-bet"><strong>Best Bet</strong> Race 3 — #1 Medicinal</div></div><div class="race-list">
-<article class="race-card">
+:root{--bg:#f7f6f2;--surface:#fff;--surface2:#f1efe8;--text:#22201a;--muted:#6f6c66;--primary:#01696f;--primary2:#0c4e54;--danger:#964219;--border:#d8d4cb;--shadow:0 10px 30px rgba(0,0,0,.06);--radius:18px;--radius-sm:12px;}
+[data-theme='dark']{--bg:#151412;--surface:#1c1b18;--surface2:#24221f;--text:#ece8de;--muted:#aaa59b;--primary:#4f98a3;--primary2:#76b7c0;--danger:#d38a60;--border:#37342e;--shadow:0 10px 30px rgba(0,0,0,.35);}
+*{box-sizing:border-box}body{margin:0;font:16px/1.5 Inter,Arial,sans-serif;background:var(--bg);color:var(--text)}.wrap{max-width:1240px;margin:0 auto;padding:28px 20px 60px}.top{display:flex;justify-content:space-between;gap:16px;align-items:flex-start;flex-wrap:wrap;margin-bottom:22px}h1{margin:0 0 8px;font-size:clamp(2rem,4vw,3.3rem);line-height:1.05}p.lead{margin:0;max-width:70ch;color:var(--muted)}button{border:1px solid var(--border);background:var(--surface);color:var(--text);border-radius:999px;padding:12px 16px;cursor:pointer;box-shadow:var(--shadow)}.hero{background:linear-gradient(180deg,var(--surface),var(--surface2));border:1px solid var(--border);border-radius:24px;padding:22px;box-shadow:var(--shadow);margin-bottom:26px}.hero-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin-top:16px}.stat{background:var(--bg);border:1px solid var(--border);border-radius:16px;padding:14px}.stat strong{display:block;font-size:.82rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin-bottom:6px}.track-section{margin-top:26px}.section-head{display:flex;justify-content:space-between;align-items:end;gap:12px;flex-wrap:wrap;margin-bottom:14px}.section-head h2{margin:0;font-size:1.7rem}.section-head p{margin:0;color:var(--muted)}.race-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px}.race-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:18px;box-shadow:var(--shadow)}.race-head{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:14px}.race-head h3{margin:0;font-size:1.15rem}.race-tag{display:inline-flex;align-items:center;border-radius:999px;padding:6px 10px;background:rgba(1,105,111,.12);color:var(--primary);font-size:.82rem;font-weight:700}.pick-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}label{display:block;font-size:.78rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin-bottom:6px}.pill{min-height:44px;display:flex;align-items:center;padding:10px 12px;border-radius:var(--radius-sm);background:rgba(1,105,111,.10);color:var(--primary2);font-weight:700;border:1px solid rgba(1,105,111,.18)}.pill.danger{background:rgba(150,66,25,.12);color:var(--danger);border-color:rgba(150,66,25,.22)}.pill.muted{background:var(--surface2);color:var(--muted);border-color:var(--border);font-weight:600}.notes{margin-top:14px;padding-top:14px;border-top:1px solid var(--border)}.notes p{margin:0;color:var(--muted)}.footer{margin-top:34px;color:var(--muted);font-size:.92rem}@media (max-width:640px){.pick-grid{grid-template-columns:1fr}}</style></head><body><main class="wrap"><div class="top"><div><h1>Today's Metro Picks</h1><p class="lead">Website-ready picks page with top selection, horse number, and danger horse for Randwick, Caulfield, and Doomben.</p></div><button id="t">Toggle theme</button></div><section class="track-section"><div class="section-head"><h2>Randwick</h2><div class="best-bet"><strong>Best Bet</strong> Race 9 FANGIRL</div></div><div class="race-list"><article class="race-card">
 <div class="race-head"><span class="race-tag">Randwick</span><h3>Race 1</h3></div>
 <div class="pick-grid">
-<div><label>No.</label><div class="pill">11</div></div>
-<div><label>Top Pick</label><div class="pill">UNIVERSE</div></div>
-<div><label>Danger Horse</label><div class="pill danger">HYDROBOMB</div></div>
+<div><label>Top Pick</label><div class="pill">MAILATA</div></div>
+<div><label>Danger Horse</label><div class="pill danger">AIX EN PROVENCE</div></div>
 </div>
-</article>
-<article class="race-card">
+</article><article class="race-card">
 <div class="race-head"><span class="race-tag">Randwick</span><h3>Race 2</h3></div>
 <div class="pick-grid">
-<div><label>No.</label><div class="pill">1</div></div>
-<div><label>Top Pick</label><div class="pill">BESKAR</div></div>
-<div><label>Danger Horse</label><div class="pill danger">WITHIN THE LAW</div></div>
+<div><label>Top Pick</label><div class="pill">OCCULT</div></div>
+<div><label>Danger Horse</label><div class="pill danger">MICRO MIKKI</div></div>
 </div>
-</article>
-<article class="race-card">
+</article><article class="race-card">
 <div class="race-head"><span class="race-tag">Randwick</span><h3>Race 3</h3></div>
 <div class="pick-grid">
-<div><label>No.</label><div class="pill">1</div></div>
-<div><label>Top Pick</label><div class="pill">MEDICINAL</div></div>
-<div><label>Danger Horse</label><div class="pill danger">SATONO GLOW (NZ)</div></div>
+<div><label>Top Pick</label><div class="pill">GALLANT STAR</div></div>
+<div><label>Danger Horse</label><div class="pill danger">BANDI'S BOY</div></div>
 </div>
-</article>
-<article class="race-card">
+</article><article class="race-card">
 <div class="race-head"><span class="race-tag">Randwick</span><h3>Race 4</h3></div>
 <div class="pick-grid">
-<div><label>No.</label><div class="pill">1</div></div>
-<div><label>Top Pick</label><div class="pill">LORD OF BISCAY (IRE)</div></div>
-<div><label>Danger Horse</label><div class="pill danger">MIDNIGHT OPAL</div></div>
+<div><label>Top Pick</label><div class="pill">PLAINTIFF</div></div>
+<div><label>Danger Horse</label><div class="pill danger">KARINSKA</div></div>
 </div>
-</article>
-<article class="race-card">
+</article><article class="race-card">
 <div class="race-head"><span class="race-tag">Randwick</span><h3>Race 5</h3></div>
 <div class="pick-grid">
-<div><label>No.</label><div class="pill">1</div></div>
-<div><label>Top Pick</label><div class="pill">OHOPE WINS (NZ)</div></div>
-<div><label>Danger Horse</label><div class="pill danger">AFTER SUMMER</div></div>
+<div><label>Top Pick</label><div class="pill">MATIAS</div></div>
+<div><label>Danger Horse</label><div class="pill danger">PROVIDENCE</div></div>
 </div>
-</article>
-<article class="race-card">
+</article><article class="race-card">
 <div class="race-head"><span class="race-tag">Randwick</span><h3>Race 6</h3></div>
 <div class="pick-grid">
-<div><label>No.</label><div class="pill">1</div></div>
-<div><label>Top Pick</label><div class="pill">BEIWACHT</div></div>
-<div><label>Danger Horse</label><div class="pill danger">DEVIL NIGHT</div></div>
+<div><label>Top Pick</label><div class="pill">JUST FINE (IRE)</div></div>
+<div><label>Danger Horse</label><div class="pill danger">TRAVOLTA (GB)</div></div>
 </div>
-</article>
-<article class="race-card">
+</article><article class="race-card">
 <div class="race-head"><span class="race-tag">Randwick</span><h3>Race 7</h3></div>
 <div class="pick-grid">
-<div><label>No.</label><div class="pill">1</div></div>
-<div><label>Top Pick</label><div class="pill">RIVER OF STARS (IRE)</div></div>
-<div><label>Danger Horse</label><div class="pill danger">CAMPALDINO (NZ)</div></div>
+<div><label>Top Pick</label><div class="pill">NOMADIC</div></div>
+<div><label>Danger Horse</label><div class="pill danger">CAMPIONE D'ITALIA</div></div>
 </div>
-</article>
-<article class="race-card">
+</article><article class="race-card">
 <div class="race-head"><span class="race-tag">Randwick</span><h3>Race 8</h3></div>
 <div class="pick-grid">
-<div><label>No.</label><div class="pill">1</div></div>
-<div><label>Top Pick</label><div class="pill">PRIDE OF JENNI</div></div>
-<div><label>Danger Horse</label><div class="pill danger">LADY SHENANDOAH</div></div>
+<div><label>Top Pick</label><div class="pill">PRIVATE EYE</div></div>
+<div><label>Danger Horse</label><div class="pill danger">MAZU</div></div>
 </div>
-</article>
-<article class="race-card">
+</article><article class="race-card">
 <div class="race-head"><span class="race-tag">Randwick</span><h3>Race 9</h3></div>
 <div class="pick-grid">
-<div><label>No.</label><div class="pill">1</div></div>
-<div><label>Top Pick</label><div class="pill">DUBAI HONOUR (IRE)</div></div>
-<div><label>Danger Horse</label><div class="pill danger">SIR DELIUS (GB)</div></div>
+<div><label>Top Pick</label><div class="pill">FANGIRL</div></div>
+<div><label>Danger Horse</label><div class="pill danger">MAGIC TIME</div></div>
 </div>
-</article>
-
-<article class="race-card">
+</article><article class="race-card">
 <div class="race-head"><span class="race-tag">Randwick</span><h3>Race 10</h3></div>
 <div class="pick-grid">
-<div><label>No.</label><div class="pill">10</div></div>
-<div><label>Top Pick</label><div class="pill">MONTE KATE</div></div>
-<div><label>Danger Horse</label><div class="pill danger">GANGSTA GRANNY</div></div>
+<div><label>Top Pick</label><div class="pill">TAVI TIME (NZ)</div></div>
+<div><label>Danger Horse</label><div class="pill danger">UNSPOKEN (IRE)</div></div>
 </div>
-</article>
-</div></section><section class="track-section"><div class="section-head"><h2>Caulfield</h2><div class="best-bet"><strong>Best Bet</strong> Race 5 — #13 Gold Coast Belle</div></div><div class="race-list"><article class="race-card">
-<div class="race-head"><span class="race-tag">Caulfield</span><h3>Race 1</h3></div>
+</article></div></section><section class="track-section"><div class="section-head"><h2>Mornington</h2><div class="best-bet"><strong>Best Bet</strong> Race 8 IMMEDIACY (NZ)</div></div><div class="race-list"><article class="race-card">
+<div class="race-head"><span class="race-tag">Mornington</span><h3>Race 1</h3></div>
 <div class="pick-grid">
-<div><label>No.</label><div class="pill">11</div></div>
-<div><label>Top Pick</label><div class="pill">Mr Bannock (IRE)</div></div>
-<div><label>Danger Horse</label><div class="pill danger">Aura</div></div>
+<div><label>Top Pick</label><div class="pill">KNURL</div></div>
+<div><label>Danger Horse</label><div class="pill danger">THE SPEED MACHINE</div></div>
 </div>
 </article><article class="race-card">
-<div class="race-head"><span class="race-tag">Caulfield</span><h3>Race 2</h3></div>
+<div class="race-head"><span class="race-tag">Mornington</span><h3>Race 2</h3></div>
 <div class="pick-grid">
-<div><label>No.</label><div class="pill">3</div></div>
-<div><label>Top Pick</label><div class="pill">Greatham Boy</div></div>
-<div><label>Danger Horse</label><div class="pill danger">Shaime</div></div>
+<div><label>Top Pick</label><div class="pill">ALONG THE RIVER</div></div>
+<div><label>Danger Horse</label><div class="pill danger">ALWAYS ENUFF</div></div>
 </div>
 </article><article class="race-card">
-<div class="race-head"><span class="race-tag">Caulfield</span><h3>Race 3</h3></div>
+<div class="race-head"><span class="race-tag">Mornington</span><h3>Race 3</h3></div>
 <div class="pick-grid">
-<div><label>No.</label><div class="pill">6</div></div>
-<div><label>Top Pick</label><div class="pill">Gin Twist</div></div>
-<div><label>Danger Horse</label><div class="pill danger">Vandaross</div></div>
+<div><label>Top Pick</label><div class="pill">CLAYMORE MINE</div></div>
+<div><label>Danger Horse</label><div class="pill danger">NOT SURPRISED</div></div>
 </div>
 </article><article class="race-card">
-<div class="race-head"><span class="race-tag">Caulfield</span><h3>Race 4</h3></div>
+<div class="race-head"><span class="race-tag">Mornington</span><h3>Race 4</h3></div>
 <div class="pick-grid">
-<div><label>No.</label><div class="pill">15</div></div>
-<div><label>Top Pick</label><div class="pill">Mahmudah</div></div>
-<div><label>Danger Horse</label><div class="pill danger">Oyster Lane</div></div>
+<div><label>Top Pick</label><div class="pill">TORSHEEN</div></div>
+<div><label>Danger Horse</label><div class="pill danger">SHYSTAR</div></div>
 </div>
 </article><article class="race-card">
-<div class="race-head"><span class="race-tag">Caulfield</span><h3>Race 5</h3></div>
+<div class="race-head"><span class="race-tag">Mornington</span><h3>Race 5</h3></div>
 <div class="pick-grid">
-<div><label>No.</label><div class="pill">13</div></div>
-<div><label>Top Pick</label><div class="pill">Gold Coast Belle</div></div>
-<div><label>Danger Horse</label><div class="pill danger">Xarpo</div></div>
+<div><label>Top Pick</label><div class="pill">BON MISTRESS</div></div>
+<div><label>Danger Horse</label><div class="pill danger">BELLE SAVOIR</div></div>
 </div>
 </article><article class="race-card">
-<div class="race-head"><span class="race-tag">Caulfield</span><h3>Race 6</h3></div>
+<div class="race-head"><span class="race-tag">Mornington</span><h3>Race 6</h3></div>
 <div class="pick-grid">
-<div><label>No.</label><div class="pill">8</div></div>
-<div><label>Top Pick</label><div class="pill">Motorsports</div></div>
-<div><label>Danger Horse</label><div class="pill danger">Jazz Affair</div></div>
+<div><label>Top Pick</label><div class="pill">CADMUS (IRE)</div></div>
+<div><label>Danger Horse</label><div class="pill danger">ANGRY SKIES</div></div>
 </div>
 </article><article class="race-card">
-<div class="race-head"><span class="race-tag">Caulfield</span><h3>Race 7</h3></div>
+<div class="race-head"><span class="race-tag">Mornington</span><h3>Race 7</h3></div>
 <div class="pick-grid">
-<div><label>No.</label><div class="pill">2</div></div>
-<div><label>Top Pick</label><div class="pill">Dad And Dave (NZ)</div></div>
-<div><label>Danger Horse</label><div class="pill danger">Royal Optimism</div></div>
+<div><label>Top Pick</label><div class="pill">MIEWA</div></div>
+<div><label>Danger Horse</label><div class="pill danger">SATIRICALLY</div></div>
 </div>
 </article><article class="race-card">
-<div class="race-head"><span class="race-tag">Caulfield</span><h3>Race 8</h3></div>
+<div class="race-head"><span class="race-tag">Mornington</span><h3>Race 8</h3></div>
 <div class="pick-grid">
-<div><label>No.</label><div class="pill">9</div></div>
-<div><label>Top Pick</label><div class="pill">Merrigold</div></div>
-<div><label>Danger Horse</label><div class="pill danger">Al Duca</div></div>
+<div><label>Top Pick</label><div class="pill">IMMEDIACY (NZ)</div></div>
+<div><label>Danger Horse</label><div class="pill danger">BRAYDEN STAR (GB)</div></div>
 </div>
 </article><article class="race-card">
-<div class="race-head"><span class="race-tag">Caulfield</span><h3>Race 9</h3></div>
+<div class="race-head"><span class="race-tag">Mornington</span><h3>Race 9</h3></div>
 <div class="pick-grid">
-<div><label>No.</label><div class="pill">6</div></div>
-<div><label>Top Pick</label><div class="pill">Oliveanotherday</div></div>
-<div><label>Danger Horse</label><div class="pill danger">Celtics</div></div>
+<div><label>Top Pick</label><div class="pill">CORNICHE</div></div>
+<div><label>Danger Horse</label><div class="pill danger">MIDWEST</div></div>
 </div>
 </article><article class="race-card">
-<div class="race-head"><span class="race-tag">Caulfield</span><h3>Race 10</h3></div>
+<div class="race-head"><span class="race-tag">Mornington</span><h3>Race 10</h3></div>
 <div class="pick-grid">
-<div><label>No.</label><div class="pill">14</div></div>
-<div><label>Top Pick</label><div class="pill">Trapdoor</div></div>
-<div><label>Danger Horse</label><div class="pill danger">First Chorus (NZ)</div></div>
+<div><label>Top Pick</label><div class="pill">PERILOUS FIGHTER</div></div>
+<div><label>Danger Horse</label><div class="pill danger">NIMBUSTWOTHOUSAND</div></div>
 </div>
-</article></div></section><section class="track-section"><div class="section-head"><h2>Doomben</h2><div class="best-bet"><strong>Best Bet</strong> Race 4 — #15 Falcon Lair</div></div><div class="race-list"><article class="race-card">
-<div class="race-head"><span class="race-tag">Doomben</span><h3>Race 1</h3></div>
+</article></div></section><section class="track-section"><div class="section-head"><h2>Eagle Farm</h2><div class="best-bet"><strong>Best Bet</strong> Race 9 UNCOMMON JAMES</div></div><div class="race-list"><article class="race-card">
+<div class="race-head"><span class="race-tag">Eagle Farm</span><h3>Race 1</h3></div>
 <div class="pick-grid">
-<div><label>No.</label><div class="pill">14</div></div>
-<div><label>Top Pick</label><div class="pill">I Am That Girl</div></div>
-<div><label>Danger Horse</label><div class="pill danger">Magritte</div></div>
+<div><label>Top Pick</label><div class="pill">BRUMAL</div></div>
+<div><label>Danger Horse</label><div class="pill danger">SILKEN SALUTE (NZ)</div></div>
 </div>
 </article><article class="race-card">
-<div class="race-head"><span class="race-tag">Doomben</span><h3>Race 2</h3></div>
+<div class="race-head"><span class="race-tag">Eagle Farm</span><h3>Race 2</h3></div>
 <div class="pick-grid">
-<div><label>No.</label><div class="pill">4</div></div>
-<div><label>Top Pick</label><div class="pill">Eclair Awesome</div></div>
-<div><label>Danger Horse</label><div class="pill danger">Ramp It Up</div></div>
+<div><label>Top Pick</label><div class="pill">SURPRISE HONEY</div></div>
+<div><label>Danger Horse</label><div class="pill danger">BONFIRE SPARK</div></div>
 </div>
 </article><article class="race-card">
-<div class="race-head"><span class="race-tag">Doomben</span><h3>Race 3</h3></div>
+<div class="race-head"><span class="race-tag">Eagle Farm</span><h3>Race 3</h3></div>
 <div class="pick-grid">
-<div><label>No.</label><div class="pill">7</div></div>
-<div><label>Top Pick</label><div class="pill">Sir Winnie</div></div>
-<div><label>Danger Horse</label><div class="pill danger">Captain Eagle</div></div>
+<div><label>Top Pick</label><div class="pill">MR BUSTER (IRE)</div></div>
+<div><label>Danger Horse</label><div class="pill danger">QUEEN AIR</div></div>
 </div>
 </article><article class="race-card">
-<div class="race-head"><span class="race-tag">Doomben</span><h3>Race 4</h3></div>
+<div class="race-head"><span class="race-tag">Eagle Farm</span><h3>Race 4</h3></div>
 <div class="pick-grid">
-<div><label>No.</label><div class="pill">2</div></div>
-<div><label>Top Pick</label><div class="pill">Falcon Lair</div></div>
-<div><label>Danger Horse</label><div class="pill danger">Worthy Enuff</div></div>
+<div><label>Top Pick</label><div class="pill">AKKADIAN EMPEROR (IRE)</div></div>
+<div><label>Danger Horse</label><div class="pill danger">LIKEABEEL</div></div>
 </div>
 </article><article class="race-card">
-<div class="race-head"><span class="race-tag">Doomben</span><h3>Race 5</h3></div>
+<div class="race-head"><span class="race-tag">Eagle Farm</span><h3>Race 5</h3></div>
 <div class="pick-grid">
-<div><label>No.</label><div class="pill">3</div></div>
-<div><label>Top Pick</label><div class="pill">Smexy</div></div>
-<div><label>Danger Horse</label><div class="pill danger">I’Lltellyoutonight</div></div>
+<div><label>Top Pick</label><div class="pill">CANBERRA LEGEND (IRE)</div></div>
+<div><label>Danger Horse</label><div class="pill danger">READY FOR THE TRIP</div></div>
 </div>
 </article><article class="race-card">
-<div class="race-head"><span class="race-tag">Doomben</span><h3>Race 6</h3></div>
+<div class="race-head"><span class="race-tag">Eagle Farm</span><h3>Race 6</h3></div>
 <div class="pick-grid">
-<div><label>No.</label><div class="pill">8</div></div>
-<div><label>Top Pick</label><div class="pill">Savagery Vibe</div></div>
-<div><label>Danger Horse</label><div class="pill danger">Hell To Pay</div></div>
+<div><label>Top Pick</label><div class="pill">SPEED LEGEND</div></div>
+<div><label>Danger Horse</label><div class="pill danger">POCKET FULL</div></div>
 </div>
 </article><article class="race-card">
-<div class="race-head"><span class="race-tag">Doomben</span><h3>Race 7</h3></div>
+<div class="race-head"><span class="race-tag">Eagle Farm</span><h3>Race 7</h3></div>
 <div class="pick-grid">
-<div><label>No.</label><div class="pill">2</div></div>
-<div><label>Top Pick</label><div class="pill">Flying Destiny</div></div>
-<div><label>Danger Horse</label><div class="pill danger">Ouroboros</div></div>
+<div><label>Top Pick</label><div class="pill">BUNKER HUT (NZ)</div></div>
+<div><label>Danger Horse</label><div class="pill danger">NORTHERN DECREE (NZ)</div></div>
 </div>
 </article><article class="race-card">
-<div class="race-head"><span class="race-tag">Doomben</span><h3>Race 8</h3></div>
+<div class="race-head"><span class="race-tag">Eagle Farm</span><h3>Race 8</h3></div>
 <div class="pick-grid">
-<div><label>No.</label><div class="pill">15</div></div>
-<div><label>Top Pick</label><div class="pill">Margot’S Deel</div></div>
-<div><label>Danger Horse</label><div class="pill danger">Tenzing (NZ)</div></div>
+<div><label>Top Pick</label><div class="pill">FABULANTES</div></div>
+<div><label>Danger Horse</label><div class="pill danger">STATE VISIT</div></div>
 </div>
-</article></div></section><p class="footer">Prepared for website publishing.</p></main></body></html>
+</article><article class="race-card">
+<div class="race-head"><span class="race-tag">Eagle Farm</span><h3>Race 9</h3></div>
+<div class="pick-grid">
+<div><label>Top Pick</label><div class="pill">UNCOMMON JAMES</div></div>
+<div><label>Danger Horse</label><div class="pill danger">GOLDEN BOOM</div></div>
+</div>
+</article></div></section></section<p class="footer">Prepared for website publishing.</p></main><script>document.getElementById('t').onclick=()=>document.documentElement.setAttribute('data-theme',document.documentElement.getAttribute('data-theme')==='dark'?'light':'dark');</script></body></html>
